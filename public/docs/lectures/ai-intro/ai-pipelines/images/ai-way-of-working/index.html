@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Way of Working in AI"><meta property="og:title" content="The Way of Working in AI" />
+<meta property="og:description" content="A Positive Reinforcement Loop What are the disciplines that need to cross fertilize to get a system that possesses intelligence? Lets start with a diagram that show not only the disciplines but also a way of working for the many specialists involved.
+The diagram above highlights three fundamental axes that can deliver a system-based approach to AI. The Z axis is the scientific axis where many disciplines such as psychology, neuroscience, mathematics and others make progress on." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-pipelines/images/ai-way-of-working/" />
+
+<title>The Way of Working in AI | CS-GY-6613 Spring 2020</title>
+<link rel="icon" href="/cs-gy-6613-spring-2020/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.b7fe34b8a4c4da05b2690b4aacfa71ddce0668cc6da3abb67dd3946844125444.css" integrity="sha256-t/40uKTE2gWyaQtKrPpx3c4GaMxto6u2fdOUaEQSVEQ=">
+
+
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.5786ec9dcb36a8542d29a856a01d95106adfb85194f6d0e0854616d1a0c8f7e3.js" integrity="sha256-V4bsncs2qFQtKahWoB2VEGrfuFGU9tDghUYW0aDI9&#43;M="></script>
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cs-gy-6613-spring-2020"><img src="/cs-gy-6613-spring-2020/tandon_long_black.png" alt="Logo" /><span>CS-GY-6613 Spring 2020</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/" >
+      Projects
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/project-1/" >
+      Project 1 - Surface Type Classification
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/project-2/" >
+      Project 2 - Continual Learning for Robotic Perception
+  </a>
+
+</li>
+      
+    
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/setup/env/" >
+      Your Programming Environment
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/" >
+      Week 1 - Introduction to AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/systems-approach/systems-approach/" >
+      A systems approach to AI
+  </a>
+
+</li>
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-pipelines/" >
+      AI Software Stack
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-pipelines/images/ai-way-of-working/"  class="active">
+      The Way of Working in AI
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li  class="book-section-flat" >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/agents/" >
+      Intelligent Agents and Representations
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/test/" >
+      Math Typesetting
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-intro-deck/" >
+      Ai Intro Deck
+  </a>
+
+</li>
+      
+    
+      
+        
+
+  <li  class="book-section-flat" >
+    
+      <span>Course Introduction</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/course-introduction/course-introduction/" >
+      Course Introduction
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+<script>
+(function() {
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
+  });
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
+</script>
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cs-gy-6613-spring-2020/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>The Way of Working in AI</strong>
+
+  <label for="toc-control">
+    <img src="/cs-gy-6613-spring-2020/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#a-positive-reinforcement-loop">A Positive Reinforcement Loop</a></li>
+        <li><a href="#roles-in-ai-product-development">Roles in AI product development</a></li>
+        <li><a href="#data-scientist---engineering-job-description">Data Scientist - Engineering Job Description</a></li>
+        <li><a href="#reearch-scientist-machine-learning-and-intelligence--job-description">Reearch Scientist, Machine Learning and Intelligence,  Job Description</a></li>
+        <li><a href="#a-note-conways-law">A Note Conways&rsquo; Law</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+<article class="markdown"><h2 id="a-positive-reinforcement-loop">A Positive Reinforcement Loop</h2>
+<p>What are the disciplines that need to cross fertilize to get a system that possesses intelligence? Lets start with a diagram that show not only the disciplines but also a way of working for the many specialists involved.</p>
+<p><img src="images/axes-ml-development.svg" alt="axes-ml-development"></p>
+<p>The diagram above highlights three fundamental axes that can deliver a system-based approach to AI. The Z axis is the scientific axis where many disciplines such as psychology, neuroscience, mathematics and others make progress on. The X axis involves the ML/AI communities that borrow ideas from their colleagues in sciences and convert those theories and pragmatic findings into abstractions (models and methods). The model of the neuron, the perceptron, appeared in psychology journals many decades ago and despite its simplicity it is still the unit via which much more complicated neural networks are constructed from.  Todays&rsquo; models of Long-Term Short-Term Memory (LSTM), Replay Memory and many others not shown in the diagram (as its currently in draft form) are abstractions (models) of discoveries that scientists produced after tens of years of research.  To <em>use</em> however these methods and models effectively, major hardware and software components need to be developed also known as <em>computing and frameworks</em> - these live in the Y axis.  They are very important for the development of AI field that is known to be heavily experimental, requiring especially at the perceptive frontend significant computational power and automation.</p>
+<p>At a very high level, progress in AI is made via the counterclockwise iteration Z -&gt; X -&gt; Y -&gt; Z. AI engineers look at the neuroscience/psychology axis,  map discoveries to points in the methods / models axis, and finally develop these methods in hardware architectures and software frameworks. But what can explain the Y -&gt; Z flow? Frameworks in turn help the neuroscientists and psychologists as they can provide generative models of their own discoveries or help them simulate conditions that are not possible using their native tools.</p>
+<p>This counter-clockwise multidisciplinary iteration acts as a positive feedback loop accelerating the progress in the AI space.</p>
+<p>In this course we will be focusing on the <em>methods/models</em> and <em>frameworks</em> axis and understand what these models can offer us and how we can apply them in synthesizing an AI system at least for a domain of interest.</p>
+<p>Lets us now look on how AI started, branched off to multiple schools of thought and view some examples.</p>
+<h2 id="roles-in-ai-product-development">Roles in AI product development</h2>
+<p><img src="images/acumos-actors.svg" alt="Data scientists and other actors">
+<em>Who data scientists need to interact with, during the development of an app?</em></p>
+<h2 id="data-scientist---engineering-job-description">Data Scientist - Engineering Job Description</h2>
+<p>This is a sample job description from Google.</p>
+<p><strong>Technologies</strong>
+machine-learning</p>
+<p><strong>Job description</strong></p>
+<p>Minimum qualifications:</p>
+<ul>
+<li>MS degree in a quantitative discipline (e.g., statistics, operations research, bioinformatics, economics, computational biology, computer science, mathematics, physics, electrical engineering, industrial engineering).</li>
+<li>2 years of relevant work experience in data analysis or related field. (e.g., as a statistician / data scientist / computational biologist / bioinformatician).</li>
+<li>Experience with statistical software (e.g., R, Python, Julia, MATLAB, pandas) and database languages (e.g., SQL).</li>
+</ul>
+<p><strong>Preferred qualifications:</strong></p>
+<ul>
+<li>PhD degree in a quantitative discipline as listed in Minimum Qualifications.</li>
+<li>4 years of relevant work experience (e.g., as a statistician / computational biologist bioinformatician / data scientist), including deep expertise and experience with statistical data analysis such as linear models, multivariate analysis, stochastic models, sampling methods. Analytical engagements outside class work while at school can be included.</li>
+<li>Applied experience with machine learning on large datasets.</li>
+<li>Experience articulating business questions and using mathematical techniques to arrive at an answer using available data. Experience translating analysis results into business recommendations.</li>
+<li>Demonstrated skills in selecting the right statistical tools given a data analysis problem. Demonstrated effective written and verbal communication skills.</li>
+<li>Demonstrated leadership and self-direction. Demonstrated willingness to both teach others and learn new techniques.</li>
+</ul>
+<p><strong>About the job</strong></p>
+<p>As a Data Scientist, you will evaluate and improve Google&rsquo;s products. You will collaborate with a multi-disciplinary team of engineers and analysts on a wide range of problems. This position will bring analytical rigor and statistical methods to the challenges of measuring quality, improving consumer products, and understanding the behavior of end-users, advertisers, and publishers.</p>
+<p>Google is and always will be an engineering company. We hire people with a broad set of technical skills who are ready to take on some of technology&rsquo;s greatest challenges and make an impact on millions, if not billions, of users. At Google, data scientists not only revolutionize search, they routinely work on massive scalability and storage solutions, large-scale applications and entirely new platforms for developers around the world. From Google Ads to Chrome, Android to YouTube, Social to Local, Google engineers are changing the world one technological achievement after another.</p>
+<p><strong>Responsibilities</strong></p>
+<ul>
+<li>Work with large, complex data sets. Solve difficult, non-routine analysis problems, applying advanced analytical methods as needed. Conduct end-to-end analysis that includes data gathering and requirements specification, processing, analysis, ongoing deliverables, and presentations.</li>
+<li>Build and prototype analysis pipelines iteratively to provide insights at scale. Develop comprehensive understanding of Google data structures and metrics, advocating for changes where needed for both products development and sales activity.</li>
+<li>Interact cross-functionally with a wide variety of people and teams. Work closely with engineers to identify opportunities for, design, and assess improvements to google products.</li>
+<li>Make business recommendations (e.g. cost-benefit, forecasting, experiment analysis) with effective presentations of findings at multiple levels of stakeholders through visual displays of quantitative information.</li>
+<li>Research and develop analysis, forecasting, and optimization methods to improve the quality of Google&rsquo;s user facing products; example application areas include ads quality, search quality, end-user behavioral modeling, and live experiments.
+At Google, we don’t just accept difference—we celebrate it, we support it, and we thrive on it for the benefit of our employees, our products and our community. Google is proud to be an equal opportunity workplace and is an affirmative action employer. We are committed to equal employment opportunity regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity or Veteran status. We also consider qualified applicants regardless of criminal histories, consistent with legal requirements. See also Google&rsquo;s EEO Policy and EEO is the Law. If you have a disability or special need that requires accommodation, please let us know by emailing <a href="mailto:candidateaccommodations@google.com">candidateaccommodations@google.com</a></li>
+</ul>
+<h2 id="reearch-scientist-machine-learning-and-intelligence--job-description">Reearch Scientist, Machine Learning and Intelligence,  Job Description</h2>
+<p>This is another sample job description from Google. Spot the differences with the previous one.</p>
+<p><strong>Minimum Qualifications</strong></p>
+<ul>
+<li>PhD in Computer Science, related technical field or equivalent practical experience.</li>
+<li>Programming experience in one or more of the following: C, C++ and/or Python.</li>
+<li>Experience in Natural Language Understanding, Computer Vision, Machine Learning, Algorithmic Foundations of Optimization, Data Mining or Machine Intelligence (Artificial Intelligence).</li>
+<li>Contribution to research communities and/or efforts, including publishing papers at conferences such as NIPS, ICML, ACL, CVPR, etc.</li>
+</ul>
+<p><strong>Preferred Qualifications</strong></p>
+<ul>
+<li>Relevant work experience, including experience working within the industry or as a researcher in a lab.</li>
+<li>Ability to design and execute on research agenda.</li>
+<li>Strong publication record.</li>
+</ul>
+<p><strong>About The Job</strong>
+Research in machine intelligence has already impacted user-facing services across Google including Search, Maps and Google Now. Google Research &amp; Machine Intelligence teams are actively pursuing the next generation of intelligent systems for application to even more Google products. To achieve this, we’re working on projects that utilize the latest techniques in Machine Learning (including Deep Learning approaches like Google Brain) and Natural Language Understanding.</p>
+<p>We’ve already been joined by some of the best minds, and we’re looking for talented Research Scientists that have applied experience in the fields of Machine Learning, Natural Language Processing and Machine Intelligence to join our team.</p>
+<p>We do research differently here at Google. Research Scientists aren&rsquo;t cloistered in the lab, but instead they work closely with Software Engineers to discover, invent, and build at the largest scale. Ideas may come from internal projects as well as from collaborations with research programs at partner universities and technical institutes all over the world. From creating experiments and prototyping implementations to designing new architectures, Research Scientists and Software Engineers work on challenges in machine perception, data mining, machine learning, and natural language understanding. You stay connected to your research roots as an active contributor to the wider research community by partnering with universities and publishing papers.</p>
+<p>There is always more information out there, and Research and Machine Intelligence teams have a never-ending quest to find it and make it accessible. We&rsquo;re constantly refining our signature search engine to provide better results, and developing offerings like Google Instant, Google Voice Search and Google Image Search to make it faster and more engaging. We&rsquo;re providing users around the world with great search results every day, but at Google, great just isn&rsquo;t good enough. We&rsquo;re just getting started.</p>
+<p><strong>Responsibilities</strong></p>
+<ul>
+<li>Participate in cutting edge research in machine intelligence and machine learning applications.</li>
+<li>Develop solutions for real world, large scale problems.</li>
+</ul>
+<p>At Google, we don’t just accept difference - we celebrate it, we support it, and we thrive on it for the benefit of our employees, our products and our community. Google is proud to be an equal opportunity workplace and is an affirmative action employer. We are committed to equal employment opportunity regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity or Veteran status. We also consider qualified applicants regardless of criminal histories, consistent with legal requirements. If you have a disability or special need that requires accommodation, please let us know.</p>
+<p>To all recruitment agencies Google does not accept agency resumes. Please do not forward resumes to our jobs alias, Google employees or any other company location. Google is not responsible for any fees related to unsolicited resumes</p>
+<h2 id="a-note-conways-law">A Note Conways&rsquo; Law</h2>
+<blockquote>
+<p>&ldquo;Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization&rsquo;s communication structure.&rdquo; <a href="http://www.melconway.com/Home/Conways_Law.html">http://www.melconway.com/Home/Conways_Law.html</a></p>
+</blockquote>
+<p>&ldquo;We do research differently here at Google. Research Scientists aren&rsquo;t cloistered in the lab, but instead they work closely with Software Engineers to discover, invent, and build at the largest scale.&rdquo;</p>
+<p>Contrast this to an organizational structure that isolates researchers from product development.  What about Alphabet&rsquo;s X https://x.company/ ?</p>
+</article>
+ 
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/edit/master/cs-gy-6613-spring-2020/content/docs/lectures/ai-intro/ai-pipelines/images/ai-way-of-working.md" target="_blank" rel="noopener">
+      <img src="/cs-gy-6613-spring-2020/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+  
+ 
+      </footer>
+      
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#a-positive-reinforcement-loop">A Positive Reinforcement Loop</a></li>
+        <li><a href="#roles-in-ai-product-development">Roles in AI product development</a></li>
+        <li><a href="#data-scientist---engineering-job-description">Data Scientist - Engineering Job Description</a></li>
+        <li><a href="#reearch-scientist-machine-learning-and-intelligence--job-description">Reearch Scientist, Machine Learning and Intelligence,  Job Description</a></li>
+        <li><a href="#a-note-conways-law">A Note Conways&rsquo; Law</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,164 +6,82 @@
     <description>Recent content in CS-GY-6613 Artificial Intelligence - Spring 2020 on CS-GY-6613 Spring 2020</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 08 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://pantelis.github.io/cs-gy-6613-spring-2020/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Course Introduction</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/course-introduction/</link>
+      <title>Syllabus</title>
+      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/syllabus/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/course-introduction/</guid>
-      <description>AI Evolution according to DARPA If engineering difficulty has a pinnacle today this must be in AI domains that combines ML, optimal control and planning. autonomous cars and humanoids from Boston Dynamics fit the bill.
-Initially there were rules.
- In the 1980s knowledge-base systems that hard-coded knowledge about the world in formal languages.  IF this happens, THEN do that.   They failed to get significant traction as the number of rules that are needed to model the real world exploded.</description>
-    </item>
-    
-    <item>
-      <title>A systems approach to AI</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/systems-approach/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/systems-approach/</guid>
-      <description>The four approaches towards AI The Turing Test Approach A 5-min behavioral intelligence test, where an interrogator chats with the player and at the end it guesses if the conversation is with a human or with a programmed machine. A Turing contest (Loebner Prize) is is held annually since 1991.
-This course&amp;rsquo;s projects includes the Alexa prize which is not a turing test. The Alexa Prize creates social bots that engage in interesting, human-like conversations, not to make them indistinguishable from a human when compared side-by-side.</description>
-    </item>
-    
-    <item>
-      <title>AI Software Stack</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-stack-pipelines/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-stack-pipelines/</guid>
-      <description>A typical AI stack today As we have seen from the syllabus, this course approaches supervised and unsupervised learning methods from an applied perspective - this means teaching concepts but at the same time looking how these concepts are applied in the industry to solve real world problems. In this respect here we take an architecture driven AI, presenting the components of AI in a form of a software stack but also how the components are mechanized in what we call ML Pipelines to provide the ML utility to applications.</description>
-    </item>
-    
-    <item>
-      <title>The Way of Working in AI</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-way-of-working/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-way-of-working/</guid>
-      <description>A Positive Reinforcement Loop What are the disciplines that need to cross fertilize to get a system that possesses intelligence? Lets start with a diagram that show not only the disciplines but also a way of working for the many specialists involved.
-The diagram above highlights three fundamental axes that can deliver a system-based approach to AI. The Z axis is the scientific axis where many disciplines such as psychology, neuroscience, mathematics and others make progress on.</description>
-    </item>
-    
-    <item>
-      <title>Intelligent Agents and Representations</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/agents/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/agents/</guid>
-      <description>Agent-Environment Interface  An agent is a computer system that is situated in some environment, and that is capable of autonomous action in this environment in order to meet its design objectives.
- </description>
-    </item>
-    
-    <item>
-      <title>Creating a New Theme</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/posts/creating-a-new-theme/</link>
-      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/posts/creating-a-new-theme/</guid>
-      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
-    </item>
-    
-    <item>
-      <title>Migrate to Hugo from Jekyll</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/posts/migrate-from-jekyll/</link>
-      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/posts/migrate-from-jekyll/</guid>
-      <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
-▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
-▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
-    </item>
-    
-    <item>
-      <title>Math Typesetting</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/test/</link>
-      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/test/</guid>
-      <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>(Hu)go Template Primer</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/posts/goisforlovers/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/posts/goisforlovers/</guid>
-      <description>Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
-This document is a brief primer on using Go templates.</description>
-    </item>
-    
-    <item>
-      <title>Getting Started with Hugo</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/posts/hugoisforlovers/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/posts/hugoisforlovers/</guid>
-      <description>Step 1. Install Hugo Go to Hugo releases and download the appropriate version for your OS and architecture.
-Save it somewhere specific as we will be using it in the next step.
-More complete instructions are available at Install Hugo
-Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
-Follow the following steps:
- Clone the Hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:</description>
+      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/syllabus/</guid>
+      <description>Syllabus The course schedule below highlights our journey to understand the multiple subsystems and how they can be connected together to create compelling but, currently, domain specific forms of intelligence.
+Books Artificial Intelligence: A Modern Approach, by Stuart Russell, 3rd edition, 2010 and also here.
+The publisher is about to release the 4th edition (2020) of this classic. We will be monitoring availability in bookstores but it does not seem likely this edition to appear on time for the Spring 2020 class.</description>
     </item>
     
     <item>
       <title></title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-intro-deck/</link>
+      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-pipelines/ai-pipelines-slides/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-intro-deck/</guid>
-      <description>footer: CS-GY-6613 slidenumbers: true autoscale: true
-Introduction to AI Pantelis Monogioudis, Jan 2020
- Anything wrong with this boat? ^ Imagine you are in 1844 (Cumberland Basin, April 1844) Value of Commerce. Anything wrong with this boat?
- AI Development - Wave I  Wave I is known as Good Old-Fashioned AI (GOFAI) It is still being used today.   AI Development - Wave II  Wave II is known as Connectionism It is what Deep Learning is today.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/projects/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/projects/</guid>
-      <description>The following projects needs to be delivered by the deadlines.
- Surface Type Classification - Due 2/23/2020 11:59pm Lifelong Learning - Robotic Vision - Due 3/29/2020 11:59pm TBD - Due 5/10/2020 11:59pm  </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/setup/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/setup/</guid>
+      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-pipelines/ai-pipelines-slides/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Project 1 - Surface Type Classification</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/project-1/</link>
+      <title>Development Workflow</title>
+      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/development-workflow/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/project-1/</guid>
-      <description>  Your first project description is published in https://www.kaggle.com/c/career-con-2019/overview
-  You must submit your assignment with the results by 11:59pm 2/23/2020. The submission will be done by sharing the github/kaggle notebook with the TA.
-  </description>
+      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/development-workflow/</guid>
+      <description>Workflow Steps Although the ML project checklist provided in Appendix B of Garon&amp;rsquo;s book is extensive (we will go through this list in the lecture as we go through your first ML application) for now focus on the eight steps as shown below.
+Steps in workflow (from here)
+ As discussed the data pipeline is responsible for providing the training datasets if the aim is to train (or retrain) a model.</description>
     </item>
     
     <item>
-      <title>Project 2 - Continual Learning for Robotic Perception</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/project-2/</link>
+      <title>Introduction to Tensorflow</title>
+      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/tensorflow-introduction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/project-2/</guid>
-      <description>One of the greatest goals of AI is building an artificial continual learning agent which can construct a sophisticated understanding of the external world from its own experience through the adaptive, goal-oriented and incremental development of ever more complex skills and knowledge. Continual learning is essential in robotics where high dimensional data streams need to be constantly processed and where naïve continual learning strategies have been shown to suffer from catastrophic forgetting.</description>
+      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/tensorflow-introduction/</guid>
+      <description>In this lecture we will cover slides #1 - #28 as shown below. The slides are from CS 20: Tensorflow for Deep Learning Research and despite the title are appropriate for Tensorflow beginners. Slides beyond #28 will be selectively consulted when we go over gradients and backpropagation.
+ </description>
+    </item>
+    
+    <item>
+      <title>Numerical Python (Numpy/Scipy and Pandas)</title>
+      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/numpy-pandas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/numpy-pandas/</guid>
+      <description>Standard Python Below is a list of recommended courses you can attend to. We will go over briefly basic Python in this lecture. The tutorials below are self contained and can remind you the basics.
+ CodeAcademy Data Science Path. Take Python modules 4-10. This course contains Numpy and Panda intro as well.
+ Kaggle Python Course
+ Google Python Class This is a bit dated as it covers Python 2, but it is still highly regarded as Python 3 and 2 have few differences.</description>
+    </item>
+    
+    <item>
+      <title>Optimization and Stochastic Gradient Descent</title>
+      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/optimization/optimization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/optimization/optimization/</guid>
+      <description> In this lecture we will go over concepts from Ian Goodfellow&amp;rsquo;s chapter 4 below. Stochastic gradient descent is treated also in section 5.9.
+Ian Goodfellow&amp;rsquo;s Chapter 4  </description>
+    </item>
+    
+    <item>
+      <title>Probability and Information Theory Basics</title>
+      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/probability/probability/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/probability/probability/</guid>
+      <description>Book Chapters From Ian Goodfellow&amp;rsquo;s book: 
+We will go through the main points during the lecture and treat also MacKay&amp;rsquo;s book (Chapter 2) that is also instructive and a much better in introducing probability concepts. If you are a visual learner, the visual information theory blog post is also a good starting point.
+Key Concepts to understand Probability The pictures below are from MacKays book and despite their conceptual simplicity they hide many questions that we will go over the lecture.</description>
     </item>
     
     <item>
@@ -176,12 +94,34 @@ Introduction to AI Pantelis Monogioudis, Jan 2020
     </item>
     
     <item>
-      <title>Your Programming Environment</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/setup/env/</link>
+      <title>The Netflix Prize and Singular Value Decomposition</title>
+      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/netflix/netflix/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/setup/env/</guid>
-      <description>Starting Jupyter in Google Colab The runtime performance will greatly improve for some projects using the free GPU resources provided by Google Colab. In this course we will make use of these facilities - the good news is that you have an account in Google Colab as most of you have a google account. If not go ahead and create one to be able to login into Google colab. You will need Google Colab for all your projects so that you can demonstrate that your results can be replicated.</description>
+      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/netflix/netflix/</guid>
+      <description>Introduction The following are based on the winning submission paper as well as their subsequent publication.
+The Netflix Prize was an open competition for the best collaborative filtering algorithm to predict user ratings for films, based on previous ratings without any other information about the users or films, i.e. without the users or the films being identified except by numbers assigned for the contest.
+The competition was held by Netflix, an online DVD-rental and video streaming service, and was open to anyone who is neither connected with Netflix (current and former employees, agents, close relatives of Netflix employees, etc.</description>
+    </item>
+    
+    <item>
+      <title>The Zillow App</title>
+      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/zillow-app/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/zillow-app/</guid>
+      <description>The Zillow app is based on the end to end machine learning example in Chapter 2 of Geron&amp;rsquo;s book. We can go through this end to end example during a recitation.
+ Key Questions  Is the dataset appropriate for training?   Any unexpected ranges, any range heterogeneity, any clipping? Do we face long-tails? What options do we have to glean the data?
+  What will happen if we remove the following line from the split_train_set function?</description>
+    </item>
+    
+    <item>
+      <title>Your Programming Environment</title>
+      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/env/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/env/</guid>
+      <description>Your Programming Environment Starting Jupyter in Google Colab The runtime performance will greatly improve for some projects using the free GPU resources provided by Google Colab. In this course we will make use of these facilities - the good news is that you have an account in Google Colab as most of you have a google account. If not go ahead and create one to be able to login into Google colab.</description>
     </item>
     
   </channel>

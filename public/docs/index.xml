@@ -11,60 +11,14 @@
     
     
     <item>
-      <title></title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/projects/</link>
+      <title>Syllabus</title>
+      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/syllabus/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/projects/</guid>
-      <description>The following projects needs to be delivered by the deadlines.
- Surface Type Classification - Due 2/23/2020 11:59pm Lifelong Learning - Robotic Vision - Due 3/29/2020 11:59pm TBD - Due 5/10/2020 11:59pm  </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/setup/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/setup/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Project 1 - Surface Type Classification</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/project-1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/project-1/</guid>
-      <description>  Your first project description is published in https://www.kaggle.com/c/career-con-2019/overview
-  You must submit your assignment with the results by 11:59pm 2/23/2020. The submission will be done by sharing the github/kaggle notebook with the TA.
-  </description>
-    </item>
-    
-    <item>
-      <title>Project 2 - Continual Learning for Robotic Perception</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/project-2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/project-2/</guid>
-      <description>One of the greatest goals of AI is building an artificial continual learning agent which can construct a sophisticated understanding of the external world from its own experience through the adaptive, goal-oriented and incremental development of ever more complex skills and knowledge. Continual learning is essential in robotics where high dimensional data streams need to be constantly processed and where naïve continual learning strategies have been shown to suffer from catastrophic forgetting.</description>
-    </item>
-    
-    <item>
-      <title>Project 3</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/project-3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/project-3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Your Programming Environment</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/setup/env/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/setup/env/</guid>
-      <description>Starting Jupyter in Google Colab The runtime performance will greatly improve for some projects using the free GPU resources provided by Google Colab. In this course we will make use of these facilities - the good news is that you have an account in Google Colab as most of you have a google account. If not go ahead and create one to be able to login into Google colab. You will need Google Colab for all your projects so that you can demonstrate that your results can be replicated.</description>
+      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/syllabus/</guid>
+      <description>Syllabus The course schedule below highlights our journey to understand the multiple subsystems and how they can be connected together to create compelling but, currently, domain specific forms of intelligence.
+Books Artificial Intelligence: A Modern Approach, by Stuart Russell, 3rd edition, 2010 and also here.
+The publisher is about to release the 4th edition (2020) of this classic. We will be monitoring availability in bookstores but it does not seem likely this edition to appear on time for the Spring 2020 class.</description>
     </item>
     
   </channel>

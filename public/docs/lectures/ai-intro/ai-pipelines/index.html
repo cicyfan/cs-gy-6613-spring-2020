@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Way of Working in AI"><meta property="og:title" content="The Way of Working in AI" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-pipelines/" />
+
+<title>The Way of Working in AI | CS-GY-6613 Spring 2020</title>
+<link rel="icon" href="/cs-gy-6613-spring-2020/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.b7fe34b8a4c4da05b2690b4aacfa71ddce0668cc6da3abb67dd3946844125444.css" integrity="sha256-t/40uKTE2gWyaQtKrPpx3c4GaMxto6u2fdOUaEQSVEQ=">
+
+
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.b8904ca7346a07b61d9e2ea16c1c9cef5270e25d8f2be2382d83e341e72529e6.js" integrity="sha256-uJBMpzRqB7Ydni6hbByc71Jw4l2PK&#43;I4LYPjQeclKeY="></script>
+
+<link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-pipelines/index.xml" title="CS-GY-6613 Spring 2020" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cs-gy-6613-spring-2020"><img src="/cs-gy-6613-spring-2020/tandon_long_black.png" alt="Logo" /><span>CS-GY-6613 Spring 2020</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/syllabus/" >
+      Syllabus
+  </a>
+
+</li>
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/" >
+      Week 1 - Introduction to AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/course-introduction/" >
+      Course Introduction
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/systems-approach/" >
+      A systems approach to AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-pipelines/"  class="active">
+      The Way of Working in AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Intelligent Agents and Representations</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/" >
+      Projects
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/imu-classification/" >
+      Project 1 - Surface Type Classification
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/continuous-learning/" >
+      Project 2 - Continual Learning for Robotic Perception
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/env/" >
+      Your Programming Environment
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Background - Math for ML</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/linear-algebra/" >
+      Linear Algebra for Machine Learning
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/optimization/optimization/" >
+      Optimization and Stochastic Gradient Descent
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/probability/probability/" >
+      Probability and Information Theory Basics
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/netflix/netflix/" >
+      The Netflix Prize and Singular Value Decomposition
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Background - ML Frameworks</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/development-workflow/" >
+      Development Workflow
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/tensorflow-introduction/" >
+      Introduction to Tensorflow
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/numpy-pandas/" >
+      Numerical Python (Numpy/Scipy and Pandas)
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/zillow-app/" >
+      The Zillow App
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+<script>
+(function() {
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
+  });
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
+</script>
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cs-gy-6613-spring-2020/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>The Way of Working in AI</strong>
+
+  <label for="toc-control">
+    <img src="/cs-gy-6613-spring-2020/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#a-positive-reinforcement-loop">A Positive Reinforcement Loop</a></li>
+<li><a href="#a-typical-ai-stack-today">A typical AI stack today</a>
+<ul>
+<li><a href="#landscape-of-the-ai-ecosystem">Landscape of the AI ecosystem</a></li>
+<li><a href="#the-four-pipelines-of-an-end-to-end-ml-platform">The four pipelines of an end-to-end ML platform</a></li>
+<li><a href="#roles-in-ai-product-development">Roles in AI product development</a></li>
+</ul></li>
+</ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+<article class="markdown">
+
+<h1 id="a-positive-reinforcement-loop">A Positive Reinforcement Loop</h1>
+
+<p>What are the disciplines that need to cross fertilize to get a system that possesses intelligence? Lets start with a diagram that show not only the disciplines but also a way of working for the many specialists involved.</p>
+
+<p><img src="images/axes-ml-development.svg" alt="axes-ml-development" /></p>
+
+<p>The diagram above highlights three fundamental axes that can deliver a system-based approach to AI. The Z axis is the scientific axis where many disciplines such as psychology, neuroscience, mathematics and others make progress on. The X axis involves the ML/AI communities that borrow ideas from their colleagues in sciences and convert those theories and pragmatic findings into abstractions (models and methods). The model of the neuron, the perceptron, appeared in psychology journals many decades ago and despite its simplicity it is still the unit via which much more complicated neural networks are constructed from.  Todays&rsquo; models of Long-Term Short-Term Memory (LSTM), Replay Memory and many others not shown in the diagram (as its currently in draft form) are abstractions (models) of discoveries that scientists produced after tens of years of research.  To <em>use</em> however these methods and models effectively, major hardware and software components need to be developed also known as <em>computing and frameworks</em> - these live in the Y axis.  They are very important for the development of AI field that is known to be heavily experimental, requiring especially at the perceptive frontend significant computational power and automation.</p>
+
+<p>At a very high level, progress in AI is made via the counterclockwise iteration Z -&gt; X -&gt; Y -&gt; Z. AI engineers look at the neuroscience/psychology axis,  map discoveries to points in the methods / models axis, and finally develop these methods in hardware architectures and software frameworks. But what can explain the Y -&gt; Z flow? Frameworks in turn help the neuroscientists and psychologists as they can provide generative models of their own discoveries or help them simulate conditions that are not possible using their native tools.</p>
+
+<p>This counter-clockwise multidisciplinary iteration acts as a positive feedback loop accelerating the progress in the AI space.</p>
+
+<p>In this course we will be focusing on the <em>methods/models</em> and <em>frameworks</em> axis and understand what these models can offer us and how we can apply them in synthesizing an AI system at least for a domain of interest.</p>
+
+<h1 id="a-typical-ai-stack-today">A typical AI stack today</h1>
+
+<p>As we have seen from the <a href="/syllabus/index">syllabus</a>, this course approaches AI from an applied perspective - this means teaching concepts but at the same time looking how these concepts are applied in the industry to solve real world problems. In this respect here we take an architecture driven AI, presenting the components of AI in a form of a software stack but also how the components are mechanized in what we call <strong>ML Pipelines</strong> to provide the ML utility to applications. For a complete overview of real world ML pipelines used today go through the <a href="http://stevenwhang.com/tfx_paper.pdf">TFX</a> paper in its entirety.</p>
+
+<p><img src="images/ai-stack.png" alt="AI stack" /><em>AI Stack circa 2019</em></p>
+
+<h2 id="landscape-of-the-ai-ecosystem">Landscape of the AI ecosystem</h2>
+
+<p>Due to the complexity and common interest to addresses industrial players are partnering to define and implement the necessary components for the complete automation of AI pipelines.  This work is going in within the <a href="https://landscape.lfai.foundation/fullscreen=yes">Linux Foundation AI (sub)Foundation</a>amongst many other open source communities.</p>
+
+<section class="bg-apple">
+              <div class="wrap">
+          <iframe width="2120" height="630" src="https://landscape.lfdl.io/format=landscape&fullscreen=yes" frameborder="0" allowfullscreen></iframe>
+          </div>
+</section>
+
+<h2 id="the-four-pipelines-of-an-end-to-end-ml-platform">The four pipelines of an end-to-end ML platform</h2>
+
+<p><img src="images/acumos-E2E.svg" alt="E2E ML Pipeline" />
+<em>Example of end to end pipeline - serial arrangement</em></p>
+
+<p><img src="images/acumos-DP1.svg" alt="Data Pipeline" />
+<em>Example of Data Pipeline</em></p>
+
+<p><img src="images/acumos-MTP.svg" alt="Model Training Pipeline" />
+<em>Example of Model Training Pipeline</em></p>
+
+<p><img src="images/acumos-MEVP.svg" alt="Model Evaluation and Validation Pipeline" />
+<em>Example of Model Evaluation and Validation Pipeline</em></p>
+
+<p><img src="images/acumos-SP.svg" alt="Serving Pipeline" />
+<em>Example of Serving Pipeline</em></p>
+
+<h2 id="roles-in-ai-product-development">Roles in AI product development</h2>
+
+<p><img src="images/acumos-actors.svg" alt="Data scientists and other actors" />
+<em>Who data scientists need to interact with, during the development of AI systems?</em></p>
+
+<blockquote>
+<p>&ldquo;Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization&rsquo;s communication structure.&rdquo; <a href="http://www.melconway.com/Home/Conways_Law.html">http://www.melconway.com/Home/Conways_Law.html</a></p>
+</blockquote>
+
+<p>&ldquo;We do research differently here at Google. Research Scientists aren&rsquo;t cloistered in the lab, but instead they work closely with Software Engineers to discover, invent, and build at the largest scale.&rdquo;</p>
+
+<p>Contrast this to an organizational structure that isolates researchers from product development.  What about Alphabet&rsquo;s X <a href="https://x.company/">https://x.company/</a> ?</p>
+</article>
+ 
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/edit/master/cs-gy-6613-spring-2020/content/docs/lectures/ai-intro/ai-pipelines/_index.md" target="_blank" rel="noopener">
+      <img src="/cs-gy-6613-spring-2020/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+  
+ 
+      </footer>
+      
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#a-positive-reinforcement-loop">A Positive Reinforcement Loop</a></li>
+<li><a href="#a-typical-ai-stack-today">A typical AI stack today</a>
+<ul>
+<li><a href="#landscape-of-the-ai-ecosystem">Landscape of the AI ecosystem</a></li>
+<li><a href="#the-four-pipelines-of-an-end-to-end-ml-platform">The four pipelines of an end-to-end ML platform</a></li>
+<li><a href="#roles-in-ai-product-development">Roles in AI product development</a></li>
+</ul></li>
+</ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Background - Math for ML on CS-GY-6613 Spring 2020</title>
+    <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/</link>
+    <description>Recent content in Background - Math for ML on CS-GY-6613 Spring 2020</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Optimization and Stochastic Gradient Descent</title>
+      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/optimization/optimization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/optimization/optimization/</guid>
+      <description> In this lecture we will go over concepts from Ian Goodfellow&amp;rsquo;s chapter 4 below. Stochastic gradient descent is treated also in section 5.9.
+Ian Goodfellow&amp;rsquo;s Chapter 4  </description>
+    </item>
+    
+    <item>
+      <title>Probability and Information Theory Basics</title>
+      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/probability/probability/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/probability/probability/</guid>
+      <description>Book Chapters From Ian Goodfellow&amp;rsquo;s book: 
+We will go through the main points during the lecture and treat also MacKay&amp;rsquo;s book (Chapter 2) that is also instructive and a much better in introducing probability concepts. If you are a visual learner, the visual information theory blog post is also a good starting point.
+Key Concepts to understand Probability The pictures below are from MacKays book and despite their conceptual simplicity they hide many questions that we will go over the lecture.</description>
+    </item>
+    
+    <item>
+      <title>The Netflix Prize and Singular Value Decomposition</title>
+      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/netflix/netflix/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/netflix/netflix/</guid>
+      <description>Introduction The following are based on the winning submission paper as well as their subsequent publication.
+The Netflix Prize was an open competition for the best collaborative filtering algorithm to predict user ratings for films, based on previous ratings without any other information about the users or films, i.e. without the users or the films being identified except by numbers assigned for the contest.
+The competition was held by Netflix, an online DVD-rental and video streaming service, and was open to anyone who is neither connected with Netflix (current and former employees, agents, close relatives of Netflix employees, etc.</description>
+    </item>
+    
+  </channel>
+</rss>
