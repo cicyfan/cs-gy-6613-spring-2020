@@ -2,6 +2,8 @@
 title: Project 1 - Surface Type Classification 
 ---
 
+# Project 1 - Surface Type Classification 
+
 ![imu](images/6df-imu.jpg)
 
 * Your first project description is published in https://www.kaggle.com/c/career-con-2019/overview
