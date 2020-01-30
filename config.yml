@@ -3,7 +3,7 @@ languageCode: en-us
 title: CS-GY-6613 Spring 2020
 
 theme: book
-publishDir: docs
+publishDir: public
 
 enableInlineShortcodes: true
 
