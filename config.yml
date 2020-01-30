@@ -25,8 +25,8 @@ markup:
     smartypants: true
     smartypantsQuotesNBSP: false
     taskLists: true
-  # defaultMarkdownHandler: blackFriday
-  defaultMarkdownHandler: goldmark
+  defaultMarkdownHandler: blackFriday
+  #defaultMarkdownHandler: goldmark
   goldmark:
     extensions:
       definitionList: true

@@ -20,7 +20,7 @@ In this course we will be focusing on the *methods/models* and *frameworks* axis
 
 # A typical AI stack today
 
-As we have seen from the [syllabus](/syllabus/index), this course approaches AI from an applied perspective - this means teaching concepts but at the same time looking how these concepts are applied in the industry to solve real world problems. In this respect here we take an architecture driven AI, presenting the components of AI in a form of a software stack but also how the components are mechanized in what we call **ML Pipelines** to provide the ML utility to applications. For a complete overview of real world ML pipelines used today go through the [TFX](http://stevenwhang.com/tfx_paper.pdf) paper in its entirety.
+As we have seen from the [syllabus]({{< ref "syllabus" >}}), this course approaches AI from an applied perspective - this means teaching concepts but at the same time looking how these concepts are applied in the industry to solve real world problems. In this respect here we take an architecture driven AI, presenting the components of AI in a form of a software stack but also how the components are mechanized in what we call **ML Pipelines** to provide the ML utility to applications. For a complete overview of real world ML pipelines used today go through the [TFX](http://stevenwhang.com/tfx_paper.pdf) paper in its entirety.
 
 ![AI stack](images/ai-stack.png)*AI Stack circa 2019*
 

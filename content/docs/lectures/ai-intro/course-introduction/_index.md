@@ -53,7 +53,7 @@ Further, we will see a fusion of disciplines such as physical modeling and simul
 
 For example in the picture above a CFD simulation is used to augment ML algorithms that predict **and explain** those predictions.  I mission critical systems (such as medical diagnostic systems) everything must be  **explainable**.
 
-Consult the course Syllabus to understand what elements of Wave II AI systems we will cover in this course. 
+Consult the course [Syllabus]({{<ref syllabus>}}) to understand what elements of Wave II AI systems we will cover in this course. 
 
 
 

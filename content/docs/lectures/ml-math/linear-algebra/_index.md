@@ -8,13 +8,12 @@ The corresponding chapter of Ian Goodfellow's Deep Learning is essentially the b
 
 <iframe src="https://www.deeplearningbook.org/contents/linear_algebra.html" width="800" height="1200"></iframe>
 
-
 ## Key Points 
 
 We can now summarize the points to pay attention to for ML applications.  In the following we assume a data matrix $A$ with \\(m\\) rows and $n$ columns. We also assume that the matrix is such that it has $r$ independent rows, called *the matrix rank*.
 
-
 ### The Four Fundamental Subspaces
+
 ![Four fundamental spaces](images/four-fundamental-spaces-linear-alg.png)
 
 The *fundamental theorem of Linear Algebra* specifies the effect of the multiplication operation of the matrix and a vector ($A\mathbf{x}$). The matrix gives raise to 4 subspaces:
