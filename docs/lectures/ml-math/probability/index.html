@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Probability and Information Theory Basics"><meta property="og:title" content="Probability and Information Theory Basics" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/probability/" />
+
+<title>Probability and Information Theory Basics | CS-GY-6613 Spring 2020</title>
+<link rel="icon" href="/cs-gy-6613-spring-2020/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.b7fe34b8a4c4da05b2690b4aacfa71ddce0668cc6da3abb67dd3946844125444.css" integrity="sha256-t/40uKTE2gWyaQtKrPpx3c4GaMxto6u2fdOUaEQSVEQ=">
+
+
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.af82dd5452130ebf1660d0c76fa9f56601d14213436580efe73f4d793b296bb5.js" integrity="sha256-r4LdVFITDr8WYNDHb6n1ZgHRQhNDZYDv5z9NeTspa7U="></script>
+
+<link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/probability/index.xml" title="CS-GY-6613 Spring 2020" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cs-gy-6613-spring-2020"><img src="/cs-gy-6613-spring-2020/tandon_long_black.png" alt="Logo" /><span>CS-GY-6613 Spring 2020</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/syllabus/" >
+      Syllabus
+  </a>
+
+</li>
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/" >
+      Week 1 - Introduction to AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/course-introduction/" >
+      Course Introduction
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/systems-approach/" >
+      A systems approach to AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-pipelines/" >
+      The Way of Working in AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Intelligent Agents and Representations</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/" >
+      Projects
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/imu-classification/" >
+      Project 1 - Surface Type Classification
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/continuous-learning/" >
+      Project 2 - Continual Learning for Robotic Perception
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/env/" >
+      Your Programming Environment
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Background - Math for ML</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/linear-algebra/" >
+      Linear Algebra for Machine Learning
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/optimization/" >
+      Optimization and Stochastic Gradient Descent
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/probability/"  class="active">
+      Probability and Information Theory Basics
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/netflix/" >
+      The Netflix Prize and Singular Value Decomposition
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/" >
+      Background - ML Frameworks
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/numpy-pandas/" >
+      Numerical Python (Numpy/Scipy and Pandas) Tutorials
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/tensorflow-introduction/" >
+      Introduction to Tensorflow
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+<script>
+(function() {
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
+  });
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
+</script>
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cs-gy-6613-spring-2020/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Probability and Information Theory Basics</strong>
+
+  <label for="toc-control">
+    <img src="/cs-gy-6613-spring-2020/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#book-chapters">Book Chapters</a></li>
+<li><a href="#key-concepts-to-understand">Key Concepts to understand</a>
+<ul>
+<li><a href="#probability">Probability</a>
+<ul>
+<li><a href="#probability-distributions">Probability distributions</a></li>
+<li><a href="#probability-rules">Probability Rules</a></li>
+</ul></li>
+<li><a href="#key-probability-distributions">Key probability distributions</a>
+<ul>
+<li><a href="#multi-variate-gaussian-distribution">Multi-variate Gaussian distribution</a></li>
+</ul></li>
+<li><a href="#probabilistic-modeling">Probabilistic Modeling</a>
+<ul>
+<li><a href="#bayesian-update-example">Bayesian update example</a></li>
+</ul></li>
+<li><a href="#information-theoretic-definitions">Information-theoretic definitions</a>
+<ul>
+<li><a href="#entropy">Entropy</a></li>
+<li><a href="#relative-entropy-or-kl-divergence-optional">Relative entropy or KL divergence (optional)</a></li>
+</ul></li>
+<li><a href="#background-for-logistic-regression">Background for logistic regression</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+<article class="markdown">
+
+<h2 id="book-chapters">Book Chapters</h2>
+
+<p>From Ian Goodfellow&rsquo;s book:
+<iframe src="https://www.deeplearningbook.org/contents/prob.html" width="800" height="1200"></iframe></p>
+
+<p>We will go through the main points during the lecture and treat also <a href="https://www.inference.org.uk/itprnn/book.pdf">MacKay&rsquo;s book (Chapter 2)</a> that is also instructive and a much better in introducing probability concepts. If you are a visual learner, <a href="http://colah.github.io/posts/2015-09-Visual-Information/#fn4">the visual information theory</a> blog post is also a good starting point.</p>
+
+<h2 id="key-concepts-to-understand">Key Concepts to understand</h2>
+
+<h3 id="probability">Probability</h3>
+
+<p>The pictures below are from MacKays book and despite their conceptual simplicity they hide many questions that we will go over the lecture.</p>
+
+<h4 id="probability-distributions">Probability distributions</h4>
+
+<p><img src="images/figure21.png" alt="bivariate-Gaussian" />
+<em>Probability distribution over the letters of the English alphabet (letter 27 symbolizes space)</em></p>
+
+<p><strong>Joint probability distributions</strong>
+<img src="images/figure22.png" alt="bivariate-Gaussian" />
+<em>Joint probability $P(x,y)$ distribution over the 27x27 possible bigrams $xy$ found in this document: <a href="https://www.tldp.org/FAQ/pdf/Linux-FAQ.pdf">https://www.tldp.org/FAQ/pdf/Linux-FAQ.pdf</a></em></p>
+
+<p>What is the marginal probability $P(x)$ ?</p>
+
+<p><strong>Conditional probability distribution</strong></p>
+
+<p><img src="images/conditional-bigrams.png" alt="bivariate-Gaussian" />
+<em>Conditional probability distribution over the 27x27 possible bigrams $xy$ found in this document: <a href="https://www.tldp.org/FAQ/pdf/Linux-FAQ.pdf">https://www.tldp.org/FAQ/pdf/Linux-FAQ.pdf</a></em></p>
+
+<p>Are $x$ and $y$ independent ?</p>
+
+<h4 id="probability-rules">Probability Rules</h4>
+
+<p>If H is the hypothesis governing the probabilities distributions,</p>
+
+<p><strong>Product or chain rule</strong>:</p>
+
+<p>This is obtained from the definition of conditional probability:</p>
+
+<p>$P(x,y|H) = P(x | y,H)P(y | H) = P(y | x,H)P(x |H)$</p>
+
+<p><strong>Sum rule</strong>:</p>
+
+<p>This is obtaining by rewriting of the marginal probability denition:
+$P(x |H)   = \sum_y P(x,y |H) = \sum_y P(x | y,H)P(y |H)$</p>
+
+<h3 id="key-probability-distributions">Key probability distributions</h3>
+
+<h4 id="multi-variate-gaussian-distribution">Multi-variate Gaussian distribution</h4>
+
+<p>$$f_{\mathbf X}(x_1,\ldots,x_k) = \frac{\exp\left(-\frac 1 2 ({\mathbf x}-{\boldsymbol\mu})^\mathrm{T}{\boldsymbol\Sigma}^{-1}({\mathbf x}-{\boldsymbol\mu})\right)}{\sqrt{(2\pi)^n|\boldsymbol\Sigma|}}$$
+where where &lt;${\mathbf x}$ is a real &lsquo;n&rsquo;-dimensional column vector and $|\boldsymbol\Sigma|\equiv \operatorname{det}\boldsymbol\Sigma$ is the determinant of $\boldsymbol\Sigma$.</p>
+
+<p>Apart from the definition, you need to connect the geometric interpretation of the bivariate Gaussian distribution to the eigendecomposition in the linear algebra lecture as shown in the Figure 2.7 of Bishop:</p>
+
+<p><img src="images/Figure2.7.png" alt="bivariate-Gaussian" /></p>
+
+<p>Such geometric interpretations will be very useful when we study dimensionality reduction via Principal Component Analysis (PCA).</p>
+
+<h3 id="probabilistic-modeling">Probabilistic Modeling</h3>
+
+<ol>
+<li><p>The whole purpose of probabilistic modeling is to introduce uncertainty into our problem statement. There are three types of uncertainties:</p>
+
+<ul>
+<li>Inherent stochasticity - e.g. impact of wind in self-driving car control systems at moderate to high speed.</li>
+<li>Incomplete observability - e.g. sensor imperfections causing loss of sensing information</li>
+<li>Incomplete modeling - e.g. models and algorithms that are not implementable to an analog world and need to be discretized.</li>
+</ul></li>
+
+<li><p>Probabilities can be used in two ways.</p>
+
+<ul>
+<li>Probabilities can describe frequencies of outcomes in random experiments</li>
+<li>Probabilities can also be used, more generally, to describe degrees of belief in propositions that do not involve random variables. This more general use of probability to quantify beliefs is known as the Bayesian viewpoint. It is also known as the subjective interpretation of probability, since the probabilities depend on assumptions.</li>
+</ul></li>
+
+<li><p>The Bayesian theorem is the cornerstone of probabilistic modeling. If $\mathbf{\theta}$ denotes the unknown parameters, $D$ denotes the dataset and $\mathcal{H}$ denotes the hypothesis space  - the model we have seen in <a href="/docs/lectures/ml-math/ml-problem-statement">the ML problem statement section</a>.</p></li>
+</ol>
+
+<blockquote>
+<p>$$ P(\mathbf{\theta} | D, \mathcal{H}) =  \frac{P( D | \mathbf{\theta}, \mathcal{H}) P(\mathbf{\theta} | \mathcal{H}) }{ P(D|\mathcal{H}} $$</p>
+
+<p>The Bayesian framework allows the introduction of priors from a wide variety of sources (experts, other data, past posteriors, etc.) For example,a medical patient is exhibiting symptoms x, y and z. There are a number of diseases that could be causing all of them, but only a single disease is present. A doctor (the expert) has beliefs about which disease, but a second doctor may have slightly different beliefs.</p>
+
+<p>NOTE: The <a href="http://camdavidsonpilon.github.io/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/">Probabilistic Programming &amp; Bayesian Methods for Hackers</a> book is one of the best resources out there containing practical python examples. In addition they have been recoded recently to work in <a href="https://medium.com/tensorflow/an-introduction-to-probabilistic-programming-now-available-in-tensorflow-probability-6dcc003ca29e">Tensorflow Probability</a> an industrial-strength framework that can bring together Deep Learning and domain-specific probabilistic modeling. The book cant match the rigorousness of Bishop&rsquo;s book but it offers a good treatment on problems and use cases and should be considered complimentary.</p>
+</blockquote>
+
+<h4 id="bayesian-update-example">Bayesian update example</h4>
+
+<!-- <iframe src="https://nbviewer.jupyter.org/github/pantelis/cs-gy-6613-notebooks/blob/master/Bayesian_update_coin_flip.ipynb" width="900" height="1200"></iframe> -->
+
+<p>This example is instructive beyond the habit of having coin flip examples in every textbook in probability theory and statistics. It is useful to understand the conjugate prior distribution being discussed in Bishop&rsquo;s section 2.1.1 and Figure 3 that the code above replicates.  Armed with this understanding, we can now treat the Bayesian update for linear regression as described in the <a href="/docs/lectures/regression/linear-regression">linear regression section</a>.</p>
+
+<h3 id="information-theoretic-definitions">Information-theoretic definitions</h3>
+
+<h4 id="entropy">Entropy</h4>
+
+<p>An outcome $x_t$ carries information that is a function of the probability of this outcome $P(x_t)$ by,</p>
+
+<p>$I(x_t) = \ln \frac{1}{P(x_t)} = - \ln P(x_t)$</p>
+
+<p>This can be intuitively understood when you compare two outcomes. For example, consider someone is producing the result of the vehicular traffic outside of Holland tunnel on Monday morning. The information that the results is &ldquo;low&rdquo; carries much more information when the result is &ldquo;high&rdquo; since most people expect that there will be horrendous traffic outside of Holland tunnel on Monday mornings. When we want to represent the amount of uncertainty over a distribution (i.e. the traffic in Holland tunnel over all times) we can take the expectation over all possible outcomes i.e.</p>
+
+<p>$H(P) =  - \mathbb{E} \ln P(x)$</p>
+
+<p>and we call this quantity the <strong>entropy</strong> of the probability distribution $P(x)$. When $x$ is continuous the entropy is known as <strong>differential entropy</strong>. Continuing the alphabetical example, we can determine the entropy over the distribution of letters in the sample text we met before as,</p>
+
+<p><img src="images/entropy-english-alphabet.png" alt="entropy-english-alphabet" /></p>
+
+<p>This is 4.1 bits (as the $\log$ is taken with base 2). This represents the average number of bits required to transmit each letter of this text to a hypothetical receiver. Note that we used the information carried by each &ldquo;outcome&rdquo; (the letter) that our source produced. If the source was binary, we can plot the entropy of such source over the probability p that the outcome is a 1 as shown below,</p>
+
+<p><img src="images/entropy-binary.png" alt="entropy-binary" /></p>
+
+<p>The plot simply was produced by taking the definition of entropy and applying to the binary case,</p>
+
+<p>$H(p) = - [p \ln p - (1-p) \ln(1-p)]$</p>
+
+<p>As you can see the maximum entropy is when the outcome is most unpredictable i.e. when a 1 can show up with uniform probability (in this case equal probability to a 0).</p>
+
+<h4 id="relative-entropy-or-kl-divergence-optional">Relative entropy or KL divergence (optional)</h4>
+
+<p>In the <a href="../ml-math/ml-problem-statement">ML problem statement</a>, it is evident that the job of the learning algorithm is to come up with a final hypothesis that is close to the <em>unknown</em> target function. In other occasions, we need to approximate a distribution by sampling from another easier to model distribution. As in ML we work with probabilities, we need to have a metric that compares two probability distributions ${P(x),Q(x)}$ in terms of their &ldquo;distance&rdquo; from each other (the quotes will be explained shortly). This is given by the quantity known as <em>relative entropy</em> or <em>KL divergence</em>.</p>
+
+<p>$KL(P||Q)= \mathbb{E}[\ln P(x) - \ln Q(x)]$</p>
+
+<p>If the two distributions are identical, $KL=0$ - in general however $KL(P||Q) \ge 0$. One key element to understand is that $KL$ is not a true distance metric as its assymetric. Ensure that you understand fully the following figure and caption.</p>
+
+<p><img src="images/KL-asymmetry.png" alt="KL-asymmetry" /></p>
+
+<p>Very close to the relative entropy is probably one of the most used information theoretic concepts in ML: <strong>the cross-entropy</strong>. We will motivate cross entropy via a diagram shown below,</p>
+
+<p><img src="images/entropy-relations.png" alt="entropy-relations" /></p>
+
+<h3 id="background-for-logistic-regression">Background for logistic regression</h3>
+
+<p>If $\sigma$ is a probability of an event, then the ratio $\frac{\sigma}{1-\sigma}$ is the corresponding <em>odds</em>, the ratio of the event  occurring divided by not occurring. For example, if a race horse runs 100 races and wins 25 times and loses the other 75 times, the probability of winning is <sup>25</sup>&frasl;<sub>100</sub> = 0.25 or 25%, but the odds of the horse winning are <sup>25</sup>&frasl;<sub>75</sub> = 0.333 or 1 win to 3 loses. In the binary classification case, the log odds is given by</p>
+
+<p>$$ \mathtt{logit}(\sigma) = \alpha = \ln \frac{\sigma}{1-\sigma} = \ln \frac{p(\mathcal{C}_1|\mathbf{x})}{p(\mathcal{C}_2|\mathbf{x})}$$</p>
+
+<p>What is used in ML though is the logistic function of any number $\alpha$ that is given by the inverse logit:</p>
+
+<p>$$\mathtt{logistic}(\alpha) = \sigma(\alpha) = \mathtt{logit}^{-1}(\alpha) =  \frac{1}{1 + \exp(-\alpha)} = \frac{\exp(\alpha)}{ \exp(\alpha) + 1}$$</p>
+
+<p>and is plotted below. It maps its argument to the &ldquo;probability&rdquo; space [0,1].</p>
+
+<p><img src="images/Figure4.9.png" alt="logistic sigmoid" />
+<em>Logistic sigmoid (red)</em></p>
+
+<p>The sigmoid function satisfies the following symmetry:</p>
+
+<p>$$\sigma(-\alpha) = 1 - \sigma(\alpha)$$</p>
+
+<p>In addition it offers very convenient derivatives and has been used extensively in deep neural networks (for many architectures has been superceded by RELU). The derivative can be obtained as follows:</p>
+
+<p>Consider
+$$
+f(x)=\dfrac{1}{\sigma(x)} = 1+e^{-x}
+.
+$$
+Then, on the one hand, the chain rule gives
+$$
+f&rsquo;(x)
+= \frac{d}{dx} \biggl( \frac{1}{\sigma(x)} \biggr)
+= -\frac{\sigma&rsquo;(x)}{\sigma(x)^2}
+,
+$$
+and on the other hand,
+$$
+f&rsquo;(x)
+= \frac{d}{dx} \bigl( 1+e^{-x} \bigr)
+= -e^{-x}
+= 1-f(x)
+= 1 - \frac{1}{\sigma(x)}
+= \frac{\sigma(x)-1}{\sigma(x)}
+$$</p>
+
+<p>Equating the two expressions we finally obtain,</p>
+
+<p>$$\sigma&rsquo;(x) = \sigma(x)(1-\sigma(x))$$</p>
+</article>
+ 
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/1454b274d744ac295773ea99f0a03acf80cdb202" title='Last modified by MONOGIOUDIS Pantelis | Jan 29, 2020' target="_blank" rel="noopener">
+      <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Jan 29, 2020</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/edit/master/cs-gy-6613-spring-2020/content/docs/lectures/ml-math/probability/_index.md" target="_blank" rel="noopener">
+      <img src="/cs-gy-6613-spring-2020/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+  
+ 
+      </footer>
+      
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#book-chapters">Book Chapters</a></li>
+<li><a href="#key-concepts-to-understand">Key Concepts to understand</a>
+<ul>
+<li><a href="#probability">Probability</a>
+<ul>
+<li><a href="#probability-distributions">Probability distributions</a></li>
+<li><a href="#probability-rules">Probability Rules</a></li>
+</ul></li>
+<li><a href="#key-probability-distributions">Key probability distributions</a>
+<ul>
+<li><a href="#multi-variate-gaussian-distribution">Multi-variate Gaussian distribution</a></li>
+</ul></li>
+<li><a href="#probabilistic-modeling">Probabilistic Modeling</a>
+<ul>
+<li><a href="#bayesian-update-example">Bayesian update example</a></li>
+</ul></li>
+<li><a href="#information-theoretic-definitions">Information-theoretic definitions</a>
+<ul>
+<li><a href="#entropy">Entropy</a></li>
+<li><a href="#relative-entropy-or-kl-divergence-optional">Relative entropy or KL divergence (optional)</a></li>
+</ul></li>
+<li><a href="#background-for-logistic-regression">Background for logistic regression</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+<script>
+    window.WebFontConfig = {
+        custom: {
+        families: ['KaTeX_AMS', 'KaTeX_Caligraphic:n4,n7', 'KaTeX_Fraktur:n4,n7',
+            'KaTeX_Main:n4,n7,i4,i7', 'KaTeX_Math:i4,i7', 'KaTeX_Script',
+            'KaTeX_SansSerif:n4,n7,i4', 'KaTeX_Size1', 'KaTeX_Size2', 'KaTeX_Size3',
+            'KaTeX_Size4', 'KaTeX_Typewriter'],
+        },
+    };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

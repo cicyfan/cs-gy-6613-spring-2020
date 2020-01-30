@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on CS-GY-6613 Spring 2020</title>
+    <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/</link>
+    <description>Recent content in Docs on CS-GY-6613 Spring 2020</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Syllabus</title>
+      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/syllabus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/syllabus/</guid>
+      <description>Syllabus The course schedule below highlights our journey to understand the multiple subsystems and how they can be connected together to create compelling but, currently, domain specific forms of intelligence.
+Books Artificial Intelligence: A Modern Approach, by Stuart Russell, 3rd edition, 2010 and also here.
+The publisher is about to release the 4th edition (2020) of this classic. We will be monitoring availability in bookstores but it does not seem likely this edition to appear on time for the Spring 2020 class.</description>
+    </item>
+    
+  </channel>
+</rss>
