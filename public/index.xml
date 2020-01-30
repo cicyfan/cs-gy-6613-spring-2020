@@ -11,6 +11,18 @@
     
     
     <item>
+      <title>Numerical Python (Numpy/Scipy and Pandas) Tutorials</title>
+      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/numpy-pandas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/numpy-pandas/</guid>
+      <description>Standard Python Below is a list of recommended courses you can attend to. We will go over briefly basic Python in this lecture. The tutorials below are self contained and can remind you the basics.
+  CodeAcademy Data Science Path. Take Python modules 4-10. This course contains Numpy and Panda intro as well.
+  Kaggle Python Course
+  Google Python Class This is a bit dated as it covers Python 2, but it is still highly regarded as Python 3 and 2 have few differences.</description>
+    </item>
+    
+    <item>
       <title>Syllabus</title>
       <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/syllabus/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -31,57 +43,13 @@ The publisher is about to release the 4th edition (2020) of this classic. We wil
     </item>
     
     <item>
-      <title>Development Workflow</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/development-workflow/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/development-workflow/</guid>
-      <description>Workflow Steps Although the ML project checklist provided in Appendix B of Garon&amp;rsquo;s book is extensive (we will go through this list in the lecture as we go through your first ML application) for now focus on the eight steps as shown below.
-Steps in workflow (from here)
- As discussed the data pipeline is responsible for providing the training datasets if the aim is to train (or retrain) a model.</description>
-    </item>
-    
-    <item>
       <title>Introduction to Tensorflow</title>
       <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/tensorflow-introduction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/tensorflow-introduction/</guid>
-      <description>In this lecture we will cover slides #1 - #28 as shown below. The slides are from CS 20: Tensorflow for Deep Learning Research and despite the title are appropriate for Tensorflow beginners. Slides beyond #28 will be selectively consulted when we go over gradients and backpropagation.
- </description>
-    </item>
-    
-    <item>
-      <title>Numerical Python (Numpy/Scipy and Pandas)</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/numpy-pandas/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/numpy-pandas/</guid>
-      <description>Standard Python Below is a list of recommended courses you can attend to. We will go over briefly basic Python in this lecture. The tutorials below are self contained and can remind you the basics.
- CodeAcademy Data Science Path. Take Python modules 4-10. This course contains Numpy and Panda intro as well.
- Kaggle Python Course
- Google Python Class This is a bit dated as it covers Python 2, but it is still highly regarded as Python 3 and 2 have few differences.</description>
-    </item>
-    
-    <item>
-      <title>Optimization and Stochastic Gradient Descent</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/optimization/optimization/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/optimization/optimization/</guid>
-      <description> In this lecture we will go over concepts from Ian Goodfellow&amp;rsquo;s chapter 4 below. Stochastic gradient descent is treated also in section 5.9.
-Ian Goodfellow&amp;rsquo;s Chapter 4  </description>
-    </item>
-    
-    <item>
-      <title>Probability and Information Theory Basics</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/probability/probability/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/probability/probability/</guid>
-      <description>Book Chapters From Ian Goodfellow&amp;rsquo;s book: 
-We will go through the main points during the lecture and treat also MacKay&amp;rsquo;s book (Chapter 2) that is also instructive and a much better in introducing probability concepts. If you are a visual learner, the visual information theory blog post is also a good starting point.
-Key Concepts to understand Probability The pictures below are from MacKays book and despite their conceptual simplicity they hide many questions that we will go over the lecture.</description>
+      <description>This by no means is a tutorial introduction but rather a set of slides that we can use to describe the principle of computational graphs. This can be skipped and consulted later in the course.
+We will cover slides #1 - #28 as shown below. The slides are from CS 20: Tensorflow for Deep Learning Research and despite the title are appropriate for Tensorflow beginners. Slides beyond #28 will be selectively consulted when we go over gradients and backpropagation.</description>
     </item>
     
     <item>
@@ -91,28 +59,6 @@ Key Concepts to understand Probability The pictures below are from MacKays book 
       
       <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/project-3/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>The Netflix Prize and Singular Value Decomposition</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/netflix/netflix/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/netflix/netflix/</guid>
-      <description>Introduction The following are based on the winning submission paper as well as their subsequent publication.
-The Netflix Prize was an open competition for the best collaborative filtering algorithm to predict user ratings for films, based on previous ratings without any other information about the users or films, i.e. without the users or the films being identified except by numbers assigned for the contest.
-The competition was held by Netflix, an online DVD-rental and video streaming service, and was open to anyone who is neither connected with Netflix (current and former employees, agents, close relatives of Netflix employees, etc.</description>
-    </item>
-    
-    <item>
-      <title>The Zillow App</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/zillow-app/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/zillow-app/</guid>
-      <description>The Zillow app is based on the end to end machine learning example in Chapter 2 of Geron&amp;rsquo;s book. We can go through this end to end example during a recitation.
- Key Questions  Is the dataset appropriate for training?   Any unexpected ranges, any range heterogeneity, any clipping? Do we face long-tails? What options do we have to glean the data?
-  What will happen if we remove the following line from the split_train_set function?</description>
     </item>
     
     <item>

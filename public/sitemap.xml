@@ -4,40 +4,52 @@
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/course-introduction/</loc>
+    <lastmod>2020-01-29T20:18:31-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/numpy-pandas/</loc>
+    <lastmod>2020-01-29T21:03:45-05:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/syllabus/</loc>
+    <lastmod>2020-01-29T20:18:31-05:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/systems-approach/</loc>
+    <lastmod>2020-01-29T20:18:31-05:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/</loc>
-    <lastmod>2020-01-28T22:54:01-05:00</lastmod>
+    <lastmod>2020-01-29T20:18:31-05:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-pipelines/</loc>
+    <lastmod>2020-01-29T20:18:31-05:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/agents/</loc>
+    <lastmod>2020-01-29T20:18:31-05:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/</loc>
-    <lastmod>2020-01-28T22:54:01-05:00</lastmod>
+    <lastmod>2020-01-29T20:18:31-05:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/</loc>
+    <lastmod>2020-01-29T20:18:31-05:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/</loc>
+    <lastmod>2020-01-29T21:03:45-05:00</lastmod>
   </url>
   
   <url>
@@ -55,44 +67,43 @@
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/development-workflow/</loc>
-  </url>
-  
-  <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/</loc>
+    <lastmod>2020-01-29T20:18:31-05:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/tensorflow-introduction/</loc>
+    <lastmod>2020-01-29T21:03:45-05:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/linear-algebra/</loc>
+    <lastmod>2020-01-29T21:03:45-05:00</lastmod>
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/numpy-pandas/</loc>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/optimization/</loc>
+    <lastmod>2020-01-29T21:03:45-05:00</lastmod>
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/optimization/optimization/</loc>
-  </url>
-  
-  <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/probability/probability/</loc>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/probability/</loc>
+    <lastmod>2020-01-29T21:03:45-05:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/imu-classification/</loc>
+    <lastmod>2020-01-29T20:18:31-05:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/continuous-learning/</loc>
+    <lastmod>2020-01-29T20:18:31-05:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/project-3/</loc>
-    <lastmod>2020-01-28T22:54:01-05:00</lastmod>
+    <lastmod>2020-01-29T20:18:31-05:00</lastmod>
   </url>
   
   <url>
@@ -100,15 +111,13 @@
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/netflix/netflix/</loc>
-  </url>
-  
-  <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/zillow-app/</loc>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/netflix/</loc>
+    <lastmod>2020-01-29T21:03:45-05:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/env/</loc>
+    <lastmod>2020-01-29T20:18:31-05:00</lastmod>
   </url>
   
 </urlset>
