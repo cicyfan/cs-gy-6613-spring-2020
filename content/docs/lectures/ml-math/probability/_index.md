@@ -1,6 +1,8 @@
 ---
 title: Probability and Information Theory Basics
+katex: true
 ---
+
 
 ## Book Chapters
  From Ian Goodfellow's book:

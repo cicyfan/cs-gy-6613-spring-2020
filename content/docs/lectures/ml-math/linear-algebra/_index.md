@@ -1,6 +1,5 @@
 ---
 title: Linear Algebra for Machine Learning
-katex: true
 ---
 
 # Linear Algebra for Machine Learning
@@ -12,7 +11,7 @@ The corresponding chapter of Ian Goodfellow's Deep Learning is essentially the b
 
 ## Key Points 
 
-We can now summarize the points to pay attention to for ML applications.  In the following we assume a data matrix {{<katex>}} A {{</katex>}} with \\(m\\) rows and $n$ columns. We also assume that the matrix is such that it has $r$ independent rows, called *the matrix rank*.
+We can now summarize the points to pay attention to for ML applications.  In the following we assume a data matrix $A$ with \\(m\\) rows and $n$ columns. We also assume that the matrix is such that it has $r$ independent rows, called *the matrix rank*.
 
 
 ### The Four Fundamental Subspaces
@@ -29,21 +28,22 @@ The real action that the matrix perform is to **transform** its row space to its
 
 The type of matrices that are common in ML are those that the number of rows $m$ representing observations is much larger than the number of columns $n$ that represent features. We will call these matrices "tall" for obvious reasons. Let us consider one trivial but instructive example of the smallest possible "tall" matrix:
 
-$$\begin{bmatrix}
+{{<katex>}}
+\begin{bmatrix}
     a_{11}       & a_{12} \\
     a_{21}       & a_{22} \\
     a_{31}       & a_{32}
-\end{bmatrix}
-=
+\end{bmatrix} =
 \begin{bmatrix}
     1       & 0 \\
     5       & 4 \\
     2       & 4
-\end{bmatrix}$$
+\end{bmatrix}
+{{</katex>}}
 
 In ML we are usually concerned with the problem of learning the weights $x_1, x_2$ that will combine the features and result into the given target variables $\mathbf{b}$. The notation here is different and we have adopted the notation of many linear algebra textbooks. 
 
-$$
+{{<katex>}}
 \begin{bmatrix}
     1       & 0 \\
     5       & 4 \\
@@ -59,10 +59,10 @@ $$
     b_2 \\ 
     b_3 
 \end{bmatrix}
-$$
+{{</katex>}}
 To make more explicit the combination of features we can write,
 
-$$
+{{<katex>}}
 x_1 \begin{bmatrix}
     1 \\
     5 \\ 
@@ -78,7 +78,7 @@ x_1 \begin{bmatrix}
     b_2 \\ 
     b_3 
 \end{bmatrix}
-$$
+{{</katex>}}
 
 Since $m=3 > n=2$, we have more equations than unknowns we in general we have no solutions - a system with $m > n$ will be solvable only for certain right hand sides $\mathbf{b}$. Those are all the vectors $\mathbf{b}$ that lie in the column space of $A$.
 
@@ -91,7 +91,7 @@ The solutions to $A \mathbf{x} = \mathbf{0}$ form a vector space - **the nullspa
 
 $\mathcal{N}(A)$ is a subspace of $\mathbb{R}^n=\mathbb{R}^2$ in this case. For our specific example,
 
-$$
+{{<katex>}}
 x_1 \begin{bmatrix}
     1 \\
     5 \\
@@ -107,7 +107,7 @@ x_1 \begin{bmatrix}
     0 \\
     0
 \end{bmatrix}
-$$
+{{</katex>}}
 
 the only solution that can satisfy this set of homogenous equations is: $\mathbf{x}=\mathbf{0}$ and this means that the null space contains only the zero vector and this 
 
