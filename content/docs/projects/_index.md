@@ -1,6 +1,6 @@
 ---
 title: Projects
-weight: 8
+weight: 20
 ---
 
 The following projects needs to be delivered by the deadlines.

@@ -11,7 +11,8 @@ type: docs
 Brooklyn Campus, Mon 6.00 PM - 8.30 PM at RGSH 315.
 
 **Communication:** 
-We will use Slack for all communications: announcements and questions related to lectures, assignments, and projects. All registered students got an gmail invitation to Slack on 1/28/2020. 
+We will use Slack for all communications: announcements and questions related to lectures, assignments, and projects. All registered students with NYU email addresses can click [here](
+https://join.slack.com/t/csgy6613sprin-vwk3759/shared_invite/enQtOTI1ODk5MTMzNzk3LWFkZGVmNDVmYWMwNzFmYjU4MGZlNTU3OGRmMWZlNjY2NjFhMzEzOTBkNGY1M2NlZTk2MTFkYzRhZGVhZDQ1YjY) to join - link expires after 30 days.
 
 ## Instructor
 Pantelis Monogioudis, Ph.D (Bell Labs)
