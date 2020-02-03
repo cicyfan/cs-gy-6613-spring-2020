@@ -16,11 +16,11 @@ Since the output $y$ is a continuous variable then the supervised learning probl
 
 Let us now pick the hypothesis set that correspond to polynomials of the following form,
 
-$$g(\mathbf{w},x) = w_0 + w_1x + w_2 x^2 + ... + w_M x^M$$
+$$g(\mathbf{w},x_i) = w_0 + w_1 x_i + w_2 x_i^2 + ... + w_M x_i^M$$
 
 Our job is to find $\mathbf{w}$ such that the polynomial above fits the data we are given - as we will see there are multiple hypothesis that can satisfy this requirement. To gauge our investigation, we need to define a metric, an error or loss function in fact, that is also a common metric in regression problems of this nature. This is the Mean Squared Error (MSE) function. 
 
-$$L(\mathbf{w}) = \frac{1}{2} \sum_{i=1}^m \{g(\mathbf{w},x_i)-t_i)\}^2$$
+$$L(\mathbf{w}) = \frac{1}{2} \sum_{i=1}^m \{(g(\mathbf{w},x_i)-y_i)\}^2$$
 
 ![Loss Function](images/Figure1.3.png)
 *The loss function chosen for this regression problem, corresponds to the sum of the squares of the displacements of each data point and our hypothesis. The sum of squares in the case of Gaussian errors gives raise to an (unbiased) Maximum Likelihood estimate of the model parameters. Contrast this to sum of absolute differences.*
@@ -40,7 +40,7 @@ But this is not what you want to do. Because when met with test data, the model 
 
 To avoid overfitting we have multiple strategies. One straightforward one is evident by observing the wild oscillations of the $\mathbf{w}$ elements as the model complexity increases. We can penalize such oscillations by introducing the $l_2$ norm of $\mathbf{w}$ in our loss function.
 
-$$L(\mathbf{w}) = \frac{1}{2} \sum_{i=1}^m \{g(\mathbf{w},x_i)-y_i)\}^2 + \frac{\lambda}{2} ||\mathbf{w}||^2$$
+$$L(\mathbf{w}) = \frac{1}{2} \sum_{i=1}^m \{(g(\mathbf{w},x_i)-y_i)\}^2 + \frac{\lambda}{2} ||\mathbf{w}||^2$$
 
 This type of solution is called **regularization** and because we effectively shrink the weight dynamic range it is also called in statistics shrinkage or ridge regression. We have introduced a new parameter $\lambda$ that regulates the relative importance of the penalty term as compared to the MSE. This parameter together with the polynomial order is what we call *hyperparameters* and we need to optimize them as both are needed for the determination of our final hypothesis $g$. 
 

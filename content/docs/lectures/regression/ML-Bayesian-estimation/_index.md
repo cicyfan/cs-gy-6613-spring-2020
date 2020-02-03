@@ -6,21 +6,19 @@ weight: 5
 # Bayesian Linear Regression
 
 ![Bayes](images/bayes.jpg)
-
 *Thomas Bayes (1701-1761)*
 
-The treatment in this section will proceed as follows. First we will discuss the Ordinary Least Squares  (or the Maximum Likelihood) estimate of the model parameters. We will then introduce the Bayesian approach to estimating the model parameters and look at the so called *predictive* distribution for the simple [data set](/docs/lectures/ml-math/ml-problem-statement) we started our journey on.
+The treatment in this section will proceed as follows. First we will discuss the Ordinary Least Squares  (or the Maximum Likelihood) estimate of the model parameters. We will then introduce the Bayesian approach to estimating the model parameters and look at the so called *predictive* distribution for the simple [data set]({{<ref "../../learning-problem">}}) we started our journey on.
 
 ## OLS as Maximum Likelihood Estimation
-
-[These notes](https://www.cs.indiana.edu/~predrag/classes/2016fallb365x/ols.pdf) summarize the ML approach (in section 2) and are provided here as they are more expansive compared to Bishop Section 1.2.5 and at the same time do make the connection to the [Linear Algebra lecture](/docs/lectures/ml-math/linear-algebra-for-ml).  
+[These notes](https://www.cs.indiana.edu/~predrag/classes/2016fallb365x/ols.pdf) summarize the Maximum Likelihood approach and are provided here as they are more expansive compared to textbooks and at the same time do make the connection to the [Linear Algebra background you should have]({{<ref "../../ml-math/linear-algebra">}}).  
 
 ![Figure3.2-bishop](images/Figure3.2.png)
-*Geometrical Interpretation of Ordinary Least Squares*
+*Geometrical Interpretation of Ordinary Least Squares (OLS)*
 
 ## Bayesian Linear Regression
 
-In the [probability section](/docs/lectures/ml-math/probability) we have covered an instructive example of coin tossing and saw how the posterior distribution is updated with the draws. The Bayesian setting is obviously generic enough and here we provide just the intuition (for the interested reader the mathematical treatment is in Bishop Section 3.3) behind its application to linear regression.
+In the [probability section]({{<ref "../../ml-math/probability">}}) we have covered an instructive example of coin tossing and saw how the posterior distribution is updated with the draws. The Bayesian setting is obviously generic enough and here we provide just the intuition (for the interested reader the mathematical treatment is in Bishop Section 3.3) behind its application to linear regression.
 
 The Bayesian update of the posterior can be intuitively understood using a graphical example of a linear model of the form:
 $$g(x,\mathbf{w})= w_0 + w_1 x$$ (our hypothesis). The reason why we pick this example is illustrative as the model has just two parameters and is amendable to visualization. 
