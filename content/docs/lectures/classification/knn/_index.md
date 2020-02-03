@@ -1,10 +1,11 @@
 ---
-title: k-Nearest Neighbors Classification
+title: k-Nearest Neighbors (kNN) Classification
 weight: 5
 ---
-# k-Nearest Neighbors Classification
 
-kNN belongs to the class of algorithms that were extensively treated in pattern recognition literature many years ago. It is still extensively being used today especially in settings that require very fast decision/classifications. The general block diagram governing such systems is shown below.
+# k-Nearest Neighbors (kNN) Classification
+
+[kNN](http://vision.stanford.edu/teaching/cs231n-demos/knn/) belongs to the class of algorithms that were extensively treated in pattern recognition literature many years ago. It is still extensively being used today especially in settings that require very fast decision/classifications. The general block diagram governing such systems is shown below.
 
 ![pattern-recognition](images/pattern-recognition.png)
 
