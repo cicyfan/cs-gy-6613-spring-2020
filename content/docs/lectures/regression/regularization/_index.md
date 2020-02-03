@@ -1,9 +1,9 @@
 ---
-title: Regularization
+title: Linear Regression
 weight: 3
 ---
 
-# Regularization or Shrinkage
+# Linear Regression
 
 Now that we have introduced somewhat more formally [the learning problem]({{<ref "../../learning-problem">}}) and its notation lets us study a simple but instructive regression problem from Chapter 1 of Bishop's book that is known in the statistics literature as *shrinkage*. Note that in many figures below the label is denoted as $t$ rather than $y$ as used in the equations below.
 
@@ -57,9 +57,3 @@ which means that the [MSE captures both bias and variance](https://en.wikipedia.
 
 ![generalization-error-vs-capacity](images/generalization-capacity.png)
 *As capacity increases (x-axis), bias (dotted) tends to decrease and variance(dashed) tends to increase, yielding another U-shaped curve for generalization error (bold curve). If we vary capacity along one axis, there is an optimal capacity, with underﬁtting when the capacity is below this optimum and overﬁtting when it is above.*
-
-The MSE as a criterion not only reveals the bias and variance tradeoff above but has 
-
-Now that we have concluded the treatment of some elementary concepts, let us use them in a [data mining problem](../ml-frameworks/zillow-app).
-
-
