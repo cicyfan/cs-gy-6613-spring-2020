@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.a165c7f997df8b190ddf31b5f13b437655c0abb42a2d1df2c8c6be4b304d9ffe.css" integrity="sha256-oWXH&#43;ZffixkN3zG18TtDdlXAq7QqLR3yyMa&#43;SzBNn/4=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.069490189c55fd89465dcfe39acbfd6b50eab99efda0f4f5baef6992fc7fc3df.js" integrity="sha256-BpSQGJxV/YlGXc/jmsv9a1DquZ79oPT1uu9pkvx/w98="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.dc0b2bd7192f477615e3da71e2bd89d578b3444687055b63ac0782b20758ade6.js" integrity="sha256-3Asr1xkvR3YV49px4r2J1XizREaHBVtjrAeCsgdYreY="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/regression/ML-Bayesian-estimation/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -291,7 +291,7 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/cs-gy-6613-spring-2020/docs/lectures/regression/regularization/" >
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/regression/linear-regression/" >
       Linear Regression
   </a>
 
@@ -1064,22 +1064,21 @@ https://github.com/alex-shpak/hugo-book
 
 <h1 id="bayesian-linear-regression">Bayesian Linear Regression</h1>
 
-<p><img src="images/bayes.jpg" alt="Bayes" /></p>
+<p><img src="images/bayes.jpg" alt="Bayes" />
+<em>Thomas Bayes (1701-1761)</em></p>
 
-<p><em>Thomas Bayes (1701-1761)</em></p>
-
-<p>The treatment in this section will proceed as follows. First we will discuss the Ordinary Least Squares  (or the Maximum Likelihood) estimate of the model parameters. We will then introduce the Bayesian approach to estimating the model parameters and look at the so called <em>predictive</em> distribution for the simple <a href="/docs/lectures/ml-math/ml-problem-statement">data set</a> we started our journey on.</p>
+<p>The treatment in this section will proceed as follows. First we will discuss the Ordinary Least Squares  (or the Maximum Likelihood) estimate of the model parameters. We will then introduce the Bayesian approach to estimating the model parameters and look at the so called <em>predictive</em> distribution for the simple <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/learning-problem/">data set</a> we started our journey on.</p>
 
 <h2 id="ols-as-maximum-likelihood-estimation">OLS as Maximum Likelihood Estimation</h2>
 
-<p><a href="https://www.cs.indiana.edu/~predrag/classes/2016fallb365x/ols.pdf">These notes</a> summarize the ML approach (in section 2) and are provided here as they are more expansive compared to Bishop Section 1.2.5 and at the same time do make the connection to the <a href="/docs/lectures/ml-math/linear-algebra-for-ml">Linear Algebra lecture</a>.</p>
+<p><a href="https://www.cs.indiana.edu/~predrag/classes/2016fallb365x/ols.pdf">These notes</a> summarize the Maximum Likelihood approach and are provided here as they are more expansive compared to textbooks and at the same time do make the connection to the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/linear-algebra/">Linear Algebra background you should have</a>.</p>
 
 <p><img src="images/Figure3.2.png" alt="Figure3.2-bishop" />
-<em>Geometrical Interpretation of Ordinary Least Squares</em></p>
+<em>Geometrical Interpretation of Ordinary Least Squares (OLS)</em></p>
 
 <h2 id="bayesian-linear-regression-1">Bayesian Linear Regression</h2>
 
-<p>In the <a href="/docs/lectures/ml-math/probability">probability section</a> we have covered an instructive example of coin tossing and saw how the posterior distribution is updated with the draws. The Bayesian setting is obviously generic enough and here we provide just the intuition (for the interested reader the mathematical treatment is in Bishop Section 3.3) behind its application to linear regression.</p>
+<p>In the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/probability/">probability section</a> we have covered an instructive example of coin tossing and saw how the posterior distribution is updated with the draws. The Bayesian setting is obviously generic enough and here we provide just the intuition (for the interested reader the mathematical treatment is in Bishop Section 3.3) behind its application to linear regression.</p>
 
 <p>The Bayesian update of the posterior can be intuitively understood using a graphical example of a linear model of the form:
 $$g(x,\mathbf{w})= w_0 + w_1 x$$ (our hypothesis). The reason why we pick this example is illustrative as the model has just two parameters and is amendable to visualization.</p>
@@ -1113,9 +1112,9 @@ $$g(x,\mathbf{w})= w_0 + w_1 x$$ (our hypothesis). The reason why we pick this e
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/a12a7922e9f791ef341d92698807ebe4e485126e" title='Last modified by MONOGIOUDIS Pantelis | Feb 2, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/bef327705864d7f37b0df5017fd07e5611e042e9" title='Last modified by MONOGIOUDIS Pantelis | Feb 3, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Feb 2, 2020</span>
+      <span>Feb 3, 2020</span>
     </a>
   </div>
 

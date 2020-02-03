@@ -7,7 +7,7 @@
 <meta name="description" content="Linear Regression"><meta property="og:title" content="Linear Regression" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/regression/regularization/" />
+<meta property="og:url" content="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/regression/linear-regression/" />
 
 <title>Linear Regression | CS-GY-6613 Spring 2020</title>
 <link rel="icon" href="/cs-gy-6613-spring-2020/favicon.png" type="image/x-icon">
@@ -16,9 +16,9 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.a165c7f997df8b190ddf31b5f13b437655c0abb42a2d1df2c8c6be4b304d9ffe.css" integrity="sha256-oWXH&#43;ZffixkN3zG18TtDdlXAq7QqLR3yyMa&#43;SzBNn/4=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.069490189c55fd89465dcfe39acbfd6b50eab99efda0f4f5baef6992fc7fc3df.js" integrity="sha256-BpSQGJxV/YlGXc/jmsv9a1DquZ79oPT1uu9pkvx/w98="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.dc0b2bd7192f477615e3da71e2bd89d578b3444687055b63ac0782b20758ade6.js" integrity="sha256-3Asr1xkvR3YV49px4r2J1XizREaHBVtjrAeCsgdYreY="></script>
 
-<link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/regression/regularization/index.xml" title="CS-GY-6613 Spring 2020" />
+<link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/regression/linear-regression/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -291,7 +291,7 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/cs-gy-6613-spring-2020/docs/lectures/regression/regularization/"  class="active">
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/regression/linear-regression/"  class="active">
       Linear Regression
   </a>
 
@@ -1071,11 +1071,11 @@ https://github.com/alex-shpak/hugo-book
 
 <p>Let us now pick the hypothesis set that correspond to polynomials of the following form,</p>
 
-<p>$$g(\mathbf{w},x) = w_0 + w_1x + w_2 x^2 + &hellip; + w_M x^M$$</p>
+<p>$$g(\mathbf{w},x_i) = w_0 + w_1 x_i + w_2 x_i^2 + &hellip; + w_M x_i^M$$</p>
 
 <p>Our job is to find $\mathbf{w}$ such that the polynomial above fits the data we are given - as we will see there are multiple hypothesis that can satisfy this requirement. To gauge our investigation, we need to define a metric, an error or loss function in fact, that is also a common metric in regression problems of this nature. This is the Mean Squared Error (MSE) function.</p>
 
-<p>$$L(\mathbf{w}) = \frac{1}{2} \sum_{i=1}^m {g(\mathbf{w},x_i)-t_i)}^2$$</p>
+<p>$$L(\mathbf{w}) = \frac{1}{2} \sum_{i=1}^m {(g(\mathbf{w},x_i)-y_i)}^2$$</p>
 
 <p><img src="images/Figure1.3.png" alt="Loss Function" />
 <em>The loss function chosen for this regression problem, corresponds to the sum of the squares of the displacements of each data point and our hypothesis. The sum of squares in the case of Gaussian errors gives raise to an (unbiased) Maximum Likelihood estimate of the model parameters. Contrast this to sum of absolute differences.</em></p>
@@ -1095,7 +1095,7 @@ https://github.com/alex-shpak/hugo-book
 
 <p>To avoid overfitting we have multiple strategies. One straightforward one is evident by observing the wild oscillations of the $\mathbf{w}$ elements as the model complexity increases. We can penalize such oscillations by introducing the $l_2$ norm of $\mathbf{w}$ in our loss function.</p>
 
-<p>$$L(\mathbf{w}) = \frac{1}{2} \sum_{i=1}^m {g(\mathbf{w},x_i)-y_i)}^2 + \frac{\lambda}{2} ||\mathbf{w}||^2$$</p>
+<p>$$L(\mathbf{w}) = \frac{1}{2} \sum_{i=1}^m {(g(\mathbf{w},x_i)-y_i)}^2 + \frac{\lambda}{2} ||\mathbf{w}||^2$$</p>
 
 <p>This type of solution is called <strong>regularization</strong> and because we effectively shrink the weight dynamic range it is also called in statistics shrinkage or ridge regression. We have introduced a new parameter $\lambda$ that regulates the relative importance of the penalty term as compared to the MSE. This parameter together with the polynomial order is what we call <em>hyperparameters</em> and we need to optimize them as both are needed for the determination of our final hypothesis $g$.</p>
 
@@ -1122,7 +1122,7 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/671447f67401a15edee866ae6586fe6a48a2ded1" title='Last modified by MONOGIOUDIS Pantelis | Feb 3, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/bef327705864d7f37b0df5017fd07e5611e042e9" title='Last modified by MONOGIOUDIS Pantelis | Feb 3, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Feb 3, 2020</span>
     </a>
@@ -1131,7 +1131,7 @@ https://github.com/alex-shpak/hugo-book
 
 
   <div>
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/edit/master/cs-gy-6613-spring-2020/content/docs/lectures/regression/regularization/_index.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/edit/master/cs-gy-6613-spring-2020/content/docs/lectures/regression/linear-regression/_index.md" target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
