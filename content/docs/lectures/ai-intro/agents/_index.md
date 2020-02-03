@@ -13,7 +13,6 @@ In general sensor data are converted via the agent function (that is implemented
 ![agent-environment](images/agent-environment.png#center)
 *General Agent-Environment Interface*
 
-
 The two most important agent architectures that we will deal with in this course are the utility and learning-based agents architectures. To start with we recognize that most of the problems we will face as agent designers are for agents operating in environments that are:
 
 * **Partially Observed (PO).** This means that we cant see all the variables that constitute the state and we need to maintain an internal _belief_ of the state variables that we cant perceive. 
@@ -41,9 +40,9 @@ In the rational agent architecture we meet three key concepts:
 
 The learning agent architecture builds on top of the rational agent (the performance element in the figure below), additional functions that:
 
-1. Embeds a _learner_ that learns the various models needed by the rational agent as well as allowing the rational agent to operate on unknown environments. In this respect it learns the world model or some elements of the utility function itself. To enable learning, the rational agent sends training data to the learner. 
+1. Embeds a _learner_ that learns the various models needed by the rational agent as well as allowing the rational agent to operate on unknown environments. In this respect it learns the world model,  some elements of the utility function itself or the desirability of each actions it takes. To enable learning, the rational agent sends training data to the learner. 
 2. Introduces a _critic_ that transmits a positive or negative reward to the learner based on its own view of how the agent is doing. The learner can modify these models to make the rational agent perform better in the future. 
-3. Introduces the _problem generator_ that can change the problem statement of the rational agent. Obviously the expected utility objective will not change but the utility function itself may in fact change to lead the agent to perform more exploration (risk) in its environment. 
+3. Introduces the _problem generator_ that can change the problem statement of the rational agent. Obviously the expected utility objective will not change but the utility function itself may in fact change to lead the agent to perform more exploration (increase its risk) in its environment. 
 
-
+We will see in Deep Reinforcement Learning that this architecture is able to accommodate such end to end learning approach. In that setting the critic is part of the environment - see [Solving sparse-reward tasks with Curiosity](https://blogs.unity3d.com/2018/06/26/solving-sparse-reward-tasks-with-curiosity/) for an example where the critic is inside the agent generating intrinsic rewards. 
 

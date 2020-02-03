@@ -18,10 +18,10 @@ The pictures below are from MacKays book and despite their conceptual simplicity
 #### Probability distributions
 
 ![bivariate-Gaussian](images/figure21.png)
-*Probability distribution over the letters of the English alphabet (letter 27 symbolizes space)*
+*Probability distribution over the letters of the English alphabet (letter 27 symbolizes space) as measured by reading the Linux FAQ document.*
 
 **Joint probability distributions**
-![bivariate-Gaussian](images/figure22.png)
+![bivariate-Gaussian](images/figure2.2.png)
 *Joint probability $P(x,y)$ distribution over the 27x27 possible bigrams $xy$ found in this document: https://www.tldp.org/FAQ/pdf/Linux-FAQ.pdf*
 
 What is the marginal probability $P(x)$ ?
@@ -76,7 +76,7 @@ Such geometric interpretations will be very useful when we study dimensionality 
 
 3. The Bayesian theorem is the cornerstone of probabilistic modeling. If $\mathbf{\theta}$ denotes the unknown parameters, $D$ denotes the dataset and $\mathcal{H}$ denotes the hypothesis space  - the model we have seen in [the ML problem statement section](/docs/lectures/ml-math/ml-problem-statement).
 
-> $$ P(\mathbf{\theta} | D, \mathcal{H}) =  \frac{P( D | \mathbf{\theta}, \mathcal{H}) P(\mathbf{\theta} | \mathcal{H}) }{ P(D|\mathcal{H}} $$
+> $$ P(\mathbf{\theta} | D, \mathcal{H}) =  \frac{P( D | \mathbf{\theta}, \mathcal{H}) P(\mathbf{\theta} | \mathcal{H}) }{ P(D|\mathcal{H})} $$
 
 > The Bayesian framework allows the introduction of priors from a wide variety of sources (experts, other data, past posteriors, etc.) For example,a medical patient is exhibiting symptoms x, y and z. There are a number of diseases that could be causing all of them, but only a single disease is present. A doctor (the expert) has beliefs about which disease, but a second doctor may have slightly different beliefs.
 
