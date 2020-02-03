@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Week 2c - Linear Classification"><meta property="og:title" content="Week 2c - Linear Classification" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/" />
+
+<title>Week 2c - Linear Classification | CS-GY-6613 Spring 2020</title>
+<link rel="icon" href="/cs-gy-6613-spring-2020/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.a165c7f997df8b190ddf31b5f13b437655c0abb42a2d1df2c8c6be4b304d9ffe.css" integrity="sha256-oWXH&#43;ZffixkN3zG18TtDdlXAq7QqLR3yyMa&#43;SzBNn/4=">
+
+
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.15914bb86ba9163f1aee2f7a8383c36f55cc86c003ca911f484ddf085de9d095.js" integrity="sha256-FZFLuGupFj8a7i96g4PDb1XMhsADypEfSE3fCF3p0JU="></script>
+
+<link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/index.xml" title="CS-GY-6613 Spring 2020" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cs-gy-6613-spring-2020"><img src="/cs-gy-6613-spring-2020/tandon_long_black.png" alt="Logo" /><span>CS-GY-6613 Spring 2020</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/syllabus/" >
+      Syllabus
+  </a>
+
+</li>
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/" >
+      Week 1 - Introduction to AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/course-introduction/" >
+      Course Introduction
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/systems-approach/" >
+      A systems approach to AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-pipelines/" >
+      The Way of Working in AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Intelligent Agents and Representations</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/learning-problem/" >
+      Week 2a - The Learning Problem
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Week 2b - Regression</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/regression/regularization/" >
+      Regularization
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/regression/ML-Bayesian-estimation/" >
+      Bayesian Linear Regression
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/"  class="active">
+      Week 2c - Linear Classification
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/knn/" >
+      k-Nearest Neighbors Classification
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/perceptron/" >
+      The Perceptron
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/logistic-regression/" >
+      Logistic Regression
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/kernels/" >
+      Kernels and the Kernel Trick
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/clustering/" >
+      K-means Clustering
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/" >
+      Support Vector Machines
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/face-recognition/" >
+      Face Recognition - SVM Case Study
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/mnist/" >
+      MNIST Classification - SVM Case Study
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/iris/" >
+      Iris Classification - SVM Case Study
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/decision-trees/" >
+      Decision Trees
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/random-forests/" >
+      Random Forests
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Background - Math for ML</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/linear-algebra/" >
+      Linear Algebra for Machine Learning
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/optimization/" >
+      Optimization and Stochastic Gradient Descent
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/probability/" >
+      Probability and Information Theory Basics
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/netflix/" >
+      The Netflix Prize and Singular Value Decomposition
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/" >
+      Background - ML Frameworks
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/numpy-pandas/" >
+      Numerical Python (Numpy/Scipy and Pandas) Tutorials
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/tensorflow-introduction/" >
+      Introduction to Tensorflow
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/" >
+      Projects
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/imu-classification/" >
+      Project 1 - Surface Type Classification
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/continuous-learning/" >
+      Project 2 - Continual Learning for Robotic Perception
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/env/" >
+      Your Programming Environment
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+<script>
+(function() {
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
+  });
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
+</script>
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cs-gy-6613-spring-2020/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Week 2c - Linear Classification</strong>
+
+  <label for="toc-control">
+    <img src="/cs-gy-6613-spring-2020/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#linear-classification">Linear Classification</a>
+<ul>
+<li><a href="#classification-principle">Classification Principle</a>
+<ul>
+<li><a href="#discriminative-models">Discriminative Models</a></li>
+<li><a href="#receiver-operating-curve-and-classification-metrics">Receiver Operating Curve and Classification Metrics</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+<article class="markdown">
+
+<h1 id="linear-classification">Linear Classification</h1>
+
+<p><img src="images/radar-tower.png" alt="radar-tower" /></p>
+
+<p>This section captures the main principles of linear classification which is a fundamental ability for the perception system of an AI agent.</p>
+
+<h2 id="classification-principle">Classification Principle</h2>
+
+<p>There are three broad classes of methods for determining the parameters $\mathbf{w}$ of a linear classifier:</p>
+
+<ol>
+<li><p><strong>Discriminative Models</strong>, which form a discriminant function that maps directly test data $\mathbf{x}$ to classes $\mathcal{C}_k$. In this case, probabilities play no role. Perceptron and Support Vector Machines (SVMs) - an algorithm that maximizes the margin between the decision hyperplane and the examples in the training set.</p></li>
+
+<li><p><strong>Probabilistic Discrimitative Models</strong>, First solve the inference problem of determining the posterior class probabilities $p(\mathcal{C}_k|\mathbf{x})$ and then subsequently assign each new $\mathbf{x}$ to one of the classes. Approaches that model the posterior probabilities directly are called discriminative models. Examples of discriminative training of linear classifiers include:</p>
+
+<ul>
+<li><strong>Logistic regression</strong>—maximum likelihood estimation of $\mathbf{w}$ assuming that the observed training set was generated by a binomial model that depends on the output of the classifier.</li>
+</ul></li>
+
+<li><p><strong>Probabilistic Generative Models</strong>, which infer the posterior $p(\mathcal{C}_k|\mathbf{x})$ using Bayessian approach and we therefore generate the class-conditional density $p(\mathbf{x}|\mathcal{C}_k)$ and the prior $p(\mathcal{C}_k)$.  Examples of such algorithms include:</p>
+
+<ul>
+<li>Linear Discriminant Analysis (or Fisher&rsquo;s linear discriminant) (LDA)—assumes Gaussian conditional density models</li>
+<li>Naive Bayes classifier with multinomial or multivariate Bernoulli event models.</li>
+</ul></li>
+</ol>
+
+<h3 id="discriminative-models">Discriminative Models</h3>
+
+<p><img src="images/Figure4.4b.png" alt="Bishop" />
+<em>Synthetic Dataset with multiple discriminant functions</em></p>
+
+<ul>
+<li><p>The learning algorithm is asked to assign the input vector $\mathbf{x} \in \mathbb{R}^n$ to one of the $k$ classes.  The learning algorithm will need to produce a function $\mathbf{y}=g(\mathbf{x})$ also called <em>discriminant</em> function.</p></li>
+
+<li><p>In binary classification, the target variable (label) $y$ belongs to either of the two classes ${\mathcal{C}_1, \mathcal{C}_2}$ - for multi-class it is taking a value out of a finite set of classes. Contrast this to regression where $y$ is taking any value out of a infinite possible set of values ($y \in \mathbb{R}$). For example,  we can choose convenient labels $y=0$ for class $\mathcal{C}_1$, and $y=1$ for class $\mathcal{C}_2$.</p></li>
+
+<li><p>The Bayesian setting is now very handy, $ p(\mathcal{C}_k|\mathbf{x}) = \frac{p(\mathbf{x}|\mathcal{C}_k)p(\mathcal{C}_k)}{p(\mathbf{x})}$
+where $p(\mathcal{C}_k)$ is the prior probability for the corresponding class. The equation above is similar to what we have seen in regression, and can be used to update the posterior probability  $p(\mathcal{C}_k|\mathbf{x})$ given the likelihood function, prior and evidence. As an example, we look at the CT-scan of a patient and obtain the posterior probability based on the formula above and can now diagnose the patient as a cancer free if $p(\mathcal{C}_0|\mathbf{x}) &gt; p(\mathcal{C}_1|\mathbf{x})$ where $\mathcal{C}_0$ is the cancer free class.</p></li>
+</ul>
+
+<p><img src="images/Figure1.24.png" alt="Bishop-Figure-1.24" />
+<em>Joint probabilities involved in binary classification. By sweeping the discrimination function (which in this example is the threshold $\hat{x}$) left or right we are adjusting the areas shown as red blue and green that are the main determinants of classifier performance.</em></p>
+
+<h3 id="receiver-operating-curve-and-classification-metrics">Receiver Operating Curve and Classification Metrics</h3>
+
+<p>Obviously the criticality of estimating the right posterior for the treatment of the patient is very high - we have therefore developed metrics that gauge such detection. It is extremely important to understand the <strong>Receiver Operating Curve</strong> that gives raise to many classification quality metrics. Where the name comes from? The top of this page is decorated by a photo of one of the hundreds of RADAR towers installed in England just before the WWII. The job of the RADAR was to detect incoming Nazi air bombings. RADAR was one of the key technologies that won the war (the other was cryptography).</p>
+
+<p>Let us consider a two-class prediction problem (binary classification), in which the outcomes are labeled either as positive (p) or negative (n). There are four possible outcomes from a binary classifier. If the outcome from a prediction is p and the actual value is also p, then it is called a true positive (TP); however if the actual value is n then it is said to be a false positive (FP). Conversely, a true negative (TN) has occurred when both the prediction outcome and the actual value are n, and false negative (FN) is when the prediction outcome is n while the actual value is p.</p>
+
+<p>To get an appropriate example in a real-world problem, consider a diagnostic test that seeks to determine whether a person has a certain disease. A false positive in this case occurs when the person tests positive, but does not actually have the disease. A false negative, on the other hand, occurs when the person tests negative, suggesting they are healthy, when they actually do have the disease.</p>
+
+<p>Let us define an experiment from P positive instances and N negative instances for some condition. The four outcomes can be formulated in a 2×2 contingency table or confusion matrix, as follows:</p>
+
+<p><img src="images/ROC_curves.svg.png" alt="ROC" />
+<em>Joint probabilities and ROC Curve (Wikipedia)</em></p>
+
+<p><img src="images/confusion-matrix.png" alt="Confusion Matrix" />
+<em>Confusion Matrix (<a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic">Wikipedia</a>)</em></p>
+
+<p>For an instructional <a href="https://www.kaggle.com/uciml/iris">example</a> of determining the confusion matrix of classification models using scikit-learn see the Iris case study.</p>
+</article>
+ 
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/a12a7922e9f791ef341d92698807ebe4e485126e" title='Last modified by MONOGIOUDIS Pantelis | Feb 2, 2020' target="_blank" rel="noopener">
+      <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Feb 2, 2020</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/edit/master/cs-gy-6613-spring-2020/content/docs/lectures/classification/_index.md" target="_blank" rel="noopener">
+      <img src="/cs-gy-6613-spring-2020/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+  
+ 
+      </footer>
+      
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#linear-classification">Linear Classification</a>
+<ul>
+<li><a href="#classification-principle">Classification Principle</a>
+<ul>
+<li><a href="#discriminative-models">Discriminative Models</a></li>
+<li><a href="#receiver-operating-curve-and-classification-metrics">Receiver Operating Curve and Classification Metrics</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  <!DOCTYPE html>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+<script>
+    window.WebFontConfig = {
+        custom: {
+        families: ['KaTeX_AMS', 'KaTeX_Caligraphic:n4,n7', 'KaTeX_Fraktur:n4,n7',
+            'KaTeX_Main:n4,n7,i4,i7', 'KaTeX_Math:i4,i7', 'KaTeX_Script',
+            'KaTeX_SansSerif:n4,n7,i4', 'KaTeX_Size1', 'KaTeX_Size2', 'KaTeX_Size3',
+            'KaTeX_Size4', 'KaTeX_Typewriter'],
+        },
+    };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script>
+
+<style>
+    .katex-version {display: none;}
+    .katex-version::after {content:"0.10.2 or earlier";}
+  </style>
+  <span class="katex">
+    <span class="katex-mathml">The KaTeX stylesheet is not loaded!</span>
+    <span class="katex-version rule">KaTeX stylesheet version: </span>
+  </span>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

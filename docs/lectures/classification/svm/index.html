@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Support Vector Machines"><meta property="og:title" content="Support Vector Machines" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/svm/" />
+
+<title>Support Vector Machines | CS-GY-6613 Spring 2020</title>
+<link rel="icon" href="/cs-gy-6613-spring-2020/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.a165c7f997df8b190ddf31b5f13b437655c0abb42a2d1df2c8c6be4b304d9ffe.css" integrity="sha256-oWXH&#43;ZffixkN3zG18TtDdlXAq7QqLR3yyMa&#43;SzBNn/4=">
+
+
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.15914bb86ba9163f1aee2f7a8383c36f55cc86c003ca911f484ddf085de9d095.js" integrity="sha256-FZFLuGupFj8a7i96g4PDb1XMhsADypEfSE3fCF3p0JU="></script>
+
+<link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/svm/index.xml" title="CS-GY-6613 Spring 2020" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cs-gy-6613-spring-2020"><img src="/cs-gy-6613-spring-2020/tandon_long_black.png" alt="Logo" /><span>CS-GY-6613 Spring 2020</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/syllabus/" >
+      Syllabus
+  </a>
+
+</li>
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/" >
+      Week 1 - Introduction to AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/course-introduction/" >
+      Course Introduction
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/systems-approach/" >
+      A systems approach to AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-pipelines/" >
+      The Way of Working in AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Intelligent Agents and Representations</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/learning-problem/" >
+      Week 2a - The Learning Problem
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Week 2b - Regression</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/regression/regularization/" >
+      Regularization
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/regression/ML-Bayesian-estimation/" >
+      Bayesian Linear Regression
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/" >
+      Week 2c - Linear Classification
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/knn/" >
+      k-Nearest Neighbors Classification
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/perceptron/" >
+      The Perceptron
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/logistic-regression/" >
+      Logistic Regression
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/kernels/" >
+      Kernels and the Kernel Trick
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/clustering/" >
+      K-means Clustering
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/"  class="active">
+      Support Vector Machines
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/face-recognition/" >
+      Face Recognition - SVM Case Study
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/mnist/" >
+      MNIST Classification - SVM Case Study
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/iris/" >
+      Iris Classification - SVM Case Study
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/decision-trees/" >
+      Decision Trees
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/random-forests/" >
+      Random Forests
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Background - Math for ML</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/linear-algebra/" >
+      Linear Algebra for Machine Learning
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/optimization/" >
+      Optimization and Stochastic Gradient Descent
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/probability/" >
+      Probability and Information Theory Basics
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/netflix/" >
+      The Netflix Prize and Singular Value Decomposition
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/" >
+      Background - ML Frameworks
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/numpy-pandas/" >
+      Numerical Python (Numpy/Scipy and Pandas) Tutorials
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/tensorflow-introduction/" >
+      Introduction to Tensorflow
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/" >
+      Projects
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/imu-classification/" >
+      Project 1 - Surface Type Classification
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/continuous-learning/" >
+      Project 2 - Continual Learning for Robotic Perception
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/env/" >
+      Your Programming Environment
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+<script>
+(function() {
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
+  });
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
+</script>
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cs-gy-6613-spring-2020/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Support Vector Machines</strong>
+
+  <label for="toc-control">
+    <img src="/cs-gy-6613-spring-2020/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#support-vector-machines">Support Vector Machines</a>
+<ul>
+<li><a href="#classification-margin">Classification Margin</a></li>
+<li><a href="#optimization-problem-statement">Optimization problem statement</a></li>
+</ul></li>
+</ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+<article class="markdown">
+
+<h1 id="support-vector-machines">Support Vector Machines</h1>
+
+<p>In the development of the concept of <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/kernels/">kernels</a>, we mentioned that these can be used to derive non-linear decision boundaries. What we haven&rsquo;t addressed, is how good these can be - for example in separable datasets there can be many (or infinite) number of boundaries that separate the two classes but we need a metric to gauge the quality of separation. This metric is called the <strong>margin</strong> and will be geometrically explained next.</p>
+
+<h2 id="classification-margin">Classification Margin</h2>
+
+<p>Intuitively margin is the distance between the classification boundary and the closest data point(s) of the two classes, as shown below:</p>
+
+<p><img src="images/Figure7.1a.png" alt="margin" />
+<em>Classification Margin</em></p>
+
+<p>Assuming a linear classifier of $g(\mathbf x) = \mathbf w^T \phi(\mathbf x) + b$ and a separable dataset for the moment, the maximization of the margin leads to a decision boundary, $y(\mathbf x)=0$ that depends only on a subset of data that are calling <strong>support vectors</strong> as shown below for the specific dataset.</p>
+
+<p><img src="images/Figure7.1b.png" alt="margin" />
+<em>Support Vectors</em></p>
+
+<p>Just like in the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/perceptron/">perceptron</a> case, since</p>
+
+<p>$$y( \mathbf x_i ) = \begin{cases}&gt;0 &amp; \text{if} \ y_i = +1, \\ &lt;0 &amp; \text{if} \ y_i = -1 \end{cases}$$</p>
+
+<p>for all training data we have,</p>
+
+<p>$$y_i(\mathbf w^T x_i + b) &gt; 0$$</p>
+
+<p>So we are after a $\mathbf w \in \mathbb{R}^n$ that satisfies this constraint. Before we proceed, let us define geometrically what the margin looks like. Let us define two parallel lines on either side of the decision boundary as shown in the above figure,</p>
+
+<p>$\mathbf w^T \phi(\mathbf x) + b = 1$</p>
+
+<p>$\mathbf w^T \phi(\mathbf x) + b = -1$</p>
+
+<p>Let us assume now that there is a data point that is very close to the decision boundary and just marginally satisfied the inequality $y_i(\mathbf w^T x_i + b) &gt; 0$ for example $y_i(\mathbf w^T x_k + b) = 0.2$. If we scale both sides we can reach an equivalent condition that is appealing mathematically $y_i(\mathbf w^T x_i + b) &gt; 1$ - equivalent as it will result in the same $\mathbf w$. In addition to this scaling, it is very useful to normalize $\mathbf w$ as</p>
+
+<p>$\hat \mathbf w = \mathbf w / ||\mathbf w||$</p>
+
+<p>For a point $\mathbf z$ that is in the margin defining line $\mathbf w^T \phi(\mathbf x) + b = 1$ we can calculate given a margin distance $\gamma$ the point it projects to the decision boundary line which is defined by the normalized normal vector $\mathbf w$ as, $\mathbf z - \gamma \hat \mathbf w$. Then we can write two equations that satisfy these two points:</p>
+
+<p>$\mathbf w^T \phi(\mathbf z) + b = 1$</p>
+
+<p>$\mathbf w^T \phi(\mathbf z - \gamma \hat \mathbf w) + b = 1$</p>
+
+<p>given that we are dealing with linear decision boundary in this specific problem, we can eliminate $\phi$ as there is no transformation involved and subtract the two equations. Solving for the margin $\gamma$ we obtain,</p>
+
+<p>$\gamma = \frac{1}{||w||}$</p>
+
+<h2 id="optimization-problem-statement">Optimization problem statement</h2>
+
+<p>We are now ready to write the optimization problem that will maximize $\gamma$ or minimize $||\mathbf w||$ or equivalently minimize a monotonic function of $||\mathbf w||$.</p>
+
+<p>$\min \frac{1}{2}||w||^2$</p>
+
+<p>$\ \text{s.t.} \ y_i\mathbf w^T x_i + b &gt; 1$</p>
+
+<p>This is a convex optimization problem (we have linear constraints and convex objective function) and therefore there are efficient ways to solve it. In practice, ML frameworks have built in solvers that can provide the $\mathbf w$ given a dataset. Understanding the solution is instructive but it requires background in convex optimization theory and the concept of Langrange multipliers. For this reason, the math in the &ldquo;Under the hood&rdquo; section of chapter 5 of Geron&rsquo;s book will not be in the midterm or final exams but the intuition behind maximizing the margin is in the scope of the <em>final</em> exam.</p>
+
+<p>To provide an intuition of how the kernels and the SVM classifiers are connected, it suffices to write down the dual form of the optimization problem and surely enough in this form the solution involves dot products in the data space. In general, any SVM problem  can be kernelized if we expand the data space using a suitable kernel which means that SVM is able via the kernel trick to find efficiently max margin decision boundaries of <strong>any shape</strong>.</p>
+
+<p>For non separable datasets the optimization problem statement can be written using slack variables $\xi_i$ that relax the constraints and therefore result into $\mathbf w$ and $b$ that tolerate some classification errors for good generalization ability.</p>
+
+<p>$\min \frac{1}{2}||w||^2 + C \sum_i \xi_i$</p>
+
+<p>$\ \text{s.t.} \ y_i\mathbf w^T x_i + b \ge 1 - \xi_i$</p>
+
+<p>$ \ \ \ \ \ \ \ \xi_i \ge 0$</p>
+
+<p>The slack variable defining how much on the wrong side the 𝑖th training example is. If $\xi =0$, the point was classified correctly and by enough of a margin; if it&rsquo;s between 0 and 1, the point was classified correctly but by less of a margin than the SVM wanted; if it&rsquo;s more than 1, the point was classified incorrectly. A geometrical view of the above is useful.</p>
+
+<p><img src="images/slack.png" alt="slack" /></p>
+
+<p>Once again the ML frameworks that you will work with, provide <a href="https://scikit-learn.org/stable/modules/svm.html">in their documentation</a> explicit mention about variables of the optimization problem statement above (such as $C$). However as $C$ must be explicitly set by the data scientist, or optimized using hyperparameter optimization techniques, it is instructive to comment that $C$ is equivalent to the $1/\lambda$ regularization parameter we met in <a href="../ml-math/ml-problem-statement">the very beginning of these lectures</a> where we penalized the weights of linear regression to avoid overfitting. $C$ as you can see from the optimization problem objective function if set too high, even a slightest ammount of slack will greatly penalize (add) to the objective and therefore will drive the decision boundary towards &ldquo;hard&rdquo; SVM decisions. This is not good news as the SVM must in many practical cases avoid over-sensitivity to outliers - too large $C$ can lead to driving the decision boundary towards outliers significantly increasing the test (generalization) error. If $C$ is set to $C=0$ then any ammount of slack will be tolerated and then the decision boundary may result into too many misclassifications.</p>
+</article>
+ 
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/a12a7922e9f791ef341d92698807ebe4e485126e" title='Last modified by MONOGIOUDIS Pantelis | Feb 2, 2020' target="_blank" rel="noopener">
+      <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Feb 2, 2020</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/edit/master/cs-gy-6613-spring-2020/content/docs/lectures/classification/svm/_index.md" target="_blank" rel="noopener">
+      <img src="/cs-gy-6613-spring-2020/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+  
+ 
+      </footer>
+      
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#support-vector-machines">Support Vector Machines</a>
+<ul>
+<li><a href="#classification-margin">Classification Margin</a></li>
+<li><a href="#optimization-problem-statement">Optimization problem statement</a></li>
+</ul></li>
+</ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  <!DOCTYPE html>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+<script>
+    window.WebFontConfig = {
+        custom: {
+        families: ['KaTeX_AMS', 'KaTeX_Caligraphic:n4,n7', 'KaTeX_Fraktur:n4,n7',
+            'KaTeX_Main:n4,n7,i4,i7', 'KaTeX_Math:i4,i7', 'KaTeX_Script',
+            'KaTeX_SansSerif:n4,n7,i4', 'KaTeX_Size1', 'KaTeX_Size2', 'KaTeX_Size3',
+            'KaTeX_Size4', 'KaTeX_Typewriter'],
+        },
+    };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script>
+
+<style>
+    .katex-version {display: none;}
+    .katex-version::after {content:"0.10.2 or earlier";}
+  </style>
+  <span class="katex">
+    <span class="katex-mathml">The KaTeX stylesheet is not loaded!</span>
+    <span class="katex-version rule">KaTeX stylesheet version: </span>
+  </span>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

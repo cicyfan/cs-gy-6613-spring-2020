@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Week 2a - The Learning Problem"><meta property="og:title" content="Week 2a - The Learning Problem" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/learning-problem/" />
+
+<title>Week 2a - The Learning Problem | CS-GY-6613 Spring 2020</title>
+<link rel="icon" href="/cs-gy-6613-spring-2020/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.a165c7f997df8b190ddf31b5f13b437655c0abb42a2d1df2c8c6be4b304d9ffe.css" integrity="sha256-oWXH&#43;ZffixkN3zG18TtDdlXAq7QqLR3yyMa&#43;SzBNn/4=">
+
+
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.15914bb86ba9163f1aee2f7a8383c36f55cc86c003ca911f484ddf085de9d095.js" integrity="sha256-FZFLuGupFj8a7i96g4PDb1XMhsADypEfSE3fCF3p0JU="></script>
+
+<link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/learning-problem/index.xml" title="CS-GY-6613 Spring 2020" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cs-gy-6613-spring-2020"><img src="/cs-gy-6613-spring-2020/tandon_long_black.png" alt="Logo" /><span>CS-GY-6613 Spring 2020</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/syllabus/" >
+      Syllabus
+  </a>
+
+</li>
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/" >
+      Week 1 - Introduction to AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/course-introduction/" >
+      Course Introduction
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/systems-approach/" >
+      A systems approach to AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-pipelines/" >
+      The Way of Working in AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Intelligent Agents and Representations</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/learning-problem/"  class="active">
+      Week 2a - The Learning Problem
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Week 2b - Regression</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/regression/regularization/" >
+      Regularization
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/regression/ML-Bayesian-estimation/" >
+      Bayesian Linear Regression
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/" >
+      Week 2c - Linear Classification
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/knn/" >
+      k-Nearest Neighbors Classification
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/perceptron/" >
+      The Perceptron
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/logistic-regression/" >
+      Logistic Regression
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/kernels/" >
+      Kernels and the Kernel Trick
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/clustering/" >
+      K-means Clustering
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/" >
+      Support Vector Machines
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/face-recognition/" >
+      Face Recognition - SVM Case Study
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/mnist/" >
+      MNIST Classification - SVM Case Study
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/iris/" >
+      Iris Classification - SVM Case Study
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/decision-trees/" >
+      Decision Trees
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/random-forests/" >
+      Random Forests
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Background - Math for ML</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/linear-algebra/" >
+      Linear Algebra for Machine Learning
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/optimization/" >
+      Optimization and Stochastic Gradient Descent
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/probability/" >
+      Probability and Information Theory Basics
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/netflix/" >
+      The Netflix Prize and Singular Value Decomposition
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/" >
+      Background - ML Frameworks
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/numpy-pandas/" >
+      Numerical Python (Numpy/Scipy and Pandas) Tutorials
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/tensorflow-introduction/" >
+      Introduction to Tensorflow
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/" >
+      Projects
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/imu-classification/" >
+      Project 1 - Surface Type Classification
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/continuous-learning/" >
+      Project 2 - Continual Learning for Robotic Perception
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/env/" >
+      Your Programming Environment
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+<script>
+(function() {
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
+  });
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
+</script>
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cs-gy-6613-spring-2020/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Week 2a - The Learning Problem</strong>
+
+  <label for="toc-control">
+    <img src="/cs-gy-6613-spring-2020/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#the-learning-problem">The Learning Problem</a>
+<ul>
+<li><a href="#the-supervised-learning-problem-statement">The Supervised Learning Problem Statement</a></li>
+<li><a href="#unsupervised-learning">Unsupervised Learning</a></li>
+<li><a href="#semi-supervised-learning-and-active-learning">Semi-supervised Learning and Active Learning</a></li>
+<li><a href="#reinforcement-learning">Reinforcement Learning</a></li>
+</ul></li>
+</ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+<article class="markdown">
+
+<h1 id="the-learning-problem">The Learning Problem</h1>
+
+<p>We have seen various <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/agents/">agent</a> designs but the ones that we will concentrate on this course are ones that can form <em>partially observed</em> (PO) environment states using various sensing architectures. The perception block we have seen in the case where the agent is an autonomous car achieves that for example, and perception is rich in what is called Machine Learning (ML).  ML is a substantial subset of AI today and is not limited to just the perception part of an agent.</p>
+
+<p><img src="images/ml-ai-categorization.png#center" alt="ml-ai-categorization" /></p>
+
+<p>Almost all machine learning algorithms depend heavily on the <strong>representation</strong> of the data they are given.  Each piece of, relevant to the problem, information that is included in the representation is known as a <strong>feature</strong>. Today&rsquo;s ML approaches such as deep learning actually <strong>learn</strong> the most suitable representations for the task at hand (still with a some help from experts) - an example is shown in the picture below.</p>
+
+<p><img src="images/hierarchical-features-classification.png#center" alt="Hierarchical Features" />
+<em>Hierarchical Feature Learning</em></p>
+
+<h2 id="the-supervised-learning-problem-statement">The Supervised Learning Problem Statement</h2>
+
+<p>Let us start with a classic formal definition of the supervised learning problem.</p>
+
+<p><img src="images/enhanced-vapnik-learning-problem.svg" alt="learning-problem" /></p>
+
+<p><em>Vapnik&rsquo;s formulation of the learning problem (enhanced)</em></p>
+
+<p>The description below is taken from Vadimir Vapnik&rsquo;s classic book <a href="https://www.amazon.com/Statistical-Learning-Theory-Vladimir-Vapnik/dp/0471030031">Statistical Learing Theory</a>, albeit with some enhancements on terminology to make it more in line with our purposes.</p>
+
+<p>The generator is a source of situations that determines the environment in which the target function (he calls it supervisor) and the learning algorithm act.  Here we consider the simplest environment: the data generator generates the vectors $\mathbf{x} \in \mathcal{X}$ independently and identically distributed (i.i.d.) according to some unknown (but fixed) probability distribution function $F(x)$.</p>
+
+<p>These vectors are inputs to the target function (or operator); the target operator returns the output values $\mathbf{y}$. The target operator which transforms the vectors $\mathbf{x}$ into values y,  is <strong>unknown</strong> but we know that it  exists and does not change.</p>
+
+<p>The learning algorithm observes the training dataset,</p>
+
+<p>$${ (\mathbf{x}_1, y_1), \dots, (\mathbf{x}_m, y_m) }$$</p>
+
+<p>which contain input vectors $\mathbf{x}$ and the target response $\mathbf{y}$. During this period, the learning algorithm constructs some operator which will he used for prediction of the supervisor&rsquo;s answer $y_i$ on any specific vector $\mathbf{x}_i$  generated by the generator. The goal of the learning algorithm is  to construct an appropriate <strong>approximation</strong> of the target function - we will call this a hypothesis. The hypothesis can be iteratively constructed so the final hypothesis is the one that is used to produce the label $\hat{y}$.</p>
+
+<p>To be a mathematically correct, this general scheme of learning from examples needs some clarification. First of all,  we have to describe what kind of operators are used by the target function. In this book. we suppose that the target function returns the output $\mathbf{y}$ on the vector $\mathbf{x}$ according to  a conditional distribution function $F(\mathbf{y} | \mathbf{x})$ (this includes the case when the supervisor uses some function $\mathbf{y} = f(\mathbf{x}))$.</p>
+
+<p>The learning algorithm observes the training set which is drawn randomly and independently according to  a joint distribution function $F(\mathbf{x} , \mathbf{y}) = F(\mathbf{x}) F(\mathbf{y} | \mathbf{x})$. Recall that we do not know this function but we do know that it  exists. Using this training set, the learning algorithm constructs an approximation to the unknown function. The ability to correctly <em>predict</em> / <em>classify</em> when observing the test set, is called <strong>generalization</strong>.</p>
+
+<p>A couple of examples of supervised learning are shown below:</p>
+
+<p><img src="images/usps.png" alt="USPS" />
+<em>Examples from the MNIST training dataset used for classification</em></p>
+
+<p><img src="images/home-prices-area.png" alt="Zillow" />
+<em>Birdseye view of home prices - Zillow predicts prices for similar homes in the same market. This is a regression problem.</em></p>
+
+<h2 id="unsupervised-learning">Unsupervised Learning</h2>
+
+<p>In unsupervised learning, we present a training set ${ \mathbf{x}_1, \dots, \mathbf{x}_m }$  without labels. The most common unsupervised learning method is clustering. We construct a partition of the data into a number of $K$ <strong>clusters</strong>, such that a suitably chosen loss function is minimized for a <em>different</em> set of input data (test).</p>
+
+<p><img src="images/unsupervised.png" alt="USPS" />
+<em>Clustering showing two classes and the exemplars per class</em></p>
+
+<h2 id="semi-supervised-learning-and-active-learning">Semi-supervised Learning and Active Learning</h2>
+
+<p>Semi-supervised learning stands between the supervised and unsupervised methods. One of the hottest methods in this category is the so called <a href="https://towardsdatascience.com/active-learning-tutorial-57c3398e34d">Active learning</a>. In many practical settings we simply cannot afford to label /annotate all $\mathbf x$ for very large $m$, and we need to select the ones that greedily result into the biggest performance metric gain (e.g. accuracy).</p>
+
+<h2 id="reinforcement-learning">Reinforcement Learning</h2>
+
+<p>In reinforcement learning, in this course we will treat RL in detail later, a teacher is not providing a label (as in supervised learning) but rather a reward that judges whether the agent&rsquo;s action results on favorable environment states. In reinforcement learning we can learn end to end optimal mappings from perceptions to actions.</p>
+</article>
+ 
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/a12a7922e9f791ef341d92698807ebe4e485126e" title='Last modified by MONOGIOUDIS Pantelis | Feb 2, 2020' target="_blank" rel="noopener">
+      <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Feb 2, 2020</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/edit/master/cs-gy-6613-spring-2020/content/docs/lectures/learning-problem/_index.md" target="_blank" rel="noopener">
+      <img src="/cs-gy-6613-spring-2020/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+  
+ 
+      </footer>
+      
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#the-learning-problem">The Learning Problem</a>
+<ul>
+<li><a href="#the-supervised-learning-problem-statement">The Supervised Learning Problem Statement</a></li>
+<li><a href="#unsupervised-learning">Unsupervised Learning</a></li>
+<li><a href="#semi-supervised-learning-and-active-learning">Semi-supervised Learning and Active Learning</a></li>
+<li><a href="#reinforcement-learning">Reinforcement Learning</a></li>
+</ul></li>
+</ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  <!DOCTYPE html>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+<script>
+    window.WebFontConfig = {
+        custom: {
+        families: ['KaTeX_AMS', 'KaTeX_Caligraphic:n4,n7', 'KaTeX_Fraktur:n4,n7',
+            'KaTeX_Main:n4,n7,i4,i7', 'KaTeX_Math:i4,i7', 'KaTeX_Script',
+            'KaTeX_SansSerif:n4,n7,i4', 'KaTeX_Size1', 'KaTeX_Size2', 'KaTeX_Size3',
+            'KaTeX_Size4', 'KaTeX_Typewriter'],
+        },
+    };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script>
+
+<style>
+    .katex-version {display: none;}
+    .katex-version::after {content:"0.10.2 or earlier";}
+  </style>
+  <span class="katex">
+    <span class="katex-mathml">The KaTeX stylesheet is not loaded!</span>
+    <span class="katex-version rule">KaTeX stylesheet version: </span>
+  </span>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
