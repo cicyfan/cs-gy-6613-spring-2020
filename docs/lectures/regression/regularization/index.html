@@ -4,19 +4,19 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Regularization"><meta property="og:title" content="Regularization" />
+<meta name="description" content="Linear Regression"><meta property="og:title" content="Linear Regression" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/regression/regularization/" />
 
-<title>Regularization | CS-GY-6613 Spring 2020</title>
+<title>Linear Regression | CS-GY-6613 Spring 2020</title>
 <link rel="icon" href="/cs-gy-6613-spring-2020/favicon.png" type="image/x-icon">
 
 
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.a165c7f997df8b190ddf31b5f13b437655c0abb42a2d1df2c8c6be4b304d9ffe.css" integrity="sha256-oWXH&#43;ZffixkN3zG18TtDdlXAq7QqLR3yyMa&#43;SzBNn/4=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.15914bb86ba9163f1aee2f7a8383c36f55cc86c003ca911f484ddf085de9d095.js" integrity="sha256-FZFLuGupFj8a7i96g4PDb1XMhsADypEfSE3fCF3p0JU="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.1085ba1fb78d62ff79546fbc5648dd2de9592be37032f8c4acafb54a7305e7d2.js" integrity="sha256-EIW6H7eNYv95VG&#43;8VkjdLelZK&#43;NwMvjErK&#43;1SnMF59I="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/regression/regularization/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -203,7 +203,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Intelligent Agents and Representations</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/agents/" >
+      Intelligent Agents and Representations
+  </a>
+
+
     
 
     
@@ -256,6 +262,8 @@ https://github.com/alex-shpak/hugo-book
   
   <ul>
     
+      
+    
   </ul>
   
 
@@ -290,7 +298,7 @@ https://github.com/alex-shpak/hugo-book
       
 
   <a href="/cs-gy-6613-spring-2020/docs/lectures/regression/regularization/"  class="active">
-      Regularization
+      Linear Regression
   </a>
 
 
@@ -1029,7 +1037,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/cs-gy-6613-spring-2020/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Regularization</strong>
+  <strong>Linear Regression</strong>
 
   <label for="toc-control">
     <img src="/cs-gy-6613-spring-2020/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -1043,7 +1051,7 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
 <ul>
-<li><a href="#regularization-or-shrinkage">Regularization or Shrinkage</a></li>
+<li><a href="#linear-regression">Linear Regression</a></li>
 </ul>
 </nav>
 
@@ -1056,7 +1064,7 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown">
 
-<h1 id="regularization-or-shrinkage">Regularization or Shrinkage</h1>
+<h1 id="linear-regression">Linear Regression</h1>
 
 <p>Now that we have introduced somewhat more formally <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/learning-problem/">the learning problem</a> and its notation lets us study a simple but instructive regression problem from Chapter 1 of Bishop&rsquo;s book that is known in the statistics literature as <em>shrinkage</em>. Note that in many figures below the label is denoted as $t$ rather than $y$ as used in the equations below.</p>
 
@@ -1109,10 +1117,6 @@ https://github.com/alex-shpak/hugo-book
 
 <p><img src="images/generalization-capacity.png" alt="generalization-error-vs-capacity" />
 <em>As capacity increases (x-axis), bias (dotted) tends to decrease and variance(dashed) tends to increase, yielding another U-shaped curve for generalization error (bold curve). If we vary capacity along one axis, there is an optimal capacity, with underﬁtting when the capacity is below this optimum and overﬁtting when it is above.</em></p>
-
-<p>The MSE as a criterion not only reveals the bias and variance tradeoff above but has</p>
-
-<p>Now that we have concluded the treatment of some elementary concepts, let us use them in a <a href="../ml-frameworks/zillow-app">data mining problem</a>.</p>
 </article>
  
 
@@ -1124,9 +1128,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/a12a7922e9f791ef341d92698807ebe4e485126e" title='Last modified by MONOGIOUDIS Pantelis | Feb 2, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/671447f67401a15edee866ae6586fe6a48a2ded1" title='Last modified by MONOGIOUDIS Pantelis | Feb 3, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Feb 2, 2020</span>
+      <span>Feb 3, 2020</span>
     </a>
   </div>
 
@@ -1154,7 +1158,7 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
 <ul>
-<li><a href="#regularization-or-shrinkage">Regularization or Shrinkage</a></li>
+<li><a href="#linear-regression">Linear Regression</a></li>
 </ul>
 </nav>
 

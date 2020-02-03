@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="K-means Clustering"><meta property="og:title" content="K-means Clustering" />
+<meta name="description" content="Learning Problem Slides"><meta property="og:title" content="" />
 <meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/clustering/" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/learning-problem/learning-problem-slides/" />
 
-<title>K-means Clustering | CS-GY-6613 Spring 2020</title>
+<title>Learning Problem Slides | CS-GY-6613 Spring 2020</title>
 <link rel="icon" href="/cs-gy-6613-spring-2020/favicon.png" type="image/x-icon">
 
 
@@ -18,7 +18,6 @@
 
 <script defer src="/cs-gy-6613-spring-2020/en.search.min.1085ba1fb78d62ff79546fbc5648dd2de9592be37032f8c4acafb54a7305e7d2.js" integrity="sha256-EIW6H7eNYv95VG&#43;8VkjdLelZK&#43;NwMvjErK&#43;1SnMF59I="></script>
 
-<link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/clustering/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -521,7 +520,7 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/clustering/"  class="active">
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/clustering/" >
       K-means Clustering
   </a>
 
@@ -1037,7 +1036,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/cs-gy-6613-spring-2020/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>K-means Clustering</strong>
+  <strong>Learning Problem Slides</strong>
 
   <label for="toc-control">
     <img src="/cs-gy-6613-spring-2020/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -1049,18 +1048,7 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#step-1">Step 1</a></li>
-<li><a href="#step-2">Step 2</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
+  
 
 
     </aside>
@@ -1069,55 +1057,7 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-<article class="markdown">
-
-<p>Up to now in this lecture series we have seen parametric models using in regression and classification. The complexity of such models was not very high despite the heany sometimes math. Most models we have seen took the form $\mathbf w^T \phi(\mathbf x)$. Now we switch to a very frequently met case where we dont have any labels $y$. Most of the treatment here is from Bishop section 9.1 - the equivalent section in Tan&rsquo;s book is section 7.2.</p>
-
-<p>Suppose we have a data set $D={ \mathbf x_1,&hellip;,\mathbf x_m}$ consisting of $m$ observations of a random n-dimensional Euclidean variable $\mathbf x$. Our goal is to partition the data set into some number $K$ of clusters, where we shall suppose for the moment that the value of $K$ is given.  Intuitively, we might think of a cluster as comprising a group of data points whose inter-point distances are small compared with the distances to points outside of the cluster.  This is shown in the figure below.</p>
-
-<p><img src="images/Figure9.1a.png" alt="k-means-algorithm-example" /></p>
-
-<p>We can formalize this notion by first introducing a set of n-dimensional vectors $\mathbf \mu_k$ where $k ={1,&hellip;,K}$, in which $\mathbf \mu_k$ is a <strong>prototype</strong> associated with the kth cluster.  We can think of the $\mathbf \mu_k$ as representing the centres of the clusters.  Our goal is then to find an assignment of data points to clusters, <strong>as well as a set of prototypes</strong>. To do so we need to define as before a loss function.The loss function is selected to be the sum of the squares of the distances of each data point to its closest vector $\mathbf \mu_k$ is a minimum.</p>
-
-<p>$L = \sum<em>{i=1}^m \sum</em>{k=1}^K r_{ik} ||\mathbf x_i - \mathbf \mu_k||^2$</p>
-
-<p>Everything is as expected in the loss function above expept from the variable $r_{ik}$ which is a binary <em>indicator</em> variable that will simply add the squared Euclidean distance between the point $\mathbf x_i$ and the candidate cluster prototype if the point is assigned to that cluster or add 0.0 to the loss if it doesnt. As an example for two cluster prototypes (as evidently will be the number of clusters in the above example) $r_k \in {(0 1), (1 0)}$.  This is also called one-hot encoding of the corresponding category where category &ldquo;cluster 1&rdquo; is coded as $(0 1)$ and category &ldquo;cluster 2&rdquo; is coded as $(1 0)$.</p>
-
-<p>The K-means algorithm is iterative and each iteration includes two steps after an initialization of the $\mathbf \mu_k$ to random locations.</p>
-
-<h3 id="step-1">Step 1</h3>
-
-<p>We go over each data point $\mathbf x_i$ and we assign it to the closest custer center for this iteration.</p>
-
-<p><img src="images/Figure9.1b.png" alt="k-means-algorithm-example" />
-<em>Iteration 1, Step-1: Assignment of data points to cluster centers</em></p>
-
-<p>Mathematically this means determining:</p>
-
-<p>$$r_{ik} = \begin{cases}1, &amp; \text{if } k = \arg \min_j ||\mathbf x_i - \mathbf \mu_j||^2\ 0, &amp; \text{otherwise. } \end{cases}$$</p>
-
-<h3 id="step-2">Step 2</h3>
-
-<p>In the second step we move each cluster center to the average of the data points assigned to that cluster. Mathematically this is:</p>
-
-<p>$$ \mathbf \mu_k = \frac{\sum<em>i r</em>{ik} \mathbf x_i}{\sum_i r_ik}$$</p>
-
-<p><img src="images/Figure9.1c.png" alt="k-means-algorithm-example" />
-<em>Iteration 1, Step-2: Moving the cluster centers to the mean of the data points assigned to each cluster</em></p>
-
-<p>The following figures show subsequent steps until its becoming clear that the algorithm will convergence.</p>
-
-<p><img src="images/Figure9.1d.png" alt="k-means-algorithm-example" />
-<em>Iteration 2, Step-1: Assignment of data points to cluster centers</em></p>
-
-<p><img src="images/Figure9.1e.png" alt="k-means-algorithm-example" />
-<em>Iteration 2, Step-2: Moving the cluster centers to the mean of the data points assigned to each cluster</em></p>
-
-<p>The algorithm will converge as shown below:</p>
-
-<p><img src="images/Figure9.2.png" alt="k-means-convergence" />
-<em>Blue circles (Step 1), interleaved with red circles (step 2) towardds k-means alg convergence</em></p>
-</article>
+<article class="markdown"></article>
  
 
       <footer class="book-footer">
@@ -1128,16 +1068,16 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/a12a7922e9f791ef341d92698807ebe4e485126e" title='Last modified by MONOGIOUDIS Pantelis | Feb 2, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/671447f67401a15edee866ae6586fe6a48a2ded1" title='Last modified by MONOGIOUDIS Pantelis | Feb 3, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Feb 2, 2020</span>
+      <span>Feb 3, 2020</span>
     </a>
   </div>
 
 
 
   <div>
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/edit/master/cs-gy-6613-spring-2020/content/docs/lectures/classification/clustering/_index.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/edit/master/cs-gy-6613-spring-2020/content/docs/lectures/learning-problem/learning-problem-slides.md" target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -1156,18 +1096,7 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#step-1">Step 1</a></li>
-<li><a href="#step-2">Step 2</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
+  
 
  
     </aside>
