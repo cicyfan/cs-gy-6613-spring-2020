@@ -13,23 +13,8 @@
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/syllabus/</loc>
-    <lastmod>2020-01-29T20:18:31-05:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/systems-approach/</loc>
     <lastmod>2020-01-29T20:18:31-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/</loc>
-    <lastmod>2020-02-03T15:52:41-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/learning-problem/</loc>
-    <lastmod>2020-02-03T11:46:23-05:00</lastmod>
   </url>
   
   <url>
@@ -40,16 +25,6 @@
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-pipelines/</loc>
     <lastmod>2020-01-30T11:40:37-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/regression/</loc>
-    <lastmod>2020-02-02T18:55:03-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/</loc>
-    <lastmod>2020-02-03T15:42:10-05:00</lastmod>
   </url>
   
   <url>
@@ -69,7 +44,7 @@
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/perceptron/</loc>
-    <lastmod>2020-02-02T18:55:03-05:00</lastmod>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
   </url>
   
   <url>
@@ -80,16 +55,6 @@
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/kernels/</loc>
     <lastmod>2020-02-02T18:55:03-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/</loc>
-    <lastmod>2020-01-29T20:18:31-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/</loc>
-    <lastmod>2020-01-29T21:03:45-05:00</lastmod>
   </url>
   
   <url>
@@ -108,6 +73,11 @@
   </url>
   
   <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/syllabus/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/svm/mnist/</loc>
     <lastmod>2020-02-02T18:55:03-05:00</lastmod>
   </url>
@@ -118,8 +88,88 @@
   </url>
   
   <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/learning-problem/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/regression/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/dnn/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/dnn/backprop-intro/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/dnn/backprop-dnn/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/dnn/fashion-mnist-case-study/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/cnn/cnn-intro/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/cnn/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/rnn/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/object-detection/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/semantic-segmentation/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/</loc>
-    <lastmod>2020-02-02T18:55:03-05:00</lastmod>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
   </url>
   
   <url>
@@ -133,7 +183,27 @@
   </url>
   
   <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/search/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/cnn/visual-attention/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/cnn/cnn-arch/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/csp/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
   </url>
   
   <url>
@@ -148,7 +218,17 @@
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/</loc>
-    <lastmod>2020-01-29T20:18:31-05:00</lastmod>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/pgm/vae/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/pgm/pgm-intro/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
   </url>
   
   <url>
@@ -158,7 +238,7 @@
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/linear-algebra/</loc>
-    <lastmod>2020-01-30T11:40:37-05:00</lastmod>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
   </url>
   
   <url>
@@ -168,7 +248,7 @@
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/probability/</loc>
-    <lastmod>2020-02-03T15:42:10-05:00</lastmod>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
   </url>
   
   <url>
@@ -193,6 +273,11 @@
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/</loc>
+    <lastmod>2020-02-10T13:16:48-05:00</lastmod>
   </url>
   
   <url>

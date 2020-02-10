@@ -17,9 +17,18 @@
       
       <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/numpy-pandas/</guid>
       <description>Standard Python Below is a list of recommended courses you can attend to. We will go over briefly basic Python in this lecture. The tutorials below are self contained and can remind you the basics.
- CodeAcademy Data Science Path. Take Python modules 4-10. This course contains Numpy and Panda intro as well.
- Kaggle Python Course
- Google Python Class This is a bit dated as it covers Python 2, but it is still highly regarded as Python 3 and 2 have few differences.</description>
+  CodeAcademy Data Science Path. Take Python modules 4-10. This course contains Numpy and Panda intro as well.
+  Kaggle Python Course
+  Google Python Class This is a bit dated as it covers Python 2, but it is still highly regarded as Python 3 and 2 have few differences.</description>
+    </item>
+    
+    <item>
+      <title>Face Recognition - SVM Case Study</title>
+      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/svm/face-recognition/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/svm/face-recognition/</guid>
+      <description> </description>
     </item>
     
     <item>
@@ -34,21 +43,12 @@ The publisher is about to release the 4th edition (2020) of this classic. We wil
     </item>
     
     <item>
-      <title>Face Recognition - SVM Case Study</title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/svm/face-recognition/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/svm/face-recognition/</guid>
-      <description> </description>
-    </item>
-    
-    <item>
       <title>MNIST Classification - SVM Case Study</title>
       <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/svm/mnist/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/svm/mnist/</guid>
-      <description> MNIST Classification - SVM Case Study  </description>
+      <description>MNIST Classification - SVM Case Study  </description>
     </item>
     
     <item>
@@ -57,7 +57,17 @@ The publisher is about to release the 4th edition (2020) of this classic. We wil
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/svm/iris/</guid>
-      <description> Iris Classification - SVM Case Study  </description>
+      <description>Iris Classification - SVM Case Study  </description>
+    </item>
+    
+    <item>
+      <title>Fashion MNIST Case Study</title>
+      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/dnn/fashion-mnist-case-study/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/dnn/fashion-mnist-case-study/</guid>
+      <description>Fashion MNIST Case Study This notebook is a case study on MNIST Fashion dataset that due to the almost perfect classification of MNIST is now the new point of reference dataset to learn and try ML algorithms on.
+Click on the button &amp;ldquo;Run in Google Colab&amp;rdquo; to run the notebook and step through the code.</description>
     </item>
     
     <item>
