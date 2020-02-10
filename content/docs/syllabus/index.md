@@ -1,6 +1,6 @@
 ---
 title: Syllabus
-weight: 1
+weight: 10
 ---
 
 # Syllabus

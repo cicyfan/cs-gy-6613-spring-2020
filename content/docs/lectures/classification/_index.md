@@ -1,6 +1,6 @@
 ---
 title: Week 2c - Linear Classification
-weight: 4
+weight: 40
 ---
 
 # Linear Classification

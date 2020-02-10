@@ -25,8 +25,8 @@ markup:
     smartypants: true
     smartypantsQuotesNBSP: false
     taskLists: true
-  defaultMarkdownHandler: blackFriday
-  #defaultMarkdownHandler: goldmark
+  #defaultMarkdownHandler: blackFriday
+  defaultMarkdownHandler: goldmark
   goldmark:
     extensions:
       definitionList: true
@@ -42,14 +42,14 @@ markup:
       autoHeadingIDType: github
     renderer:
       hardWraps: false
-      unsafe: false
+      unsafe: true
       xHTML: false
   highlight:
     codeFences: true
-    guessSyntax: false
+    guessSyntax: true
     hl_Lines: ""
     lineNoStart: 1
-    lineNos: false
+    lineNos: true
     lineNumbersInTable: true
     noClasses: true
     style: monokai

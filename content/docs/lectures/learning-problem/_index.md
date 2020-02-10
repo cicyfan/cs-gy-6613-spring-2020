@@ -1,6 +1,6 @@
 ---
 title: Week 2a - The Learning Problem 
-weight: 2
+weight: 30
 ---
 
 # The Learning Problem

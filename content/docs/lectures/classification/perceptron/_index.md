@@ -3,7 +3,10 @@ title: The Perceptron
 weight: 7
 ---
 
+# The Perceptron
+
 ![Frank-Rosenblatt](images/frankrosenblatt.png#center)
+*Frank Rosenblatt*
 
 This section captures the main principles of the perceptron algorithm which is the essential building block for neural networks. 
 
