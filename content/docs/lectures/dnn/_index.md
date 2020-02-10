@@ -38,7 +38,7 @@ There are multiple layers:
 
 1. The input layer
 2. One or more hidden layers
-3. Th output layer
+3. The output layer
 
 A typical DNN consists a trivial placeholder layer that feeds the network with input data $\mathbf x$ via an input layer.  One or more hidden layers that that employ one ore more activation functions and  output layer that usually takes the shape for classification problems of a **softmax** function. 
 

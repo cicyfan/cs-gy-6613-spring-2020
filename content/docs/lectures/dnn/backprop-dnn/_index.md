@@ -57,11 +57,11 @@ Tensorflow can create a computational graph from the DNN model specification (py
 
 ## Performance of DNNs
 
-### Impact of depth
+### Impact of depth on Performance
 
 ![accuracy-vs-depth](images/accuracy-vs-depth.png)
 
-### Regularization
+<!-- ### Regularization
 
 ![reg-strengths](images/reg_strengths_cs231n.jpeg)
    
@@ -70,4 +70,4 @@ In many cases we need to address overfitting by adding in the objective function
 $\lambda J_{penalty} = \lambda \left(\sum_l W_{(l)}^2 \right) $
 
 where $l$ is the hidden layer index and $W$ is the weight tensor. 
-    
+     -->
