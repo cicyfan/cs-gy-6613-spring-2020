@@ -21,7 +21,22 @@
       delimiters: [
           {left: "$$", right: "$$", display: true},
           {left: "$", right: "$", display: false}
-      ]
+      ],
+      macros: {
+        // The true underlying data generating distribution
+        "\\pdata": "p_{data}",
+        // The empirical distribution defined by the training set
+        "\\ptrain": "\\hat{p}_{data}",
+        "\\Ptrain": "\\hat{P}_{data}",
+        // The model distribution
+        "\\pmodel": "p_{model}",
+        "\\Pmodel": "P_{model}",
+        "\\ptildemodel": "\tilde p_{model}",
+        // Stochastic autoencoder distributions
+        "\\pencode": "p_{encoder}",
+        "\\pdecode": "p_{decoder}",
+        "\\precons": "p_{reconstruct}"
+      }
     });
   });
 </script>

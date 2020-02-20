@@ -18,11 +18,12 @@ Almost all machine learning algorithms depend heavily on the **representation** 
 
 Let us start with a classic formal definition of the supervised learning problem.
 
-![learning-problem](images/enhanced-vapnik-learning-problem.svg)
+![learning-problem](images/learning-problem.png#center)
 
-*Vapnik's formulation of the learning problem (enhanced)*
+*Vapnik's formulation of the learning problem (enhanced with notation from the Deep Learning book)*
 
-The description below is taken from Vadimir Vapnik's classic book [Statistical Learing Theory](https://www.amazon.com/Statistical-Learning-Theory-Vladimir-Vapnik/dp/0471030031), albeit with some enhancements on terminology to make it more in line with our purposes.  
+
+The description below is taken from Vadimir Vapnik's classic book [Statistical Learing Theory](https://www.amazon.com/Statistical-Learning-Theory-Vladimir-Vapnik/dp/0471030031), albeit with some enhancements on terminology to make it more in line with this book. 
 
 The generator is a source of situations that determines the environment in which the target function (he calls it supervisor) and the learning algorithm act.  Here we consider the simplest environment: the data generator generates the vectors $\mathbf{x} \in \mathcal{X}$ independently and identically distributed (i.i.d.) according to some unknown (but fixed) probability distribution function $p(x)$.
 
