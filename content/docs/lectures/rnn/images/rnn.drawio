@@ -1,4 +1,4 @@
-<mxfile host="www.draw.io" modified="2020-02-21T15:09:39.763Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36" etag="-uBVCEzh7i5qdb8smj7c" version="12.7.3" type="github" pages="4">
+<mxfile host="www.draw.io" modified="2020-02-21T15:20:27.881Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36" etag="NibDkc1Bo2OaR-CcWbX0" version="12.7.3" type="github" pages="4">
   <diagram id="v3NK2iJtWiV4ewWRPjDE" name="recursion">
     <mxGraphModel dx="599" dy="685" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="1" shadow="0">
       <root>
@@ -400,10 +400,24 @@
     </mxGraphModel>
   </diagram>
   <diagram id="3JzcEZUPere_hhZgtDRO" name="BPTT">
-    <mxGraphModel dx="819" dy="685" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="1433" dy="913" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="1" shadow="0">
       <root>
         <mxCell id="uUpdAyy-MgbbAYwYIvmv-0" />
         <mxCell id="uUpdAyy-MgbbAYwYIvmv-1" parent="uUpdAyy-MgbbAYwYIvmv-0" />
+        <mxCell id="uUpdAyy-MgbbAYwYIvmv-2" value="CE" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="uUpdAyy-MgbbAYwYIvmv-1">
+          <mxGeometry x="240" y="80" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uUpdAyy-MgbbAYwYIvmv-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="uUpdAyy-MgbbAYwYIvmv-1" source="uUpdAyy-MgbbAYwYIvmv-3" target="uUpdAyy-MgbbAYwYIvmv-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uUpdAyy-MgbbAYwYIvmv-5" value="$$\hat \mathbf y$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="uUpdAyy-MgbbAYwYIvmv-4">
+          <mxGeometry x="-0.15" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uUpdAyy-MgbbAYwYIvmv-3" value="SOFTMAX" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="uUpdAyy-MgbbAYwYIvmv-1">
+          <mxGeometry x="240" y="250" width="80" height="80" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
