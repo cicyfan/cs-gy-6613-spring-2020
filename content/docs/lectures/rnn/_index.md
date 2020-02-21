@@ -88,15 +88,17 @@ where $\bm w = \\{ \bm W, \bm U, \bm V, \bm b, \bm c \\}$.
 Lets now see how the backward propagation would work. 
 
 ![rnn-BPTT](images/rnn-BPTT.png#center)
+*Understanding RNN memory through BPTT procedure*
 
-Backpropagation is similar to that of feed-forward (FF) networks simply because the unrolled architecture resembles a FF one. But there is an important difference and we explain this using the above computational graph for the unrolled recurrence $t$. During computation of the variable $\bm h_t$ we use the value of the variable $\bm h_{t-1}$ calculated in the previous recurrence. So when we apply the chain rule in the backward phase of BP, for all nodes that involve the such variables with recurrent dependencies, we cant ignore this fact and the end result is that _non local_ gradients from previous steps appear. This is effectively why we say that simple RNNs feature _memory_. This is in contrast to the FF network case where during BP only local to each gate gradients where involved. 
+Backpropagation is similar to that of feed-forward (FF) networks simply because the unrolled architecture resembles a FF one. But there is an important difference and we explain this using the above computational graph for the unrolled recurrences $t$ and $t-1$. During computation of the variable $\bm h_t$ we use the value of the variable $\bm h_{t-1}$ calculated in the previous recurrence. So when we apply the chain rule in the backward phase of BP, for all nodes that involve the such variables with recurrent dependencies, the end result is that _non local_ gradients from previous backpropagation steps ($t$ in the figure) appear. This is effectively why we say that simple RNNs feature _memory_. This is in contrast to the FF network case where during BP only local to each gate gradients where involved as we have seen in the the [DNN chapter]({{<ref "../dnn/backprop-dnn">}}). 
 
+The key point to notice in the backpropagation in recurrence $t-1$ is the junction between $\tanh$ and $\bm V \bm h_{t-1}$. This junction brings in the gradient $\nabla_{\bm h_{t-1}}L_t$ from the backpropagation of the $\bm W h_{t-1}$ node in recurrence $t$ and just because its a junction, it is added to the backpropagated gradient from above in the current recurrence $t-1$ i.e.
 
-local gradients In the FF case we are backpropagating between different layers, different weight tensors. Here we are backpropagating between different instances of the same layer aka of the same (shared across instances) weight tensors ($\bm W$, $\bm V$, etc.) . What distinguishes each instance is the input $\bm x_t$, the label $y_t$. So in contrast to the FF case, the backpropagation must happen across multiple paths: each path originates from each of the $\tau$ total losses $L_t$ and is destined to the very initial layer $t=0$. At that point the weights are updated based on the weight changes instructed by all such backpropagating paths. The Deep Learning book section 10.2.2 provides the equations - please note that you may be asked to describe the intuition behind computational graphs for RNNs. 
+$$\nabla_{\bm h_{t-1}}L_{t-1} += \nabla_{\bm h_{t-1}}L_t $$ 
 
+Ian Goodfellow's book section 10.2.2 provides the exact equations - please note that you need to know the intuition behind computational graphs for RNNs. 
 
-### Vanishing Gradients from long term dependencies 
-Please go through 8.2.5 and 10.7 of the Deep Learning book. 
+As you can understand the presence of such paths that connect the hidden states extends all the way from the $t=\tau$ to $t=1$ making the gradient, when $\tau$ is large, smaller and smaller. This is called the _vanishing gradient_ problem and is discussed in section 10.7 of Ian Goodfellow's book.  
 
 ### The Long Short-Term Memory (LSTM) Architecture
 
