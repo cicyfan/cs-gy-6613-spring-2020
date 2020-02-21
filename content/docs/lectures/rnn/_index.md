@@ -43,7 +43,7 @@ There are many RNN architectures and in this course will suffice to go over just
 ![hidden-state-types](images/hidden-state-types.png#center)
 *Differentiating Architectures (a) DNN, (b) Simple RNN, (c) LTSM, (d) GRU*
 
-### Simple RNN
+### Simple RNN and Back-Propagation Through Time (BPTT)
 ![rnn-hidden-recurrence](images/rnn-hidden-recurrence.png#center)
 
 *Simple RNN with recurrences between hidden units. This architecture can compute any computable function and therefore is a [Universal Turing Machine](http://alvyray.com/CreativeCommons/BizCardUniversalTuringMachine_v2.3.pdf). Your laptops and smartphones are descendants of UTM. Notice the conditional independence between $\bm y$ given $\bm x$*
@@ -76,6 +76,8 @@ In the figure above you have a hypothetical document (a sentence) that is broken
 $$- \log p_{model} (y_6|\bm x_1, \dots , \bm x_6; \bm  w)$$ 
 
 where $\bm w = \\{ \bm W, \bm U, \bm V, \bm b, \bm c \\}$. 
+
+![rnn-BPTT](images/rnn-BPTT.png#center)
 
 Backpropagation is _almost_ the same as in the case of feed-forward (FF) networks simply because the unrolled architecture resembles a FF one. But there is an important difference. In the FF case we are backpropagating between different layers, different weight tensors. Here we are backpropagating between different instances of the same layer aka of the same (shared across instances) weight tensors ($\bm W$, $\bm V$, etc.) . What distinguishes each instance is the input $\bm x_t$, the label $y_t$. So in contrast to the FF case, the backpropagation must happen across multiple paths: each path originates from each of the $\tau$ total losses $L_t$ and is destined to the very initial layer $t=0$. At that point the weights are updated based on the weight changes instructed by all such backpropagating paths. The Deep Learning book section 10.2.2 provides the equations - please note that you may be asked to describe the intuition behind computational graphs for RNNs. 
 
