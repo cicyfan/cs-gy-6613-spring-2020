@@ -1,5 +1,5 @@
 ---
-title: Week 2c - Linear Classification
+title: Lecture 2c - Linear Classification
 weight: 40
 ---
 

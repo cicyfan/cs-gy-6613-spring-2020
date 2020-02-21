@@ -1,5 +1,5 @@
 ---
-title: Week 2a - The Learning Problem 
+title: Lecture 2a - The Learning Problem 
 weight: 30
 ---
 

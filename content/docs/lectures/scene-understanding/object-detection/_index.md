@@ -1,7 +1,7 @@
 ---
-title: Week 5a - Object Detection
-draft: true
+title: Lecture 5a - Object Detection
 weight: 71
+draft: true
 ---
 
 ## Problem Statement 

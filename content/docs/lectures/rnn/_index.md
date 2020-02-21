@@ -1,5 +1,5 @@
 ---
-title: Week 4b - Sequences and Recurrent Neural Networks (RNN)
+title: Lecture 4b - Sequences and Recurrent Neural Networks (RNN)
 draft: true
 weight: 70
 ---
@@ -50,7 +50,7 @@ There are many RNN architectures and in this course will suffice to go over just
 
 This network maps the input sequence to a sequence of the same length and implements the following forward pass:
 
-$$\bm a_t = \bm W \bm h _{t-1} + \bm U \bm x_t$$
+$$\bm a_t = \bm W \bm h _{t-1} + \bm U \bm x_t + \bm b$$
 
 $$\bm h_t = \tanh(\bm a_t)$$
 
@@ -64,13 +64,25 @@ $$= - E_{\bm y | \bm x ≋ \hat{p}_{data}} \log p_{model}(\bm y | \bm x ; \bm w)
 
 Notice that RNNs can model very generic distributions  $\log p_{model}(\bm x, \bm y ; \bm w)$. The simple RNN architecture above, effectively models the posterior distribution $\log p_{model}(\bm y | \bm x ; \bm w)$  and based on a conditional independence assumption it factorizes into $\sum_t \log p_{model}(y_t | \bm x_1, \dots, \bm x_t ; \bm w)$. By connecting the $\bm y_{t-1}$ to $\bm h_t$ via a matrix $\bm R$ we can avoid this simplifying assumption and be able to model an arbitrary distribution $\log p_{model}(\bm y | \bm x ; \bm w)$. In other words just like in the other DNN architectures, connectivity directly affects the representational capacity of the hypothesis set. 
 
+In many instances we have problems where it only matters the label $y_\tau$ at the end of the sequence. Lets say that you are classifying spoken words or video inside the cabin of a car to detect the psychological state of the driver. The same architecture shown above can also represent such problems - the only difference is the only the $\bm o_\tau$, $L_\tau$ and $y_\tau$ will be considered. 
+
+Lets see an example to understand better the forward propagation equations.
+
+![example-sentence](images/example-sentence.png#center)
+*Example sentence as input to the RNN*
+
+In the figure above you have a hypothetical document (a sentence) that is broken into what in natural language processing called _tokens_. Lets say that a token is a word in this case. In the simpler case where we need a classification of the whole document, given that $\tau=6$, we are going to receive at t=1, the first token $\bm x_1$ and with an input hidden state  $\bm h_0 = 0$ we will calculate the forward equations for $\bm h_1$, ignoring the output $\bm o_1$ and repeat the unrolling when the next input $\bm x_2$ comes in until we reach the end of sentence token $\bm x_6$ which in this case will calculate the output and loss 
+
+$$- \log p_{model} (y_6|\bm x_1, \dots , \bm x_6; \bm  w)$$ 
+
+where $\bm w = \\{ \bm W, \bm U, \bm V, \bm b, \bm c \\}$. 
+
+Backpropagation is _almost_ the same as in the case of feed-forward (FF) networks simply because the unrolled architecture resembles a FF one. But there is an important difference. In the FF case we are backpropagating between different layers, different weight tensors. Here we are backpropagating between different instances of the same layer aka of the same (shared across instances) weight tensors ($\bm W$, $\bm V$, etc.) . What distinguishes each instance is the input $\bm x_t$, the label $y_t$. So in contrast to the FF case, the backpropagation must happen across multiple paths: each path originates from each of the $\tau$ total losses $L_t$ and is destined to the very initial layer $t=0$. At that point the weights are updated based on the weight changes instructed by all such backpropagating paths. The Deep Learning book section 10.2.2 provides the equations - please note that you may be asked to describe the intuition behind computational graphs for RNNs. 
+
 ### Vanishing Gradients from long term dependencies 
 Please go through 8.2.5 and 10.7 of the Deep Learning book. 
 
 ### The Long Short-Term Memory (LSTM) Architecture
-
-
-
 
 
 ### GRU

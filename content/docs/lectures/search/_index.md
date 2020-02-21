@@ -1,5 +1,5 @@
 ---
-title: A* Search
+title: Lecture 7a - A* Search
 draft: true
 ---
 

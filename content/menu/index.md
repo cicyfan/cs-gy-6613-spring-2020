@@ -10,6 +10,7 @@ bookMenuLevels: 3
 - [**Perception -  DNN**](/content/docs/lectures/dnn)
 - [**Perception -  CNN**](/content/docs/lectures/cnn)
 - [**Perception -  RNN**](/content/docs/lectures/rnn)
+- [**Probabilistic Reasoning -  PGM**](/content/docs/lectures/pgm)
 - [**Background - Math for ML**](/content/docs/lectures/ml-math)
 - [**Background - ML Frameworks**](/content/docs/lectures/ml-frameworks)
 - [**Projects**](/content/docs/projects/)

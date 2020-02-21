@@ -1,4 +1,4 @@
 ---
-title: Week 2b - Regression 
+title: Lecture 2b - Regression 
 weight: 40
 ---
