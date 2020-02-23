@@ -43,7 +43,7 @@ _Tables of Gates and Gradients used in backpropagating deep neural networks_
 During the lecture we will go through an NN example on the whiteboard that will use these gate gradients for the estimation of the gradient of the loss with respect to its parameters using backpropagation. 
 
 ## Backprop behavior during training
-As documented [here](https://medium.com/@karpathy/yes-you-should-understand-backprop-e2f06eab496b) and in Garon's textbook, you also need to be watchful of the effects of the various non-linear gates on the gradient flow. 
+As documented [here](https://medium.com/@karpathy/yes-you-should-understand-backprop-e2f06eab496b) and in Geron's textbook, you also need to be watchful of the effects of the various non-linear gates on the gradient flow. 
 
 For **sigmoid gate**, if you are sloppy with the weight initialization or data preprocessing these non-linearities can “saturate” and entirely stop learning — your training loss will be flat and refuse to go down. If your weight matrix W is initialized too large, the output of the matrix multiply could have a very large range (e.g. numbers between -400 and 400), which will make all outputs in the vector z almost binary: either 1 or 0. But if that is the case, $z*(1-z)$, which is **local** gradient of the sigmoid non-linearity, will in both cases become zero (“vanish”), making the gradient for both x and W be zero. The rest of the backward pass will come out all zero from this point on due to multiplication in the chain rule.
 
@@ -55,13 +55,13 @@ For ReLU gates, if a neuron gets clamped to zero in the forward pass (i.e. z=0, 
 
 Tensorflow can create a computational graph from the DNN model specification (python). These graphs can be visualized on the web UI with Tensorboard. Use the playground when you first learn about DNNs to understand the principles but dive into the MNIST using Tensorflow use case to understand the Tensorflow mechanics and how to debug Tensorflow python scripts both syntactically and logically. Logical debugging should happen using Tensorboard visualizations. 
 
-## Performance of DNNs
+<!-- ## Performance of DNNs
 
 ### Impact of depth on Performance
 
 ![accuracy-vs-depth](images/accuracy-vs-depth.png)
 
-<!-- ### Regularization
+### Regularization
 
 ![reg-strengths](images/reg_strengths_cs231n.jpeg)
    
