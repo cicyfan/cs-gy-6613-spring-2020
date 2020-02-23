@@ -37,71 +37,11 @@ The weights $\bm h$ in CNNs were not a function of previous weights and this mea
 ![dnn-sequential-processing](images/dnn-sequential-processing.png#center)
 *DNNs can create models from sequential data (such as the language modeling use case shown here). At each step $t$ the network with a sliding window span of $\tau=3$ that acts as memory, will concatenate the word embeddings and use a hidden layer $\bm h$ to predict the the next element in the sequence.  However, notice that (a) the span is limited and fixed (b) words such as "the ground" will appear in multiple sliding windows forcing the network to learn two different patterns for this constituent ("in the ground", "the ground there").*
 
-There are many RNN architectures and in this course will suffice to go over just a handful to understand what they offer in terms of their representational capacity. One significant factor that separates the architectures is the way they perform the hidden state calculation at each $t$. This is shown in the next figure.
-
+There are many RNN architectures and in this course will suffice to go over just two to understand what they offer in terms of their representational capacity. One significant factor that separates the architectures is the way they perform the hidden state calculation at each $t$. This is shown in the next figure.
 
 ![hidden-state-types](images/hidden-state-types.png#center)
 *Differentiating Architectures (a) DNN, (b) Simple RNN, (c) LTSM, (d) GRU*
 
-### Simple RNN 
-![rnn-hidden-recurrence](images/rnn-hidden-recurrence.png#center)
-
-*Simple RNN with recurrences between hidden units. This architecture can compute any computable function and therefore is a [Universal Turing Machine](http://alvyray.com/CreativeCommons/BizCardUniversalTuringMachine_v2.3.pdf). Your laptops and smartphones are descendants of UTM.* 
-
-Notice how the path from input $\bm x_{t-1}$ affects the label $\bm y_{t}$ and also the conditional independence between $\bm y$ given $\bm x$. Please note that this is not a computational graph rather one way to represent the hidden state transfer between recurrences.
-
-#### Forward Propagation 
-
-This network maps the input sequence to a sequence of the same length and implements the following forward pass:
-
-$$\bm a_t = \bm W \bm h _{t-1} + \bm U \bm x_t + \bm b$$
-
-$$\bm h_t = \tanh(\bm a_t)$$
-
-$$\bm o_t = \bm V \bm h_t + \bm c$$
-
-$$\hat \bm y_t = \mathtt{softmax}(\bm o_t)$$
-
-$$L(\bm x_1, \dots , \bm x_{\tau}, \bm y_1, \dots , \bm y_{\tau}) = D_{KL}[\hat p_{data}(\bm y | \bm x) || p_{model}(\bm y | \bm x; \bm w)]$$
-
-$$= - E_{\bm y | \bm x ≋ \hat{p}_{data}} \log p_{model}(\bm y | \bm x ; \bm w)  = - \sum_t \log p_{model}(y_t | \bm x_1, \dots, \bm x_t ; \bm w)$$ 
-
-Notice that RNNs can model very generic distributions  $\log p_{model}(\bm x, \bm y ; \bm w)$. The simple RNN architecture above, effectively models the posterior distribution $\log p_{model}(\bm y | \bm x ; \bm w)$  and based on a conditional independence assumption it factorizes into $\sum_t \log p_{model}(y_t | \bm x_1, \dots, \bm x_t ; \bm w)$. 
-
-Note that by connecting the $\bm y_{t-1}$ to $\bm h_t$ via a matrix e.g. $\bm R$ we can avoid this simplifying assumption and be able to model an arbitrary distribution $\log p_{model}(\bm y | \bm x ; \bm w)$. In other words just like in the other DNN architectures, connectivity directly affects the representational capacity of the hypothesis set. 
-
-In many instances we have problems where it only matters the label $y_\tau$ at the end of the sequence. Lets say that you are classifying spoken words or video inside the cabin of a car to detect the psychological state of the driver. The same architecture shown above can also represent such problems - the only difference is the only the $\bm o_\tau$, $L_\tau$ and $y_\tau$ will be considered. 
-
-Lets see an example to understand better the forward propagation equations.
-
-![example-sentence](images/example-sentence.png#center)
-*Example sentence as input to the RNN*
-
-In the figure above you have a hypothetical document (a sentence) that is broken into what in natural language processing called _tokens_. Lets say that a token is a word in this case. In the simpler case where we need a classification of the whole document, given that $\tau=6$, we are going to receive at t=1, the first token $\bm x_1$ and with an input hidden state  $\bm h_0 = 0$ we will calculate the forward equations for $\bm h_1$, ignoring the output $\bm o_1$ and repeat the unrolling when the next input $\bm x_2$ comes in until we reach the end of sentence token $\bm x_6$ which in this case will calculate the output and loss 
-
-$$- \log p_{model} (y_6|\bm x_1, \dots , \bm x_6; \bm  w)$$ 
-
-where $\bm w = \\{ \bm W, \bm U, \bm V, \bm b, \bm c \\}$. 
 
 
-#### Back-Propagation Through Time (BPTT)
-Lets now see how the backward propagation would work. 
-
-![rnn-BPTT](images/rnn-BPTT.png#center)
-*Understanding RNN memory through BPTT procedure*
-
-Backpropagation is similar to that of feed-forward (FF) networks simply because the unrolled architecture resembles a FF one. But there is an important difference and we explain this using the above computational graph for the unrolled recurrences $t$ and $t-1$. During computation of the variable $\bm h_t$ we use the value of the variable $\bm h_{t-1}$ calculated in the previous recurrence. So when we apply the chain rule in the backward phase of BP, for all nodes that involve the such variables with recurrent dependencies, the end result is that _non local_ gradients from previous backpropagation steps ($t$ in the figure) appear. This is effectively why we say that simple RNNs feature _memory_. This is in contrast to the FF network case where during BP only local to each gate gradients where involved as we have seen in the the [DNN chapter]({{<ref "../dnn/backprop-dnn">}}). 
-
-The key point to notice in the backpropagation in recurrence $t-1$ is the junction between $\tanh$ and $\bm V \bm h_{t-1}$. This junction brings in the gradient $\nabla_{\bm h_{t-1}}L_t$ from the backpropagation of the $\bm W h_{t-1}$ node in recurrence $t$ and just because its a junction, it is added to the backpropagated gradient from above in the current recurrence $t-1$ i.e.
-
-$$\nabla_{\bm h_{t-1}}L_{t-1} += \nabla_{\bm h_{t-1}}L_t $$ 
-
-Ian Goodfellow's book section 10.2.2 provides the exact equations - please note that you need to know the intuition behind computational graphs for RNNs. 
-
-As you can understand the presence of such paths that connect the hidden states extends all the way from the $t=\tau$ to $t=1$ making the gradient, when $\tau$ is large, smaller and smaller. This is called the _vanishing gradient_ problem and is discussed in section 10.7 of Ian Goodfellow's book.  
-
-### The Long Short-Term Memory (LSTM) Architecture
-
-
-### GRU
 
