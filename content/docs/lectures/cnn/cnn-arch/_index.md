@@ -1,5 +1,7 @@
 ---
 title: CNN Architectures  
+draft: true
+weight: 64
 ---
 
 # CNN Architectures

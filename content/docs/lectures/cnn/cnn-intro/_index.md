@@ -1,7 +1,7 @@
 ---
 title: Introduction to Convolutional Neural Networks
 draft: true
-weight: 60
+weight: 61
 ---
 
 # Introduction to Convolutional Neural Networks
