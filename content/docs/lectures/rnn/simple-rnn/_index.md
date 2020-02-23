@@ -1,6 +1,6 @@
 ---
 title: Simple RNNs and their Backpropagation
-draft: true
+draft: false
 weight: 71
 ---
 

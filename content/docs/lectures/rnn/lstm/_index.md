@@ -1,6 +1,6 @@
 ---
 title: The Long Short-Term Memory (LSTM) Cell Architecture
-draft: true
+draft: false
 weight: 75
 ---
 
@@ -37,7 +37,7 @@ $$g_t(i) =\sigma \Big( \bm W_g^T(i) \bm h_{t-1}(i) + \bm U_g^T(i) \bm x_t(i) + \
 
 The gate with its sigmoid function adjusts the value of each element produced by the input neural network.
 
-# Output 
+## Output 
 
 The output gate _protects the subsequent cells_ from perturbations by irrelevant to their context cell state. Quantitatively,
 

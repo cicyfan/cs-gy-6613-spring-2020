@@ -1,6 +1,6 @@
 ---
 title: Lecture 4b - Sequences and Recurrent Neural Networks (RNN)
-draft: true
+draft: false
 weight: 70
 ---
 
