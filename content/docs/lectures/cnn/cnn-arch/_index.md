@@ -70,7 +70,7 @@ The figure below illustrates the input feature map to output feature map mapping
 ![convnet-multiple-feature-maps](images/convnet-feature-maps.png#center)
 *Convolutional layers with multiple feature maps. We can see the receptive field of each column of neurons of the next layer. Each column is produced by performing multiple convolutions (or cross correlation operations) between the volume below and each of the filters.*
 
-In each layer we can have in other works as was shown in the example above input and output feature maps of different depths.
+In each layer we can have in other words, as was shown in the example above, input and output feature maps of different depths.
 
 
 ![2d-convolution-b](images/2d-convolution-b.png#center)
@@ -97,27 +97,27 @@ There are two main consequences of the convolution operation: sparsity and param
 
 In DNNs, every output unit interacts with every input unit. Convolutional networks, however, typically have sparse interactions(also referred to as sparse connectivity or sparse weights). This is accomplished by making the kernel smaller than the input as shown in the figure above. For example,when processing an image, the input image might have thousands or millions of pixels, but we can detect small, meaningful features such as edges with kernels that occupy only tens or hundreds of pixels. 
 
-![cnn-sparsity](images/cnn-sparsity.png)
-*Sparse connectivity, viewed from below. We highlight one input unit,$x_3$, and highlight the output units in that are aﬀected by this unit. (Top) When is formed by convolution with a kernel of width 3, only three outputs are aﬀected by x. (Bottom)When is formed by matrix multiplication, connectivity is no longer sparse, so all the outputs are aﬀected by $x_3$.* NOTE: In this figure is missing the labels of the upper nodes (denoted by $s$) and the lower nodes (denoted by $x$).
+![cnn-sparsity](images/cnn-sparsity.png#center)
+*Sparse connectivity, viewed from below. We highlight one input unit,$x_3$, and highlight the output units in that are aﬀected by this unit. (Top) When is formed by convolution with a kernel of width 3, only three outputs are aﬀected by x. (Bottom)When is formed by matrix multiplication, connectivity is no longer sparse, so all the outputs are aﬀected by $x_3$.*
 
 #### Parameter sharing
 
-Ina convolutional neural networks, each member of the kernel is used at every feasible position of the input. The parameter sharing used by the convolution operation means that rather than learning a separate set of parameters for every location, we learn only one set.
+In CNNs, each member of the kernel is used at every feasible position of the input. The parameter sharing used by the convolution operation means that rather than learning a separate set of parameters for every location, we learn only one set.
 
-![cnn-parameter-sharing](images/cnn-parameter-sharing.png)
+![cnn-parameter-sharing](images/cnn-parameter-sharing.png#center)
 *Parameter sharing. Black arrows indicate the connections that use a particular parameter in two diﬀerent models. (Top)The black arrows indicate uses of the central element of a 3-element kernel in a convolutional model. Because of parameter sharing, this single parameter is used at all input locations. (Bottom)The single black arrow indicates the use of the central element of the weight matrix in a fully connected model. This model has no parameter sharing, so the parameter is used only once*.
 
 The particular form of parameter sharing causes the layer to have a property called **equivariance to translation**.  This means that a translation of input features results in an equivalent translation of outputs. So if your pattern 0,3,2,0,0 on the input results in 0,1,0,0 in the output, then the pattern 0,0,3,2,0 might lead to 0,0,1,0
 
-As explained [here](https://datascience.stackexchange.com/questions/16060/what-is-the-difference-between-equivariant-to-translation-and-invariant-to-tr) this should not be confused with **invariance to translation** means that a translation of input features does not change the outputs at all. So if your pattern 0,3,2,0,0 on the input results in 0,1,0 in the output, then the pattern 0,0,3,2,0 would also lead to 0,1,0. 
+As explained [here](https://datascience.stackexchange.com/questions/16060/what-is-the-difference-between-equivariant-to-translation-and-invariant-to-tr) this should not be confused with **invariance to translation**. The later means that a translation of input features does not change the outputs at all. So if your pattern 0,3,2,0,0 on the input results in 0,1,0 in the output, then the pattern 0,0,3,2,0 would also lead to 0,1,0. 
 
 For feature maps in convolutional networks to be useful, they typically need both equivariance and invariance in some balance. The equivariance allows the network to generalise edge, texture, shape detection in **different** locations. The invariance allows precise location of the detected features to matter less. These are two complementary types of generalization for many image processing tasks.
 
 In a nutshell in images, these properties ensure that the CNN that is trained to detect an object, can do its job irrespective on where the object is located in the image. 
 
-## Dimensionality Reductions
+## Dimensionality Reduction
 
-## Pooling Layer
+### Pooling Layer
 
 Pooling was introduced to reduce redundancy of representation and reduce the number of parameters, recognizing that precise location is not important for object detection.
 
@@ -135,25 +135,25 @@ Despite receiving ample treatment in Ians Goodfellows' book, pooling has fallen 
 * Dropout is a much better regularizer.
 * Pooling results in a loss of information - think about the max-pooling operation as an example shown in the figure below. 
 
-![pooling](images/pooling.png)
+![pooling](images/pooling.png#center)
 *Max pooling layer (2 × 2 pooling kernel, stride 2, no padding)*
 
-To further understand the latest reservations against pooling in CNNs, see [this](https://medium.com/ai%C2%B3-theory-practice-business/understanding-hintons-capsule-networks-part-i-intuition-b4b559d1159b) summary of Hinton's **capsules** concept. Capsules are not in scope for the final test. 
+To further understand the latest reservations against pooling in CNNs, see [this](https://medium.com/ai%C2%B3-theory-practice-business/understanding-hintons-capsule-networks-part-i-intuition-b4b559d1159b) summary of Hinton's **capsules** concept. Capsules are not in scope for this course and by extension for the final test. 
 
-## 1x1 Convolutional layer 
+### 1x1 Convolutional layer 
 
 The 1x1 convolution layer is met in many network architectures (e.g. GoogleNet) and offers a number of modeling capabilities. Spatially, the 1x1 convolution is equivalent to a single number multiplication of each spatial position of the input feature map (if we ignore the non-linearity) as shown below. This means that leaves the spatial dimensions of the input feature maps unchanged unlike the pooling layer. 
 
-![1x1-convolution](images/1x1-convolution.gif)
+![1x1-convolution](images/1x1-convolution.gif#center)
 *1x1 convolution of a single feature map is just scaling - the 1x1 convolution is justified only when we have multiple feature maps at the input*. 
 
-The most straightforward way to look at this layer is as a cross feature map pooling layer. When we have multiple input feature maps $M_{l-1}$ and 1x1 filters $1x1xM_{l-1}$ (note the depth of the filter must match the number of the input feature maps) then we form a dot product between the feature maps at the spatial location $(i,j)$  of the 1x1 filter followed by a non-linearity (ReLU). This operation is in other words the same operation of a fully connected single layer neural network whose neurons are those spanned by the single column at the $(i,j)$ coordinate.  This layer will produce a single output at each visited $(i,j)$ coordinate. 
+The most straightforward way to look at this layer is as a cross feature map pooling layer. When we have multiple input feature maps $M_{l-1}$ and 1x1 filters 1x1x$M_{l-1}$ (note the depth of the filter must match the number of the input feature maps) then we form a dot product between the feature maps at the spatial location $(i,j)$  of the 1x1 filter followed by a non-linearity (ReLU). This operation is in other words the same operation of a fully connected single layer neural network whose neurons are those spanned by the single column at the $(i,j)$ coordinate.  This layer will produce a single output at each visited $(i,j)$ coordinate. 
 
 The original idea expanded to multiple layers is attributed to [this](https://arxiv.org/pdf/1312.4400v3.pdf) paper. 
 
 ![1x1-convolution-b](images/1x1-convolution-b.png)
 
-Indeed when we have **multiple** $M_l$ filters of size $1 \times 1 \times M_{l-1}$ then effectively we define in the same way multiple feature maps and in fact this is a good way to reduce the number of feature maps at the output of this layer, with benefits in computational complexity of the deep network as a whole.
+Indeed when we have **multiple** $M_l$ filters of size 1 x 1 x $M_{l-1}$ then effectively we define in the same way multiple feature maps and in fact this is a good way to reduce the number of feature maps at the output of this layer, with benefits in computational complexity of the deep network as a whole.
 
 
 <!-- ### Dropout 
@@ -177,22 +177,23 @@ The example CNN architecture above has the following layers:
 
 * INPUT [32x32x3] will hold the raw pixel values of the image, in this case an image of width 32, height 32, and with three color channels R,G,B.
 * CONV layer will compute the output of neurons that are connected to local regions in the input, each computing a dot product between their weights and a small region they are connected to in the input volume. This may result in volume such as [32x32x12] if we decided to use 12 filters.
-* RELU layer will apply an elementwise activation function, such as the $max(0,x)$ thresholding at zero. This leaves the size of the volume unchanged ([32x32x12]).
+* RELU layer will apply an elementwise activation function, such as the $\max(0,x)$ thresholding at zero. This leaves the size of the volume unchanged ([32x32x12]).
 * POOL layer will perform a downsampling operation along the spatial dimensions (width, height), resulting in volume such as [16x16x12].
-* FC (i.e. fully-connected) layer, also known as dense, will compute the class scores, resulting in volume of size [1x1x10], where each of the 10 numbers correspond to a class score, such as among the 10 categories of CIFAR-10. As with ordinary Neural Networks and as the name implies, each neuron in this layer will be connected to all the numbers in the previous volume.
+* FC (i.e. fully-connected) layer, also known as dense, will compute the class scores, resulting in volume of size [1x1x10], where each of the 10 numbers correspond to a class score, such as among the 10 categories of CIFAR-10 dataset. As you recall in FC layers each neuron in this layer will be connected to all the neurons in the previous volume.
 
-The impact of pading on the sizing of the produced feature map is shown in the following numerical example. The example is for [28x28x3] input layer but results can be extrapolated for [32x32x3]
+The impact of padding on the sizing of the produced feature map is shown in the following numerical example. The example is for [28x28x3] input layer but results can be extrapolated for [32x32x3]
 
-![sizing-example](images/sizing-example.png)
+![sizing-example](images/sizing-example.png#center)
 
 ### Number of parameters and memory
 
-![revolution-of-depth](images/revolution-of-depth.png)
+![revolution-of-depth](images/revolution-of-depth.png#center)
 
 
 ### The ResNet Architecture
 
-![resnet-vgg](images/resnet-vgg.png)
+![resnet-vgg](images/resnet-vgg.png#center)
+*34 layers deep ResNet architecture (3rd column) vs earlier architectures*
 
 ResNets or residual networks, introduced the concept of the residual. This can be understood looking at an small residual network of three stages. The striking difference between ResNets and earlier architectures are the **skip connections**. Shortcut connections are those skipping one or more layers. The shortcut connections simply perform identity mapping, and their outputs are added to the outputs of the stacked layers. Identity shortcut connections add neither extra parameter nor computational complexity. The entire network can still be trained end-to-end by SGD with backpropagation, and can be easily implemented using common libraries without modifying the solvers.
 
@@ -215,6 +216,6 @@ in their order.
 
 During the lecture we will go through [this](https://arxiv.org/pdf/1605.06431.pdf) paper analysis of the unrolled network to understand the behavior of ResNets that are inherently scalable networks.
 
-ResNets introduced below - will be the network architectures used to implement object detection. They are not the only ones but these networks are the obvious / typical choice today and they can also be used in real time video streaming applications achieving significant throughput e.g. 20 frames per second. 
+ResNets introduced below - are commonly used as feature extractors for object detection. They are not the only ones but these networks are the obvious / typical choice today and they can also be used in real time video streaming applications achieving significant throughput e.g. 20 frames per second. 
 
 <iframe width="560" height="315" src="http://kaiminghe.com/icml16tutorial/icml2016_tutorial_deep_residual_networks_kaiminghe.pdf"></iframe>
