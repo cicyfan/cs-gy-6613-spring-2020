@@ -3,17 +3,19 @@ title: Backpropagation in Deep Neural Networks
 weight: 53
 draft: false
 ---
+
 # Backpropagation in Deep Neural Networks
 
-Now that we have persuaded ourselves that backpropagation is a procedure that involves the repetitive application of the chain rule, let us look more specifically its application to neural networks and the gates that we usually meet there. In NNs we are dealing with vectors, matrices and in general tensors and therefore its required to review first how we can expand on the template above for these data types.
+Following the [introductory]({{<ref "../backprop-intro">}}) section, we have persuaded ourselves that backpropagation is a procedure that involves the repetitive application of the chain rule, let us look more specifically its application to neural networks and the gates that we usually meet there. In DNNs we are dealing with vectors, matrices and in general tensors and therefore its required to review first how we can expand on the template above for these data types.
 
-In the following we heavily borrow from [this](https://web.stanford.edu/class/cs224n/readings/gradient-notes.pdf) text. The basic building block of vectorized gradients is the *Jacobian Matrix*. Suppose we have a function $f: \mathbb{R}^n \to \mathbb{R}^m$ that maps a vector of length $n$ to a vector of length $m$: 
+## DNN Gates
+In the following we heavily borrow from [this](https://web.stanford.edu/class/cs224n/readings/gradient-notes.pdf) text. The basic building block of vectorized gradients is the *Jacobian Matrix*. In the [introductory]({{<ref "../backprop-intro">}}) section we dealt with functions $f: \mathbb{R}^2 \to \mathbb{R}$. Suppose that we have a more complicated function $\bm f: \mathbb{R}^n \to \mathbb{R}^m$ that maps a vector of length $n$ to a vector of length $m$: 
 
-$$f(x) = [f_1(x_1, ..., x_n), f_2(x_1, ..., x_n), ..., f_m(x_1, ..., x_n)]$$. 
+$$\bm f(\bm x) = [f_1(x_1, ..., x_n), f_2(x_1, ..., x_n), ..., f_m(x_1, ..., x_n)]$$. 
 
 Then its Jacobian is:
 
-$$\frac{\partial f}{\partial x} = 
+$$\frac{\partial \bm f}{\partial \bm x} = 
 \begin{bmatrix} \frac{\partial f_1}{\partial x_1} & \dots & \frac{\partial f_1}{\partial x_n} \\\\ \vdots & \dots & \vdots \\\\ \frac{\partial f_m}{\partial x_1} & \dots & \frac{\partial f_m}{\partial x_n} \end{bmatrix}$$
 
 The Jacobian matrix will be useful for us because we can apply the chain rule to a vector-valued function just by multiplying Jacobians. 
@@ -28,17 +30,17 @@ And we see this is the same as multiplying the two Jacobians:
 
 [This](http://cs231n.stanford.edu/vecDerivs.pdf) is also another instructive summary that help us understand how to calculate the local gradients involved and the gate templates (identities) summarized below that are routinely found in neural network backpropagation calculations. Assume that  with $\mathbf W \in \mathbb{R}^{n \times m}, \mathbf x \in \mathbb{R}^m$. 
 
-_Tables of Gates and Gradients used in backpropagating deep neural networks_
+_Tables of Gates and Gradients used in the backpropagation of deep neural networks_
 
 |  Gate | Solution  |
 |---|---|
-|  $\mathbf z = \mathbf W \mathbf x$ |  $\frac{\partial \mathbf z}{\partial \mathbf x} = \mathbf W$ |
-|  $\mathbf z =  \mathbf x$ | $\frac{\partial \mathbf z}{\partial \mathbf x} = \mathbf I$  |
-|  $\mathbf z =  f(\mathbf x)$ element-wise |  $\frac{\partial \mathbf z}{\partial \mathbf x} = \text{Diag}[ f'(\mathbf x) ]$ |
-|  $\mathbf \delta =  \frac{\partial L}{\partial \mathbf z}$  |  $\frac{\partial L}{\partial \mathbf W} = \mathbf \delta^T \mathbf x$ |
-|  $\mathbf z = \mathbf W \mathbf x$ | |
-|  $\hat \mathbf y = \mathtt{softmax}(\mathbf z)$ | $\frac{\partial L}{\partial \mathbf z} = \hat \mathbf y - \mathbf y$ |
-|  $L=CE(\mathbf y , \hat \mathbf y )$ | | 
+| ![identity1](images/identity1.png#center) <br> $\mathbf z = \mathbf W \mathbf x$ |    $\frac{\partial \mathbf z}{\partial \mathbf x} = \mathbf W$ |
+| ![identity2](images/identity2.png#center) <br> $\mathbf z = \mathbf x \mathbf W$ |    $\frac{\partial \mathbf z}{\partial \mathbf x} = \mathbf W^T$ |
+|  ![identity3](images/identity3.png#center) <br> $\mathbf z =  \mathbf x$ | $\frac{\partial \mathbf z}{\partial \mathbf x} = \mathbf I$  |
+|  ![identity4](images/identity4.png#center) <br> $\mathbf z =  f(\mathbf x)$ element-wise |  $\frac{\partial \mathbf z}{\partial \mathbf x} = \text{Diag}[ f'(\mathbf x) ]$ |
+|  ![identity5](images/identity5.png#center) <br> $\mathbf z = \mathbf W \mathbf x$, $\mathbf \delta =  \frac{\partial L}{\partial \mathbf z}$  |  $\frac{\partial L}{\partial \mathbf W} = \mathbf \delta^T \mathbf x^T$ |
+|  ![identity6](images/identity6.png#center) <br> $\mathbf z = \mathbf x \mathbf W$, $\mathbf \delta =  \frac{\partial L}{\partial \mathbf z}$  |  $\frac{\partial L}{\partial \mathbf W} = \mathbf x^T \mathbf \delta$ |
+|  ![identity4](images/identity7.png#center) <br> $\mathbf z = \mathbf W \mathbf x$, $\hat \mathbf y = \mathtt{softmax}(\mathbf z)$, $L=CE(\mathbf y , \hat \mathbf y )$ | $\frac{\partial L}{\partial \mathbf z} = \hat \mathbf y - \mathbf y$ | 
 
 During the lecture we will go through an NN example on the whiteboard that will use these gate gradients for the estimation of the gradient of the loss with respect to its parameters using backpropagation. 
 
@@ -53,7 +55,7 @@ For ReLU gates, if a neuron gets clamped to zero in the forward pass (i.e. z=0, 
 
 ![relu-derivative](images/relu-derivative.png)
 
-Tensorflow can create a computational graph from the DNN model specification (python). These graphs can be visualized on the web UI with Tensorboard. Use the playground when you first learn about DNNs to understand the principles but dive into the MNIST using Tensorflow use case to understand the Tensorflow mechanics and how to debug Tensorflow python scripts both syntactically and logically. Logical debugging should happen using Tensorboard visualizations. 
+Tensorflow can create a computational graph from the DNN model specification (python). These graphs can be visualized on the web UI with Tensorboard. Use the playground when you first learn about DNNs to understand the principles but dive into the Fashion MNIST using Tensorflow use case to understand the Tensorflow mechanics and how to debug Tensorflow python scripts both syntactically and logically. Logical debugging should happen using Tensorboard visualizations. Similarly with Pytorch if this is your choice. 
 
 <!-- ## Performance of DNNs
 

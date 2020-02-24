@@ -1,6 +1,6 @@
 ---
 title: CNN Architectures  
-draft: true
+draft: false
 weight: 64
 ---
 
@@ -10,7 +10,7 @@ weight: 64
 
 In the convolutional layer the first operation a 3D image with its two spatial dimensions and its third dimension due to the primary colors, typically Red Green and Blue is at the input layer, is convolved with a 3D structure called the **filter** shown below.
 
-![cnn-filter](images/filter.png)
+![cnn-filter](images/filter.png#center)
 *Each filter is composed of kernels - [source](https://towardsdatascience.com/a-comprehensive-introduction-to-different-types-of-convolutions-in-deep-learning-669281e58215)*  
 
 The filter slides through the picture and the amount by which it slides is referred to as the **stride** $s$. The stride is a hyperparameter. Increasing the stride reduces the size of your model by reducing the number of total patches each layer observes. However, this usually comes with a reduction in accuracy. 
@@ -19,7 +19,7 @@ It's common to have more than one filter. Different filters pick up different qu
 
 This means that typically we are dealing with **volumes** (3D tensors) and of course if someone adds the fact that we do processing in minibatches we are typically dealing with 4D tensors that contain input feature maps. Lets look at a single feature map visualization below of the convolution operation.  
 
-![convolution-single-feature-map](images/convolution-single-feature-map.png)
+![convolution-single-feature-map](images/convolution-single-feature-map.png#center)
 *Convolutional layer with a single feature map. We can see the strides $(s_h, s_w)$, the zero padding as well as the receptive field in the produced feature map.*
 
 In the figure below the authors of [this](https://arxiv.org/abs/1603.07285) paper have also animated the operation.  Blue maps are inputs, and cyan maps are outputs.
@@ -55,7 +55,7 @@ In general though in practice we are dealing with **volumes** due to the multipl
 
 In the class we will go through the example below.
 
-![2d-convolution-example](images/2d-convolution-example.png)
+![2d-convolution-example](images/2d-convolution-example.png#center)
 
 There are two steps involved. Notice that the number of input feature maps is $M_{l-1} = 2$, while the number of output feature maps is $M_{l}=3$. We therefore have three filters of spatial dimension $[3x3]$ and depth dimension of 2.  In the first step each of the three filters generates a correlation result for each of the 2 input feature maps.
 
@@ -67,16 +67,16 @@ $z(i,j,k_l) = \sum_u^{height} \sum_v^{width} \sum_{k_{l-1}=1}^{M_i} x(i+u, j+v, 
 
 The figure below illustrates the input feature map to output feature map mapping expressed directly i.e. without the intermediate step of the example above. 
 
-![convnet-multiple-feature-maps](images/convnet-feature-maps.png)
+![convnet-multiple-feature-maps](images/convnet-feature-maps.png#center)
 *Convolutional layers with multiple feature maps. We can see the receptive field of each column of neurons of the next layer. Each column is produced by performing multiple convolutions (or cross correlation operations) between the volume below and each of the filters.*
 
 In each layer we can have in other works as was shown in the example above input and output feature maps of different depths.
 
 
-![2d-convolution-b](images/2d-convolution-b.png)
+![2d-convolution-b](images/2d-convolution-b.png#center)
 *2D convolution that produces a feature map with different depth than the input feature map*
 
-### Zero Pading
+### Zero Padding
 
 Each feature map "pixel" that results from the above convolution is followed by a RELU non-linearity i.e. RELU is applied element-wise. Few words about padding. There are two types: **same padding** where we add zeros at the edges of the picture and **valid padding** where we dont. The reason we pad with zeros is to maintain the original spatial dimensions from one convolution layer to the next. If we dont very soon we can end up with deep architectures with just a one "pixel". 
 
@@ -89,15 +89,9 @@ Lets see a complete animated example from the CS231n Stanford U course site that
 
 The output spatial dimension (assuming square) is in general given by $⌊ \frac{i+2p-k}{s} ⌋ + 1$, where $p$ is the amount of passing,  $k$ is the square kernel size, $s$ is the stride. In the animation above, $p=1, k=3, s = 2$. 
 
-
 ## What the convolution / operation offers
 
-There are two main consequences of the convolution operation:
-
-1. Sparsity
-2. Parameter sharing
-
-There is also an important byproduct of the parameter sharing: **equivariance to translation**. These are explained next.
+There are two main consequences of the convolution operation: sparsity and parameter sharing. With the later we get as a byproduct **equivariance to translation**. These are explained next.
 
 ####  Sparsity
 
@@ -146,11 +140,9 @@ Despite receiving ample treatment in Ians Goodfellows' book, pooling has fallen 
 
 To further understand the latest reservations against pooling in CNNs, see [this](https://medium.com/ai%C2%B3-theory-practice-business/understanding-hintons-capsule-networks-part-i-intuition-b4b559d1159b) summary of Hinton's **capsules** concept. Capsules are not in scope for the final test. 
 
-
 ## 1x1 Convolutional layer 
 
 The 1x1 convolution layer is met in many network architectures (e.g. GoogleNet) and offers a number of modeling capabilities. Spatially, the 1x1 convolution is equivalent to a single number multiplication of each spatial position of the input feature map (if we ignore the non-linearity) as shown below. This means that leaves the spatial dimensions of the input feature maps unchanged unlike the pooling layer. 
-
 
 ![1x1-convolution](images/1x1-convolution.gif)
 *1x1 convolution of a single feature map is just scaling - the 1x1 convolution is justified only when we have multiple feature maps at the input*. 
@@ -198,7 +190,7 @@ The impact of pading on the sizing of the produced feature map is shown in the f
 ![revolution-of-depth](images/revolution-of-depth.png)
 
 
-### ResNet
+### The ResNet Architecture
 
 ![resnet-vgg](images/resnet-vgg.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Introduction to Convolutional Neural Networks
-draft: true
+draft: false
 weight: 61
 ---
 

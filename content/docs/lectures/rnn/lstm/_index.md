@@ -11,7 +11,7 @@ In [the simple RNN]({{<ref "../simple-rnn/">}}) we have seen the problem of expl
 The way we control $w$ is to have another system produce it for the task at hand. In the best known gated RNN architecture, the IIR recurrence and everything that controls it, is contained in the LSTM _cell_. The LSTM cell adjusts $w$ depending on the input sequence _context_ and this means that (a) there is an internal memory to the cell, we call this the _cell state_ and (b) $w$ will fluctuate depending on $x$. We employ another hidden unit to learn the context and, based on that, set the right $w$. This unit is called the _forget gate_: since by making $w$ equal to zero, $h_t$ stops propagating aka it forgets the previous hidden state. We employ a couple of other gates as well: the _input gate_ and the _output gate_ as shown in the diagram below. 
 
 ![lstm-cell](images/rnn-LSTM.png#center)
-*LSTM Cell: The cell is divided into three areas: input (green), cell state (blue) and output (red). The $i$ index (see description below) has been supressed for clarity* 
+*LSTM Cell: The cell is divided into three areas: input (green), cell state (blue) and output (red). The $i$ index (see description below) has been supressed for clarity*
 
 The cell is divided into three areas: input (green), cell state (blue) and output (red)
 
@@ -29,7 +29,7 @@ The forget gate calculates the forgetting factor,
 
 $$f_t(i) =\sigma \Big( \bm W_f^T(i) \bm h_{t-1}(i) + \bm U_f^T(i) \bm x_t(i) + \bm b_f(i) \Big) $$
 
-## Input 
+## Input
 
 The input gate _protects the cell state_ contents from perturbations by irrelevant to the context inputs. Quantitatively,  input gate calculates the factor,
 
@@ -37,7 +37,7 @@ $$g_t(i) =\sigma \Big( \bm W_g^T(i) \bm h_{t-1}(i) + \bm U_g^T(i) \bm x_t(i) + \
 
 The gate with its sigmoid function adjusts the value of each element produced by the input neural network.
 
-## Output 
+## Output
 
 The output gate _protects the subsequent cells_ from perturbations by irrelevant to their context cell state. Quantitatively,
 
