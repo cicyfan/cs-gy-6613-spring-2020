@@ -22,7 +22,6 @@ A grayscale picture can be seen as a function $f(x,y)$ of light intensities, whe
 
 Usually we have border constraints in the range of the input pixels e.g. $x \in [a,b], y \in [c,d]$ but also in the output intensity values (typically 8-bit encoding is assumed that limits the values to [0, 255]). 
 
-
 The city scape color image above can also be seen as a vector function:
 
 $$f(x,y)=  \begin{bmatrix} r(x,y) \\ g(x,y) \\ b(x,y)  \end{bmatrix}$$
@@ -47,35 +46,40 @@ By definition the convolution between two functions in one dimension is given by
 $$(a * b)[n] = \sum_{m=-\inf}^{\inf} a[m]b[n-m]$$
 
 ![1d-convbolution](images/1d-convolution.png)
-*1D-convolution*
+*1D-convolution example. The operation effectively slides the flipped version of $b$ across $a$*
 
 The result can be calculated as follows:
 
 $c[0] = \sum_m a[m]b[-m] = 0 * 0.25 + 0 * 0.5 + 1 * 1 + 0.5 * 0 + 1 * 0 + 1 * 0 = 1$
 
-$c[1] = \sum_m a[m]b[-m] = 0 * 0.25 + 1 * 0.5 + 0.5 * 1 + 1 * 0 + 1 * 0 = 1$
+$c[1] = \sum_m a[m]b[1-m] = 0 * 0.25 + 1 * 0.5 + 0.5 * 1 + 1 * 0 + 1 * 0 = 1$
 
-$c[2] = \sum_m a[m]b[-m] = 1 * 0.25 + 0.5 * 0.5 + 1 * 1 + 1 * 0 + 1 * 0 = 1.5$
+$c[2] = \sum_m a[m]b[2-m] = 1 * 0.25 + 0.5 * 0.5 + 1 * 1 + 1 * 0 + 1 * 0 = 1.5$
 
-$c[3] = \sum_m a[m]b[-m] = 1 * 0 + 0.5 * 0.25 + 1 * 0.5 + 1 * 1 = 1.625$
+$c[3] = \sum_m a[m]b[3-m] = 1 * 0 + 0.5 * 0.25 + 1 * 0.5 + 1 * 1 = 1.625$
 
 and so on. 
 
+Convolution and cross-correlation are very close - see this 1D example ([source](https://en.wikipedia.org/wiki/Convolution) to persuade yourself that this is the case. 
+
+![convolution-correlation](images/convolution-correlation.png#center)
+*Convolution and cross-correlation are very similar quantities*
+
 ### 2D Convolution
 
-Note that in ML frameworks the implementation of the convolution operation varies. First, the convolution operation in some frameworks is the *flipped* version - this is perfectly fine as the convolution operation is commutative. 
+In 2D the same principle applies. First, the convolution operation in some frameworks is the *flipped* version - this is perfectly fine as the convolution operation is commutative. 
 
 $$S(i,j) = \sum_m \sum_n x(m, n) h(i-m,j-n) = \sum_m \sum_n x(i-m, j-n)h(m,n)$$
 
 where $x$ is the input of the convolution and $h$ is the kernel or filter typically of smaller spatial dimensions. 
 
-Other frameworks don't even implemented convolution but they do the very similar **cross-correlation** operation and they sometimes call it convolution to add to the confusion. Tensorflow implements **the cross-correlation** operation under the hood.
+![convolution](images/convolution.png)
+
+Many ML frameworks don't even implemented convolution but they do the very similar **cross-correlation** operation and they sometimes call it convolution to add to the confusion. Tensorflow implements **the cross-correlation** operation under the hood.
 
 $$S(i,j) = \sum_u \sum_v x(i+u, j+v)h(u,v)$$
 
-You should not be concerned with the framework implementation details, the thing that is important for you to grasp is the essence of the operation which is best explained using some simple examples. 
-
-![convolution](images/convolution.png)
+If you learn the flipped version of the kernel or not is irrelevant to the task of predicting the right label. Therefore you should not be concerned with the framework implementation details, the thing that is important for you to grasp is the essence of the operation. Lets look some effects that convolution has on input signals such as images. 
 
 ### Effects of 2D filtering operations
 
