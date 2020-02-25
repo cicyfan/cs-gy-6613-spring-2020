@@ -80,10 +80,11 @@ In each layer we can have in other words, as was shown in the example above, inp
 
 Each feature map "pixel" that results from the above convolution is followed by a RELU non-linearity i.e. RELU is applied element-wise. Few words about padding. There are two types: **same padding** where we add zeros at the edges of the picture and **valid padding** where we dont. The reason we pad with zeros is to maintain the original spatial dimensions from one convolution layer to the next. If we dont very soon we can end up with deep architectures with just a one "pixel". 
 
-Lets see a complete animated example from the CS231n Stanford U course site that includes padding. You can press the toggle movement button to stop the animation and do the calculations with pencil and paper. 
+Lets see a complete [animated example](http://cs231n.github.io/assets/conv-demo/index.html) that includes padding. You can press the toggle movement button to stop the animation and do the calculations with pencil and paper. 
 
 
-<iframe src="http://cs231n.github.io/assets/conv-demo/index.html" width="100%" height="700px;" style="border:none;"></iframe>
+<iframe src="http://cs231n.github.io/assets/conv-demo/index.html" width="100%" height="700px;"></iframe>
+source: CS231n
 
 The output spatial dimension (assuming square) is in general given by $⌊ \frac{i+2p-k}{s} ⌋ + 1$, where $p$ is the amount of passing,  $k$ is the square kernel size, $s$ is the stride. In the animation above, $p=1, k=3, s = 2$. 
 
