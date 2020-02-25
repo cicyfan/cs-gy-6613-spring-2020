@@ -82,10 +82,8 @@ Each feature map "pixel" that results from the above convolution is followed by 
 
 Lets see a complete animated example from the CS231n Stanford U course site that includes padding. You can press the toggle movement button to stop the animation and do the calculations with pencil and paper. 
 
-<div class="fig figcenter fighighlight">
-  <iframe src="http://cs231n.github.io/assets/conv-demo/index.html" width="100%" height="700px;" style="border:none;"></iframe>
-  <div class="figcaption"></div>
-</div>
+
+<iframe src="http://cs231n.github.io/assets/conv-demo/index.html" width="100%" height="700px;" style="border:none;"></iframe>
 
 The output spatial dimension (assuming square) is in general given by $⌊ \frac{i+2p-k}{s} ⌋ + 1$, where $p$ is the amount of passing,  $k$ is the square kernel size, $s$ is the stride. In the animation above, $p=1, k=3, s = 2$. 
 
