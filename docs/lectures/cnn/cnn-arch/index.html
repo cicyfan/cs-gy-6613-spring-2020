@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.86d3fa1b9593e4c781775bb344c55b7e4cc6061ed679cb9a486a062b06df362f.js" integrity="sha256-htP6G5WT5MeBd1uzRMVbfkzGBh7WecuaSGoGKwbfNi8="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.f03747575b23ef09a8dd7252ac0e50046812f208e38176b9d0429eeaed28e914.js" integrity="sha256-8DdHV1sj7wmo3XJSrA5QBGgS8gjjgXa50EKe6u0o6RQ="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/cnn/cnn-arch/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -1739,10 +1739,7 @@ https://github.com/alex-shpak/hugo-book
 <h3 id="zero-padding">Zero Padding</h3>
 <p>Each feature map &ldquo;pixel&rdquo; that results from the above convolution is followed by a RELU non-linearity i.e. RELU is applied element-wise. Few words about padding. There are two types: <strong>same padding</strong> where we add zeros at the edges of the picture and <strong>valid padding</strong> where we dont. The reason we pad with zeros is to maintain the original spatial dimensions from one convolution layer to the next. If we dont very soon we can end up with deep architectures with just a one &ldquo;pixel&rdquo;.</p>
 <p>Lets see a complete animated example from the CS231n Stanford U course site that includes padding. You can press the toggle movement button to stop the animation and do the calculations with pencil and paper.</p>
-<div class="fig figcenter fighighlight">
-  <iframe src="http://cs231n.github.io/assets/conv-demo/index.html" width="100%" height="700px;" style="border:none;"></iframe>
-  <div class="figcaption"></div>
-</div>
+<iframe src="http://cs231n.github.io/assets/conv-demo/index.html" width="100%" height="700px;" style="border:none;"></iframe>
 <p>The output spatial dimension (assuming square) is in general given by $⌊ \frac{i+2p-k}{s} ⌋ + 1$, where $p$ is the amount of passing,  $k$ is the square kernel size, $s$ is the stride. In the animation above, $p=1, k=3, s = 2$.</p>
 <h2 id="what-the-convolution--operation-offers">What the convolution / operation offers</h2>
 <p>There are two main consequences of the convolution operation: sparsity and parameter sharing. With the later we get as a byproduct <strong>equivariance to translation</strong>. These are explained next.</p>
@@ -1836,9 +1833,9 @@ in their order.</p>
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/c397e269664964b6ab512af30849656e8ce35658" title='Last modified by MONOGIOUDIS Pantelis | Feb 24, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/a8874658f434ad7ee75ffeff6aeb28e57f15dad0" title='Last modified by MONOGIOUDIS Pantelis | Feb 25, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Feb 24, 2020</span>
+      <span>Feb 25, 2020</span>
     </a>
   </div>
 
