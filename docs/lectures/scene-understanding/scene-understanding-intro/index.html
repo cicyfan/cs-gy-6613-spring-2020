@@ -1,0 +1,1993 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Introduction to Scene Understanding"><meta property="og:title" content="Introduction to Scene Understanding" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/scene-understanding-intro/" />
+
+<title>Introduction to Scene Understanding | CS-GY-6613 Spring 2020</title>
+<link rel="icon" href="/cs-gy-6613-spring-2020/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
+
+
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.9c4892201959df72fa6e056315175614d6b67b362a5d1ea3f2bdc201ac0c14ce.js" integrity="sha256-nEiSIBlZ33L6bgVjFRdWFNa2ezYqXR6j8r3CAawMFM4="></script>
+
+<link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/scene-understanding-intro/index.xml" title="CS-GY-6613 Spring 2020" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cs-gy-6613-spring-2020"><img src="/cs-gy-6613-spring-2020/tandon_long_black.png" alt="Logo" /><span>CS-GY-6613 Spring 2020</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/syllabus/" >
+      Syllabus
+  </a>
+
+</li>
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Lecture 1 - Introduction to AI</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/course-introduction/" >
+      Course Introduction
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/systems-approach/" >
+      A systems approach to AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-pipelines/" >
+      The Way of Working in AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/agents/" >
+      Intelligent Agents and Representations
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/learning-problem/" >
+      Lecture 2a - The Learning Problem
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Lecture 2b - Regression</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/regression/linear-regression/" >
+      Linear Regression
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/regression/ML-Bayesian-estimation/" >
+      Bayesian Linear Regression
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/" >
+      Lecture 2c - Linear Classification
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/knn/" >
+      k-Nearest Neighbors (kNN) Classification
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/perceptron/" >
+      The Perceptron
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/logistic-regression/" >
+      Logistic Regression
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/kernels/" >
+      Kernels and the Kernel Trick
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/clustering/" >
+      K-means Clustering
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/" >
+      Support Vector Machines
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/face-recognition/" >
+      Face Recognition - SVM Case Study
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/mnist/" >
+      MNIST Classification - SVM Case Study
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/iris/" >
+      Iris Classification - SVM Case Study
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/decision-trees/" >
+      Decision Trees
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/random-forests/" >
+      Random Forests
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/dnn/" >
+      Lecture 3 - Deep Neural Networks
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/dnn/backprop-intro/" >
+      Introduction to Backpropagation
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/dnn/backprop-dnn/" >
+      Backpropagation in Deep Neural Networks
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Regularization in Deep Neural Networks</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/dnn/fashion-mnist-case-study/" >
+      Fashion MNIST Case Study
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Lecture 4a - Convolutional Neural Networks</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/cnn/cnn-intro/" >
+      Introduction to Convolutional Neural Networks
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/cnn/cnn-arch/" >
+      CNN Architectures
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/cnn/cnn-sizing/" >
+      CNN Sizing
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Attention Mechanisms in CNNs</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/rnn/" >
+      Lecture 4b - Sequences and Recurrent Neural Networks (RNN)
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/rnn/simple-rnn/" >
+      Simple RNNs and their Backpropagation
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/rnn/lstm/" >
+      The Long Short-Term Memory (LSTM) Cell Architecture
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Lecture 5 - Scene Understanding</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/scene-understanding-intro/"  class="active">
+      Introduction to Scene Understanding
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/feature-extraction-resnet/" >
+      Feature Extraction via Residual Networks
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/object-detection/" >
+      Object Detection
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Semantic Segmentation</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Lecture 6 - Probabilistic Graphical Models</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      <span>Introduction to Probabilistic Reasoning</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Generative Modeling and Continuous Variational Auto Encoders (VAE)</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Transfer Learning</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Constraint Satisfaction Programming</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Natural Language Processing</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      <span>Creating Reasonable Embeddings</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/" >
+      Projects
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/imu-classification/" >
+      Project 1 - Surface Type Classification
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/continuous-learning/" >
+      Project 2 - Continual Learning for Robotic Perception
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/env/" >
+      Your Programming Environment
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Background - Math for ML</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/linear-algebra/" >
+      Linear Algebra for Machine Learning
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/optimization/" >
+      Optimization and Stochastic Gradient Descent
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/probability/" >
+      Probability and Information Theory Basics
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/netflix/" >
+      The Netflix Prize and Singular Value Decomposition
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/" >
+      Background - ML Frameworks
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/numpy-pandas/" >
+      Numerical Python (Numpy/Scipy and Pandas) Tutorials
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/tensorflow-introduction/" >
+      Introduction to Tensorflow
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Lecture 7a - A* Search</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>The Agent - Environment Interface</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cs-gy-6613-spring-2020/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Introduction to Scene Understanding</strong>
+
+  <label for="toc-control">
+    <img src="/cs-gy-6613-spring-2020/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction-to-scene-understanding">Introduction to Scene Understanding</a>
+      <ul>
+        <li><a href="#datasets-for-scene-understanding-tasks">Datasets for scene understanding tasks</a>
+          <ul>
+            <li><a href="#coco">COCO</a></li>
+          </ul>
+        </li>
+        <li><a href="#detectionsegmentation-task-evaluation">Detection/Segmentation Task Evaluation</a>
+          <ul>
+            <li><a href="#metrics">Metrics</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+<article class="markdown"><h1 id="introduction-to-scene-understanding">Introduction to Scene Understanding</h1>
+<p>In the previous chapters we have treated the perception subsystem mainly from starting the first principles that govern supervised learning to algorithms that enable classical as well as deep learning machines. Now we are synthesizing these algorithms to pipelines that can potentially enable the holly grail of perception - our understanding of the scene. As discussed in the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/cnn/cnn-intro/">introduction to computer vision</a>, humans has a unique to interpret scenes based on their ability to infer (reason) what they <em>dont</em> see. This is the reason why the scene understanding involves far more than just perception. In this chapter we will cover algorithms that allow us to:</p>
+<ol>
+<li>Detect objects in an image. Object detection is demonstrated in this short video clip that shows the end result of the algorithm.</li>
+</ol>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WZmSMkK9VuA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Its important to understand the difference between classification and object detection as shown below.</p>
+<p><img src="images/classification-detection.png#center" alt="classification-detection">
+<em>Difference between classification and detection</em></p>
+<p>In classification we are given images (we can consider video clips as a sequence of images) and we are asked to produce the array of labels assigned to objects that are present in the frame. Typically in many datasets there is only one class and the images are cropped around the object. In localization, in addition to classification we are interested in locating (using for example a bounding box) each class in the frame. In object detection we are localizing multiple objects (some objects can be of the same class.) Localization is a regression problem fundamentally. Mathematically we have,</p>
+<p>$$y = p_{data}(x)$$</p>
+<p>We try to come up with a function approximation to the true function $p_{data}$ that maps the image $x$ to the location of the bounding box $y$. We can uniquely represent the bounding box by the (x,y) coordinates of its upper left corner and its width and height $[x,y,w,h]$. Being a regression problem, as $y$ is a floating point vector, we can use well known loss functions e.g. CE $≡$ MSE where the error is the Euclidean distance between the coordinates of the true bounding box and the estimated bounding box. However, the regression approach does not work well in practice and has been superceded by the algorithms described later in this chapter.</p>
+<ol start="2">
+<li>Assign semantic labels to each pixel in this image.</li>
+</ol>
+<p><img src="images/semantic-segmentation.png#center" alt="semantic-segmentation">
+<em>Sementic Segmentation in medical, robotic and sports analytics applications</em></p>
+<p>Both of these abilities enable the <em>reflexive</em> part of perception where the inference ends up being a classification or regression or search problem and in practice, depending on the algorithm, it can range from few ms to 100s of ms. Both of these reflexive inferences are essential parts of many mission critical almost real time applications such as robotics e.g. self driving cars.</p>
+<p>There are other abilities that we need for scene understanding that don&rsquo;t cover until later in this book. Our ability to recognize the attribute of <em>uniqueness</em> in an object and assign a <em>symbol</em> to it, is fundamental to our ability to reason very quickly at the symbolic level. At that level we can use a whole portfolio of symbolic inference algorithms developed over the last few decades.  But before we reach this level we need to solve the supervised learning problem for the relatively narrow task of bounding and coloring objects. This needs annotated data and knowing what kind of data we have at our disposal is an essential skill.</p>
+<h2 id="datasets-for-scene-understanding-tasks">Datasets for scene understanding tasks</h2>
+<h3 id="coco">COCO</h3>
+<p><img src="images/coco-example.png#center" alt="coco-example">
+<em>Typical example for Detection and Image Captioning Tasks</em></p>
+<p>After its <a href="https://arxiv.org/abs/1405.0312">publication</a> by Microsoft, the COCO dataset has become the reference <a href="http://cocodataset.org/#home">dataset</a> to train models in perception tasks and it is constantly evolving through yearly competitions. The competitions are challenging as compared to earlier ones (e.g. <a href="https://link.springer.com/article/10.1007%2Fs11263-009-0275-4">VOC</a>) (see performance section) since many objects are small. COCO&rsquo;s 330K images are annotated with</p>
+<ul>
+<li>80 object classes. These are the so-called <em>thing</em> classes (person, car, elephant, &hellip;).</li>
+<li>91 stuff classes. These are the co-called <em>stuff</em> classes (sky, grass, wall, &hellip;). Stuff classes cover the majority of the pixels in COCO (~66%.). Stuff classes are <a href="https://arxiv.org/abs/1612.03716">important</a> as they allow to explain important aspects of an image, including scene type, which thing classes are likely to be present and their location (through contextual reasoning), physical attributes, material types and geometric properties of the scene.</li>
+<li>5 captions per image</li>
+<li>Keypoints for the &ldquo;person&rdquo; class</li>
+</ul>
+<p>Common perception tasks that the dataset can be used for, include:</p>
+<ul>
+<li><strong>Detection Task</strong>: Object detection and semantic segmentation of thing classes.</li>
+<li><strong>Stuff Segmentation Task</strong>: Semantic segmentation of stuff classes.</li>
+<li><strong>Keypoints Task</strong>: Localization of person&rsquo;s keypoints (sparse skeletal points).</li>
+<li><strong>DensePose Task</strong>: Localization of people&rsquo;s dense keypoints, mapping all human pixels to a 3D surface of the human body.</li>
+<li><strong>Panoptic Segmentation Task</strong>: Scene segmentation, unifying semantic and instance segmentation tasks. Task is across thing and stuff classes.</li>
+<li><strong>Image Captioning Task</strong>: Describing with natural language text the image. This task ended in 2015. Image captioning is very important though and <a href="https://www.aclweb.org/anthology/P18-1238.pdf">other datasets</a> exists to supplement the curated COCO captions.</li>
+</ul>
+<p>Even in a world with so much data, the curated available datasets that can be used to train models are by no means enough to solve AI problems in any domain. First, datasets are geared towards competitions that supposedly can advance the science but in many instances deaderboards become &ldquo;academic exercises&rdquo; where 0.1% mean accuracy improvement can win the competition but definitely does not progress AI. The double digit improvements can and these discoveries create clusters of implementations and publications around them that fine tune them. One of these discoveries is the RCNN architecture described in the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/object-detection/">object detection</a> section that advanced the accuracy metric by almost 30%. Secondly, the scene understanding problems that AI engineers will face in the field, e.g. in industrial automation or drug discovery, involve <em>domain specific</em> classes of objects. Although we cant directly use curated datasets, engineers can  <em>transfer learning</em>, worthy of a chapter by itself, where a dataset is used to train a model for a given task whose weights can be reused to train a model for fairly similar task.</p>
+<h2 id="detectionsegmentation-task-evaluation">Detection/Segmentation Task Evaluation</h2>
+<h3 id="metrics">Metrics</h3>
+<p><img src="images/evaluation-metrics.png#center" alt="evaluation-metrics"></p>
+<p>The evaluation metrics for detection with bounding boxes and segmentation masks are <em>identical</em> in all respects except for the IoU computation (which is performed over boxes or masks, respectively). Therefore we omit any evaluation discussion in the semantic segmentation chapter.</p>
+<p>To understand the calculation of mAP see <a href="https://github.com/rafaelpadilla/Object-Detection-Metrics">this</a> write up.</p>
+</article>
+ 
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/1fd5708880ff17dff0d1045c7056647d5aced071" title='Last modified by MONOGIOUDIS Pantelis | Mar 2, 2020' target="_blank" rel="noopener">
+      <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Mar 2, 2020</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/edit/master/cs-gy-6613-spring-2020/content/docs/lectures/scene-understanding/scene-understanding-intro/_index.md" target="_blank" rel="noopener">
+      <img src="/cs-gy-6613-spring-2020/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+  
+ 
+      </footer>
+      
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction-to-scene-understanding">Introduction to Scene Understanding</a>
+      <ul>
+        <li><a href="#datasets-for-scene-understanding-tasks">Datasets for scene understanding tasks</a>
+          <ul>
+            <li><a href="#coco">COCO</a></li>
+          </ul>
+        </li>
+        <li><a href="#detectionsegmentation-task-evaluation">Detection/Segmentation Task Evaluation</a>
+          <ul>
+            <li><a href="#metrics">Metrics</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  <!DOCTYPE html> 
+
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css"
+  integrity="sha384-BdGj8xC2eZkQaxoQ8nSLefg4AV4/AwB3Fj+8SUSo7pnKP6Eoy18liIKTPn9oBYNG"
+  crossorigin="anonymous">
+
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.js"
+  integrity="sha384-JiKN5O8x9Hhs/UE5cT5AAJqieYlOZbGT3CHws/y97o3ty4R7/O5poG9F3JoiOYw1"
+  crossorigin="anonymous"></script>
+
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous" onload="renderMathInElement(document.body);">
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+          {left: "$$", right: "$$", display: true},
+          {left: "$", right: "$", display: false}
+      ],
+      macros: {
+        
+        "\\pdata": "p_{data}",
+        
+        "\\ptrain": "\\hat{p}_{data}",
+        "\\Ptrain": "\\hat{P}_{data}",
+        
+        "\\pmodel": "p_{model}",
+        "\\Pmodel": "P_{model}",
+        "\\ptildemodel": "\tilde p_{model}",
+        
+        "\\pencode": "p_{encoder}",
+        "\\pdecode": "p_{decoder}",
+        "\\precons": "p_{reconstruct}"
+      }
+    });
+  });
+</script>
+
+
+</html>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

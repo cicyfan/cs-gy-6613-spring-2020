@@ -34,7 +34,7 @@
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/agents/</loc>
-    <lastmod>2020-02-03T15:42:10-05:00</lastmod>
+    <lastmod>2020-03-02T17:32:49-05:00</lastmod>
   </url>
   
   <url>
@@ -123,6 +123,11 @@
   </url>
   
   <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/dnn/regularization/</loc>
+    <lastmod>2020-03-02T17:32:49-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/dnn/fashion-mnist-case-study/</loc>
     <lastmod>2020-02-10T13:16:48-05:00</lastmod>
   </url>
@@ -134,17 +139,27 @@
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/cnn/cnn-intro/</loc>
-    <lastmod>2020-02-24T14:03:43-05:00</lastmod>
+    <lastmod>2020-03-02T17:32:49-05:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/cnn/cnn-arch/</loc>
-    <lastmod>2020-02-25T07:23:25-05:00</lastmod>
+    <lastmod>2020-03-02T17:32:49-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/cnn/cnn-sizing/</loc>
+    <lastmod>2020-03-02T17:32:49-05:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/cnn/visual-attention/</loc>
     <lastmod>2020-02-24T12:49:03-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/scene-understanding-intro/</loc>
+    <lastmod>2020-03-02T17:32:49-05:00</lastmod>
   </url>
   
   <url>
@@ -154,12 +169,12 @@
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/</loc>
-    <lastmod>2020-02-21T09:51:16-05:00</lastmod>
+    <lastmod>2020-03-02T17:34:08-05:00</lastmod>
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/object-detection/</loc>
-    <lastmod>2020-02-21T09:51:16-05:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/feature-extraction-resnet/</loc>
+    <lastmod>2020-03-02T17:32:49-05:00</lastmod>
   </url>
   
   <url>
@@ -168,8 +183,13 @@
   </url>
   
   <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/object-detection/</loc>
+    <lastmod>2020-03-02T17:32:49-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/semantic-segmentation/</loc>
-    <lastmod>2020-02-21T09:51:16-05:00</lastmod>
+    <lastmod>2020-03-02T17:32:49-05:00</lastmod>
   </url>
   
   <url>
@@ -190,6 +210,11 @@
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/pgm/vae/</loc>
     <lastmod>2020-02-21T09:51:16-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/transfer-learning/</loc>
+    <lastmod>2020-03-02T17:32:49-05:00</lastmod>
   </url>
   
   <url>
