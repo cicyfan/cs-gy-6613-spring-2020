@@ -82,7 +82,6 @@ Each feature map "pixel" that results from the above convolution is followed by 
 
 Lets see a complete [animated example](http://cs231n.github.io/assets/conv-demo/index.html) that includes padding. You can press the toggle movement button to stop the animation and do the calculations with pencil and paper. 
 
-
 <iframe src="http://cs231n.github.io/assets/conv-demo/index.html" width="100%" height="700px;"></iframe>
 source: CS231n
 
@@ -146,75 +145,15 @@ The 1x1 convolution layer is met in many network architectures (e.g. GoogleNet) 
 ![1x1-convolution](images/1x1-convolution.gif#center)
 *1x1 convolution of a single feature map is just scaling - the 1x1 convolution is justified only when we have multiple feature maps at the input*. 
 
-The most straightforward way to look at this layer is as a cross feature map pooling layer. When we have multiple input feature maps $M_{l-1}$ and 1x1 filters 1x1x$M_{l-1}$ (note the depth of the filter must match the number of the input feature maps) then we form a dot product between the feature maps at the spatial location $(i,j)$  of the 1x1 filter followed by a non-linearity (ReLU). This operation is in other words the same operation of a fully connected single layer neural network whose neurons are those spanned by the single column at the $(i,j)$ coordinate.  This layer will produce a single output at each visited $(i,j)$ coordinate. 
+The most straightforward way to look at this layer is as a _cross feature map pooling layer_. When we have multiple input feature maps $M_{l-1}$ and 1x1 filters 1x1x$M_{l-1}$ (note the depth of the filter must match the number of the input feature maps) then we form a dot product between the feature maps at the spatial location $(i,j)$  of the 1x1 filter followed by a non-linearity (ReLU). This operation is in other words the same operation of a fully connected single layer neural network whose neurons are those spanned by the single column at the $(i,j)$ coordinate.  This layer will produce a single output at each visited $(i,j)$ coordinate. 
 
-The original idea expanded to multiple layers is attributed to [this](https://arxiv.org/pdf/1312.4400v3.pdf) paper. 
+This idea can be expanded to multiple layers as described in [this](https://arxiv.org/pdf/1312.4400v3.pdf) paper. 
 
 ![1x1-convolution-b](images/1x1-convolution-b.png)
 
-Indeed when we have **multiple** $M_l$ filters of size 1 x 1 x $M_{l-1}$ then effectively we define in the same way multiple feature maps and in fact this is a good way to reduce the number of feature maps at the output of this layer, with benefits in computational complexity of the deep network as a whole.
-
-
-<!-- ### Dropout 
-
-### Batch Normalization (section 8.7.1) -->
+When we have **multiple** $M_l$ layers of size 1 x 1 x $M_{l-1}$ then, effectively, we produce multiple feature maps one for each 1x1 layer and this is a good way to reduce the number of feature maps at the output of this layer, with benefits in computational complexity of the deep network as a whole.
 
 
 ## Known CNN Architectures
 
-> NOTE: Use [this](https://towardsdatascience.com/neural-network-architectures-156e5bad51ba) article with [this](https://medium.com/@culurciello/analysis-of-deep-neural-networks-dcf398e71aae) update as a reference. This summary will be important to you as a starting point to develop your own up to date list of known ConvNets. 
-
-What is instructive after reading the above reference is to be able to recall key design patterns and why those patterns came to be. We focus here on ResNet - today's workhorse in deep learning methods in computer vision.  The study of all of the details in the listed / linked architectures is **not** required for the final exam. 
-
-### CNN Sizing
-
-Sizing is an exercise that will help you how to specify hyperparameters in ```tf.keras``` such as the height, width, depth of filters, feature map sizes etc. Sizing is needed so that you can stitch all the layers together correctly. We will use an toy network for such exercise. 
-
-![convnet](images/convnet.jpeg)
-
-The example CNN architecture above has the following layers:
-
-* INPUT [32x32x3] will hold the raw pixel values of the image, in this case an image of width 32, height 32, and with three color channels R,G,B.
-* CONV layer will compute the output of neurons that are connected to local regions in the input, each computing a dot product between their weights and a small region they are connected to in the input volume. This may result in volume such as [32x32x12] if we decided to use 12 filters.
-* RELU layer will apply an elementwise activation function, such as the $\max(0,x)$ thresholding at zero. This leaves the size of the volume unchanged ([32x32x12]).
-* POOL layer will perform a downsampling operation along the spatial dimensions (width, height), resulting in volume such as [16x16x12].
-* FC (i.e. fully-connected) layer, also known as dense, will compute the class scores, resulting in volume of size [1x1x10], where each of the 10 numbers correspond to a class score, such as among the 10 categories of CIFAR-10 dataset. As you recall in FC layers each neuron in this layer will be connected to all the neurons in the previous volume.
-
-The impact of padding on the sizing of the produced feature map is shown in the following numerical example. The example is for [28x28x3] input layer but results can be extrapolated for [32x32x3]
-
-![sizing-example](images/sizing-example.png#center)
-
-### Number of parameters and memory
-
-![revolution-of-depth](images/revolution-of-depth.png#center)
-
-
-### The ResNet Architecture
-
-![resnet-vgg](images/resnet-vgg.png#center)
-*34 layers deep ResNet architecture (3rd column) vs earlier architectures*
-
-ResNets or residual networks, introduced the concept of the residual. This can be understood looking at an small residual network of three stages. The striking difference between ResNets and earlier architectures are the **skip connections**. Shortcut connections are those skipping one or more layers. The shortcut connections simply perform identity mapping, and their outputs are added to the outputs of the stacked layers. Identity shortcut connections add neither extra parameter nor computational complexity. The entire network can still be trained end-to-end by SGD with backpropagation, and can be easily implemented using common libraries without modifying the solvers.
-
-![resnet3-unroll](images/resnet3-unroll.png)
-
-Hinton showed that dropping out individual neurons during training leads to a network that is equivalent to averaging over an ensemble of exponentially many networks. Entire layers can be removed from plain residual networks without impacting performance, indicating that they do not strongly depend on each other. 
-
-Each layer consists of a residual module $f_i$ and a skip connection bypassing $f_i$. Since layers in residual networks can comprise multiple convolutional layers, we refer to them as residual blocks. With $y_{i-1}$ as is input, the output of the i-th block is recursively defined as
-
-$y_i = f_i(y_{i−1}) + y_{i−1}$
-
-where $f_i(x)$ is some sequence of convolutions, batch normalization, and Rectified Linear Units
-(ReLU) as nonlinearities. In the figure above we have three blocks. Each $f_i(x)$ is defined by
-
-$f_i(x) = W_i^{(1)} * \sigma(B (W_i^{(2)} * \sigma(B(x))))$
-
-where $W_i^{(1)}$ and $W_i^{(2)}$ are weight matrices, · denotes convolution, $B(x)$ is batch normalization and
-$\sigma(x) ≡ max(x, 0)$. Other formulations are typically composed of the same operations, but may differ
-in their order.
-
-During the lecture we will go through [this](https://arxiv.org/pdf/1605.06431.pdf) paper analysis of the unrolled network to understand the behavior of ResNets that are inherently scalable networks.
-
-ResNets introduced below - are commonly used as feature extractors for object detection. They are not the only ones but these networks are the obvious / typical choice today and they can also be used in real time video streaming applications achieving significant throughput e.g. 20 frames per second. 
-
-<iframe width="560" height="315" src="http://kaiminghe.com/icml16tutorial/icml2016_tutorial_deep_residual_networks_kaiminghe.pdf"></iframe>
+A summary of well known CNN networks are [here](https://towardsdatascience.com/neural-network-architectures-156e5bad51ba) article with [this](https://medium.com/@culurciello/analysis-of-deep-neural-networks-dcf398e71aae) update as a reference. This summary will be important to you as a starting point to develop your own understanding of very well known CNNs and after you read the corresponding papers in arxiv you will be able to recall key design patterns and why those patterns came to be. 
