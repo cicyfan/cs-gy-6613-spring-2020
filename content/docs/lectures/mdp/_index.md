@@ -17,7 +17,7 @@ $$r_t = f_r(s_t, a_t, s_{t+1})$$
 
 This new state will trigger a new iteration and the interaction will terminate at some point either because the environment terminated after reaching a maximum time step or reaching a desired target state.
 
-![agent-environment](images/01fig02.jpg)
+![agent-env-interface](images/agent-env-interface.png#center)
 *Agent-Environment Interface*
 
 Notation Table:
