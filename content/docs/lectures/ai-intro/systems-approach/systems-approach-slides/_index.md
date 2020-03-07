@@ -14,9 +14,9 @@ Jan 2020
 
 ---
 
-## The four approaches towards AI
+## AI Approaches
 
-![inline](images/AI-approaches.png)
+![inline](../images/AI-approaches.png)
 
 ---
 
@@ -63,7 +63,7 @@ Jan 2020
 
 ---
 
-![](images/fire.jpg)
+![](../images/fire.jpg)
 
 ## The Rational Agent approach
 
@@ -88,7 +88,7 @@ Jan 2020
 
 ## The Bell Labs AI Research Environment
 
-![left autoplay mute](images/maze-overhead-view.mp4)
+![left autoplay mute](../images/maze-overhead-view.mp4)
 
 - This maze was constructed in Bell Labs for the [Unix 50 competition](https://www.bell-labs.com/unix50/) to demonstrate the ability of intelligent robotic agents to search for unknown objects in it. 
 - It is constantly enhanced with more challenging parts such as collaboration between robots. 
@@ -98,4 +98,4 @@ Jan 2020
 
 # A real self-driving car circa 2018 (Udacity's CARLA)
 
-![inline](images/carla-system.png)
+![inline](../images/carla-system.png)
