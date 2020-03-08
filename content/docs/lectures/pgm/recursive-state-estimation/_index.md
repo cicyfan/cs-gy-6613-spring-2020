@@ -18,3 +18,4 @@ Such expansion, will allow us to form using the Bayes rule, perhaps one of the m
 
 ## Bayes Filter
 
+We are introducing this algorithm, by considering a embodied agent (a robot) that moves in an environment characterized by a state $s$. 
