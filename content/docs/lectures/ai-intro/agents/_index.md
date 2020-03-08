@@ -46,3 +46,9 @@ The learning agent architecture builds on top of the rational agent (the perform
 
 We will see in Deep Reinforcement Learning that this architecture is able to accommodate such end to end learning approach. In that setting the critic is part of the environment - see [Solving sparse-reward tasks with Curiosity](https://blogs.unity3d.com/2018/06/26/solving-sparse-reward-tasks-with-curiosity/) for an example where the critic is inside the agent generating intrinsic rewards. 
 
+## Solution space
+
+For each environment and each architecture there is a number of solutions that may be appropriate. The following figure presents the environment type to algorithm mapping that we will cover in this book. 
+
+![agents-environment-taxonomy](images/agents-environment-taxonomy.png#center)
+
