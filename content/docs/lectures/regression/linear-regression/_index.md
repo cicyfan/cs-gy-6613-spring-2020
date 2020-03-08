@@ -57,3 +57,11 @@ which means that the [MSE captures both bias and variance](https://en.wikipedia.
 
 ![generalization-error-vs-capacity](images/generalization-capacity.png)
 *As capacity increases (x-axis), bias (dotted) tends to decrease and variance(dashed) tends to increase, yielding another U-shaped curve for generalization error (bold curve). If we vary capacity along one axis, there is an optimal capacity, with underﬁtting when the capacity is below this optimum and overﬁtting when it is above.*
+
+
+## OLS as Maximum Likelihood Estimation
+
+[These notes](https://www.cs.indiana.edu/~predrag/classes/2016fallb365x/ols.pdf) summarize the Maximum Likelihood approach and are provided here as they are more expansive compared to textbooks and at the same time do make the connection to the [Linear Algebra background you should have]({{<ref "../../ml-math/linear-algebra">}}).  
+
+![Figure3.2-bishop](images/Figure3.2.png)
+*Geometrical Interpretation of Ordinary Least Squares (OLS)*

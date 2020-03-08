@@ -1,7 +1,7 @@
 ---
 title: Generative Modeling and Continuous Variational Auto Encoders (VAE)
 draft: true
-weight: 83
+weight: 88
 ---
 
 # Generative Modeling and  Continuous Variational Auto Encoders (VAE)
@@ -28,7 +28,7 @@ $$p(\mathbf x | \mathbf \theta) =  \sum_{\mathbf z} p(\mathbf x, \mathbf z | \ma
 
 to generate new data whose marginal is ideally identical to the true but unknown target distribution we need to be able to sample from $p(\mathbf x, \mathbf z | \mathbf \theta)$.
 
-The introduction of the latent variables can be represented as directed graph abd we have seen in the [probabilistic graphical models]({{<ref "../pgm-intro">}}) introduction, the representation as directed graph allows the factorization of the joint distribution 
+The introduction of the latent variables can be represented as directed graph abd we have seen in the [probabilistic graphical models]({{<ref "../../pgm/pgm-intro">}}) introduction, the representation as directed graph allows the factorization of the joint distribution 
 
 $$p(\mathbf x_1, \mathbf x_2, \dots, \mathbf x_M | \mathbf \theta) = \prod_{j=1}^M p(\mathbf x_j | Pa(\mathbf x_j))$$
 
