@@ -1,7 +1,7 @@
 ---
 title: Introduction to Probabilistic Reasoning
 weight: 81
-draft: true
+draft: false
 ---
 
 # Introduction to Probabilistic Reasoning

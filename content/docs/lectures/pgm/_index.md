@@ -1,5 +1,5 @@
 ---
 title: Lecture 6 - Probabilistic Graphical Models
-draft: true
+draft: false
 weight: 80
 ---

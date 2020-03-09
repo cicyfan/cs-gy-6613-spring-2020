@@ -1,7 +1,7 @@
 ---
 title: Localization and Tracking
 weight: 88
-draft: true
+draft: false
 ---
 
 # Localization and Tracking

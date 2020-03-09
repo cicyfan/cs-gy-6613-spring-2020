@@ -1,6 +1,6 @@
 ---
 title: Recursive State Estimation
-draft: true
+draft: false
 weight: 85
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Inference in Graphical Models 
 weight: 82
-draft: true
+draft: false
 ---
 
 # Inference in Graphical Models 
