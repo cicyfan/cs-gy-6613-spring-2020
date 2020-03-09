@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.9c4892201959df72fa6e056315175614d6b67b362a5d1ea3f2bdc201ac0c14ce.js" integrity="sha256-nEiSIBlZ33L6bgVjFRdWFNa2ezYqXR6j8r3CAawMFM4="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.fbd3c465c6cc5885188b0a05363e3572bded4fa6c61b5d3b6736d5e638ce5f02.js" integrity="sha256-&#43;9PEZcbMWIUYiwoFNj41cr3tT6bGG107ZzbV5jjOXwI="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/regression/linear-regression/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -148,6 +148,32 @@ https://github.com/alex-shpak/hugo-book
   
   <ul>
     
+      
+        
+
+  <li >
+    
+      <span>Systems Approach Slides</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
   </ul>
   
 
@@ -181,6 +207,30 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     
       
+        
+
+  <li >
+    
+      <span>Ai Pipelines Slides</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
     
   </ul>
   
@@ -213,6 +263,32 @@ https://github.com/alex-shpak/hugo-book
 
   
   <ul>
+    
+      
+        
+
+  <li >
+    
+      <span>Agents Slides</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
     
   </ul>
   
@@ -293,38 +369,6 @@ https://github.com/alex-shpak/hugo-book
 
   <a href="/cs-gy-6613-spring-2020/docs/lectures/regression/linear-regression/"  class="active">
       Linear Regression
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li >
-    
-      
-
-  <a href="/cs-gy-6613-spring-2020/docs/lectures/regression/ML-Bayesian-estimation/" >
-      Bayesian Linear Regression
   </a>
 
 
@@ -1247,7 +1291,7 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Generative Modeling and Continuous Variational Auto Encoders (VAE)</span>
+      <span>Inference in Graphical Models</span>
     
 
     
@@ -1267,6 +1311,84 @@ https://github.com/alex-shpak/hugo-book
 
 
       
+    
+      
+        
+
+  <li >
+    
+      <span>Recursive State Estimation</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Localization and Tracking</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Generative Modeling and Continuous Variational Auto Encoders (VAE)</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
     
   </ul>
   
@@ -1798,7 +1920,11 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#linear-regression">Linear Regression</a></li>
+    <li><a href="#linear-regression">Linear Regression</a>
+      <ul>
+        <li><a href="#ols-as-maximum-likelihood-estimation">OLS as Maximum Likelihood Estimation</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -1839,6 +1965,10 @@ https://github.com/alex-shpak/hugo-book
 <p>which means that the <a href="https://en.wikipedia.org/wiki/Mean_squared_error">MSE captures both bias and variance</a> of the estimated target variables and as shown in the plots above, increasing model capacity can really increase the variance of $\hat{y}$. We have seen that as the $\mathbf{w}$ is trying to exactly fit, or memorize, the data, it minimizes the bias (in fact for model complexity M=9 the bias is 0) but it also exhibits significant variability that is itself translated to $\hat{y}$. Although the definition of model <em>capacity</em> is far more rigorous, we will broadly associate complexity with capacity and borrow the figure below from Ian Goodfellow&rsquo;s book to demosntrate the tradeoff between bias and variance. What we have done with regularization is to find the $\lambda$ that minimized generalization error aka. find the optimal model capacity.</p>
 <p><img src="images/generalization-capacity.png" alt="generalization-error-vs-capacity">
 <em>As capacity increases (x-axis), bias (dotted) tends to decrease and variance(dashed) tends to increase, yielding another U-shaped curve for generalization error (bold curve). If we vary capacity along one axis, there is an optimal capacity, with underﬁtting when the capacity is below this optimum and overﬁtting when it is above.</em></p>
+<h2 id="ols-as-maximum-likelihood-estimation">OLS as Maximum Likelihood Estimation</h2>
+<p><a href="https://www.cs.indiana.edu/~predrag/classes/2016fallb365x/ols.pdf">These notes</a> summarize the Maximum Likelihood approach and are provided here as they are more expansive compared to textbooks and at the same time do make the connection to the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/linear-algebra/">Linear Algebra background you should have</a>.</p>
+<p><img src="images/Figure3.2.png" alt="Figure3.2-bishop">
+<em>Geometrical Interpretation of Ordinary Least Squares (OLS)</em></p>
 </article>
  
 
@@ -1850,9 +1980,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/bef327705864d7f37b0df5017fd07e5611e042e9" title='Last modified by MONOGIOUDIS Pantelis | Feb 3, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/ca29deccf49ea02b3b022f7b3c4f3956a600b0c8" title='Last modified by MONOGIOUDIS Pantelis | Mar 8, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Feb 3, 2020</span>
+      <span>Mar 8, 2020</span>
     </a>
   </div>
 
@@ -1880,7 +2010,11 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#linear-regression">Linear Regression</a></li>
+    <li><a href="#linear-regression">Linear Regression</a>
+      <ul>
+        <li><a href="#ols-as-maximum-likelihood-estimation">OLS as Maximum Likelihood Estimation</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
