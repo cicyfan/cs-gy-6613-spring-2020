@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.fbd3c465c6cc5885188b0a05363e3572bded4fa6c61b5d3b6736d5e638ce5f02.js" integrity="sha256-&#43;9PEZcbMWIUYiwoFNj41cr3tT6bGG107ZzbV5jjOXwI="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.2a65c6902e800ae571081f1a0fb1485ef108e6c485830d0769b4974db18bdd35.js" integrity="sha256-KmXGkC6ACuVxCB8aD7FIXvEI5sSFgw0HabSXTbGL3TU="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/pgm/pgm-intro/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -1265,7 +1265,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Introduction to Probabilistic Reasoning</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/pgm/pgm-intro/"  class="active">
+      Introduction to Probabilistic Reasoning
+  </a>
+
+
     
 
     
@@ -1291,7 +1297,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Inference in Graphical Models</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/pgm/bayesian-inference/" >
+      Inference in Graphical Models
+  </a>
+
+
     
 
     
@@ -1317,7 +1329,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Recursive State Estimation</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/pgm/recursive-state-estimation/" >
+      Recursive State Estimation
+  </a>
+
+
     
 
     
@@ -1343,7 +1361,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Localization and Tracking</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/pgm/localization/" >
+      Localization and Tracking
+  </a>
+
+
     
 
     
@@ -1918,7 +1942,16 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction-to-probabilistic-reasoning">Introduction to Probabilistic Reasoning</a>
+      <ul>
+        <li><a href="#the-bayes-rule">The Bayes Rule</a></li>
+        <li><a href="#probabilistic-graphical-models">Probabilistic Graphical Models</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
     </aside>
@@ -1927,7 +1960,33 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-<article class="markdown"></article>
+<article class="markdown"><h1 id="introduction-to-probabilistic-reasoning">Introduction to Probabilistic Reasoning</h1>
+<p>In the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/scene-understanding-intro/">scene understanding</a> chapter we started putting together the perception pipelines that resulted in us knowing where are the objects of interest in the image coordinate frame but we stopped short of any advanced methods that can lead to what we humans call <em>understanding</em>. We hinted that assigning an object an symbolic identity is an essential ability that allows an embodied AI agent to reason about the scene using symbolic reasoning approaches researched by the AI community over many decades.</p>
+<p><img src="images/prob-reasoning-agent.png#center" alt="prob-reasoning-agent">
+<em>Positioning of probabilistic reasoning subsystem</em></p>
+<p>Staying in this trajectory, we introduce the topic of reasoning via a probabilistic lens. We argue that enhancing the environment state as determined by the perception subsystem, includes another subsystem that we will call <em>probabilistic reasoning</em> subsystem that allow us to:</p>
+<ul>
+<li>infer the hidden state of the environment <em>and</em></li>
+<li>learn the state that the agents internally maintains via appropriate to the task <em>representations</em>.</li>
+</ul>
+<p>In a subsequent chapter we will enhance the model to include past <em>actions</em> rather than just past percepts. Let us now start with the rule that is the cornerstone of probabilistic modeling and reasoning.</p>
+<h2 id="the-bayes-rule">The Bayes Rule</h2>
+<p><img src="images/bayes.jpg#center" alt="Bayes">
+<em>Thomas Bayes (1701-1761)</em></p>
+<p>Let $\mathbf{\theta}$ denote the unknown parameters, $D$ denote the dataset and $\mathcal{H}$ denote the hypothesis space that we met in <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/learning-problem/">the learning problem</a> chapter. The Bayes rule states:</p>
+<p>$$ P(\mathbf{\theta} | D, \mathcal{H}) =  \frac{P( D | \mathbf{\theta}, \mathcal{H}) P(\mathbf{\theta} | \mathcal{H}) }{ P(D|\mathcal{H})} $$</p>
+<p>The Bayesian framework allows the introduction of priors $p(\theta | \mathcal{H})$ from a wide variety of sources: experts, other data, past posteriors, etc. It allows us to calculate the posterior distribution from the likelihood function and this prior subject to a normalizing constant. We will call <em>belief</em> the internal to the agent posterior probability estimate of a random variable as calculated via the Bayes rule.  For example,a medical patient is exhibiting symptoms x, y and z. There are a number of diseases that could be causing all of them, but only a single disease is present. A doctor (the expert) has <em>beliefs</em> about the underlying disease, but a second doctor may have slightly different <em>beliefs</em>.</p>
+<h2 id="probabilistic-graphical-models">Probabilistic Graphical Models</h2>
+<p>Let us now look at a representation, <em>the probabilistic graphical model (pgm)</em> (also called Bayesian network when the priors are captured) that can be used to capture the <em>structure</em> of such beliefs and in general capture dependencies between the random variables involved in the modeling of a problem. We can use such representations to efficiently compute such beliefs and in general conditional probabilities. For now we will limit the modeling horizon to just one snapshot in time - later we will expand to capture problems that include time $t$ as a variable.</p>
+<p>By convention we represent in PGMsas directed graphs, with nodes being the random variables involved in the model and directed edges indicating a parent child relationship, with the arrow pointing to a child, representing that the child nodes are <em>probabilistically conditioned on the parent(s)</em>.</p>
+<p>In a hypothetical example of a joint distribution with $K=7$ random variables,</p>
+<img src="images/Figure8.2.png" width="250" align="center">
+<p><em>PGM governing the joint distribution $p(x_1, x_2, &hellip;, x_7)=p(x_1)p(x_2)p(x_3)p(x_4|x_1, x_2, x_3)p(x_5|x_1, x_3), p(x_6|x_4)p(x_7|x_4, x_5)$</em></p>
+<p>In general,</p>
+<p>$$p(\mathbf x)= \prod_{k=1}^K p(x_k | \mathtt{pa}_k)$$</p>
+<p>where $\mathtt{pa}_k$ is the set of parents of $x_k$.</p>
+<p>Note that we have assumed that our model does <em>not</em> have variables involved in directed cycles and therefore we call such graphs Directed Acyclic Graphs (DAGs).</p>
+</article>
  
 
       <footer class="book-footer">
@@ -1938,9 +1997,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/ca29deccf49ea02b3b022f7b3c4f3956a600b0c8" title='Last modified by MONOGIOUDIS Pantelis | Mar 8, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/e81ef508a014828d692676d824b5711c050d141d" title='Last modified by MONOGIOUDIS Pantelis | Mar 9, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Mar 8, 2020</span>
+      <span>Mar 9, 2020</span>
     </a>
   </div>
 
@@ -1966,7 +2025,16 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction-to-probabilistic-reasoning">Introduction to Probabilistic Reasoning</a>
+      <ul>
+        <li><a href="#the-bayes-rule">The Bayes Rule</a></li>
+        <li><a href="#probabilistic-graphical-models">Probabilistic Graphical Models</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
  
     </aside>

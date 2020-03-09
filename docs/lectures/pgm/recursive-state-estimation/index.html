@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.fbd3c465c6cc5885188b0a05363e3572bded4fa6c61b5d3b6736d5e638ce5f02.js" integrity="sha256-&#43;9PEZcbMWIUYiwoFNj41cr3tT6bGG107ZzbV5jjOXwI="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.2a65c6902e800ae571081f1a0fb1485ef108e6c485830d0769b4974db18bdd35.js" integrity="sha256-KmXGkC6ACuVxCB8aD7FIXvEI5sSFgw0HabSXTbGL3TU="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/pgm/recursive-state-estimation/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -1265,7 +1265,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Introduction to Probabilistic Reasoning</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/pgm/pgm-intro/" >
+      Introduction to Probabilistic Reasoning
+  </a>
+
+
     
 
     
@@ -1291,7 +1297,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Inference in Graphical Models</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/pgm/bayesian-inference/" >
+      Inference in Graphical Models
+  </a>
+
+
     
 
     
@@ -1317,7 +1329,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Recursive State Estimation</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/pgm/recursive-state-estimation/"  class="active">
+      Recursive State Estimation
+  </a>
+
+
     
 
     
@@ -1343,7 +1361,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Localization and Tracking</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/pgm/localization/" >
+      Localization and Tracking
+  </a>
+
+
     
 
     
@@ -1918,7 +1942,26 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#recursive-state-estimation">Recursive State Estimation</a>
+      <ul>
+        <li><a href="#bayes-filter">Bayes Filter</a>
+          <ul>
+            <li><a href="#door-state-estimation">Door state estimation</a>
+              <ul>
+                <li><a href="#measurement-model">Measurement Model</a></li>
+                <li><a href="#transition-model">Transition Model</a></li>
+                <li><a href="#recursive-state-estimation-at-t1---step-1-prediction">Recursive State Estimation at $t=1$ - Step 1: Prediction</a></li>
+                <li><a href="#recursive-state-estimation-at-t1---step-2-measurement-update">Recursive State Estimation at $t=1$ - Step 2: Measurement Update</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
     </aside>
@@ -1927,7 +1970,96 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-<article class="markdown"></article>
+<article class="markdown"><h1 id="recursive-state-estimation">Recursive State Estimation</h1>
+<p>In <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/pgm/bayesian-inference/">Inference in Graphical Models section</a> we have seen how sequential data belonging to just two evidential variables (captured via $p(x,y)$) can be treated by probabilistic models to infer (reason) about values of the posterior. Now we will expand on two fronts:</p>
+<ul>
+<li>
+<p>Introduce the concept of <em>state</em> $s$ that encapsulates multiple random variables and consider <em>dynamical systems</em> with non-trivial non-linear dynamics (state transition models) common in robotics, medical diagnosis and many other fields.</p>
+</li>
+<li>
+<p>Introduce the time index $t$ explicitly in the aforementioned state evolution as represented via a graphical model.</p>
+</li>
+</ul>
+<p>The perception subsystem, that processes sensor data produces noisy estimates (object detections etc.) - these can be attributed to the algorithmic elements of the subsystem or to imperfections in the sensors themselves. The model that captures the perception pipeline from sensors to estimates will be called <em>measurement model</em> or <em>sensor model</em>. So in summary we have two abstractions / models that we need to be concerned about: the transition model of the environment state and the sensor model.</p>
+<p>Such expansion, will allow us to form using the Bayes rule, perhaps one of the most important contributions to the probabilistic modeling of dynamical systems: the recursive state estimator also known as <em>Bayes filter</em> that affords the agent the ability to maintain an internal <em>belief</em> of the current state of the environment.</p>
+<h2 id="bayes-filter">Bayes Filter</h2>
+<p>We are introducing this algorithm, by considering a embodied agent (a robot) that moves in an environment characterized by the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/agents/">so called Environment Type 4 in the taxonomy presented in the agent chapter</a>.</p>
+<p><img src="images/belief.png#center" alt="belief">
+<em>Agent belief and environment interactions</em></p>
+<p>The state of such environment contain variables that capture dynamics such as pose (6D) that includes location and orientation, agent velocity, other objects poses, etc., as well as static state variables such as location of obstacles, walls etc. Most practical algorithms for state estimation assume that the stochastically evolving environment is not affected from state variables prior to $s_t$. This is the <em>Markovian</em> assumption and is key in making such algorithms tractable. Note that the assumption does not constraint the actual time internal that it is impactful for the future as we are free to define anyway we want the state $s_t$. It may for example use a super-state that consists of two states in corresponding time intervals $s_t=[s_{t-1}, s_t]$.  We call this the Markov order - in this case the order is two. In the figure below you can see the PGM that corresponds to the Markov assumption.</p>
+<p><img src="images/dynamic-bayes-network.png#center" alt="dynamic-bayesin-network">
+<em>Dynamic Bayesian Network that characterizes the Markov evolution of states, measurements and controls  - in the text we use for states the letter $s$ instead of $x$ and for actions the letter $a$ instead of $u$.</em></p>
+<p>The above graph decomposes as follows:</p>
+<p>$$p(z_t|s_{0:t}, z_{1:t}, a_{1:t})=p(z_t|s_t)$$
+$$p(s_t|s_{1:t-1}, z_{1:t}, a_{1:t})=p(s_t|s_{t-1}, a_t)$$</p>
+<p>In the following we will use $z_{t_1:t_2}$ to represent sensing estimates of the perception subsystem acquired between $t_1$ and $t_2$. The measurement or sensor model is given by the conditional probability distribution $p(z_t|x_t)$. Note a couple of important points: as measurements arrive over time, the knowledge of the agent increases and there may not be dependency on time for the measurement model.</p>
+<p>We will also use the conditional probability to represent the state transition $p(s_t | s_{t-1}, a_t)$ where $a_t$ is the control action variable that the agent executes causing a state change in the environment. By convention, we execute first a control action $a_1$ and then measure $z_1$.</p>
+<p>The belief is the <em>posterior</em> distribution over the state $s_t$ conditioned on all past measurements and actions.</p>
+<p>$$\mathtt{bel}(s_t) = p(s_t | z_{1:t}, a_{1:t})$$</p>
+<p>It would also be useful to define the belief just after we took action $a_t$ but before considering the measurement $z_t$</p>
+<p>$$\mathtt{\hat{bel}}(s_t) = p(s_t | z_{1:t-1}, a_{1:t})$$</p>
+<p>The Bayes filter is a recursive algorithm that involves two steps:</p>
+<p>(a) the <em>prediction</em> step that estimates the belief $\mathtt{\hat{bel}}(s_t)$ from the belief of the previous recursion $\mathtt{bel}(s_{t-1})$<br>
+(b) the _measurement update_ step that that weighs the belief $\mathtt{\hat{bel}}(s_t)$  with the probability that measurement $z_t$ was observed.</p>
+<p><em>Bayes Filter</em></p>
+<hr>
+<p>$\mathtt{bel}(s_t)$ = bayes_filter($\mathtt{bel}(s_{t-1}), a_t, z_t)$</p>
+<p>for all $s_t$ do:</p>
+<p>$→ \mathtt{\hat{bel}}(s_t) = \int p(s_t | u_t, s_{t-1}) \mathtt{bel}(s_{t-1}) ds_{t-1}$ (prediction)</p>
+<p>$→ \mathtt{bel}(s_t) = \eta p(z_t | s_t) \mathtt{\hat{bel}}(s_t)$ (measurement update)</p>
+<p>endfor</p>
+<hr>
+<p>To illustrate how the Bayes filter is useful, lets look at a practical example. This example was borrowed from Sebastian Thrun&rsquo;s book, &ldquo;Probabilistic Robotics&rdquo;, MIT Press, 2006.</p>
+<h3 id="door-state-estimation">Door state estimation</h3>
+<p>The problem we are considering is estimating the state of a door using an agent (robot) equipped with a monocular camera.</p>
+<p><img src="images/robot-door.jpg#center" alt="robot-door"></p>
+<p>For simplicity lets assume that the door can be in any of two possible states (open or closed) and that the agent does not know the initial state of the door. Therefore initially, its beliefs are:</p>
+<p>$$\mathtt{bel}(s_0=open) = 0.5$$
+$$\mathtt{bel}(s_0=closed) = 0.5$$</p>
+<h4 id="measurement-model">Measurement Model</h4>
+<p>No real agent has ideal sensing abilities so the sensor or measurement model is noisy and lets assume for simplicity that its given by:</p>
+<p>$$p(z_t = sense-open | s_t = open) = 0.6$$
+$$p(z_t = sense-closed | s_t = open) = 0.4$$
+$$p(z_t = sense-open | s_t = closed) = 0.2$$
+$$p(z_t = sense-closed | s_t = closed) = 0.8$$</p>
+<p>The values in the measurement model above are not necessarily chosen randomly as computer vision algorithms (or LIDAR) may find it easier to detect a closed door from an open door.</p>
+<h4 id="transition-model">Transition Model</h4>
+<p>Lets also assume that the agent is using a arm manipulator to <em>push</em> the door open <em>if its closed</em>. Note So we have the following transition distribution:</p>
+<p>$$p(s_t = open | a_t=push, s_{t-1} = open) = 1$$
+$$p(s_t = closed | a_t=push, s_{t-1} = open) = 0$$
+$$p(s_t = open | a_t=push, s_{t-1} = closed) = 0.8$$
+$$p(s_t = closed | a_t=push, s_{t-1} = closed) = 0.2$$</p>
+<p>$$p(s_t = open | a_t=inaction, s_{t-1} = open) = 1$$
+$$p(s_t = closed | a_t=inaction, s_{t-1} = open) = 0$$
+$$p(s_t = open | a_t=inaction, s_{t-1} = closed) = 0$$
+$$p(s_t = closed | a_t=inaction, s_{t-1} = closed) = 1$$</p>
+<p>As we mentioned before, by  <em>convention</em> the agent first acts and then senses. If you reverse sensing and action you arrive in the same equations with just some index differences.</p>
+<p>Lets assume that at $t=1$, the agent takes no action but senses the door is open. The two steps of RSE are as follows:</p>
+<h4 id="recursive-state-estimation-at-t1---step-1-prediction">Recursive State Estimation at $t=1$ - Step 1: Prediction</h4>
+<p>$$\mathtt{\hat{bel}}(s_1) = \int p(x_1 | u_1, s_0) ds_0 = \sum_{s_0} p(s_1 | u_1, s_0) \mathtt{bel}(s_0)$$
+$$ = p(s_1 | u_1 = inaction, s_0 = open) \mathtt{bel}(s_0=open) + p(s_1 | u_1 = inaction, s_0 = closed) \mathtt{bel}(s_0=closed)$$</p>
+<p>Do for all possible values of the state variable $s_1$ we have</p>
+<p>$$\mathtt{\hat{bel}}(s_1 = open) = 1 * 0.5 + 0 * 0.5 = 0.5$$</p>
+<p>The fact that the belief at this point equals the <em>prior</em> belief (stored in the agent) is explained from the fact that inaction shouldnt change the environment state and the environment state does not change itself over time in this specific case.</p>
+<h4 id="recursive-state-estimation-at-t1---step-2-measurement-update">Recursive State Estimation at $t=1$ - Step 2: Measurement Update</h4>
+<p>In this step we are using the perception subsystem to adjust the belief with what it is telling us:</p>
+<p>$$ \mathtt{bel}(s_1) = \eta p(z_1 = sense-open| s_1) \mathtt{\hat{bel}}(s_1) $$</p>
+<p>For the two possible states at $t=1$ we have</p>
+<p>$$\mathtt{bel}(s_1=open) = \eta p(z_1 = sense-open| s_1=open) \mathtt{\hat{bel}}(s_1=open)$$
+$$ = \eta 0.6 * 0.5 = \eta 0.3 $$</p>
+<p>$$\mathtt{bel}(s_1=closed) = \eta p(z_1 = sense-open| s_1=closed) \mathtt{\hat{bel}}(s_1=closed)$$
+$$ = \eta 0.2 * 0.5 = 0.1$$</p>
+<p>The normalizing $\eta$ factor can now be calculated: $\eta = 1/(0.3 + 0.1) = 2.5$.</p>
+<p>Therefore:</p>
+<p>$$\mathtt{bel}(s_1=open) = 0.75$$</p>
+<p>$$\mathtt{bel}(s_1=closed) = 0.25$$</p>
+<p>In the next time step lets assume that the agent pushes the door and senses that its open. Its easy to verify that</p>
+<p>$$\mathtt{\hat{bel}}(s_2 = open) = 0.95$$
+$$\mathtt{\hat{bel}}(s_2 = closed) = 0.05$$</p>
+<p>$$\mathtt{bel}(s_2 = open) = 0.983$$
+$$\mathtt{bel}(s_2 = closed) = 0.0017$$</p>
+<p>This example, although simplistic is indicative of the ability of the Bayes filter to incorporate perception and action into one framework. Although the example was for an embodied agent with a manipulator, the notion of action is optional. Beliefs can be recursively updated even if the action is not taken explicitly by the agent. Your cell phones have the ability to localize themselves using exactly the same Bayesian filter with different sensing (RF signals) despite the fact that they don&rsquo;t move by themselves but are carried by you in their environment.</p>
+</article>
  
 
       <footer class="book-footer">
@@ -1938,7 +2070,7 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/02d0325354924ecb552b657b9a5e4dd408c58f73" title='Last modified by MONOGIOUDIS Pantelis | Mar 9, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/e81ef508a014828d692676d824b5711c050d141d" title='Last modified by MONOGIOUDIS Pantelis | Mar 9, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Mar 9, 2020</span>
     </a>
@@ -1966,7 +2098,26 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#recursive-state-estimation">Recursive State Estimation</a>
+      <ul>
+        <li><a href="#bayes-filter">Bayes Filter</a>
+          <ul>
+            <li><a href="#door-state-estimation">Door state estimation</a>
+              <ul>
+                <li><a href="#measurement-model">Measurement Model</a></li>
+                <li><a href="#transition-model">Transition Model</a></li>
+                <li><a href="#recursive-state-estimation-at-t1---step-1-prediction">Recursive State Estimation at $t=1$ - Step 1: Prediction</a></li>
+                <li><a href="#recursive-state-estimation-at-t1---step-2-measurement-update">Recursive State Estimation at $t=1$ - Step 2: Measurement Update</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
  
     </aside>
