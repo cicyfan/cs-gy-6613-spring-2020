@@ -84,12 +84,14 @@ $$\mathtt{bel}(s_0=closed) = 0.5$$
 
 No real agent has ideal sensing abilities so the sensor or measurement model is noisy and lets assume for simplicity that its given by:
 
-$$p(z_t = sense-open | s_t = open) = 0.6$$
-$$p(z_t = sense-closed | s_t = open) = 0.4$$
-$$p(z_t = sense-open | s_t = closed) = 0.2$$
-$$p(z_t = sense-closed | s_t = closed) = 0.8$$
+|  Description   | Probabilistic Model   |
+| --- | --- |
+|  if its open, agent can sense it as such with prob 60\%   |   $p(z_t = sense-open \| s_t = open) = 0.6$  |
+|  if its closed, agent can sense it as such with prob 40\%   |   $p(z_t = sense-closed \| s_t = open) = 0.4$ |
+|  if its closed, agent senses it open with prob 20\%   |  $p(z_t = sense-open \| s_t = closed) = 0.2$   |
+|  if its closed, agent can sense it as such with prob 80\%   |  $p(z_t = sense-closed \| s_t = closed) = 0.8$   |
 
-The values in the measurement model above are not necessarily chosen randomly as computer vision algorithms (or LIDAR) may find it easier to detect a closed door from an open door. 
+The values in the measurement model above are not necessarily chosen randomly as computer vision algorithms (or LIDAR) may find it easier to detect a closed door from an open door, since with an open door the camera sees the clutter inside the room and the LIDAR may confuse the clutter returns with a closed door. 
 
 #### Transition Model
 
