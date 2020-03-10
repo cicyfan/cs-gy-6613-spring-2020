@@ -111,14 +111,14 @@ Lets also assume that the agent is using a arm manipulator to _push_ the door op
 
 As we mentioned before, by  _convention_ the agent first acts and then senses. If you reverse sensing and action you arrive in the same equations with just some index differences. 
 
-Lets assume that at $t=1$, the agent takes no action but senses the door is open. The two steps of RSE are as follows: 
+Lets assume that at $t=1$, the agent takes _no action_ but _senses the door is open_. The two steps of RSE are as follows: 
 
 #### Recursive State Estimation at $t=1$ - Step 1: Prediction
 
-$$\mathtt{\hat{bel}}(s_1) = \int p(x_1 | u_1, s_0) ds_0 = \sum_{s_0} p(s_1 | u_1, s_0) \mathtt{bel}(s_0)$$ 
-$$ = p(s_1 | u_1 = inaction, s_0 = open) \mathtt{bel}(s_0=open) + p(s_1 | u_1 = inaction, s_0 = closed) \mathtt{bel}(s_0=closed)$$ 
+$$\mathtt{\hat{bel}}(s_1) = \int p(x_1 | a_1, s_0) ds_0 = \sum_{s_0} p(s_1 | a_1, s_0) \mathtt{bel}(s_0)$$ 
+$$ = p(s_1 | a_1 = inaction, s_0 = open) \mathtt{bel}(s_0=open) + p(s_1 | a_1 = inaction, s_0 = closed) \mathtt{bel}(s_0=closed)$$ 
 
-Do for all possible values of the state variable $s_1$ we have
+For all possible values of the state variable $s_1$ we have
 
 $$\mathtt{\hat{bel}}(s_1 = open) = 1 * 0.5 + 0 * 0.5 = 0.5$$
 
