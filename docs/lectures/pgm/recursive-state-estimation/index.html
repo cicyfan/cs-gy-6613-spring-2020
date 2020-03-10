@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.1b0b4e987ddfaf8c31430bc5f8d7b8826b283b354a126d73956a5aec0ead2792.js" integrity="sha256-GwtOmH3fr4wxQwvF&#43;Ne4gmsoOzVKEm1zlWpa7A6tJ5I="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.798715e4534b2c93cd59e53714fbb928ceed1339d64cfed2ce66ca5dd6b3941f.js" integrity="sha256-eYcV5FNLLJPNWeU3FPu5KM7tEznWTP7SzmbKXdazlB8="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/pgm/recursive-state-estimation/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -2005,7 +2005,7 @@ $$p(s_t|s_{1:t-1}, z_{1:t}, a_{1:t})=p(s_t|s_{t-1}, a_t)$$</p>
 <hr>
 <p>$\mathtt{bel}(s_t)$ = bayes_filter($\mathtt{bel}(s_{t-1}), a_t, z_t)$</p>
 <p>for all $s_t$ do:</p>
-<p>$→ \mathtt{\hat{bel}}(s_t) = \int p(s_t | u_t, s_{t-1}) \mathtt{bel}(s_{t-1}) ds_{t-1}$ (prediction)</p>
+<p>$→ \mathtt{\hat{bel}}(s_t) = \int p(s_t | a_t, s_{t-1}) \mathtt{bel}(s_{t-1}) ds_{t-1}$ (prediction)</p>
 <p>$→ \mathtt{bel}(s_t) = \eta p(z_t | s_t) \mathtt{\hat{bel}}(s_t)$ (measurement update)</p>
 <p>endfor</p>
 <hr>
@@ -2018,21 +2018,77 @@ $$p(s_t|s_{1:t-1}, z_{1:t}, a_{1:t})=p(s_t|s_{t-1}, a_t)$$</p>
 $$\mathtt{bel}(s_0=closed) = 0.5$$</p>
 <h4 id="measurement-model">Measurement Model</h4>
 <p>No real agent has ideal sensing abilities so the sensor or measurement model is noisy and lets assume for simplicity that its given by:</p>
-<p>$$p(z_t = sense-open | s_t = open) = 0.6$$
-$$p(z_t = sense-closed | s_t = open) = 0.4$$
-$$p(z_t = sense-open | s_t = closed) = 0.2$$
-$$p(z_t = sense-closed | s_t = closed) = 0.8$$</p>
-<p>The values in the measurement model above are not necessarily chosen randomly as computer vision algorithms (or LIDAR) may find it easier to detect a closed door from an open door.</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Probabilistic Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>if its open, agent can sense it as such with prob 60%</td>
+<td>$p(z_t = sense-open | s_t = open) = 0.6$</td>
+</tr>
+<tr>
+<td>if its closed, agent can sense it as such with prob 40%</td>
+<td>$p(z_t = sense-closed | s_t = open) = 0.4$</td>
+</tr>
+<tr>
+<td>if its closed, agent senses it open with prob 20%</td>
+<td>$p(z_t = sense-open | s_t = closed) = 0.2$</td>
+</tr>
+<tr>
+<td>if its closed, agent can sense it as such with prob 80%</td>
+<td>$p(z_t = sense-closed | s_t = closed) = 0.8$</td>
+</tr>
+</tbody>
+</table>
+<p>The values in the measurement model above are not necessarily chosen randomly as computer vision algorithms (or LIDAR) may find it easier to detect a closed door from an open door, since with an open door the camera sees the clutter inside the room and the LIDAR may confuse the clutter returns with a closed door.</p>
 <h4 id="transition-model">Transition Model</h4>
 <p>Lets also assume that the agent is using a arm manipulator to <em>push</em> the door open <em>if its closed</em>. Note So we have the following transition distribution:</p>
-<p>$$p(s_t = open | a_t=push, s_{t-1} = open) = 1$$
-$$p(s_t = closed | a_t=push, s_{t-1} = open) = 0$$
-$$p(s_t = open | a_t=push, s_{t-1} = closed) = 0.8$$
-$$p(s_t = closed | a_t=push, s_{t-1} = closed) = 0.2$$</p>
-<p>$$p(s_t = open | a_t=inaction, s_{t-1} = open) = 1$$
-$$p(s_t = closed | a_t=inaction, s_{t-1} = open) = 0$$
-$$p(s_t = open | a_t=inaction, s_{t-1} = closed) = 0$$
-$$p(s_t = closed | a_t=inaction, s_{t-1} = closed) = 1$$</p>
+<table>
+<thead>
+<tr>
+<th>Transition description</th>
+<th>Probabilistic Finite State Machine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>if its open, a push leaves it open</td>
+<td>$p(s_t = open | a_t=push, s_{t-1} = open) = 1$</td>
+</tr>
+<tr>
+<td>if its open, a push does not close it</td>
+<td>$p(s_t = closed | a_t=push, s_{t-1} = open) = 0$</td>
+</tr>
+<tr>
+<td>if its closed, a push opens it with probability 80%</td>
+<td>$p(s_t = open | a_t=push, s_{t-1} = closed) = 0.8$</td>
+</tr>
+<tr>
+<td>if its closed, a push leaves it closed with probability 20%</td>
+<td>$p(s_t = closed | a_t=push, s_{t-1} = closed) = 0.2$</td>
+</tr>
+<tr>
+<td>if its open, doing nothing leaves it open</td>
+<td>$p(s_t = open | a_t=inaction, s_{t-1} = open) = 1$</td>
+</tr>
+<tr>
+<td>if its open, doing nothing does not close it</td>
+<td>$p(s_t = closed</td>
+</tr>
+<tr>
+<td>if its closed, doing nothing does not open it</td>
+<td>$p(s_t = open</td>
+</tr>
+<tr>
+<td>if its closed, doing nothing leaves it closed</td>
+<td>$p(s_t = closed</td>
+</tr>
+</tbody>
+</table>
 <p>As we mentioned before, by  <em>convention</em> the agent first acts and then senses. If you reverse sensing and action you arrive in the same equations with just some index differences.</p>
 <p>Lets assume that at $t=1$, the agent takes no action but senses the door is open. The two steps of RSE are as follows:</p>
 <h4 id="recursive-state-estimation-at-t1---step-1-prediction">Recursive State Estimation at $t=1$ - Step 1: Prediction</h4>
@@ -2070,9 +2126,9 @@ $$\mathtt{bel}(s_2 = closed) = 0.0017$$</p>
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/e81ef508a014828d692676d824b5711c050d141d" title='Last modified by MONOGIOUDIS Pantelis | Mar 9, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/e25ab0498ec8232fd841678e860c80ace607c810" title='Last modified by MONOGIOUDIS Pantelis | Mar 10, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Mar 9, 2020</span>
+      <span>Mar 10, 2020</span>
     </a>
   </div>
 
