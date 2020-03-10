@@ -59,7 +59,7 @@ $\mathtt{bel}(s_t)$ = bayes_filter($\mathtt{bel}(s_{t-1}), a_t, z_t)$
 
 for all $s_t$ do:
 
-$→ \mathtt{\hat{bel}}(s_t) = \int p(s_t | u_t, s_{t-1}) \mathtt{bel}(s_{t-1}) ds_{t-1}$ (prediction)
+$→ \mathtt{\hat{bel}}(s_t) = \int p(s_t | a_t, s_{t-1}) \mathtt{bel}(s_{t-1}) ds_{t-1}$ (prediction)
 
 $→ \mathtt{bel}(s_t) = \eta p(z_t | s_t) \mathtt{\hat{bel}}(s_t)$ (measurement update)
 
@@ -95,15 +95,16 @@ The values in the measurement model above are not necessarily chosen randomly as
 
 Lets also assume that the agent is using a arm manipulator to _push_ the door open _if its closed_. Note So we have the following transition distribution:
 
-$$p(s_t = open | a_t=push, s_{t-1} = open) = 1$$
-$$p(s_t = closed | a_t=push, s_{t-1} = open) = 0$$
-$$p(s_t = open | a_t=push, s_{t-1} = closed) = 0.8$$
-$$p(s_t = closed | a_t=push, s_{t-1} = closed) = 0.2$$
-
-$$p(s_t = open | a_t=inaction, s_{t-1} = open) = 1$$
-$$p(s_t = closed | a_t=inaction, s_{t-1} = open) = 0$$
-$$p(s_t = open | a_t=inaction, s_{t-1} = closed) = 0$$
-$$p(s_t = closed | a_t=inaction, s_{t-1} = closed) = 1$$
+| Transition description    | Probabilistic Finite State Machine  |
+| --- | --- |
+|  if its open, a push leaves it open   |  $p(s_t = open \| a_t=push, s_{t-1} = open) = 1$   |
+|  if its open, a push does not close it   |  $p(s_t = closed \| a_t=push, s_{t-1} = open) = 0$   |
+|  if its closed, a push opens it with probability 80\%   | $p(s_t = open \| a_t=push, s_{t-1} = closed) = 0.8$    |
+|  if its closed, a push leaves it closed with probability 20\%   |  $p(s_t = closed \| a_t=push, s_{t-1} = closed) = 0.2$   |
+|  if its open, doing nothing leaves it open   | $p(s_t = open \| a_t=inaction, s_{t-1} = open) = 1$    |
+|  if its open, doing nothing does not close it  |  $p(s_t = closed | a_t=inaction, s_{t-1} = open) = 0$   |
+|  if its closed, doing nothing does not open it  |  $p(s_t = open | a_t=inaction, s_{t-1} = closed) = 0$  |
+|  if its closed, doing nothing leaves it closed   |  $p(s_t = closed | a_t=inaction, s_{t-1} = closed) = 1$   |
 
 
 As we mentioned before, by  _convention_ the agent first acts and then senses. If you reverse sensing and action you arrive in the same equations with just some index differences. 

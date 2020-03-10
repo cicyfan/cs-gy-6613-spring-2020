@@ -33,7 +33,7 @@ $\mathtt{bel}(s_t)$ = bayes_filter($\mathtt{bel}(s_{t-1}), a_t, z_t, m)$
 
 for all $s_t$ do:
 
-$→ \mathtt{\hat{bel}}(s_t) = \int p(s_t | u_t, s_{t-1}, m) \mathtt{bel}(s_{t-1}) ds_{t-1}$ (prediction)
+$→ \mathtt{\hat{bel}}(s_t) = \int p(s_t | a_t, s_{t-1}, m) \mathtt{bel}(s_{t-1}) ds_{t-1}$ (prediction)
 
 $→ \mathtt{bel}(s_t) = \eta p(z_t | s_t, m) \mathtt{\hat{bel}}(s_t)$ (measurement update)
 
