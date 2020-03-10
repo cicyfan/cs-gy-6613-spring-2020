@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.798715e4534b2c93cd59e53714fbb928ceed1339d64cfed2ce66ca5dd6b3941f.js" integrity="sha256-eYcV5FNLLJPNWeU3FPu5KM7tEznWTP7SzmbKXdazlB8="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.5765dd60bc8c389b8ad9d93e6ac58e56ccda5d7636f4f47e0cccf31ab59654ca.js" integrity="sha256-V2XdYLyMOJuK2dk&#43;asWOVszaXXY29PR&#43;DMzzGrWWVMo="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/pgm/recursive-state-estimation/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -2090,11 +2090,11 @@ $$\mathtt{bel}(s_0=closed) = 0.5$$</p>
 </tbody>
 </table>
 <p>As we mentioned before, by  <em>convention</em> the agent first acts and then senses. If you reverse sensing and action you arrive in the same equations with just some index differences.</p>
-<p>Lets assume that at $t=1$, the agent takes no action but senses the door is open. The two steps of RSE are as follows:</p>
+<p>Lets assume that at $t=1$, the agent takes <em>no action</em> but <em>senses the door is open</em>. The two steps of RSE are as follows:</p>
 <h4 id="recursive-state-estimation-at-t1---step-1-prediction">Recursive State Estimation at $t=1$ - Step 1: Prediction</h4>
-<p>$$\mathtt{\hat{bel}}(s_1) = \int p(x_1 | u_1, s_0) ds_0 = \sum_{s_0} p(s_1 | u_1, s_0) \mathtt{bel}(s_0)$$
-$$ = p(s_1 | u_1 = inaction, s_0 = open) \mathtt{bel}(s_0=open) + p(s_1 | u_1 = inaction, s_0 = closed) \mathtt{bel}(s_0=closed)$$</p>
-<p>Do for all possible values of the state variable $s_1$ we have</p>
+<p>$$\mathtt{\hat{bel}}(s_1) = \int p(x_1 | a_1, s_0) ds_0 = \sum_{s_0} p(s_1 | a_1, s_0) \mathtt{bel}(s_0)$$
+$$ = p(s_1 | a_1 = inaction, s_0 = open) \mathtt{bel}(s_0=open) + p(s_1 | a_1 = inaction, s_0 = closed) \mathtt{bel}(s_0=closed)$$</p>
+<p>For all possible values of the state variable $s_1$ we have</p>
 <p>$$\mathtt{\hat{bel}}(s_1 = open) = 1 * 0.5 + 0 * 0.5 = 0.5$$</p>
 <p>The fact that the belief at this point equals the <em>prior</em> belief (stored in the agent) is explained from the fact that inaction shouldnt change the environment state and the environment state does not change itself over time in this specific case.</p>
 <h4 id="recursive-state-estimation-at-t1---step-2-measurement-update">Recursive State Estimation at $t=1$ - Step 2: Measurement Update</h4>
@@ -2126,7 +2126,7 @@ $$\mathtt{bel}(s_2 = closed) = 0.0017$$</p>
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/e25ab0498ec8232fd841678e860c80ace607c810" title='Last modified by MONOGIOUDIS Pantelis | Mar 10, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/3f4fbc998ae73e203c7a6007c6b0f4226e97b375" title='Last modified by MONOGIOUDIS Pantelis | Mar 10, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Mar 10, 2020</span>
     </a>
