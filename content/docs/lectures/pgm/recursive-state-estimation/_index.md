@@ -122,7 +122,7 @@ For all possible values of the state variable $s_1$ we have
 
 $$\mathtt{\hat{bel}}(s_1 = open) = 1 * 0.5 + 0 * 0.5 = 0.5$$
 
-The fact that the belief at this point equals the _prior_ belief (stored in the agent) is explained from the fact that inaction shouldnt change the environment state and the environment state does not change itself over time in this specific case.  
+The fact that the belief at this point equals the _prior_ belief (stored in the agent) is explained from the fact that inaction shouldn't change the environment state and the environment state does not change itself over time in this specific case.  
 
 #### Recursive State Estimation at $t=1$ - Step 2: Measurement Update
 
