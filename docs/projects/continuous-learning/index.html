@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.9370adc2d480514141aefd45fae8a2c430ad5702ba20984943331368891a0305.js" integrity="sha256-k3CtwtSAUUFBrv1F&#43;uiixDCtVwK6IJhJQzMTaIkaAwU="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.58df781008ed5838596b910c627784dd14449180684161f49691a65804a067c3.js" integrity="sha256-WN94EAjtWDhZa5EMYneE3RREkYBoQWH0lpGmWASgZ8M="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/continuous-learning/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -1944,7 +1944,12 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#project-2---continual-learning-for-robotic-perception">Project 2 - Continual Learning for Robotic Perception</a></li>
+    <li><a href="#project-2---continual-learning-cl-for-robotic-perception">Project 2 - Continual Learning (CL) for Robotic Perception</a>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#datasets-and-tasks">Datasets and Tasks</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -1955,9 +1960,28 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-<article class="markdown"><h1 id="project-2---continual-learning-for-robotic-perception">Project 2 - Continual Learning for Robotic Perception</h1>
+<article class="markdown"><h1 id="project-2---continual-learning-cl-for-robotic-perception">Project 2 - Continual Learning (CL) for Robotic Perception</h1>
 <p><strong>This project is due March 29 at 11:59pm</strong></p>
-<p>One of the greatest goals of AI is building an artificial continual learning agent which can construct a sophisticated understanding of the external world from its own experience through the adaptive, goal-oriented and incremental development of ever more complex skills and knowledge. Continual learning is essential in robotics where high dimensional data streams need to be constantly processed and where naïve continual learning strategies have been shown to suffer from <em>catastrophic forgetting</em>.</p>
+<h2 id="introduction">Introduction</h2>
+<p>One of the greatest goals of AI is building an artificial continual learning agent which can construct a sophisticated understanding of the external world from its own experience through the adaptive, goal-oriented and incremental development of ever more complex skills and knowledge.</p>
+<p>Continual learning (CL) is essential in robotics where high dimensional data streams need to be constantly processed and where naïve continual learning strategies have been shown to suffer from <em>catastrophic forgetting</em> also known as <em>catastrophic interference</em>. Take deep learning architectures for example: they excel at a number of classification and regression tasks by using a large dataset, however the dataset must be present during the training phase and the whole network must be <em>retrained</em> every time there the underlying distribution $p_{data}$ changes. The existing approaches of _transfer learning_ that use weights of a different dataset to set the weights for the new dataset are inadequate, since they only help on reducing the training time for new dataset, rather than preserve the pre-existing ability to achieve good classification performance on the original dataset classes. Aside from supervised learning, CL accommodate a wider range of tasks such as unsupervised and reinforcement learning.</p>
+<p>Our brains exhibits <em>plasticity</em> that allows us on one hand to integrate new knowledge and on the other hand to do so without overcompensating for new knowledge causing interference with the consolidated knowledge - this tradeoff is called <em>plasticity-stability dilemma</em>.  Hebbian plasticity, termed after Hebb&rsquo;s rule (1949), basically postulate the tendency of <em>strengthening the connection</em> between pre-synaptic and post-synaptic neurons when the activations $x$ of the former affect the activations $y$ of the later. In its simplest form, Hebb&rsquo;s rule states that a synaptic strength $w$ changes as: $\Delta w = \eta × x \times y$ where $\eta$ is the learning rate. Hebb&rsquo;s rule can lead to instability and <a href="https://en.wikipedia.org/wiki/Homeostasis">homeostatic</a> mechanisms are used, represented by a modulatory feedback control signal $m$ that regulates the unstable dynamics of Hebb&rsquo;s rule:</p>
+<p>$$ \Delta w = m \times \eta × x \times y$$</p>
+<p>We can draw the block diagram of such dynamical system model:</p>
+<p><img src="images/Hebbian-Homeostatic-Plasticity.png#center" alt="Hebbian-Homeostatic-Plasticity">
+<em>Hebbian-Homeostatic Plasticity Model for synaptic updates.</em></p>
+<p>While the synaptic updates under the plasticity rule are essential to avoid catastrophic forgetting at the neural circuit level, we need a system level mechanism to carry out two complementary tasks, also known as Complementary Learning Systems (CLS) theory: <em>statistical learning</em> with the ability to generalize across experiences and retain what it learned for the long term and <em>episodic learning</em> that learns quickly novel information and retains episodic event memories (memorization). Statistical learning is implemented by the neocortical functional area of the grain and is a slower process as it extracts statistical structures of perceptive signals to be able to generalize to novel examples / situations. Episodic leanring, implemented in the hypocampus, is much faster as its goal is to learn specific events, retain them and play them back to the neocortex for information integration purposes. Both subsystems use the controlled Hebbian plasticity mechanism outlined earlier.</p>
+<p><img src="images/CLS.png#center" alt="CLS">
+<em>Hypocampus and Neocortex complementary learning system</em></p>
+<p>The aforementioned widely accepted as explanatory functions of the brain learning system, guided computational models and architectures of continuous learning in AI. For the deep learning architectures, three are the main threads:</p>
+<ol>
+<li>Imposing weight constraints (Regularization)</li>
+<li>Allocating additional neural resources to capture the new knowledge (dynamic architectures)</li>
+<li>CLS-based approaches.</li>
+</ol>
+<p>In this project, you are free to select a method from any of these three non-exclusive categories, <a href="https://arxiv.org/abs/1802.07569">as described in detail</a>. This is a <a href="https://sites.google.com/view/clvision2020/challenge?authuser=0">very active area of AI research</a> right now.</p>
+<h2 id="datasets-and-tasks">Datasets and Tasks</h2>
+<p>You are given two dataset options for this project as shown in the table below. The CORe50 option is more difficult than the MNIST option. Grading will happen relative to teams that selected the same option. The CORe50 option may require an AWS/Azure/Google cloud or NYU GPU compute  resource to run. MNIST should be able to run in Colab/Kaggle with standard free accounts. If you have access to compute, you will learn more from selecting the CORe50 option as this is closest to a real life dataset than the rotated MNIST which is not even testing for new classes - rather it tests CL on rotated version of classes it has seen before.</p>
 <table>
 <thead>
 <tr>
@@ -1976,8 +2000,6 @@ https://github.com/alex-shpak/hugo-book
 </tr>
 </tbody>
 </table>
-<p>The CORe50 option is more difficult than the MNIST option. Grading will happen relative to teams that selected the same option. The CORe50 option may require an AWS/Azure/Google cloud or NYU GPU compute  resource to run. MNIST should be able to run in Colab/Kaggle with standard free accounts. If you have access to compute, you will learn more from selecting the CORe50 option as this is closest to a real life dataset than the rotated MNIST which is not even testing for new classes - rather it tests CL on rotated version of classes it has seen before.</p>
-<p>This is a very active area in AI right now - see <a href="https://sites.google.com/view/clvision2020/challenge?authuser=0">here</a></p>
 </article>
  
 
@@ -1989,9 +2011,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/f33771b41a47b7b95eabbe61f539fde95879bf32" title='Last modified by MONOGIOUDIS Pantelis | Mar 14, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/3e2d4c2c23e3b99bc953384c5350ebbfbb397870" title='Last modified by MONOGIOUDIS Pantelis | Mar 15, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Mar 14, 2020</span>
+      <span>Mar 15, 2020</span>
     </a>
   </div>
 
@@ -2019,7 +2041,12 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#project-2---continual-learning-for-robotic-perception">Project 2 - Continual Learning for Robotic Perception</a></li>
+    <li><a href="#project-2---continual-learning-cl-for-robotic-perception">Project 2 - Continual Learning (CL) for Robotic Perception</a>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#datasets-and-tasks">Datasets and Tasks</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
