@@ -32,7 +32,7 @@ The aforementioned widely accepted as explanatory functions of the brain learnin
 2. Allocating additional neural resources to capture the new knowledge (dynamic architectures)
 3. CLS-based approaches. 
 
-In this project, you are free to select a method from any of these three non-exclusive categories, [as described in detail](https://arxiv.org/abs/1802.07569). This is a [very active area of AI research](https://sites.google.com/view/clvision2020/challenge?authuser=0) right now. 
+In this project, you are free to select a method from any of these three non-exclusive categories, [as described in detail](https://arxiv.org/abs/1802.07569). This is a [very active area of AI research](https://sites.google.com/view/clvision2020/challenge?authuser=0). 
 
 ## Datasets and Tasks
 

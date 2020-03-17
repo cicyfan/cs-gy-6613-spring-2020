@@ -1,7 +1,7 @@
 ---
 title: Generative Modeling and Continuous Variational Auto Encoders (VAE)
 draft: true
-weight: 88
+weight: 118
 ---
 
 # Generative Modeling and  Continuous Variational Auto Encoders (VAE)
