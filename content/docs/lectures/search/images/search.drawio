@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-03-17T22:20:30.610Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36" etag="Cw4XfHWL3th1kIOZvV-9" version="12.8.6" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2020-03-17T22:21:19.039Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36" etag="FnEia2MFHE-wNu1qEkSB" version="12.8.6" type="github" pages="2">
   <diagram id="n-F0v8olKahUGcoaK9ZK" name="cost-defintion">
     <mxGraphModel dx="713" dy="421" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -199,7 +199,7 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="B0csN4MV7XZGGIxpWnN4" name="search-example">
+  <diagram id="B0csN4MV7XZGGIxpWnN4" name="small-world">
     <mxGraphModel dx="1141" dy="674" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="GhC_Zz8aewY0h3e85FsZ-0" />
