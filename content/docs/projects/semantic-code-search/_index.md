@@ -2,6 +2,10 @@
 title: Project 3 - Semantic Code Search
 ---
 
+# Project 3 - Semantic Code Search
+
+**This project is due May 10 at 11:59pm**
+
 Imagine a world where software is automatically generated and stitched together to create complex distributed / reactive systems that can solve the problem at hand. In this course you got to appreciate the systems approach to AI and this project will allow you to understand one very important facet of automatic AI system synthesis: a search engine for code. It can be used initially by human programmers and later by robots to find pieces of code that are relevant to the target function. 
 
 Semantic code search is the task of retrieving _relevant code_ given a _natural language_ query. While related to other information retrieval
