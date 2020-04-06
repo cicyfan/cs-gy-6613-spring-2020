@@ -1,0 +1,395 @@
+---
+title: Route Planning
+weight: 92
+draft: true
+---
+
+# Route Planning
+
+In [recursive state estimation]({{<ref "../../pgm/recursive-state-estimation">}}) chapter we made two advances in our modeling tool set:
+
+1. We introduced sequenced events (time) and the concept of a varying _state_ over such sequences.  
+2. We saw how the agent state as dictated by an underlying dynamical model and and how to estimate it recursively using a graphical model that introduced a Bayesian probabilistic framework. We saw that many well known estimation algorithms such as the Kalman filter are specific cases of this framework. 
+
+With this probabilistic reasoning in place, we can now track objects in the scene and ultimately assign symbols that represent them as a direct consequence of their unique attributes (e.g. location). Having symbolic representation of its agent's locale environment is not enough though as we need a compatible _global_ representation of the environment and additional semantics to denote _goals_. With such complementary representations we can hope that we can efficiently infer states that we _cannot perceive_ as well as plan ahead to satisfy our goals. We effectively zoom out from the task-specific _factored_ representation of the agent's state and we look at environment state that is _atomic_ i.e. it is not broken down into its individual variables. 
+
+Atomic state representations of an environment are adequate for a a variety of tasks:  one striking use case is robotic navigation. There, the scene or environment takes the form of a global map and the goal is to move the embodied agent from a starting state to a goal state. If we assume that the global map takes the form of a grid with a suitable resolution, each grid tile represents a different atomic state than any other tile. Similar considerations can be made for other forms of the map e.g. a graph form. 
+
+Given such state representation, _search_ is one of the methods we use to find the action sequence that the agent must produce to reach a goal state. Note that in most cases, we are dealing with _informed_ rather than _blind_ search, where we are also given task-specific knowledge to find the solution as we will see shortly. 
+
+## Forward-Search
+
+We will develop the algorithm for the task at hand which is to find the path between a starting state and the goal state in a map. Not just any path but the _minimum cost_ path when the state transition graph is revealed incrementally through a series of actions and associated individual costs (cost function). The task is depicted below. 
+
+![path-finding](images/parking-lot.png#center)
+*A map of a parking lot as determined via postprocessing LIDAR returns. Obstacles colored in yellow are tall obstacles, brown obstacles
+are curbs, and green obstacles are tree branches that are of no relevance to ground navigation.*
+
+In practice, maps likes the one above are local both in terms of space (each snapshot is relative to the location of the agent) as well as in terms of time (at the time the agent took these measurements). We can take any map like the one above and form its discrete equivalent such as shown below. We usually call this type _metric map_ and for the purposes of this chapter this is our search area and in it lie all possible feasible _solutions_, each is a _sequence of actions_ distinguished by _path cost_. In this example, the least cost path is actually the geographically longer path - the line thickness for each of the two possible solutions in this figure is proportional to its cost. 
+
+![cost-definition](images/cost-definition.png#center)
+*An example search area with action-cost function where left turns are penalized compared to right.This is common penalization in path planning for delivery vehicles.*
+
+The alternative map representation is _topological_ where the environment is represented as a graph where nodes indicated significant grounded features and edges denote topological relationships (position, orientation, proximity etc.). The sometimes confusing part is that irrespectively of metric or topological representations, the _forward search_ methods we look in this chapter all function on _graphs_ given an initial state $s_I$ and the goal state $s_G$ that is reached after potentially a finite number of actions (if a solution exist). 
+
+<pre id="forward-search" style="display:hidden;">
+    \begin{algorithm}
+    \caption{Forward Search}
+    \begin{algorithmic}
+    \INPUT $s_I$, $s_G$
+    \STATE Q.Insert($s_I$), mark $s_I$ as explored.
+    \WHILE{Q not empty} 
+        \STATE $s \leftarrow Q.GetFirst()$
+        \IF{$s \in S_G$}
+            \RETURN SUCCESS
+        \ENDIF
+        \FOR{$a \in A(s)$}
+            \STATE $s' \leftarrow f(s,a)$
+            \IF{$s'$ not visited}
+               \STATE mark $s'$ as explored 
+               \STATE Q.Insert($s'$)
+            \ELSE 
+                \STATE Resolve duplicate $s'$
+            \ENDIF
+        \ENDFOR
+    \ENDWHILE
+    \end{algorithmic}
+    \end{algorithm}
+</pre>
+
+The forward search uses two data structures, a priority queue (Q) and a list and proceeds as follows:
+
+1. Provided that the starting state is not the goal state, we add it to a priority queue called the  _frontier_ (also known as _open list_ but we avoid using this term as its implemented as a queue). The name frontier is synonymous to _unexplored_. 
+2. We _expand_ each state in our frontier, by applying the finite set of actions, generating a new list of states. We use a list that we call the _explored set_ or _closed list_ to remember each node (state) that we expanded.  
+3. We then go over each newly generated state and before adding it to the frontier we check whether it has been expanded before and in that case we discard it. 
+
+## Forward-search approaches
+
+The only significant difference between various search algorithms is the specific priority function that implements line 3: $s \leftarrow Q.GetFirst()$ in other words selects a state held in the queue for expansion. 
+
+| Search     | Queue Policy    | Details    |
+| --- | --- | --- |
+| **Depth-first search (DFS)**   |  LIFO   |   Search frontier is driven by aggressive exploration of the transition model.  The LIFO queue is a stack that  | 
+|  **Breath-first search**  |   FIFO  |   Search frontier is expanding uniformly.  |
+|   **Dijkstra**  |  Cost-to-Come   |     |
+|   **A-star**   |  Cost-to-Go   |     |
+
+
+### Depth-first search (DFS)
+
+In undirected graphs, depth-first search answers the question: What parts of the graph are reachable from a given vertex. 
+It also finds explicit paths to these vertices, summarized in its search tree as shown below.
+
+![depth-first](images/depth-first.png#center)
+*Depth-first can't find optimal paths. Vertex C is reachable from S by traversing just one edge, while the DFS tree
+shows a path of length 3. On the right the DFS search tree is shown.*
+
+DFS can be run verbatim on directed graphs, taking care to traverse edges only in their prescribed directions.
+
+### Breadth-first search (BFS)
+In BFS the lifting of the starting state $s$, partitions the graph into layers: s itself (vertex at distance 0), the vertices at distance 1 from it, the vertices at distance 2 from it etc. 
+
+![breadth-first](images/breadth-first.png#center)
+*BFS expansion in terms of layers of vertices - each layer at increasing distance from the layer that follows*. 
+
+![breadth-first-2](images/breadth-first-2.png#center)
+*Queue contents during BFS and the BFS search tree.* 
+
+#### Dijkstra's Algorithm
+
+Breadth-first search finds shortest paths in any graph whose edges have unit length. Can we adapt it to a more general graph G = (V, E) whose edge lengths $l(e)$ are positive integers? Here is a simple trick for converting G into something BFS can handle: break G’s long edges
+into unit-length pieces, by introducing “dummy” nodes as shown next.
+
+![dijkstras-graph](images/dijkstras-graph.png#center)
+*To construct the new graph $G'$ for any edge $e = (u, v)$ of $E$, replace it by $l(e)$ edges of length 1, by adding $l(e) − 1$
+dummy nodes between nodes $u$ and $v$*. 
+
+With the shown transformation we run BFS on $G'$. 
+
+## Forward Search Implementation
+
+### Interactive Demo 
+
+This [demo](https://qiao.github.io/PathFinding.js/visual/) is instructive of the various search algorithms we covered in class. You can introduce using your mouse obstacles in the canvas and see how the various search methods behave. 
+
+<iframe src="https://qiao.github.io/PathFinding.js/visual/" width="900" height="1200"></iframe>
+
+
+### A* Implementation
+
+A stand-alone A* planner in python is shown next. Its instructive to go through the code to understand how it works. 
+
+{{< expand "A* Planner" "..." >}}
+
+```python
+import math
+import matplotlib.pyplot as plt
+
+show_animation = True
+
+class AStarPlanner:
+
+    def __init__(self, ox, oy, reso, rr):
+
+        """
+        Initialize grid map for a star planning
+
+        ox: x position list of Obstacles [m]
+        oy: y position list of Obstacles [m]
+        reso: grid resolution [m]
+        rr: robot radius[m]
+        """
+
+        self.reso = reso
+        self.rr = rr
+        self.calc_obstacle_map(ox, oy)
+        self.motion = self.get_motion_model()
+
+    class Node:
+        def __init__(self, x, y, cost, pind):
+            self.x = x  # index of grid
+            self.y = y  # index of grid
+            self.cost = cost
+            self.pind = pind
+
+        def __str__(self):
+            return str(self.x) + "," + str(self.y) + "," + str(self.cost) + "," + str(self.pind)
+
+    def planning(self, sx, sy, gx, gy):
+        """
+        A star path search
+
+        input:
+            sx: start x position [m]
+            sy: start y position [m]
+            gx: goal x position [m]
+            gx: goal x position [m]
+
+        output:
+            rx: x position list of the final path
+            ry: y position list of the final path
+        """
+
+        nstart = self.Node(self.calc_xyindex(sx, self.minx),
+                           self.calc_xyindex(sy, self.miny), 0.0, -1)
+        ngoal = self.Node(self.calc_xyindex(gx, self.minx),
+                          self.calc_xyindex(gy, self.miny), 0.0, -1)
+
+        open_set, closed_set = dict(), dict()
+
+        # populate the frontier (open set) with the starting node
+        open_set[self.calc_grid_index(nstart)] = nstart
+
+        while 1:
+            if len(open_set) == 0:
+                print("Open set is empty..")
+                break
+
+            c_id = min(
+                open_set, key=lambda o: open_set[o].cost + self.calc_heuristic(ngoal, open_set[o]))
+            current = open_set[c_id]
+
+            # show graph
+            if show_animation:  # pragma: no cover
+                plt.plot(self.calc_grid_position(current.x, self.minx),
+                         self.calc_grid_position(current.y, self.miny), "xc")
+                # for stopping simulation with the esc key.
+                plt.gcf().canvas.mpl_connect('key_release_event',
+                        lambda event: [exit(0) if event.key == 'escape' else None])
+                if len(closed_set.keys()) % 10 == 0:
+                    plt.pause(0.001)
+
+            if current.x == ngoal.x and current.y == ngoal.y:
+                print("Find goal")
+                ngoal.pind = current.pind
+                ngoal.cost = current.cost
+                break
+
+            # Remove the item from the open set
+            del open_set[c_id]
+
+            # Add it to the closed set
+            closed_set[c_id] = current
+
+            # expand_grid search grid based on motion model
+            for i, _ in enumerate(self.motion):
+                node = self.Node(current.x + self.motion[i][0],
+                                 current.y + self.motion[i][1],
+                                 current.cost + self.motion[i][2], c_id)
+                n_id = self.calc_grid_index(node)
+
+
+                # If the node is not safe, do nothing
+                if not self.verify_node(node):
+                    continue
+
+                if n_id in closed_set:
+                    continue
+
+                if n_id not in open_set:
+                    open_set[n_id] = node  # discovered a new node
+                else:
+                    if open_set[n_id].cost > node.cost:
+                        # This path is the best until now. record it
+                        open_set[n_id] = node
+
+        rx, ry = self.calc_final_path(ngoal, closed_set)
+
+        return rx, ry
+
+    def calc_final_path(self, ngoal, closedset):
+        # generate final course
+        rx, ry = [self.calc_grid_position(ngoal.x, self.minx)], [
+            self.calc_grid_position(ngoal.y, self.miny)]
+        pind = ngoal.pind
+        while pind != -1:
+            n = closedset[pind]
+            rx.append(self.calc_grid_position(n.x, self.minx))
+            ry.append(self.calc_grid_position(n.y, self.miny))
+            pind = n.pind
+
+        return rx, ry
+
+    @staticmethod
+    def calc_heuristic(n1, n2):
+        w = 1.0  # weight of heuristic
+        d = w * math.hypot(n1.x - n2.x, n1.y - n2.y)
+        return d
+
+    def calc_grid_position(self, index, minp):
+        """
+        calc grid position
+
+        :param index:
+        :param minp:
+        :return:
+        """
+        pos = index * self.reso + minp
+        return pos
+
+    def calc_xyindex(self, position, min_pos):
+        return round((position - min_pos) / self.reso)
+
+    def calc_grid_index(self, node):
+        return (node.y - self.miny) * self.xwidth + (node.x - self.minx)
+
+    def verify_node(self, node):
+        px = self.calc_grid_position(node.x, self.minx)
+        py = self.calc_grid_position(node.y, self.miny)
+
+        if px < self.minx:
+            return False
+        elif py < self.miny:
+            return False
+        elif px >= self.maxx:
+            return False
+        elif py >= self.maxy:
+            return False
+
+        # collision check
+        if self.obmap[node.x][node.y]:
+            return False
+
+        return True
+
+    def calc_obstacle_map(self, ox, oy):
+
+        # map limits
+        self.minx = round(min(ox))
+        self.miny = round(min(oy))
+        self.maxx = round(max(ox))
+        self.maxy = round(max(oy))
+        print("minx:", self.minx)
+        print("miny:", self.miny)
+        print("maxx:", self.maxx)
+        print("maxy:", self.maxy)
+
+        self.xwidth = round((self.maxx - self.minx) / self.reso)
+        self.ywidth = round((self.maxy - self.miny) / self.reso)
+        print("xwidth:", self.xwidth)
+        print("ywidth:", self.ywidth)
+
+        # obstacle map generation
+        self.obmap = [[False for i in range(self.ywidth)]
+                      for i in range(self.xwidth)]
+        for ix in range(self.xwidth):
+            x = self.calc_grid_position(ix, self.minx)
+            for iy in range(self.ywidth):
+                y = self.calc_grid_position(iy, self.miny)
+                for iox, ioy in zip(ox, oy):
+                    d = math.hypot(iox - x, ioy - y)
+                    if d <= self.rr:
+                        self.obmap[ix][iy] = True
+                        break
+
+    @staticmethod
+    def get_motion_model():
+        # dx, dy, cost
+        motion = [[1, 0, 1],
+                  [0, 1, 1],
+                  [-1, 0, 1],
+                  [0, -1, 1],
+                  [-1, -1, math.sqrt(2)],
+                  [-1, 1, math.sqrt(2)],
+                  [1, -1, math.sqrt(2)],
+                  [1, 1, math.sqrt(2)]]
+
+        return motion
+
+def main():
+    print(__file__ + " start!!")
+
+    # start and goal position
+    sx = 10.0  # [m]
+    sy = 10.0  # [m]
+    gx = 50.0  # [m]
+    gy = 50.0  # [m]
+    grid_size = 2.0  # [m]
+    robot_radius = 1.0  # [m]
+
+    # set obstable positions
+    ox, oy = [], []
+    for i in range(-10, 60):
+        ox.append(i)
+        oy.append(-10.0)
+    for i in range(-10, 60):
+        ox.append(60.0)
+        oy.append(i)
+    for i in range(-10, 61):
+        ox.append(i)
+        oy.append(60.0)
+    for i in range(-10, 61):
+        ox.append(-10.0)
+        oy.append(i)
+    for i in range(-10, 40):
+        ox.append(20.0)
+        oy.append(i)
+    for i in range(0, 40):
+        ox.append(40.0)
+        oy.append(60.0 - i)
+
+    if show_animation:  # pragma: no cover
+        plt.plot(ox, oy, ".k")
+        plt.plot(sx, sy, "og")
+        plt.plot(gx, gy, "xb")
+        plt.grid(True)
+        plt.axis("equal")
+
+    a_star = AStarPlanner(ox, oy, grid_size, robot_radius)
+    rx, ry = a_star.planning(sx, sy, gx, gy)
+
+    if show_animation:  # pragma: no cover
+        plt.plot(rx, ry, "-r")
+        plt.show()
+
+
+if __name__ == '__main__':
+    main()
+
+```
+{{< /expand >}}
+
+Executing the code above results in the animation:
+
+![astar-probabilistic-robotics](images/astar-prob-robotics.gif#center)
+*Animation of the Astar algorithm that will be developed in this section - from [here](https://github.com/AtsushiSakai/PythonRobotics)*
