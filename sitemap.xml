@@ -258,16 +258,6 @@
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl-model/vae/</loc>
-    <lastmod>2020-03-17T17:19:10-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/nlp/</loc>
-    <lastmod>2020-02-21T09:51:16-05:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/</loc>
     <lastmod>2020-02-10T13:16:48-05:00</lastmod>
   </url>
@@ -285,6 +275,16 @@
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/</loc>
     <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drafts/drl-model/vae/</loc>
+    <lastmod>2020-04-06T21:02:34-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drafts/nlp/</loc>
+    <lastmod>2020-04-06T21:02:57-04:00</lastmod>
   </url>
   
   <url>
@@ -322,8 +322,8 @@
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/nlp/word2vec/</loc>
-    <lastmod>2020-02-12T19:04:10-05:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drafts/nlp/word2vec/</loc>
+    <lastmod>2020-04-06T21:02:34-04:00</lastmod>
   </url>
   
   <url>
