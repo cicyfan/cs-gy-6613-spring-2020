@@ -22,4 +22,4 @@ Steps to complete this project:
 
 3. Follow the instructions in the competition to submit your score to the leaderboard and submit your github / colab notebooks and writeups.  
 
-Despite the fact that the project is not mandating the invention of new methods, the project is challenging - teams of 3 students each are allowed. 
+Despite the fact that the project is not mandating the invention of new methods, the project is challenging - teams each with a maximum of three students are allowed.

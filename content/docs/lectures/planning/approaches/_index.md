@@ -14,9 +14,9 @@ In this section we treat planning approaches that dominate in real-world applica
 |  End-to-End Pipeline |  In end-to-end approach the entire pipeline of transforming sensory inputs to driving commands is treated as a single learning task. We have seen this example in [the introductory chapter]({{<ref "../../ai-intro/course-introduction">}}) where Imitation Learning (IL) was used to determine from only pixel input the steering and acceleration controls of a vehicle. Apart from IL, Reinforcement Learning (RL) can also be used in a simulator setting to transfer the learned optimal policy in the real-world. |
 
 ![planning-approaches](images/planning-approaches.png#center)
-*Modular vs End-to-End pipelines for real-world motion planning*
+*Modular vs End-to-End pipeline for real-world motion planning*
 
-## Modular Pipeline
+## Modular pipeline
 
 The modular pipeline as shown below, consists of four main modules:
 
@@ -32,3 +32,11 @@ NOTE: In the description below the motion planning module mentioned in the figur
 
 ## End to end pipeline
 
+The modular approach allows for engineering teams to divide and conquer each module almost independently of the others, provided that the system architecture governed by the interfaces of the modules allows it. But advantages go beyond the clear separation of tasks and extend to _explainability_: each module is free to invent the representations that is best suited for its task and compartmentalize the final decision about the trajectory of the agent, allowing us humans to go back and understand how the decision was reached. 
+
+Having said that, modular architectures are working fine as long as the representations, their transformations and the individual module decisions support the real world environment that the agent is to operate. The moment the environment deviates from the typically expected one, modular architectures require _retuning_ to be able to accommodate more corner cases we never thought during the initial design. 
+
+![ball-road](images/ball-road.jpg#center)
+*There are potentially tens of scenarios each with a different decision making process (reasoning) involving kids playing with balls*
+
+Take for example, the case where the perception system detects children playing on the side of the road and a ball suddenly rolling onto the road - a decision to slam the brakes would have been prudent in a residential street but very risky in a higher speed road where e.g. changing the lane would be more prudent to avoid a rear end collision. The context of decision making is complex and the end to end pipeline approach allows for a programmable _attention_ if there are enough data (supervised or reinforcing) to cover cases that were not _designed in_. As there is a single task, the degrees of freedom of the end to end pipeline are spent in learning the right representations, the right decisions at the expense of interpretability. 
