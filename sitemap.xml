@@ -248,13 +248,8 @@
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/transfer-learning/</loc>
-    <lastmod>2020-03-02T17:32:49-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/csp/</loc>
-    <lastmod>2020-02-21T09:51:16-05:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drafts/csp/</loc>
+    <lastmod>2020-04-06T20:56:52-04:00</lastmod>
   </url>
   
   <url>
@@ -275,6 +270,11 @@
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/</loc>
     <lastmod>2020-02-10T13:16:48-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drafts/transfer-learning/</loc>
+    <lastmod>2020-04-06T20:56:52-04:00</lastmod>
   </url>
   
   <url>
@@ -300,6 +300,11 @@
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/systems-approach/systems-approach-slides/</loc>
     <lastmod>2020-03-07T16:36:58-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drafts/</loc>
+    <priority>0</priority>
   </url>
   
   <url>

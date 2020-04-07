@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Feature Extraction via Residual Networks"><meta property="og:title" content="Feature Extraction via Residual Networks" />
+<meta name="description" content="Transfer Learning"><meta property="og:title" content="Transfer Learning" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/feature-extraction-resnet/" />
+<meta property="og:url" content="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drafts/transfer-learning/" />
 
-<title>Feature Extraction via Residual Networks | CS-GY-6613 Spring 2020</title>
+<title>Transfer Learning | CS-GY-6613 Spring 2020</title>
 <link rel="icon" href="/cs-gy-6613-spring-2020/favicon.png" type="image/x-icon">
 
 
@@ -18,7 +18,7 @@
 
 <script defer src="/cs-gy-6613-spring-2020/en.search.min.5e1853e93d0d8433e8e62634379b6475cf6363e5a70386ace4f18e6ebff87f4c.js" integrity="sha256-XhhT6T0NhDPo5iY0N5tkdc9jY&#43;WnA4as5PGObr/4f0w="></script>
 
-<link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/feature-extraction-resnet/index.xml" title="CS-GY-6613 Spring 2020" />
+<link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drafts/transfer-learning/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1151,7 +1151,7 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/feature-extraction-resnet/"  class="active">
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/feature-extraction-resnet/" >
       Feature Extraction via Residual Networks
   </a>
 
@@ -2176,7 +2176,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/cs-gy-6613-spring-2020/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Feature Extraction via Residual Networks</strong>
+  <strong>Transfer Learning</strong>
 
   <label for="toc-control">
     <img src="/cs-gy-6613-spring-2020/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -2188,15 +2188,7 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  <nav id="TableOfContents">
-  <ul>
-    <li><a href="#feature-extraction-via-residual-networks">Feature Extraction via Residual Networks</a>
-      <ul>
-        <li><a href="#the-resnet-architecture">The ResNet Architecture</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+  
 
 
     </aside>
@@ -2205,25 +2197,7 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-<article class="markdown"><h1 id="feature-extraction-via-residual-networks">Feature Extraction via Residual Networks</h1>
-<h2 id="the-resnet-architecture">The ResNet Architecture</h2>
-<p><img src="images/resnet-vgg.png#center" alt="resnet-vgg">
-<em>34 layers deep ResNet architecture (3rd column) vs earlier architectures</em></p>
-<p>ResNets or residual networks, introduced the concept of the residual. This can be understood looking at a small residual network of three stages. The striking difference between ResNets and earlier architectures quoted in the linked articles in http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/cnn/cnn-arch/ are the <strong>skip connections</strong>. Shortcut connections are those skipping one or more layers. The shortcut connections simply perform identity mapping, and their outputs are added to the outputs of the stacked layers. Identity shortcut connections add neither extra parameter nor computational complexity. The entire network can still be trained end-to-end by SGD with backpropagation, and can be easily implemented using common libraries without modifying the solvers.</p>
-<p><img src="images/resnet3-unroll.png" alt="resnet3-unroll"></p>
-<p>Hinton showed that dropping out individual neurons during training leads to a network that is equivalent to averaging over an ensemble of exponentially many networks. Entire layers can be removed from plain residual networks without impacting performance, indicating that they do not strongly depend on each other.</p>
-<p>Each layer consists of a residual module $f_i$ and a skip connection bypassing $f_i$. Since layers in residual networks can comprise multiple convolutional layers, we refer to them as residual blocks. With $y_{i-1}$ as is input, the output of the i-th block is recursively defined as</p>
-<p>$y_i = f_i(y_{i−1}) + y_{i−1}$</p>
-<p>where $f_i(x)$ is some sequence of convolutions, batch normalization, and Rectified Linear Units
-(ReLU) as nonlinearities. In the figure above we have three blocks. Each $f_i(x)$ is defined by</p>
-<p>$f_i(x) = W_i^{(1)} * \sigma(B (W_i^{(2)} * \sigma(B(x))))$</p>
-<p>where $W_i^{(1)}$ and $W_i^{(2)}$ are weight matrices, · denotes convolution, $B(x)$ is batch normalization and
-$\sigma(x) ≡ max(x, 0)$. Other formulations are typically composed of the same operations, but may differ
-in their order.</p>
-<p>During the lecture we will go through <a href="https://arxiv.org/pdf/1605.06431.pdf">this</a> paper analysis of the unrolled network to understand the behavior of ResNets that are inherently scalable networks.</p>
-<p>ResNets introduced below - are commonly used as feature extractors for object detection. They are not the only ones but these networks are the obvious / typical choice today and they can also be used in real time video streaming applications achieving significant throughput e.g. 20 frames per second.</p>
-<iframe width="560" height="315" src="http://kaiminghe.com/icml16tutorial/icml2016_tutorial_deep_residual_networks_kaiminghe.pdf"></iframe>
-</article>
+<article class="markdown"></article>
  
 
       <footer class="book-footer">
@@ -2234,16 +2208,16 @@ in their order.</p>
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/1fd5708880ff17dff0d1045c7056647d5aced071" title='Last modified by MONOGIOUDIS Pantelis | Mar 2, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/126c278f910a85afb0987d8db2600a8fe9787a8e" title='Last modified by MONOGIOUDIS Pantelis | Apr 6, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Mar 2, 2020</span>
+      <span>Apr 6, 2020</span>
     </a>
   </div>
 
 
 
   <div>
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/edit/master/cs-gy-6613-spring-2020/content/docs/lectures/scene-understanding/feature-extraction-resnet/_index.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/edit/master/cs-gy-6613-spring-2020/content/docs/lectures/drafts/transfer-learning/_index.md" target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -2262,15 +2236,7 @@ in their order.</p>
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents">
-  <ul>
-    <li><a href="#feature-extraction-via-residual-networks">Feature Extraction via Residual Networks</a>
-      <ul>
-        <li><a href="#the-resnet-architecture">The ResNet Architecture</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+  
 
  
     </aside>
