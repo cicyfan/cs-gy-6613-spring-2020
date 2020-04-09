@@ -6,7 +6,7 @@ weight: 220
 
 # Generative Modeling and  Continuous Variational Auto Encoders (VAE)
 
-We have seen in the treatment of [CNNs]({{<ref "../../cnn/cnn-intro" >}}) that they can generate features that are suitable for the classification or regression task at hand using the labels to guide the maximization of the log-likelihod function. Here we are looking at the problem where we need features that are suitable for generating data from the input distribution without necessarily having labels. In this setting we will look deeper into a major family of variational inference: the VAE. Variational Autoencoders (VAEs) are popular generative models being used in many different domains, including collaborative filtering, image compression, reinforcement learning, and generation of music and sketches.
+We have seen in the treatment of [CNNs]({{<ref "../../../cnn/cnn-intro" >}}) that they can generate features that are suitable for the classification or regression task at hand using the labels to guide the maximization of the log-likelihod function. Here we are looking at the problem where we need features that are suitable for generating data from the input distribution without necessarily having labels. In this setting we will look deeper into a major family of variational inference: the VAE. Variational Autoencoders (VAEs) are popular generative models being used in many different domains, including collaborative filtering, image compression, reinforcement learning, and generation of music and sketches.
 
 ## Generative Modeling and Approximate Inference
 
@@ -28,7 +28,7 @@ $$p(\mathbf x | \mathbf \theta) =  \sum_{\mathbf z} p(\mathbf x, \mathbf z | \ma
 
 to generate new data whose marginal is ideally identical to the true but unknown target distribution we need to be able to sample from $p(\mathbf x, \mathbf z | \mathbf \theta)$.
 
-The introduction of the latent variables can be represented as directed graph abd we have seen in the [probabilistic graphical models]({{<ref "../../pgm/pgm-intro">}}) introduction, the representation as directed graph allows the factorization of the joint distribution 
+The introduction of the latent variables can be represented as directed graph abd we have seen in the [probabilistic graphical models]({{<ref "../../../pgm/pgm-intro">}}) introduction, the representation as directed graph allows the factorization of the joint distribution 
 
 $$p(\mathbf x_1, \mathbf x_2, \dots, \mathbf x_M | \mathbf \theta) = \prod_{j=1}^M p(\mathbf x_j | Pa(\mathbf x_j))$$
 
@@ -89,7 +89,7 @@ $$q(\mathbf z| \mathbf x ; \mathbf \phi) = N(\mathbf z; \bm \mu, \textsf{diag} \
 
 The $DNN_{enc}$ implements amortized variational inference, that is, it estimates the posterior parameters over a batch of datapoints and this offers significant boost in the parameter learning. 
 
-Following the treatment in our [background probability chapter]({{<ref "../../ml-math/probability" >}}), we have met the concept of relative entropy or KL divergence that measures the "distance" between two distributions referenced on one of them. 
+Following the treatment in our [background probability chapter]({{<ref "../../../ml-math/probability" >}}), we have met the concept of relative entropy or KL divergence that measures the "distance" between two distributions referenced on one of them. 
 
 $$KL(q||p)= \mathbb{E}[\log q(\mathbf x) - \ln p(\mathbf x)] = - \sum_{\mathbf x} q(\mathbf x) \log \frac{p(\mathbf x)}{q(\mathbf x)}$$
 
