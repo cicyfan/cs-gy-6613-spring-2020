@@ -35,6 +35,3 @@ To estimate the probabilities of the possible trajectories we have two broad opt
 
 ![model-vs-data](images/model-vs-data.png#center)
 
-### Model-based approach - Pro
-
-We define the so-called _process models_ that  

@@ -1,7 +1,7 @@
 ---
 title: Logical Agents
 weight: 94
-draft: true
+draft: false
 ---
 
 # Logical Agents

@@ -57,7 +57,7 @@ The schedule is based on [Academic Calendar Spring 2020](https://www.nyu.edu/reg
                 
 12.   **Lecture 12: (5/05/2020)**  We are all familiar that natural language is the prime means of communication between humans to collaboratively complete successfully tasks or simply share our knowledge bases. How can we achieve the same objectives when we enable communicate with intelligent agents. Is natural language the universal language that together with imitation is the missing link in our ability to (re)task robots from intelligent assistants to cognitive collaborative robots in our factories of the future? Readings: AIMA Chapter 23 and selected papers. 
         
-13.  **Lecture 13: (5/11/2020)** In this last lecture, we review the main points of what we learned and emphasize what kind of questions you are expected to answer in the final exam. **Final projects are due 5/10/2020 11:59pm.** 
+13.  **Lecture 13: (5/11/2020)** We will have a special lecture titled **COVID19: How AI can enable us to return safely to work**. We will also review what kind of questions you are expected to face in the final exam. **Final projects are due 5/10/2020 11:59pm.** 
         
 14.  **Lecture 14: (5/18/2020)**  Good luck with your final test.
           

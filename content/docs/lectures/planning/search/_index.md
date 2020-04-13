@@ -1,10 +1,10 @@
 ---
-title: Problem Solving via Search 
+title: Planning with Search 
 weight: 95
-draft: true
+draft: false
 ---
 
-# Problem Solving via Search 
+# Planning with Search 
 
 In [recursive state estimation]({{<ref "../../pgm/recursive-state-estimation">}}) chapter we made two advances in our modeling tool set:
 
@@ -22,8 +22,7 @@ Given such state representation, _search_ is one of the methods we use to find t
 We will develop the algorithm for the task at hand which is to find the path between a starting state and the goal state in a map. Not just any path but the _minimum cost_ path when the state transition graph is revealed incrementally through a series of actions and associated individual costs (cost function). The task is depicted below. 
 
 ![path-finding](images/parking-lot.png#center)
-*A map of a parking lot as determined via postprocessing LIDAR returns. Obstacles colored in yellow are tall obstacles, brown obstacles
-are curbs, and green obstacles are tree branches that are of no relevance to ground navigation.*
+*A map of a parking lot as determined via postprocessing LIDAR returns. Obstacles colored in yellow are tall obstacles, brown obstacles are curbs, and green obstacles are tree branches that are of no relevance to ground navigation.*
 
 In practice, maps likes the one above are local both in terms of space (each snapshot is relative to the location of the agent) as well as in terms of time (at the time the agent took these measurements). We can take any map like the one above and form its discrete equivalent such as shown below. We usually call this type _metric map_ and for the purposes of this chapter this is our search area and in it lie all possible feasible _solutions_, each is a _sequence of actions_ distinguished by _path cost_. In this example, the least cost path is actually the geographically longer path - the line thickness for each of the two possible solutions in this figure is proportional to its cost. 
 
@@ -71,8 +70,8 @@ The only significant difference between various search algorithms is the specifi
 | --- | --- | --- |
 | **Depth-first search (DFS)**   |  LIFO  | Search frontier is driven by aggressive exploration of the transition model. The algorithm makes deep incursions into the graph and retreats only when it run out of nodes to visit. It does not result in finding the shortest path to the goal. | 
 |  **Breath-first search**  |   FIFO  | Search frontier is expanding uniformly like the propagation of waves when you drop a stone in water. It therefore visit vertices in increasing order of their distance from the starting point. |
-|   **Dijkstra**  |  Cost-to-Come  |     |
-|   **A-star**   |  Cost-to-Go   |     |
+|   **Dijkstra**  |  Cost-to-Come or Past-Cost  |     |
+|   **A-star**   |  Cost-to-Go or Future-Cost |     |
 
 
 ### Depth-first search (DFS)
@@ -98,22 +97,58 @@ In BFS the lifting of the starting state $s$, partitions the graph into layers: 
  
 #### Dijkstra's Algorithm
 
-Breadth-first search finds shortest paths in any graph whose edges have unit length. Can we adapt it to a more general graph G = (V, E) whose edge lengths $l(e)$ are positive integers? Here is a simple trick for converting G into something BFS can handle: break G’s long edges into unit-length pieces, by introducing “dummy” nodes as shown next.
+Breadth-first search finds shortest paths in any graph whose edges have unit length. Can we adapt it to a more general graph G = (V, E) whose edge lengths $l(e)$ are positive integers? These lengths effectively represent the cost of traversing the edge. fHere is a simple trick for converting G into something BFS can handle: break G’s long edges into unit-length pieces, by introducing “dummy” nodes as shown next.
 
 ![dijkstras-graph](images/dijkstras-graph.png#center)
-*To construct the new graph $G'$ for any edge $e = (u, v)$ of $E$, replace it by $l(e)$ edges of length 1, by adding $l(e) − 1$
-dummy nodes between nodes $u$ and $v$*. 
+*To construct the new graph $G'$ for any edge $e = (s, s^\prime)$ of $E$, replace it by $l(e)$ edges of length 1, by adding $l(e) − 1$
+dummy nodes between nodes $s$ and $s^\prime$*. 
 
 With the shown transformation, we can now run BFS on $G'$ and the search tree will reveal the shortest path of each goal node from the starting point. 
 
+The transformation allows us to solve the problem but it did result in an inefficient search where most of the nodes involved are searched but definitely will never be goal nodes. To look for more efficient ways to absorb the edge length $l(e)$ we use the following of cost.  
+
+![search-cost-definitions](images/search-cost-defintions.png#center)
+*Cost-to-come($s$) or PastCost($s$) vs. Cost-to-Go($s$) or FutureCost($s$). PastCost($s$) is the minimum cost from the start state $s_I$ to state $s$. FutureCost($s$) is the minimum cost from the state $s$ to the goal state $s_G$. The PastCost is used as the prioritization metric of the queue in Dijkstra's algorithm. The addition of the PastCost with an estimate of the FutureCost, the heuristic $h(s)$, i.e. $G(s) =$ PastCost($s$)+$h(s)$, is used as the corresponding metric in the A\* algorithm. What would be the ideal metric?*
+
+The following example is instructive of the execution steps of the algorithm. 
+
+![dijkstras-example](images/dijkstras-example.png#center)
+*Example of Dijkstra's algorithm execution steps and with $s_I=A$*
+
+The exact same pseudo-code is executed as before but the priority metric $C(s^\prime)=C^*(s) + l(e)$ now accounts for costs as they are calculated causing the queue to be reordered accordingly.  Here, $C(s^\prime)$ represents the best cost-to-come that is known so far, but we do not write $ C^*$ because it is not yet known whether $ s^\prime$ was reached optimally. Due to this, some work is required in line 12: $\texttt{Resolve duplicate}$ $s^\prime$. If $s^\prime$ already exists in $ {Q}$, then it is possible that the newly discovered path to $s^\prime$ is more efficient. If so, then the cost-to-come value $ {C}(s^\prime)$ must be lowered for $s^\prime$, and $ {Q}$ must be reordered accordingly. When does $ {C}(s)$ finally become $ C^*(x)$ for some state $s$? Once $s$ is removed from $ {Q}$ using $ {Q}.GetFirst()$, the state becomes dead, and it is known that $ x$ cannot be reached with a lower cost. 
+
+Using the [demo](https://qiao.github.io/PathFinding.js/visual/) link below, we can construct a wall-world where we have almost enclosed the starting state. We will comment on this result after treating the A* algorithm.
+
+![dijkstras-demo](images/dijkstras-demo.png#center)
+*Dijkstra's algorithm demo*
+
 #### A* Algorithm
 
+Dijkstra's algorithm is very much related to the _Uniform Cost Search_ algorithm and in fact logically they are equivalent as the algorithm explores uniformly all nodes that have the same PastCost. In the Astar algorithm, we start using the fact that we _know_ the end state and therefore attempt to find methods that bias the exploration towards it. 
 
-## Forward Search Implementation
+As mentioned in the cost definition figure above, A* uses both $C^*(s)$  and an estimate of the optimal Cost-to-go or FutureCost $G^*(s)$ because obviously to know exactly $G^*(s)$ is equivalent to solving the original search problem.  Therefore the metric for prioritizing the Q queue is: 
+
+$$C^*(s) + h(s)$$
+
+If $h(s)$ is an underestimate of the $G^*(s)$ the Astar algorithm is guaranteed to fine optimal plans. 
+
+For an example of a heuristic consider this problem:
+
+![astar-example](images/astar-simple-example.png#center)
+*A simple example showcasing a modified to what is described above priority metric. What we use is a modification of the edge cost $l'(e)=l(e) + [h(s^\prime)-h(s)]$. Is there a difference?*
+
+In this example all $l(e)=1$ and the heuristic is a penalty from how much a transition to another node (an action) takes us away from the end state (adopted from [CS221](https://stanford-cs221.github.io/)). 
+
+Using the interactive demo page below, repeating the same example wall-world, we can clearly see the substantial difference in search speed and the beamforming effect as soon as the wave (frontier) evaluates nodes where the heuristic (the Manhattan distance from the goal node) becomes dominant. Notice the difference with the UCS / Dijkstra's algorithm in the number of nodes that needed to be evaluated. 
+
+![astar-demo](images/astar-demo.png#center)
+*$A^*$ algorithm demo
+
+## Forward Search Algorithm Implementation
 
 ### Interactive Demo 
 
-This [demo](https://qiao.github.io/PathFinding.js/visual/) is instructive of the various search algorithms we covered in class. You can introduce using your mouse obstacles in the canvas and see how the various search methods behave. 
+This [demo](https://qiao.github.io/PathFinding.js/visual/) is instructive of the various search algorithms we covered here. You can introduce using your mouse obstacles in the canvas and see how the various search methods behave. 
 
 <iframe src="https://qiao.github.io/PathFinding.js/visual/" width="900" height="1200"></iframe>
 
@@ -395,10 +430,11 @@ if __name__ == '__main__':
 Executing the code above results in the animation:
 
 ![astar-probabilistic-robotics](images/astar-prob-robotics.gif#center)
-*Animation of the Astar algorithm that will be developed in this section - from [here](https://github.com/AtsushiSakai/PythonRobotics)*
+*Animation of the A\* algorithm  - from [here](https://github.com/AtsushiSakai/PythonRobotics)*
 
 {{< hint info >}}
 Although the treatment above is self-contained, if you are missing some algorithmic background, afraid not. There is a free and [excellent book](http://algorithmics.lsi.upc.edu/docs/Dasgupta-Papadimitriou-Vazirani.pdf) to help you with the background behind this chapter. In that book Chapters 3 and 4 are the relevant ones.
 
 {{< /hint >}}
-## Forward Search for Planning
+ 
+This is [excellent overview](https://arxiv.org/abs/1504.05140) on how the principles of shortest path algorithms are applied in everyday applications such as Google maps directions. Practical implementation considerations are discussed for  multi-modal route finding capabilities where the agent needs to find optimal routes while traversing multiple modes of transportation.

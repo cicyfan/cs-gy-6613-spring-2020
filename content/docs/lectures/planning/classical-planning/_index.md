@@ -1,6 +1,6 @@
 ---
 title: Classical Planning
-draft: true
+draft: false
 weight: 95
 ---
 
@@ -31,6 +31,18 @@ For the famous Blocks world shown below where a robotic arm must reason to stack
 
 ![blocks-world](images/blocks-world.png#center)
 *Blocks planning problem*
+
+In natural language, the rules are:
+
+* Blocks are picked up and put down by the arm
+* Blocks can be picked up only if they are clear, i.e.,
+without any block on top
+* The arm can pick up a block only if the arm is empty, i.e.,
+if it is not holding another block, i.e., the arm can be pick
+up only one block at a time
+* The arm can put down blocks on blocks or on the table 
+
+In PDDL these rules are expressed as: 
 
 {{< expand "PDDL Domain Spec. for Blocks-World" "..." >}}
 
@@ -134,4 +146,6 @@ The objects, the initial state and the goal specifications are defined in the **
 ```
 {{< /expand >}}
 
-You need to experiment with [this planning tool](http://editor.planning.domains/) to make sure you understand _what_ PDDL does and be familiar with the workflow of generating a plan. Click on Import and look under the International Planning Competition (IPC) 2000 for the blocks word problem. 
+You need to experiment with [this planning tool](http://editor.planning.domains/) to make sure you understand _what_ PDDL does and be familiar with the [workflow](https://www.youtube.com/watch?v=XW0z8Oik6G8&feature=youtu.be) of generating a plan.  The blocks word problem is a classic problem employed in the International Planning Competition (IPC) 2000. For non-trivial examples where PDDL is used in e.g. robotics see [ROSPlan](https://kcl-planning.github.io/ROSPlan/). 
+
+Now we need to look how the planners solve the PDDL expressed problems. As it turns out many use the [Forward (state-space) Search algorithms]({{<ref "../search">}}) where despite the factored representation assumed here, we can treat states and actions as atomic and use forward search algorithms with heuristics such as A*. 
