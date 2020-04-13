@@ -69,7 +69,7 @@
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/syllabus/</loc>
-    <lastmod>2020-03-17T17:19:10-04:00</lastmod>
+    <lastmod>2020-04-13T17:21:22-04:00</lastmod>
   </url>
   
   <url>
@@ -223,28 +223,43 @@
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/approaches/</loc>
-    <lastmod>2020-04-05T20:28:26-04:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/propositional-logic/</loc>
+    <lastmod>2020-04-13T17:21:22-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/route/</loc>
-    <lastmod>2020-04-05T20:28:26-04:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/planning-application/prediction/</loc>
+    <lastmod>2020-04-13T17:21:22-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/behavior/</loc>
-    <lastmod>2020-04-05T20:28:26-04:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/planning-application/behavior/</loc>
+    <lastmod>2020-04-11T06:55:35-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/prediction/</loc>
-    <lastmod>2020-04-05T20:28:26-04:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/logical-agents/</loc>
+    <lastmod>2020-04-13T17:21:22-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/trajectory/</loc>
-    <lastmod>2020-04-05T20:28:26-04:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/classical-planning/</loc>
+    <lastmod>2020-04-13T17:21:22-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/search/</loc>
+    <lastmod>2020-04-13T17:21:22-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/planning-application/trajectory/</loc>
+    <lastmod>2020-04-11T06:55:35-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/planning-application/</loc>
+    <lastmod>2020-04-13T17:21:22-04:00</lastmod>
   </url>
   
   <url>
@@ -279,7 +294,7 @@
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drafts/drl-model/vae/</loc>
-    <lastmod>2020-04-06T21:02:34-04:00</lastmod>
+    <lastmod>2020-04-09T10:40:40-04:00</lastmod>
   </url>
   
   <url>
@@ -338,7 +353,7 @@
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/</loc>
-    <lastmod>2020-03-17T17:19:10-04:00</lastmod>
+    <lastmod>2020-04-13T17:21:22-04:00</lastmod>
   </url>
   
   <url>

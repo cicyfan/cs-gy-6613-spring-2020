@@ -1,0 +1,3153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Planning with Search"><meta property="og:title" content="Planning with Search" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/search/" />
+
+<title>Planning with Search | CS-GY-6613 Spring 2020</title>
+<link rel="icon" href="/cs-gy-6613-spring-2020/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
+
+
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.da277c1ab84585877a078fed8c5fa2ce07b413c1b84169690ef48e781a4035ca.js" integrity="sha256-2id8GrhFhYd6B4/tjF&#43;izge0E8G4QWlpDvSOeBpANco="></script>
+
+<link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/search/index.xml" title="CS-GY-6613 Spring 2020" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cs-gy-6613-spring-2020"><img src="/cs-gy-6613-spring-2020/tandon_long_black.png" alt="Logo" /><span>CS-GY-6613 Spring 2020</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/syllabus/" >
+      Syllabus
+  </a>
+
+</li>
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Lecture 1 - Introduction to AI</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/course-introduction/" >
+      Course Introduction
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/systems-approach/" >
+      A systems approach to AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      <span>Systems Approach Slides</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-pipelines/" >
+      The Way of Working in AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      <span>Ai Pipelines Slides</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/agents/" >
+      Intelligent Agents and Representations
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      <span>Agents Slides</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/learning-problem/" >
+      Lecture 2a - The Learning Problem
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Lecture 2b - Regression</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/regression/linear-regression/" >
+      Linear Regression
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/" >
+      Lecture 2c - Linear Classification
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/knn/" >
+      k-Nearest Neighbors (kNN) Classification
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/perceptron/" >
+      The Perceptron
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/logistic-regression/" >
+      Logistic Regression
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/kernels/" >
+      Kernels and the Kernel Trick
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/clustering/" >
+      K-means Clustering
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/" >
+      Support Vector Machines
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/face-recognition/" >
+      Face Recognition - SVM Case Study
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/mnist/" >
+      MNIST Classification - SVM Case Study
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/iris/" >
+      Iris Classification - SVM Case Study
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/decision-trees/" >
+      Decision Trees
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/random-forests/" >
+      Random Forests
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/dnn/" >
+      Lecture 3 - Deep Neural Networks
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/dnn/backprop-intro/" >
+      Introduction to Backpropagation
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/dnn/backprop-dnn/" >
+      Backpropagation in Deep Neural Networks
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Regularization in Deep Neural Networks</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/dnn/fashion-mnist-case-study/" >
+      Fashion MNIST Case Study
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Lecture 4a - Convolutional Neural Networks</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/cnn/cnn-intro/" >
+      Introduction to Convolutional Neural Networks
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/cnn/cnn-arch/" >
+      CNN Architectures
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/cnn/cnn-sizing/" >
+      CNN Sizing
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Attention Mechanisms in CNNs</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/rnn/" >
+      Lecture 4b - Sequences and Recurrent Neural Networks (RNN)
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/rnn/simple-rnn/" >
+      Simple RNNs and their Backpropagation
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/rnn/lstm/" >
+      The Long Short-Term Memory (LSTM) Cell Architecture
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Lecture 5 - Scene Understanding</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/scene-understanding-intro/" >
+      Introduction to Scene Understanding
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/feature-extraction-resnet/" >
+      Feature Extraction via Residual Networks
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/object-detection/" >
+      Object Detection
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Semantic Segmentation</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Lecture 6 - Probabilistic Graphical Models</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/pgm/pgm-intro/" >
+      Introduction to Probabilistic Reasoning
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/pgm/bayesian-inference/" >
+      Inference in Graphical Models
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/pgm/recursive-state-estimation/" >
+      Recursive State Estimation
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/pgm/localization/" >
+      Localization and Tracking
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Lecture 7 - Planning</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/planning/propositional-logic/" >
+      Propositional Logic
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/planning/logical-agents/" >
+      Logical Agents
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/planning/classical-planning/" >
+      Classical Planning
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/planning/search/"  class="active">
+      Planning with Search
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Autonomous Agent Planning Application</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      <span>Online Prediction</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Behavioral Planning</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Trajectory Generation</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Lecture 8 - Markov Decision Processes</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-slides/" >
+      Mdp Slides
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>The Agent - Environment Interface</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/" >
+      Projects
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/imu-classification/" >
+      Project 1 - Surface Type Classification
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/continuous-learning/" >
+      Project 2 - Continual Learning for Robotic Perception
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/semantic-code-search/" >
+      Project 3 - Semantic Code Search
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/env/" >
+      Your Programming Environment
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Background - Math for ML</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/linear-algebra/" >
+      Linear Algebra for Machine Learning
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/optimization/" >
+      Optimization and Stochastic Gradient Descent
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/probability/" >
+      Probability and Information Theory Basics
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/netflix/" >
+      The Netflix Prize and Singular Value Decomposition
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/" >
+      Background - ML Frameworks
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/numpy-pandas/" >
+      Numerical Python (Numpy/Scipy and Pandas) Tutorials
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/tensorflow-introduction/" >
+      Introduction to Tensorflow
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Drafts</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      <span>Constraint Satisfaction Programming</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Transfer Learning</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Generative Modeling and Continuous Variational Auto Encoders (VAE)</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Natural Language Processing</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      <span>Creating Reasonable Embeddings</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cs-gy-6613-spring-2020/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Planning with Search</strong>
+
+  <label for="toc-control">
+    <img src="/cs-gy-6613-spring-2020/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#planning-with-search">Planning with Search</a>
+      <ul>
+        <li><a href="#forward-search">Forward-Search</a></li>
+        <li><a href="#forward-search-approaches">Forward-search approaches</a>
+          <ul>
+            <li><a href="#depth-first-search-dfs">Depth-first search (DFS)</a></li>
+            <li><a href="#breadth-first-search-bfs">Breadth-first search (BFS)</a>
+              <ul>
+                <li><a href="#dijkstras-algorithm">Dijkstra&rsquo;s Algorithm</a></li>
+                <li><a href="#a-algorithm">A* Algorithm</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#forward-search-algorithm-implementation">Forward Search Algorithm Implementation</a>
+          <ul>
+            <li><a href="#interactive-demo">Interactive Demo</a></li>
+            <li><a href="#a-implementation">A* Implementation</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+<article class="markdown"><h1 id="planning-with-search">Planning with Search</h1>
+<p>In <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/pgm/recursive-state-estimation/">recursive state estimation</a> chapter we made two advances in our modeling tool set:</p>
+<ol>
+<li>We introduced sequenced events (time) and the concept of a varying <em>state</em> over such sequences.</li>
+<li>We saw how the agent state as dictated by an underlying dynamical model and and how to estimate it recursively using a graphical model that introduced a Bayesian probabilistic framework. We saw that many well known estimation algorithms such as the Kalman filter are specific cases of this framework.</li>
+</ol>
+<p>With this probabilistic reasoning in place, we can now track objects in the scene and ultimately assign symbols that represent them since we can ground their unique attributes (e.g. location). Having symbolic representation of its agent&rsquo;s locale environment is not enough though as we need a compatible <em>global</em> representation of the environment and additional semantics to specify such <em>goals</em>. With such complementary representations we hope that we can efficiently infer states that we <em>cannot perceive</em> as well as plan ahead to reach our goals. We effectively zoom out from the task-specific <em>factored</em> representation of the agent&rsquo;s state and we look at environment state that <em>is</em> or it is <em>treated</em> as <em>atomic</em> i.e. it is not broken down into its individual variables.</p>
+<p>Atomic state representations of an environment are adequate for a a variety of tasks:  one striking use case is path planning. There, the scene or environment takes the form of a global map and the goal is to move the embodied agent from a starting state to a goal state. If we assume that the global map takes the form of a grid with a suitable resolution, each grid tile (or cell) represents a different atomic state than any other cell. Similar considerations can be made for other forms of the map e.g. a graph form.</p>
+<p>Given such state representation, <em>search</em> is one of the methods we use to find the action sequence that the agent must produce to reach a goal state. Note that in most cases, we are dealing with <em>informed</em> rather than <em>blind</em> search, where we are also given task-specific knowledge (we call them heuristics) to find the solution as we will see shortly.</p>
+<h2 id="forward-search">Forward-Search</h2>
+<p>We will develop the algorithm for the task at hand which is to find the path between a starting state and the goal state in a map. Not just any path but the <em>minimum cost</em> path when the state transition graph is revealed incrementally through a series of actions and associated individual costs (cost function). The task is depicted below.</p>
+<p><img src="images/parking-lot.png#center" alt="path-finding">
+<em>A map of a parking lot as determined via postprocessing LIDAR returns. Obstacles colored in yellow are tall obstacles, brown obstacles are curbs, and green obstacles are tree branches that are of no relevance to ground navigation.</em></p>
+<p>In practice, maps likes the one above are local both in terms of space (each snapshot is relative to the location of the agent) as well as in terms of time (at the time the agent took these measurements). We can take any map like the one above and form its discrete equivalent such as shown below. We usually call this type <em>metric map</em> and for the purposes of this chapter this is our search area and in it lie all possible feasible <em>solutions</em>, each is a <em>sequence of actions</em> distinguished by <em>path cost</em>. In this example, the least cost path is actually the geographically longer path - the line thickness for each of the two possible solutions in this figure is proportional to its cost.</p>
+<p><img src="images/cost-definition.png#center" alt="cost-definition">
+<em>An example search area with action-cost function where left turns are penalized compared to right.This is common penalization in path planning for delivery vehicles.</em></p>
+<p>The alternative map representation is <em>topological</em> where the environment is represented as a graph where nodes indicated significant grounded features and edges denote topological relationships (position, orientation, proximity etc.). The sometimes confusing part is that irrespectively of metric or topological representations, the <em>forward search</em> methods we look in this chapter all function on <em>graphs</em> given an initial state $s_I$ and the goal state $s_G$ that is reached after potentially a finite number of actions (if a solution exist). The following pseudo-code is from <a href="http://planning.cs.uiuc.edu/">Steven LaValle&rsquo;s book - Chapter 2</a></p>
+<pre id="forward-search" style="display:hidden;">
+    \begin{algorithm}
+    \caption{Forward Search}
+    \begin{algorithmic}
+    \INPUT $s_I$, $s_G$
+    \STATE Q.Insert($s_I$), mark $s_I$ as explored.
+    \WHILE{Q not empty} 
+        \STATE $s \leftarrow Q.GetFirst()$
+        \IF{$s \in S_G$}
+            \RETURN SUCCESS
+        \ENDIF
+        \FOR{$a \in A(s)$}
+            \STATE $s' \leftarrow f(s,a)$
+            \IF{$s'$ not visited}
+               \STATE mark $s'$ as explored 
+               \STATE Q.Insert($s'$)
+            \ELSE 
+                \STATE Resolve duplicate $s'$
+            \ENDIF
+        \ENDFOR
+    \ENDWHILE
+    \end{algorithmic}
+    \end{algorithm}
+</pre>
+<p>The forward search uses two data structures, a priority queue (Q) and a list and proceeds as follows:</p>
+<ol>
+<li>Provided that the starting state is not the goal state, we add it to a priority queue called the  <em>frontier</em> (also known as <em>open list</em> in the literature but we avoid using this term as its implemented is a queue). The name frontier is synonymous to <em>unexplored</em>.</li>
+<li>We <em>expand</em> each state in our frontier, by applying the finite set of actions, generating a new list of states. We use a list that we call the <em>explored set</em> or <em>closed list</em> to remember each node (state) that we expanded.  This is the list data structured we mentioned.</li>
+<li>We then go over each newly generated state and before adding it to the frontier we check whether it has been expanded before and in that case we discard it.</li>
+</ol>
+<h2 id="forward-search-approaches">Forward-search approaches</h2>
+<p>The only significant difference between various search algorithms is the specific priority function that implements line 3: $s \leftarrow Q.GetFirst()$ in other words retrieves a state held in the priority queue for expansion.</p>
+<table>
+<thead>
+<tr>
+<th>Search</th>
+<th>Queue Policy</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Depth-first search (DFS)</strong></td>
+<td>LIFO</td>
+<td>Search frontier is driven by aggressive exploration of the transition model. The algorithm makes deep incursions into the graph and retreats only when it run out of nodes to visit. It does not result in finding the shortest path to the goal.</td>
+</tr>
+<tr>
+<td><strong>Breath-first search</strong></td>
+<td>FIFO</td>
+<td>Search frontier is expanding uniformly like the propagation of waves when you drop a stone in water. It therefore visit vertices in increasing order of their distance from the starting point.</td>
+</tr>
+<tr>
+<td><strong>Dijkstra</strong></td>
+<td>Cost-to-Come or Past-Cost</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>A-star</strong></td>
+<td>Cost-to-Go or Future-Cost</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="depth-first-search-dfs">Depth-first search (DFS)</h3>
+<p>In undirected graphs, depth-first search answers the question: What parts of the graph are reachable from a given vertex.
+It also finds explicit paths to these vertices, summarized in its search tree as shown below.</p>
+<p><img src="images/depth-first.png#center" alt="depth-first">
+<em>Depth-first can&rsquo;t find optimal (shortest) paths. Vertex C is reachable from S by traversing just one edge, while the DFS tree
+shows a path of length 3. On the right the DFS search tree is shown assuming alphabetical order in breaking up ties. Can you explain the DFS search tree?</em></p>
+<p>DFS can be run verbatim on directed graphs, taking care to traverse edges only in their prescribed directions.</p>
+<h3 id="breadth-first-search-bfs">Breadth-first search (BFS)</h3>
+<p>In BFS the lifting of the starting state $s$, partitions the graph into layers: $s$ itself (vertex at distance 0), the vertices at distance 1 from it, the vertices at distance 2 from it etc.</p>
+<p><img src="images/breadth-first.png#center" alt="breadth-first">
+<em>BFS expansion in terms of layers of vertices - each layer at increasing distance from the layer that follows</em>.</p>
+<p><img src="images/breadth-first-2.png#center" alt="breadth-first-2">
+<em>Queue contents during BFS and the BFS search tree assuming alphabetical order. Can you explain the BFS search tree? Is the BFS search tree a shortest-path tree?</em></p>
+<h4 id="dijkstras-algorithm">Dijkstra&rsquo;s Algorithm</h4>
+<p>Breadth-first search finds shortest paths in any graph whose edges have unit length. Can we adapt it to a more general graph G = (V, E) whose edge lengths $l(e)$ are positive integers? These lengths effectively represent the cost of traversing the edge. fHere is a simple trick for converting G into something BFS can handle: break G’s long edges into unit-length pieces, by introducing “dummy” nodes as shown next.</p>
+<p><img src="images/dijkstras-graph.png#center" alt="dijkstras-graph">
+<em>To construct the new graph $G'$ for any edge $e = (s, s^\prime)$ of $E$, replace it by $l(e)$ edges of length 1, by adding $l(e) − 1$
+dummy nodes between nodes $s$ and $s^\prime$</em>.</p>
+<p>With the shown transformation, we can now run BFS on $G'$ and the search tree will reveal the shortest path of each goal node from the starting point.</p>
+<p>The transformation allows us to solve the problem but it did result in an inefficient search where most of the nodes involved are searched but definitely will never be goal nodes. To look for more efficient ways to absorb the edge length $l(e)$ we use the following of cost.</p>
+<p><img src="images/search-cost-defintions.png#center" alt="search-cost-definitions">
+<em>Cost-to-come($s$) or PastCost($s$) vs. Cost-to-Go($s$) or FutureCost($s$). PastCost($s$) is the minimum cost from the start state $s_I$ to state $s$. FutureCost($s$) is the minimum cost from the state $s$ to the goal state $s_G$. The PastCost is used as the prioritization metric of the queue in Dijkstra&rsquo;s algorithm. The addition of the PastCost with an estimate of the FutureCost, the heuristic $h(s)$, i.e. $G(s) =$ PastCost($s$)+$h(s)$, is used as the corresponding metric in the A* algorithm. What would be the ideal metric?</em></p>
+<p>The following example is instructive of the execution steps of the algorithm.</p>
+<p><img src="images/dijkstras-example.png#center" alt="dijkstras-example">
+<em>Example of Dijkstra&rsquo;s algorithm execution steps and with $s_I=A$</em></p>
+<p>The exact same pseudo-code is executed as before but the priority metric $C(s^\prime)=C^*(s) + l(e)$ now accounts for costs as they are calculated causing the queue to be reordered accordingly.  Here, $C(s^\prime)$ represents the best cost-to-come that is known so far, but we do not write $ C^*$ because it is not yet known whether $ s^\prime$ was reached optimally. Due to this, some work is required in line 12: $\texttt{Resolve duplicate}$ $s^\prime$. If $s^\prime$ already exists in $ {Q}$, then it is possible that the newly discovered path to $s^\prime$ is more efficient. If so, then the cost-to-come value $ {C}(s^\prime)$ must be lowered for $s^\prime$, and $ {Q}$ must be reordered accordingly. When does $ {C}(s)$ finally become $ C^*(x)$ for some state $s$? Once $s$ is removed from $ {Q}$ using $ {Q}.GetFirst()$, the state becomes dead, and it is known that $ x$ cannot be reached with a lower cost.</p>
+<p>Using the <a href="https://qiao.github.io/PathFinding.js/visual/">demo</a> link below, we can construct a wall-world where we have almost enclosed the starting state. We will comment on this result after treating the A* algorithm.</p>
+<p><img src="images/dijkstras-demo.png#center" alt="dijkstras-demo">
+<em>Dijkstra&rsquo;s algorithm demo</em></p>
+<h4 id="a-algorithm">A* Algorithm</h4>
+<p>Dijkstra&rsquo;s algorithm is very much related to the <em>Uniform Cost Search</em> algorithm and in fact logically they are equivalent as the algorithm explores uniformly all nodes that have the same PastCost. In the Astar algorithm, we start using the fact that we <em>know</em> the end state and therefore attempt to find methods that bias the exploration towards it.</p>
+<p>As mentioned in the cost definition figure above, A* uses both $C^*(s)$  and an estimate of the optimal Cost-to-go or FutureCost $G^*(s)$ because obviously to know exactly $G^*(s)$ is equivalent to solving the original search problem.  Therefore the metric for prioritizing the Q queue is:</p>
+<p>$$C^*(s) + h(s)$$</p>
+<p>If $h(s)$ is an underestimate of the $G^*(s)$ the Astar algorithm is guaranteed to fine optimal plans.</p>
+<p>For an example of a heuristic consider this problem:</p>
+<p><img src="images/astar-simple-example.png#center" alt="astar-example">
+<em>A simple example showcasing a modified to what is described above priority metric. What we use is a modification of the edge cost $l&rsquo;(e)=l(e) + [h(s^\prime)-h(s)]$. Is there a difference?</em></p>
+<p>In this example all $l(e)=1$ and the heuristic is a penalty from how much a transition to another node (an action) takes us away from the end state (adopted from <a href="https://stanford-cs221.github.io/">CS221</a>).</p>
+<p>Using the interactive demo page below, repeating the same example wall-world, we can clearly see the substantial difference in search speed and the beamforming effect as soon as the wave (frontier) evaluates nodes where the heuristic (the Manhattan distance from the goal node) becomes dominant. Notice the difference with the UCS / Dijkstra&rsquo;s algorithm in the number of nodes that needed to be evaluated.</p>
+<p><img src="images/astar-demo.png#center" alt="astar-demo">
+<em>$A^</em>$ algorithm demo</p>
+<h2 id="forward-search-algorithm-implementation">Forward Search Algorithm Implementation</h2>
+<h3 id="interactive-demo">Interactive Demo</h3>
+<p>This <a href="https://qiao.github.io/PathFinding.js/visual/">demo</a> is instructive of the various search algorithms we covered here. You can introduce using your mouse obstacles in the canvas and see how the various search methods behave.</p>
+<iframe src="https://qiao.github.io/PathFinding.js/visual/" width="900" height="1200"></iframe>
+<h3 id="a-implementation">A* Implementation</h3>
+<p>A stand-alone A* planner in python is shown next. Its instructive to go through the code to understand how it works.</p>
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>A* Planner</span>
+      <span>...</span>
+    </div>
+    <input type="checkbox" class="hidden" />
+    <div class="book-expand-content markdown-inner">
+      <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">131
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">132
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">133
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">134
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">135
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">136
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">137
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">138
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">139
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">140
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">141
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">142
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">143
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">144
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">145
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">146
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">147
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">148
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">149
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">150
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">151
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">152
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">153
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">154
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">155
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">156
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">157
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">158
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">159
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">160
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">161
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">162
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">163
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">164
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">165
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">166
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">167
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">168
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">169
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">170
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">171
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">172
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">173
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">174
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">175
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">176
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">177
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">178
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">179
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">180
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">181
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">182
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">183
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">184
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">185
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">186
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">187
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">188
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">189
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">190
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">191
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">192
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">193
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">194
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">195
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">196
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">197
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">198
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">199
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">200
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">201
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">202
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">203
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">204
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">205
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">206
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">207
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">208
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">209
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">210
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">211
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">212
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">213
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">214
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">215
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">216
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">217
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">218
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">219
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">220
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">221
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">222
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">223
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">224
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">225
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">226
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">227
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">228
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">229
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">230
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">231
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">232
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">233
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">234
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">235
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">236
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">237
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">238
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">239
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">240
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">241
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">242
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">243
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">244
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">245
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">246
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">247
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">248
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">249
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">250
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">251
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">252
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">253
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">254
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">255
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">256
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">257
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">258
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">259
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">260
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">261
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">262
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">263
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">264
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> math
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+
+show_animation <span style="color:#f92672">=</span> True
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AStarPlanner</span>:
+
+    <span style="color:#66d9ef">def</span> __init__(self, ox, oy, reso, rr):
+
+        <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">        Initialize grid map for a star planning</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">        ox: x position list of Obstacles [m]</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">        oy: y position list of Obstacles [m]</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">        reso: grid resolution [m]</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">        rr: robot radius[m]</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">        </span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+
+        self<span style="color:#f92672">.</span>reso <span style="color:#f92672">=</span> reso
+        self<span style="color:#f92672">.</span>rr <span style="color:#f92672">=</span> rr
+        self<span style="color:#f92672">.</span>calc_obstacle_map(ox, oy)
+        self<span style="color:#f92672">.</span>motion <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>get_motion_model()
+
+    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Node</span>:
+        <span style="color:#66d9ef">def</span> __init__(self, x, y, cost, pind):
+            self<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> x  <span style="color:#75715e"># index of grid</span>
+            self<span style="color:#f92672">.</span>y <span style="color:#f92672">=</span> y  <span style="color:#75715e"># index of grid</span>
+            self<span style="color:#f92672">.</span>cost <span style="color:#f92672">=</span> cost
+            self<span style="color:#f92672">.</span>pind <span style="color:#f92672">=</span> pind
+
+        <span style="color:#66d9ef">def</span> __str__(self):
+            <span style="color:#66d9ef">return</span> str(self<span style="color:#f92672">.</span>x) <span style="color:#f92672">+</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">,</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(self<span style="color:#f92672">.</span>y) <span style="color:#f92672">+</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">,</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(self<span style="color:#f92672">.</span>cost) <span style="color:#f92672">+</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">,</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(self<span style="color:#f92672">.</span>pind)
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">planning</span>(self, sx, sy, gx, gy):
+        <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">        A star path search</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">        input:</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">            sx: start x position [m]</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">            sy: start y position [m]</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">            gx: goal x position [m]</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">            gx: goal x position [m]</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">        output:</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">            rx: x position list of the final path</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">            ry: y position list of the final path</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">        </span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+
+        nstart <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>Node(self<span style="color:#f92672">.</span>calc_xyindex(sx, self<span style="color:#f92672">.</span>minx),
+                           self<span style="color:#f92672">.</span>calc_xyindex(sy, self<span style="color:#f92672">.</span>miny), <span style="color:#ae81ff">0.0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+        ngoal <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>Node(self<span style="color:#f92672">.</span>calc_xyindex(gx, self<span style="color:#f92672">.</span>minx),
+                          self<span style="color:#f92672">.</span>calc_xyindex(gy, self<span style="color:#f92672">.</span>miny), <span style="color:#ae81ff">0.0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+
+        open_set, closed_set <span style="color:#f92672">=</span> dict(), dict()
+
+        <span style="color:#75715e"># populate the frontier (open set) with the starting node</span>
+        open_set[self<span style="color:#f92672">.</span>calc_grid_index(nstart)] <span style="color:#f92672">=</span> nstart
+
+        <span style="color:#66d9ef">while</span> <span style="color:#ae81ff">1</span>:
+            <span style="color:#66d9ef">if</span> len(open_set) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+                <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Open set is empty..</span><span style="color:#e6db74">&#34;</span>)
+                <span style="color:#66d9ef">break</span>
+
+            c_id <span style="color:#f92672">=</span> min(
+                open_set, key<span style="color:#f92672">=</span><span style="color:#66d9ef">lambda</span> o: open_set[o]<span style="color:#f92672">.</span>cost <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>calc_heuristic(ngoal, open_set[o]))
+            current <span style="color:#f92672">=</span> open_set[c_id]
+
+            <span style="color:#75715e"># show graph</span>
+            <span style="color:#66d9ef">if</span> show_animation:  <span style="color:#75715e"># pragma: no cover</span>
+                plt<span style="color:#f92672">.</span>plot(self<span style="color:#f92672">.</span>calc_grid_position(current<span style="color:#f92672">.</span>x, self<span style="color:#f92672">.</span>minx),
+                         self<span style="color:#f92672">.</span>calc_grid_position(current<span style="color:#f92672">.</span>y, self<span style="color:#f92672">.</span>miny), <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">xc</span><span style="color:#e6db74">&#34;</span>)
+                <span style="color:#75715e"># for stopping simulation with the esc key.</span>
+                plt<span style="color:#f92672">.</span>gcf()<span style="color:#f92672">.</span>canvas<span style="color:#f92672">.</span>mpl_connect(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">key_release_event</span><span style="color:#e6db74">&#39;</span>,
+                        <span style="color:#66d9ef">lambda</span> event: [exit(<span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">if</span> event<span style="color:#f92672">.</span>key <span style="color:#f92672">==</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">escape</span><span style="color:#e6db74">&#39;</span> <span style="color:#66d9ef">else</span> None])
+                <span style="color:#66d9ef">if</span> len(closed_set<span style="color:#f92672">.</span>keys()) <span style="color:#f92672">%</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+                    plt<span style="color:#f92672">.</span>pause(<span style="color:#ae81ff">0.001</span>)
+
+            <span style="color:#66d9ef">if</span> current<span style="color:#f92672">.</span>x <span style="color:#f92672">==</span> ngoal<span style="color:#f92672">.</span>x <span style="color:#f92672">and</span> current<span style="color:#f92672">.</span>y <span style="color:#f92672">==</span> ngoal<span style="color:#f92672">.</span>y:
+                <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Find goal</span><span style="color:#e6db74">&#34;</span>)
+                ngoal<span style="color:#f92672">.</span>pind <span style="color:#f92672">=</span> current<span style="color:#f92672">.</span>pind
+                ngoal<span style="color:#f92672">.</span>cost <span style="color:#f92672">=</span> current<span style="color:#f92672">.</span>cost
+                <span style="color:#66d9ef">break</span>
+
+            <span style="color:#75715e"># Remove the item from the open set</span>
+            <span style="color:#66d9ef">del</span> open_set[c_id]
+
+            <span style="color:#75715e"># Add it to the closed set</span>
+            closed_set[c_id] <span style="color:#f92672">=</span> current
+
+            <span style="color:#75715e"># expand_grid search grid based on motion model</span>
+            <span style="color:#66d9ef">for</span> i, _ <span style="color:#f92672">in</span> enumerate(self<span style="color:#f92672">.</span>motion):
+                node <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>Node(current<span style="color:#f92672">.</span>x <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>motion[i][<span style="color:#ae81ff">0</span>],
+                                 current<span style="color:#f92672">.</span>y <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>motion[i][<span style="color:#ae81ff">1</span>],
+                                 current<span style="color:#f92672">.</span>cost <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>motion[i][<span style="color:#ae81ff">2</span>], c_id)
+                n_id <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>calc_grid_index(node)
+
+
+                <span style="color:#75715e"># If the node is not safe, do nothing</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> self<span style="color:#f92672">.</span>verify_node(node):
+                    <span style="color:#66d9ef">continue</span>
+
+                <span style="color:#66d9ef">if</span> n_id <span style="color:#f92672">in</span> closed_set:
+                    <span style="color:#66d9ef">continue</span>
+
+                <span style="color:#66d9ef">if</span> n_id <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> open_set:
+                    open_set[n_id] <span style="color:#f92672">=</span> node  <span style="color:#75715e"># discovered a new node</span>
+                <span style="color:#66d9ef">else</span>:
+                    <span style="color:#66d9ef">if</span> open_set[n_id]<span style="color:#f92672">.</span>cost <span style="color:#f92672">&gt;</span> node<span style="color:#f92672">.</span>cost:
+                        <span style="color:#75715e"># This path is the best until now. record it</span>
+                        open_set[n_id] <span style="color:#f92672">=</span> node
+
+        rx, ry <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>calc_final_path(ngoal, closed_set)
+
+        <span style="color:#66d9ef">return</span> rx, ry
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calc_final_path</span>(self, ngoal, closedset):
+        <span style="color:#75715e"># generate final course</span>
+        rx, ry <span style="color:#f92672">=</span> [self<span style="color:#f92672">.</span>calc_grid_position(ngoal<span style="color:#f92672">.</span>x, self<span style="color:#f92672">.</span>minx)], [
+            self<span style="color:#f92672">.</span>calc_grid_position(ngoal<span style="color:#f92672">.</span>y, self<span style="color:#f92672">.</span>miny)]
+        pind <span style="color:#f92672">=</span> ngoal<span style="color:#f92672">.</span>pind
+        <span style="color:#66d9ef">while</span> pind <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>:
+            n <span style="color:#f92672">=</span> closedset[pind]
+            rx<span style="color:#f92672">.</span>append(self<span style="color:#f92672">.</span>calc_grid_position(n<span style="color:#f92672">.</span>x, self<span style="color:#f92672">.</span>minx))
+            ry<span style="color:#f92672">.</span>append(self<span style="color:#f92672">.</span>calc_grid_position(n<span style="color:#f92672">.</span>y, self<span style="color:#f92672">.</span>miny))
+            pind <span style="color:#f92672">=</span> n<span style="color:#f92672">.</span>pind
+
+        <span style="color:#66d9ef">return</span> rx, ry
+
+    <span style="color:#a6e22e">@staticmethod</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calc_heuristic</span>(n1, n2):
+        w <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>  <span style="color:#75715e"># weight of heuristic</span>
+        d <span style="color:#f92672">=</span> w <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>hypot(n1<span style="color:#f92672">.</span>x <span style="color:#f92672">-</span> n2<span style="color:#f92672">.</span>x, n1<span style="color:#f92672">.</span>y <span style="color:#f92672">-</span> n2<span style="color:#f92672">.</span>y)
+        <span style="color:#66d9ef">return</span> d
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calc_grid_position</span>(self, index, minp):
+        <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">        calc grid position</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">        :param index:</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">        :param minp:</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">        :return:</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">        </span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+        pos <span style="color:#f92672">=</span> index <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>reso <span style="color:#f92672">+</span> minp
+        <span style="color:#66d9ef">return</span> pos
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calc_xyindex</span>(self, position, min_pos):
+        <span style="color:#66d9ef">return</span> round((position <span style="color:#f92672">-</span> min_pos) <span style="color:#f92672">/</span> self<span style="color:#f92672">.</span>reso)
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calc_grid_index</span>(self, node):
+        <span style="color:#66d9ef">return</span> (node<span style="color:#f92672">.</span>y <span style="color:#f92672">-</span> self<span style="color:#f92672">.</span>miny) <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>xwidth <span style="color:#f92672">+</span> (node<span style="color:#f92672">.</span>x <span style="color:#f92672">-</span> self<span style="color:#f92672">.</span>minx)
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">verify_node</span>(self, node):
+        px <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>calc_grid_position(node<span style="color:#f92672">.</span>x, self<span style="color:#f92672">.</span>minx)
+        py <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>calc_grid_position(node<span style="color:#f92672">.</span>y, self<span style="color:#f92672">.</span>miny)
+
+        <span style="color:#66d9ef">if</span> px <span style="color:#f92672">&lt;</span> self<span style="color:#f92672">.</span>minx:
+            <span style="color:#66d9ef">return</span> False
+        <span style="color:#66d9ef">elif</span> py <span style="color:#f92672">&lt;</span> self<span style="color:#f92672">.</span>miny:
+            <span style="color:#66d9ef">return</span> False
+        <span style="color:#66d9ef">elif</span> px <span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>maxx:
+            <span style="color:#66d9ef">return</span> False
+        <span style="color:#66d9ef">elif</span> py <span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>maxy:
+            <span style="color:#66d9ef">return</span> False
+
+        <span style="color:#75715e"># collision check</span>
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>obmap[node<span style="color:#f92672">.</span>x][node<span style="color:#f92672">.</span>y]:
+            <span style="color:#66d9ef">return</span> False
+
+        <span style="color:#66d9ef">return</span> True
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calc_obstacle_map</span>(self, ox, oy):
+
+        <span style="color:#75715e"># map limits</span>
+        self<span style="color:#f92672">.</span>minx <span style="color:#f92672">=</span> round(min(ox))
+        self<span style="color:#f92672">.</span>miny <span style="color:#f92672">=</span> round(min(oy))
+        self<span style="color:#f92672">.</span>maxx <span style="color:#f92672">=</span> round(max(ox))
+        self<span style="color:#f92672">.</span>maxy <span style="color:#f92672">=</span> round(max(oy))
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">minx:</span><span style="color:#e6db74">&#34;</span>, self<span style="color:#f92672">.</span>minx)
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">miny:</span><span style="color:#e6db74">&#34;</span>, self<span style="color:#f92672">.</span>miny)
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">maxx:</span><span style="color:#e6db74">&#34;</span>, self<span style="color:#f92672">.</span>maxx)
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">maxy:</span><span style="color:#e6db74">&#34;</span>, self<span style="color:#f92672">.</span>maxy)
+
+        self<span style="color:#f92672">.</span>xwidth <span style="color:#f92672">=</span> round((self<span style="color:#f92672">.</span>maxx <span style="color:#f92672">-</span> self<span style="color:#f92672">.</span>minx) <span style="color:#f92672">/</span> self<span style="color:#f92672">.</span>reso)
+        self<span style="color:#f92672">.</span>ywidth <span style="color:#f92672">=</span> round((self<span style="color:#f92672">.</span>maxy <span style="color:#f92672">-</span> self<span style="color:#f92672">.</span>miny) <span style="color:#f92672">/</span> self<span style="color:#f92672">.</span>reso)
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">xwidth:</span><span style="color:#e6db74">&#34;</span>, self<span style="color:#f92672">.</span>xwidth)
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">ywidth:</span><span style="color:#e6db74">&#34;</span>, self<span style="color:#f92672">.</span>ywidth)
+
+        <span style="color:#75715e"># obstacle map generation</span>
+        self<span style="color:#f92672">.</span>obmap <span style="color:#f92672">=</span> [[False <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(self<span style="color:#f92672">.</span>ywidth)]
+                      <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(self<span style="color:#f92672">.</span>xwidth)]
+        <span style="color:#66d9ef">for</span> ix <span style="color:#f92672">in</span> range(self<span style="color:#f92672">.</span>xwidth):
+            x <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>calc_grid_position(ix, self<span style="color:#f92672">.</span>minx)
+            <span style="color:#66d9ef">for</span> iy <span style="color:#f92672">in</span> range(self<span style="color:#f92672">.</span>ywidth):
+                y <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>calc_grid_position(iy, self<span style="color:#f92672">.</span>miny)
+                <span style="color:#66d9ef">for</span> iox, ioy <span style="color:#f92672">in</span> zip(ox, oy):
+                    d <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>hypot(iox <span style="color:#f92672">-</span> x, ioy <span style="color:#f92672">-</span> y)
+                    <span style="color:#66d9ef">if</span> d <span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>rr:
+                        self<span style="color:#f92672">.</span>obmap[ix][iy] <span style="color:#f92672">=</span> True
+                        <span style="color:#66d9ef">break</span>
+
+    <span style="color:#a6e22e">@staticmethod</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_motion_model</span>():
+        <span style="color:#75715e"># dx, dy, cost</span>
+        motion <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>],
+                  [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>],
+                  [<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>],
+                  [<span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>],
+                  [<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, math<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">2</span>)],
+                  [<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, math<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">2</span>)],
+                  [<span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, math<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">2</span>)],
+                  [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, math<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">2</span>)]]
+
+        <span style="color:#66d9ef">return</span> motion
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+    <span style="color:#66d9ef">print</span>(__file__ <span style="color:#f92672">+</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> start!!</span><span style="color:#e6db74">&#34;</span>)
+
+    <span style="color:#75715e"># start and goal position</span>
+    sx <span style="color:#f92672">=</span> <span style="color:#ae81ff">10.0</span>  <span style="color:#75715e"># [m]</span>
+    sy <span style="color:#f92672">=</span> <span style="color:#ae81ff">10.0</span>  <span style="color:#75715e"># [m]</span>
+    gx <span style="color:#f92672">=</span> <span style="color:#ae81ff">50.0</span>  <span style="color:#75715e"># [m]</span>
+    gy <span style="color:#f92672">=</span> <span style="color:#ae81ff">50.0</span>  <span style="color:#75715e"># [m]</span>
+    grid_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">2.0</span>  <span style="color:#75715e"># [m]</span>
+    robot_radius <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>  <span style="color:#75715e"># [m]</span>
+
+    <span style="color:#75715e"># set obstable positions</span>
+    ox, oy <span style="color:#f92672">=</span> [], []
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">60</span>):
+        ox<span style="color:#f92672">.</span>append(i)
+        oy<span style="color:#f92672">.</span>append(<span style="color:#f92672">-</span><span style="color:#ae81ff">10.0</span>)
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">60</span>):
+        ox<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">60.0</span>)
+        oy<span style="color:#f92672">.</span>append(i)
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">61</span>):
+        ox<span style="color:#f92672">.</span>append(i)
+        oy<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">60.0</span>)
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">61</span>):
+        ox<span style="color:#f92672">.</span>append(<span style="color:#f92672">-</span><span style="color:#ae81ff">10.0</span>)
+        oy<span style="color:#f92672">.</span>append(i)
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">40</span>):
+        ox<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">20.0</span>)
+        oy<span style="color:#f92672">.</span>append(i)
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">40</span>):
+        ox<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">40.0</span>)
+        oy<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">60.0</span> <span style="color:#f92672">-</span> i)
+
+    <span style="color:#66d9ef">if</span> show_animation:  <span style="color:#75715e"># pragma: no cover</span>
+        plt<span style="color:#f92672">.</span>plot(ox, oy, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">.k</span><span style="color:#e6db74">&#34;</span>)
+        plt<span style="color:#f92672">.</span>plot(sx, sy, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">og</span><span style="color:#e6db74">&#34;</span>)
+        plt<span style="color:#f92672">.</span>plot(gx, gy, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">xb</span><span style="color:#e6db74">&#34;</span>)
+        plt<span style="color:#f92672">.</span>grid(True)
+        plt<span style="color:#f92672">.</span>axis(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">equal</span><span style="color:#e6db74">&#34;</span>)
+
+    a_star <span style="color:#f92672">=</span> AStarPlanner(ox, oy, grid_size, robot_radius)
+    rx, ry <span style="color:#f92672">=</span> a_star<span style="color:#f92672">.</span>planning(sx, sy, gx, gy)
+
+    <span style="color:#66d9ef">if</span> show_animation:  <span style="color:#75715e"># pragma: no cover</span>
+        plt<span style="color:#f92672">.</span>plot(rx, ry, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">-r</span><span style="color:#e6db74">&#34;</span>)
+        plt<span style="color:#f92672">.</span>show()
+
+
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">__main__</span><span style="color:#e6db74">&#39;</span>:
+    main()
+
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+  </label>
+</div>
+
+<p>Executing the code above results in the animation:</p>
+<p><img src="images/astar-prob-robotics.gif#center" alt="astar-probabilistic-robotics">
+<em>Animation of the A* algorithm  - from <a href="https://github.com/AtsushiSakai/PythonRobotics">here</a></em></p>
+<blockquote class="book-hint info">
+  Although the treatment above is self-contained, if you are missing some algorithmic background, afraid not. There is a free and <a href="http://algorithmics.lsi.upc.edu/docs/Dasgupta-Papadimitriou-Vazirani.pdf">excellent book</a> to help you with the background behind this chapter. In that book Chapters 3 and 4 are the relevant ones.
+</blockquote>
+
+<p>This is <a href="https://arxiv.org/abs/1504.05140">excellent overview</a> on how the principles of shortest path algorithms are applied in everyday applications such as Google maps directions. Practical implementation considerations are discussed for  multi-modal route finding capabilities where the agent needs to find optimal routes while traversing multiple modes of transportation.</p>
+</article>
+ 
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/af6cad1089296dc62979bf13cfd4f910be05da5a" title='Last modified by MONOGIOUDIS Pantelis | Apr 13, 2020' target="_blank" rel="noopener">
+      <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Apr 13, 2020</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/edit/master/cs-gy-6613-spring-2020/content/docs/lectures/planning/search/_index.md" target="_blank" rel="noopener">
+      <img src="/cs-gy-6613-spring-2020/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+  
+ 
+      </footer>
+      
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#planning-with-search">Planning with Search</a>
+      <ul>
+        <li><a href="#forward-search">Forward-Search</a></li>
+        <li><a href="#forward-search-approaches">Forward-search approaches</a>
+          <ul>
+            <li><a href="#depth-first-search-dfs">Depth-first search (DFS)</a></li>
+            <li><a href="#breadth-first-search-bfs">Breadth-first search (BFS)</a>
+              <ul>
+                <li><a href="#dijkstras-algorithm">Dijkstra&rsquo;s Algorithm</a></li>
+                <li><a href="#a-algorithm">A* Algorithm</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#forward-search-algorithm-implementation">Forward Search Algorithm Implementation</a>
+          <ul>
+            <li><a href="#interactive-demo">Interactive Demo</a></li>
+            <li><a href="#a-implementation">A* Implementation</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  <!DOCTYPE html> 
+
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css"
+  integrity="sha384-BdGj8xC2eZkQaxoQ8nSLefg4AV4/AwB3Fj+8SUSo7pnKP6Eoy18liIKTPn9oBYNG"
+  crossorigin="anonymous">
+
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.js"
+  integrity="sha384-JiKN5O8x9Hhs/UE5cT5AAJqieYlOZbGT3CHws/y97o3ty4R7/O5poG9F3JoiOYw1"
+  crossorigin="anonymous"></script>
+
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous" onload="renderMathInElement(document.body);">
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+          {left: "$$", right: "$$", display: true},
+          {left: "$", right: "$", display: false}
+      ],
+      macros: {
+        
+        "\\pdata": "p_{data}",
+        
+        "\\ptrain": "\\hat{p}_{data}",
+        "\\Ptrain": "\\hat{P}_{data}",
+        
+        "\\pmodel": "p_{model}",
+        "\\Pmodel": "P_{model}",
+        "\\ptildemodel": "\tilde p_{model}",
+        
+        "\\pencode": "p_{encoder}",
+        "\\pdecode": "p_{decoder}",
+        "\\precons": "p_{reconstruct}"
+      }
+    });
+  });
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"
+          integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous">
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css">
+<script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js"></script>
+
+<script>
+  pseudocode.renderElement(document.getElementById("forward-search"));
+</script>
+
+
+</html>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
