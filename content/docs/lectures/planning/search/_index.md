@@ -1,17 +1,17 @@
 ---
-title: Search and Route Planning 
-weight: 91
+title: Problem Solving via Search 
+weight: 95
 draft: true
 ---
 
-# Search and Route Planning
+# Problem Solving via Search 
 
 In [recursive state estimation]({{<ref "../../pgm/recursive-state-estimation">}}) chapter we made two advances in our modeling tool set:
 
 1. We introduced sequenced events (time) and the concept of a varying _state_ over such sequences.  
 2. We saw how the agent state as dictated by an underlying dynamical model and and how to estimate it recursively using a graphical model that introduced a Bayesian probabilistic framework. We saw that many well known estimation algorithms such as the Kalman filter are specific cases of this framework. 
 
-With this probabilistic reasoning in place, we can now track objects in the scene and ultimately assign symbols that represent them since we can ground their unique attributes (e.g. location). Having symbolic representation of its agent's locale environment is not enough though as we need a compatible _global_ representation of the environment and additional semantics to specify such _goals_. With such complementary representations we hope that we can efficiently infer states that we _cannot perceive_ as well as plan ahead to reach our goals. We effectively zoom out from the task-specific _factored_ representation of the agent's state and we look at environment state that is _atomic_ i.e. it is not broken down into its individual variables. 
+With this probabilistic reasoning in place, we can now track objects in the scene and ultimately assign symbols that represent them since we can ground their unique attributes (e.g. location). Having symbolic representation of its agent's locale environment is not enough though as we need a compatible _global_ representation of the environment and additional semantics to specify such _goals_. With such complementary representations we hope that we can efficiently infer states that we _cannot perceive_ as well as plan ahead to reach our goals. We effectively zoom out from the task-specific _factored_ representation of the agent's state and we look at environment state that _is_ or it is _treated_ as _atomic_ i.e. it is not broken down into its individual variables. 
 
 Atomic state representations of an environment are adequate for a a variety of tasks:  one striking use case is path planning. There, the scene or environment takes the form of a global map and the goal is to move the embodied agent from a starting state to a goal state. If we assume that the global map takes the form of a grid with a suitable resolution, each grid tile (or cell) represents a different atomic state than any other cell. Similar considerations can be made for other forms of the map e.g. a graph form. 
 
@@ -30,7 +30,7 @@ In practice, maps likes the one above are local both in terms of space (each sna
 ![cost-definition](images/cost-definition.png#center)
 *An example search area with action-cost function where left turns are penalized compared to right.This is common penalization in path planning for delivery vehicles.*
 
-The alternative map representation is _topological_ where the environment is represented as a graph where nodes indicated significant grounded features and edges denote topological relationships (position, orientation, proximity etc.). The sometimes confusing part is that irrespectively of metric or topological representations, the _forward search_ methods we look in this chapter all function on _graphs_ given an initial state $s_I$ and the goal state $s_G$ that is reached after potentially a finite number of actions (if a solution exist). 
+The alternative map representation is _topological_ where the environment is represented as a graph where nodes indicated significant grounded features and edges denote topological relationships (position, orientation, proximity etc.). The sometimes confusing part is that irrespectively of metric or topological representations, the _forward search_ methods we look in this chapter all function on _graphs_ given an initial state $s_I$ and the goal state $s_G$ that is reached after potentially a finite number of actions (if a solution exist). The following pseudo-code is from [Steven LaValle's book - Chapter 2](http://planning.cs.uiuc.edu/)
 
 <pre id="forward-search" style="display:hidden;">
     \begin{algorithm}
@@ -59,19 +59,19 @@ The alternative map representation is _topological_ where the environment is rep
 
 The forward search uses two data structures, a priority queue (Q) and a list and proceeds as follows:
 
-1. Provided that the starting state is not the goal state, we add it to a priority queue called the  _frontier_ (also known as _open list_ but we avoid using this term as its implemented as a queue). The name frontier is synonymous to _unexplored_. 
-2. We _expand_ each state in our frontier, by applying the finite set of actions, generating a new list of states. We use a list that we call the _explored set_ or _closed list_ to remember each node (state) that we expanded.  
+1. Provided that the starting state is not the goal state, we add it to a priority queue called the  _frontier_ (also known as _open list_ in the literature but we avoid using this term as its implemented is a queue). The name frontier is synonymous to _unexplored_. 
+2. We _expand_ each state in our frontier, by applying the finite set of actions, generating a new list of states. We use a list that we call the _explored set_ or _closed list_ to remember each node (state) that we expanded.  This is the list data structured we mentioned. 
 3. We then go over each newly generated state and before adding it to the frontier we check whether it has been expanded before and in that case we discard it. 
 
 ## Forward-search approaches
 
-The only significant difference between various search algorithms is the specific priority function that implements line 3: $s \leftarrow Q.GetFirst()$ in other words selects a state held in the queue for expansion. 
+The only significant difference between various search algorithms is the specific priority function that implements line 3: $s \leftarrow Q.GetFirst()$ in other words retrieves a state held in the priority queue for expansion. 
 
 | Search     | Queue Policy    | Details    |
 | --- | --- | --- |
-| **Depth-first search (DFS)**   |  LIFO   |   Search frontier is driven by aggressive exploration of the transition model.  The LIFO queue is a stack that  | 
-|  **Breath-first search**  |   FIFO  |   Search frontier is expanding uniformly.  |
-|   **Dijkstra**  |  Cost-to-Come   |     |
+| **Depth-first search (DFS)**   |  LIFO  | Search frontier is driven by aggressive exploration of the transition model. The algorithm makes deep incursions into the graph and retreats only when it run out of nodes to visit. It does not result in finding the shortest path to the goal. | 
+|  **Breath-first search**  |   FIFO  | Search frontier is expanding uniformly like the propagation of waves when you drop a stone in water. It therefore visit vertices in increasing order of their distance from the starting point. |
+|   **Dijkstra**  |  Cost-to-Come  |     |
 |   **A-star**   |  Cost-to-Go   |     |
 
 
@@ -81,30 +81,33 @@ In undirected graphs, depth-first search answers the question: What parts of the
 It also finds explicit paths to these vertices, summarized in its search tree as shown below.
 
 ![depth-first](images/depth-first.png#center)
-*Depth-first can't find optimal paths. Vertex C is reachable from S by traversing just one edge, while the DFS tree
-shows a path of length 3. On the right the DFS search tree is shown.*
+*Depth-first can't find optimal (shortest) paths. Vertex C is reachable from S by traversing just one edge, while the DFS tree
+shows a path of length 3. On the right the DFS search tree is shown assuming alphabetical order in breaking up ties. Can you explain the DFS search tree?*
 
 DFS can be run verbatim on directed graphs, taking care to traverse edges only in their prescribed directions.
 
 ### Breadth-first search (BFS)
-In BFS the lifting of the starting state $s$, partitions the graph into layers: s itself (vertex at distance 0), the vertices at distance 1 from it, the vertices at distance 2 from it etc. 
+
+In BFS the lifting of the starting state $s$, partitions the graph into layers: $s$ itself (vertex at distance 0), the vertices at distance 1 from it, the vertices at distance 2 from it etc. 
 
 ![breadth-first](images/breadth-first.png#center)
 *BFS expansion in terms of layers of vertices - each layer at increasing distance from the layer that follows*. 
 
 ![breadth-first-2](images/breadth-first-2.png#center)
-*Queue contents during BFS and the BFS search tree.* 
-
+*Queue contents during BFS and the BFS search tree assuming alphabetical order. Can you explain the BFS search tree? Is the BFS search tree a shortest-path tree?* 
+ 
 #### Dijkstra's Algorithm
 
-Breadth-first search finds shortest paths in any graph whose edges have unit length. Can we adapt it to a more general graph G = (V, E) whose edge lengths $l(e)$ are positive integers? Here is a simple trick for converting G into something BFS can handle: break G’s long edges
-into unit-length pieces, by introducing “dummy” nodes as shown next.
+Breadth-first search finds shortest paths in any graph whose edges have unit length. Can we adapt it to a more general graph G = (V, E) whose edge lengths $l(e)$ are positive integers? Here is a simple trick for converting G into something BFS can handle: break G’s long edges into unit-length pieces, by introducing “dummy” nodes as shown next.
 
 ![dijkstras-graph](images/dijkstras-graph.png#center)
 *To construct the new graph $G'$ for any edge $e = (u, v)$ of $E$, replace it by $l(e)$ edges of length 1, by adding $l(e) − 1$
 dummy nodes between nodes $u$ and $v$*. 
 
-With the shown transformation we run BFS on $G'$. 
+With the shown transformation, we can now run BFS on $G'$ and the search tree will reveal the shortest path of each goal node from the starting point. 
+
+#### A* Algorithm
+
 
 ## Forward Search Implementation
 
@@ -393,3 +396,9 @@ Executing the code above results in the animation:
 
 ![astar-probabilistic-robotics](images/astar-prob-robotics.gif#center)
 *Animation of the Astar algorithm that will be developed in this section - from [here](https://github.com/AtsushiSakai/PythonRobotics)*
+
+{{< hint info >}}
+Although the treatment above is self-contained, if you are missing some algorithmic background, afraid not. There is a free and [excellent book](http://algorithmics.lsi.upc.edu/docs/Dasgupta-Papadimitriou-Vazirani.pdf) to help you with the background behind this chapter. In that book Chapters 3 and 4 are the relevant ones.
+
+{{< /hint >}}
+## Forward Search for Planning

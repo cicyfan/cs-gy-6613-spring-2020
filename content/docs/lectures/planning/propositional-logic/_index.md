@@ -1,10 +1,10 @@
 ---
-title: Propositional Logic and Planning
-weight: 92
+title: Propositional Logic 
+weight: 91
 draft: true
 ---
 
-# Propositional Logic and Planning
+# Propositional Logic 
 
 We have seen in the [route planning]({{<ref "../search">}}) module that for some problems agents do not need to possess significant representational abilities - its enough to represent the environment states as _atomic_.  
 
@@ -107,7 +107,7 @@ The wumpus world despite its triviality, contains some deeper abstractions that 
 
 ## Propositional Logic Syntax
 
-The syntax defines the allowable sentences that can be complex. Each _atomic_ sentence consists of a single (propositional) symbol (also called variable) and the fixed symbols TRUE & FALSE. In BNF the atomic sentences or formulas are also called terminal elements. Complex sentences can be constructed from sentences using logical _operators_ (connectives that connect two or more sentences). In evaluating complex sentences the operator precedence shown in the figure below must be followed. 
+The syntax defines the allowable sentences that can be complex. Each _atomic_ sentence consists of a single (propositional) symbol and the fixed symbols TRUE & FALSE. In BNF the atomic sentences or formulas are also called terminal elements. Complex sentences can be constructed from sentences using logical _operators_ (connectives that connect two or more sentences). In evaluating complex sentences the operator precedence shown in the figure below must be followed. 
 
 ![BNF-grammar-prop-logic](images/BNF-grammar-prop-logic.png#center)
 *BNF grammar of propositional logic*
@@ -157,10 +157,8 @@ As described in the figure caption, 3 models out of the 128 models make the KB t
 
 Although the model checking approach was instructive, there is an issue with its complexity. Notice that if there are $n$ symbols in the KB there will be $2^n$ models, the time complexity is $O(2^n)$. Then we need to solve 
 
-The symbolic representation together with the explosive increase in the number of sentences in the KB as time goes by, cant scale. Another approach to do entailment, potentially more efficient, is  _theorem proving_ where we are applying _inference rules_ directly to the sentences of the KB to construct a proof of the desired sentence. Even better, we can invest in new representations as described in the [PDDL]({{<ref "../pddl">}}) chapter to develop planning approaches that combine search and logic and do not suffer necessarily from the combinatorial explosion problem. 
+The symbolic representation together with the explosive increase in the number of sentences in the KB as time goes by, cant scale. Another approach to do entailment, potentially more efficient, is  _theorem proving_ where we are applying _inference rules_ directly to the sentences of the KB to construct a proof of the desired sentence. Even better, we can invest in new representations as described in the [PDDL]({{<ref "../classical-planning">}}) chapter to develop planning approaches that combine search and logic and do not suffer necessarily from the combinatorial explosion problem. 
 
 {{< hint info >}}
-As an exercise, go through section 7.7 of the Russel and Norvig book to complete the planning exercise for the wumpus world. One major advantage for doing so is that you will get more exposure on how to convert the textual form of the sentences above to the sentences that are contained in the KB. 
-
 If you need to review the BNF expressed grammar for propositional logic (as shown in the syntax above) review [part 1](https://www.youtube.com/watch?v=MMxMeX5emUA) and [part 2](https://www.youtube.com/watch?v=DiOxbYTLXX8) video tutorials. 
 {{< /hint >}}
