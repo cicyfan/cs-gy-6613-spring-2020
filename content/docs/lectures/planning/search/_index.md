@@ -6,7 +6,7 @@ draft: false
 
 # Planning with Search 
 
-Having symbolic representations enriched with propositional logic in the Knowledge Base that allow us to reason about the agent's local environment state is not enough though as we need a compatible _global_ representation of the environment and additional semantics to specify such _global goals_. To do se we effectively zoom out from the  _factored_ representation of the environment's state and treat it as _atomic_ i.e. not broken down into its individual variables. 
+In [classical planning]({{<ref "../classical-planning">}}) we have seen that symbolic representations enriched with propositional logic in the Knowledge Base allow us to reason and execute plans about the agent's local environment state is not enough though as we need a compatible _global_ representation of the environment and additional semantics to specify such _global goals_. To do so we effectively zoom out from the  _factored_ representation of the environment's state and treat it as _atomic_ i.e. not broken down into its individual variables. 
 
 Atomic state representations of an environment are adequate for a a variety of global tasks other than the efficient:  one striking use case is path planning There, the scene or environment takes the form of a global map and the goal is to move the embodied agent from a starting state to a goal state. If we assume that the global map takes the form of a grid with a suitable resolution, each grid tile (or cell) represents a different atomic state than any other cell. Similar considerations can be made for other forms of the map e.g. a graph form. 
 
