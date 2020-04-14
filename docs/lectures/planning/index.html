@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.9bf7db5839278313f23cf14a42e3c33104287ae05b2cb7dda8b46f100ba3aab4.js" integrity="sha256-m/fbWDkngxPyPPFKQuPDMQQoeuBbLLfdqLRvEAujqrQ="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.629aa1b1a703c264d11fc928b164e473b92bf9691a23429507ee6cf19dbcf2d9.js" integrity="sha256-YpqhsacDwmTRH8kosWTkc7kr&#43;WkaI0KVB&#43;5s8Z288tk="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -1403,7 +1403,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Lecture 7 - Planning</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/planning/"  class="active">
+      Lecture 7 - Planning
+  </a>
+
+
     
 
     
@@ -2290,7 +2296,11 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#planning">Planning</a></li>
+  </ul>
+</nav>
 
 
     </aside>
@@ -2299,7 +2309,20 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-<article class="markdown"></article>
+<article class="markdown"><h1 id="planning">Planning</h1>
+<p>In <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/pgm/recursive-state-estimation/">recursive state estimation</a> chapter we made two advances in our modeling tool set:</p>
+<ol>
+<li>We introduced sequenced over time events and the concept of a varying <em>state</em> over such sequences.</li>
+<li>We saw how the agent state as dictated by an underlying dynamical model and and how to estimate it recursively using a graphical model that introduced the Bayesian filter. We saw that many well known estimation algorithms such as the Kalman filter are specific cases of this framework.</li>
+</ol>
+<p>With this probabilistic reasoning in place, we can now assign symbols that represent e.g. objects in the scene since we can ground their unique attributes (e.g. location, embeddings) and track them. But probabilistic reasoning is not enough. In many problems we need to:</p>
+<ol>
+<li>Be able to accumulate knowledge (static rules and percepts) over a periods of time.</li>
+<li>Reason <em>beyond</em> what we perceive.</li>
+<li>Be able to express the domain and problem at hand in a suitably expressive language that can interface with domain-independent solvers to find solutions (usually via search algorithms).</li>
+</ol>
+<p>These are implemented in the planning subsystem that is our next logical step positioned after the probabilistic reasoning to provide the best sequence of actions to reach our goal.</p>
+</article>
  
 
       <footer class="book-footer">
@@ -2310,7 +2333,7 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/074f543a966c3c113dc6ecb6b72ef8f0183b41d5" title='Last modified by MONOGIOUDIS Pantelis | Apr 14, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/2a5fe65f96fcdf74e816136924d360a66c66a570" title='Last modified by MONOGIOUDIS Pantelis | Apr 14, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Apr 14, 2020</span>
     </a>
@@ -2338,7 +2361,11 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#planning">Planning</a></li>
+  </ul>
+</nav>
 
  
     </aside>
