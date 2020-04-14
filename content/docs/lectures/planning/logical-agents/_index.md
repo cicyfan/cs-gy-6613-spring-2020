@@ -16,7 +16,7 @@ We add a couple of sentences in the KB we had developed,focusing on axioms (fact
 | --- | --- | --- | 
 | $R_1$ | There is no pit in cel [1,1] | $\neg P_{1,1}$ |
 | $R_2$ | The cell [1,1] is breezy if and only if there is a pit in the neighboring cell. | $B_{1,1} ⇔ (P_{1,2} \lor P_{2,1})$ | 
-| $R_3$ | The cell [2,1] is breezy if and only if there is a pit in the neighboring cell. | $B_{1,1} ⇔ (P_{1,1} \lor P_{2,2} \lor P_{3,1})$ |
+| $R_3$ | The cell [2,1] is breezy if and only if there is a pit in the neighboring cell. | $B_{2,1} ⇔ (P_{1,1} \lor P_{2,2} \lor P_{3,1})$ |
 | $R_4$ | The cell [1,1] is stenchy if and only if there is a wumpus in the neighboring cell. | $S_{1,1} ⇔ (W_{1,2} \lor W_{2,1})$ | 
 | $R_5$ | There is only one wumpus in this world. | | 
 | $R_{5-1}$ | There is at least one wumpus | $W_{1,1} \lor W_{1,2} \lor ... \lor W_{4,4}$  |

@@ -150,7 +150,7 @@ Using these symbols we can convert the natural language assertions into logical 
 | --- | --- | --- | 
 | $R_1$ | There is no pit in cel [1,1] | $\neg P_{1,1}$ |
 | $R_2$ | The cell [1,1] is breezy if and only if there is a pit in the neighboring cell. | $B_{1,1} ⇔ (P_{1,2} \lor P_{2,1})$ | 
-| $R_3$ | The cell [2,1] is breezy if and only if there is a pit in the neighboring cell. | $B_{1,1} ⇔ (P_{1,1} \lor P_{2,2} \lor P_{3,1})$ |
+| $R_3$ | The cell [2,1] is breezy if and only if there is a pit in the neighboring cell. | $B_{2,1} ⇔ (P_{1,1} \lor P_{2,2} \lor P_{3,1})$ |
 | $R_4$ | Agent while in cell [1,1] perceives [Stench, Breeze, Glitter, Bump, Scream]=[None, None, None, None, None] | $\neg B_{1,1}$ | 
 | $R_5$ | Agent while in cell [2,1] perceives [Stench, Breeze, Glitter, Bump, Scream]=[None, Breeze, None, None, None] | $B_{2,1}$ | 
 
