@@ -426,10 +426,10 @@ Executing the code above results in the animation:
 
 ![astar-probabilistic-robotics](images/astar-prob-robotics.gif#center)
 *Animation of the A\* algorithm  - from [here](https://github.com/AtsushiSakai/PythonRobotics)*
+ 
+This is [excellent overview](https://arxiv.org/abs/1504.05140) on how the principles of shortest path algorithms are applied in everyday applications such as Google maps directions. Practical implementation considerations are discussed for  multi-modal route finding capabilities where the agent needs to find optimal routes while traversing multiple modes of transportation.
 
 {{< hint info >}}
 Although the treatment above is self-contained, if you are missing some algorithmic background, afraid not. There is a free and [excellent book](http://algorithmics.lsi.upc.edu/docs/Dasgupta-Papadimitriou-Vazirani.pdf) to help you with the background behind this chapter. In that book Chapters 3 and 4 are the relevant ones.
 
 {{< /hint >}}
- 
-This is [excellent overview](https://arxiv.org/abs/1504.05140) on how the principles of shortest path algorithms are applied in everyday applications such as Google maps directions. Practical implementation considerations are discussed for  multi-modal route finding capabilities where the agent needs to find optimal routes while traversing multiple modes of transportation.
