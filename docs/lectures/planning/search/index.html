@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.da277c1ab84585877a078fed8c5fa2ce07b413c1b84169690ef48e781a4035ca.js" integrity="sha256-2id8GrhFhYd6B4/tjF&#43;izge0E8G4QWlpDvSOeBpANco="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.9bf7db5839278313f23cf14a42e3c33104287ae05b2cb7dda8b46f100ba3aab4.js" integrity="sha256-m/fbWDkngxPyPPFKQuPDMQQoeuBbLLfdqLRvEAujqrQ="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/search/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -2325,13 +2325,8 @@ https://github.com/alex-shpak/hugo-book
 
       
 <article class="markdown"><h1 id="planning-with-search">Planning with Search</h1>
-<p>In <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/pgm/recursive-state-estimation/">recursive state estimation</a> chapter we made two advances in our modeling tool set:</p>
-<ol>
-<li>We introduced sequenced events (time) and the concept of a varying <em>state</em> over such sequences.</li>
-<li>We saw how the agent state as dictated by an underlying dynamical model and and how to estimate it recursively using a graphical model that introduced a Bayesian probabilistic framework. We saw that many well known estimation algorithms such as the Kalman filter are specific cases of this framework.</li>
-</ol>
-<p>With this probabilistic reasoning in place, we can now track objects in the scene and ultimately assign symbols that represent them since we can ground their unique attributes (e.g. location). Having symbolic representation of its agent&rsquo;s locale environment is not enough though as we need a compatible <em>global</em> representation of the environment and additional semantics to specify such <em>goals</em>. With such complementary representations we hope that we can efficiently infer states that we <em>cannot perceive</em> as well as plan ahead to reach our goals. We effectively zoom out from the task-specific <em>factored</em> representation of the agent&rsquo;s state and we look at environment state that <em>is</em> or it is <em>treated</em> as <em>atomic</em> i.e. it is not broken down into its individual variables.</p>
-<p>Atomic state representations of an environment are adequate for a a variety of tasks:  one striking use case is path planning. There, the scene or environment takes the form of a global map and the goal is to move the embodied agent from a starting state to a goal state. If we assume that the global map takes the form of a grid with a suitable resolution, each grid tile (or cell) represents a different atomic state than any other cell. Similar considerations can be made for other forms of the map e.g. a graph form.</p>
+<p>Having symbolic representations enriched with propositional logic in the Knowledge Base that allow us to reason about the agent&rsquo;s local environment state is not enough though as we need a compatible <em>global</em> representation of the environment and additional semantics to specify such <em>global goals</em>. To do se we effectively zoom out from the  <em>factored</em> representation of the environment&rsquo;s state and treat it as <em>atomic</em> i.e. not broken down into its individual variables.</p>
+<p>Atomic state representations of an environment are adequate for a a variety of global tasks other than the efficient:  one striking use case is path planning There, the scene or environment takes the form of a global map and the goal is to move the embodied agent from a starting state to a goal state. If we assume that the global map takes the form of a grid with a suitable resolution, each grid tile (or cell) represents a different atomic state than any other cell. Similar considerations can be made for other forms of the map e.g. a graph form.</p>
 <p>Given such state representation, <em>search</em> is one of the methods we use to find the action sequence that the agent must produce to reach a goal state. Note that in most cases, we are dealing with <em>informed</em> rather than <em>blind</em> search, where we are also given task-specific knowledge (we call them heuristics) to find the solution as we will see shortly.</p>
 <h2 id="forward-search">Forward-Search</h2>
 <p>We will develop the algorithm for the task at hand which is to find the path between a starting state and the goal state in a map. Not just any path but the <em>minimum cost</em> path when the state transition graph is revealed incrementally through a series of actions and associated individual costs (cost function). The task is depicted below.</p>
@@ -3017,9 +3012,9 @@ show_animation <span style="color:#f92672">=</span> True
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/af6cad1089296dc62979bf13cfd4f910be05da5a" title='Last modified by MONOGIOUDIS Pantelis | Apr 13, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/074f543a966c3c113dc6ecb6b72ef8f0183b41d5" title='Last modified by MONOGIOUDIS Pantelis | Apr 14, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Apr 13, 2020</span>
+      <span>Apr 14, 2020</span>
     </a>
   </div>
 
