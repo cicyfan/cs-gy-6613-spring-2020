@@ -6,14 +6,9 @@ draft: false
 
 # Planning with Search 
 
-In [recursive state estimation]({{<ref "../../pgm/recursive-state-estimation">}}) chapter we made two advances in our modeling tool set:
+Having symbolic representations enriched with propositional logic in the Knowledge Base that allow us to reason about the agent's local environment state is not enough though as we need a compatible _global_ representation of the environment and additional semantics to specify such _global goals_. To do se we effectively zoom out from the  _factored_ representation of the environment's state and treat it as _atomic_ i.e. not broken down into its individual variables. 
 
-1. We introduced sequenced events (time) and the concept of a varying _state_ over such sequences.  
-2. We saw how the agent state as dictated by an underlying dynamical model and and how to estimate it recursively using a graphical model that introduced a Bayesian probabilistic framework. We saw that many well known estimation algorithms such as the Kalman filter are specific cases of this framework. 
-
-With this probabilistic reasoning in place, we can now track objects in the scene and ultimately assign symbols that represent them since we can ground their unique attributes (e.g. location). Having symbolic representation of its agent's locale environment is not enough though as we need a compatible _global_ representation of the environment and additional semantics to specify such _goals_. With such complementary representations we hope that we can efficiently infer states that we _cannot perceive_ as well as plan ahead to reach our goals. We effectively zoom out from the task-specific _factored_ representation of the agent's state and we look at environment state that _is_ or it is _treated_ as _atomic_ i.e. it is not broken down into its individual variables. 
-
-Atomic state representations of an environment are adequate for a a variety of tasks:  one striking use case is path planning. There, the scene or environment takes the form of a global map and the goal is to move the embodied agent from a starting state to a goal state. If we assume that the global map takes the form of a grid with a suitable resolution, each grid tile (or cell) represents a different atomic state than any other cell. Similar considerations can be made for other forms of the map e.g. a graph form. 
+Atomic state representations of an environment are adequate for a a variety of global tasks other than the efficient:  one striking use case is path planning There, the scene or environment takes the form of a global map and the goal is to move the embodied agent from a starting state to a goal state. If we assume that the global map takes the form of a grid with a suitable resolution, each grid tile (or cell) represents a different atomic state than any other cell. Similar considerations can be made for other forms of the map e.g. a graph form. 
 
 Given such state representation, _search_ is one of the methods we use to find the action sequence that the agent must produce to reach a goal state. Note that in most cases, we are dealing with _informed_ rather than _blind_ search, where we are also given task-specific knowledge (we call them heuristics) to find the solution as we will see shortly. 
 
