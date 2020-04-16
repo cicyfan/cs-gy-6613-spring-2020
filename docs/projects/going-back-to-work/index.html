@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.c0cff15f4d1582392ac5353380a2658b42e2189afa51ba7449322cb199b317f9.js" integrity="sha256-wM/xX00VgjkqxTUzgKJli0LiGJr6Ubp0STIssZmzF/k="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.9d6ddd44fb1d3feca5f7d43ce4e992548e513cbe4d701429a44db06a1b9d539d.js" integrity="sha256-nW3dRPsdP&#43;yl99Q85OmSVI5RPL5NcBQppE2wahudU50="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/going-back-to-work/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -2370,14 +2370,14 @@ https://github.com/alex-shpak/hugo-book
 <p>In the spring of 2020 the world has experienced an unprecedented in modern history event - a pandemic that killed tens of thousands of people and resulted in a global economic recession; tens of millions lost their jobs. You are called to help rebuild the economy and develop an system that can protect people from infection while still allow them to go back to work.</p>
 <p>One of the ways that this can be achieved is by maintaining a certain density of people in buildings. To do that, we need to engineer a reservation (booking) system where each user uses a messaging app to reserve a time slot (period) that he or she is allowed in the building, by entering the destination address and desired arrival time and length of stay.</p>
 <p>Your <em>AI-powered decision system</em> responds giving the requestor a decision. Each decision is either an accept, manifested with a QR code with the address and allowed <em>arrival</em> and <em>departure</em> times in text or a downright reject. The departure time is needed since the system must preserve building density and people must leave the building to make &ldquo;space&rdquo; for others to enter. The security personnel or receptionists supervise a programmable scanner or manually <a href="https://support.apple.com/en-us/HT208843">scan</a> the QR code to allow entrance and exit (pretty similar to the scanners used to allow entry of an aircraft at the gate). The system also allows for group bookings, made by an assistant for example, to enable face to face meetings. In this case the decision system accepts or rejects for the whole group.</p>
-<p>To give you a practical perspective, the system can be entirely powered by <a href="https://www.apple.com/ios/business-chat/">well known chat / messaging apps</a> and your cloud-native &amp; cloud-hosted application - the decision system.</p>
+<p>To give you a practical perspective, the system can be entirely powered by <a href="https://www.apple.com/ios/business-chat/">well known chat / messaging apps</a> and your cloud-native &amp; cloud-hosted application - the decision system. The system also complements contact-tracing systems that are powered by mobile OS and are under active development by Apple and Google.</p>
 <p>To simplify the problem,</p>
 <ol>
 <li>The departure times cannot change dynamically. This means that if the actual demand is lower than the predicted demand when the scheduling decision took place, the departure time stays fixed. Employees / customers can extend their departure by sending another request via the messaging app but this is an independent reservation and is not accounted for the original decision policy.</li>
 <li>Although this can be very useful for stores and co-working spaces, there is no attempt to flatten the demand curve by distributing accepts among geographically separated facilities of the same legal entity.</li>
 <li>There is no semantic consideration in the decision making algorithm. It is assumed that theaters and other sports venues control the reservations and seating to maintain social distancing. The same is assumed for office buildings - the system is not designed (although it can be extended via video surveillance and other localization technologies) to consider per office floor occupancies.</li>
 <li>There are no fairness considerations. One can go ahead and book multiple time slots by sending messages one after the other to the system. This is an important limitation but can be easily addressed in practice and will unnecessarily complicate the policy given the limited time to complete the project.</li>
-<li>There are no risk.</li>
+<li>There are no risk considerations in the decision making process. A user that requests a reservation that lives far away and travels via public transportation has equal chances to a user that lives next to the requested address.</li>
 </ol>
 <p>This system can be powered by cellular network based localization datasets but in the absence of such data that only operators possess, we will use the the <a href="https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page">dataset that contains all NYC taxi rides</a> from 2009 to 2019. The dataset  includes pickups and drop offs and we will focus for this problem on drop offs only and only in the borough of Manhattan (if you face computational load hardships you can focus on the <strong>midtown</strong> Manhattan area only).</p>
 <p>There are two steps to do:</p>
@@ -2400,7 +2400,7 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/2e57b69e6bb8e55d3eaa830479c27d2a2c8aba9d" title='Last modified by MONOGIOUDIS Pantelis | Apr 16, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/a738cb08ca8a70d11eac46157498308b55202b2b" title='Last modified by MONOGIOUDIS Pantelis | Apr 16, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Apr 16, 2020</span>
     </a>
