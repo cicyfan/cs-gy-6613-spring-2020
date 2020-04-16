@@ -4,7 +4,7 @@ title: Project 4 - Going Back to Work
 
 # Going Back to Work
 
-![taxi-dropoffs-map](_images/taxi-dropoffs-map.png#center)
+![taxi-dropoffs-map](images/taxi-dropoffs-map.png#center)
 
 In the spring of 2020 the world has experienced an unprecedented in modern history event - a pandemic that killed tens of thousands of people and resulted in a global economic recession; tens of millions lost their jobs. You are called to help rebuild the economy and develop an system that can protect people from infection while still allow them to go back to work. 
 
