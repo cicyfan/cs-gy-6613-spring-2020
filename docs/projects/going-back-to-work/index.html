@@ -2384,7 +2384,7 @@ https://github.com/alex-shpak/hugo-book
 <ol>
 <li>Preprocessing step. In this step you generate the demand model before the intervention by the decision making process.  Think about it as the pre-pandemic demand for the address. You need to take the (lat, long) drop off data and using a <a href="https://geopy.readthedocs.io/en/latest/#geocoders">geocoder</a> convert them to addresses. See also <a href="https://nycdatascience.com/blog/student-works/predict-new-york-city-taxi-demand/">here</a> for some preprocessing ideas and <a href="https://github.com/toddwschneider/nyc-taxi-data">here</a> for code that does preprocessing. Below is a sample result of the <a href="https://toddwschneider.com/posts/analyzing-1-1-billion-nyc-taxi-and-uber-trips-with-a-vengeance/">preprocessing</a> mapping the drop off data into addresses.</li>
 </ol>
-<p><img src="images/../_images/gs-dropoffs.png#center" alt="gs-dropoffs"></p>
+<p><img src="images/gs-dropoffs.png#center" alt="gs-dropoffs"></p>
 <ol start="2">
 <li>Optimal Decision Policy. You will use the demand model from (1) as input to simulate the requested reservations at a location. Obviously the optimal policy will involve a closed loop feedback where the actual arrivals into each building are streamed in almost real time to the web service such as from video surveillance cameras. <strong>You are free to make assumptions</strong> in determining the policy such as knowing the actual capacity of each of the addresses / neighborhoods you are demonstrating. As an example, the decision policy can be a <strong>scheduling</strong> policy. The scheduler at any instant in time determines whether to accept or reject incoming reservations requests.</li>
 </ol>
@@ -2400,7 +2400,7 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/53efdc5eab6b5ed1dc032b0cc652d992d0317727" title='Last modified by MONOGIOUDIS Pantelis | Apr 16, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/2e57b69e6bb8e55d3eaa830479c27d2a2c8aba9d" title='Last modified by MONOGIOUDIS Pantelis | Apr 16, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Apr 16, 2020</span>
     </a>
