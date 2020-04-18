@@ -81,28 +81,6 @@ Click on the button &amp;ldquo;Run in Google Colab&amp;rdquo; to run the noteboo
     
     <item>
       <title></title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-slides/lecture-notes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-slides/lecture-notes/</guid>
-      <description>Lecture 8 Gurudutt Hosangadi, Bell Labs, NJ April 6th, 2020 Note:
- Career spans about 20 years mostly in wireless research Used Deep Learning to model user scheduling algorithms more recently ML in computer vision and reinforcement learning in the context of robotic arm manipulation   PLAN  Review Sequential Decisions and MDP POMDPs Reinforcement Learning  Note:
- the plan for today is to consider a very important class of problems that we encounter frequently in the real world: sequential decision problems.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-slides/lecture/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-slides/lecture/</guid>
-      <description>Lecture 8 Gurudutt Hosangadi, Bell Labs, NJ April 6th, 2020  PLAN  Review Sequential Decisions and MDP POMDPs Reinforcement Learning   Part 1/4: REVIEW Note: we begin with review
- Agents An agent is anything that can perceive an environment through sensors and then act on the environment. An agent therefore maps percepts into actions.
-Agent Types $4$ main categories depending on how percepts are mapped to actions:</description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-slides/README/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
