@@ -50,7 +50,8 @@ $4$ main categories depending on how percepts are mapped to actions:
 
 Suppose that the mars lander needs to pick up 1 sample of each different looking rock. There could be obstructions along the way.
 
-<img src="./images/mars.jfif" width="200"><!-- .element width="500px" -->
+![curiocity-selfie](images/curiosity-selfie.jpg#center)
+*Curiocity in the surface of Mars*
 
 
 
