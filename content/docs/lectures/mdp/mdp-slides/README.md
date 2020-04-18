@@ -1,2 +1,0 @@
-# NYU guest lecture notes
-

@@ -1,3 +1,7 @@
+---
+draft: false
+---
+
 # Lecture 8 
 ## Gurudutt Hosangadi, Bell Labs, NJ
 ## April 6th, 2020
