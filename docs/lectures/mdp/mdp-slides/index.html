@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.f9c6c28d077c90f444bfb2da61de4aa18c120ac91d6f0cdfa2907cb17f25cbbb.js" integrity="sha256-&#43;cbCjQd8kPREv7LaYd5KoYwSCskdbwzfopB8sX8ly7s="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.83a4ed53c5a4a49897bcdcd18550a1101c1a41ec40599d97b51781b913f73dd2.js" integrity="sha256-g6TtU8WkpJiXvNzRhVChEBwaQexAWZ2XtReBuRP3PdI="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-slides/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -1709,13 +1709,7 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      
-
-  <a href="/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-slides/"  class="active">
-      Mdp Slides
-  </a>
-
-
+      <span>The Agent - Environment Interface</span>
     
 
     
@@ -1741,7 +1735,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>The Agent - Environment Interface</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-slides/"  class="active">
+      Mdp Slides
+  </a>
+
+
     
 
     
@@ -2326,6 +2326,32 @@ https://github.com/alex-shpak/hugo-book
 
       
     
+      
+        
+
+  <li >
+    
+      <span>Embodied AI Simulation</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
   </ul>
   
 
@@ -2445,7 +2471,7 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#maze---continued">Maze - continued</a></li>
             <li><a href="#maze-with-no-uncertainty-utility">MAZE with no uncertainty: Utility</a></li>
             <li><a href="#maze-with-no-uncertainty-policy">MAZE with no uncertainty: Policy</a></li>
-            <li><a href="#maze-with-no-uncertainty-policy-1">MAZE with no uncertainty-Policy</a></li>
+            <li><a href="#maze-with-no-uncertainty-policy-1">MAZE with no uncertainty: Policy</a></li>
             <li><a href="#markov-decision-process-mdp">Markov Decision Process (MDP)</a></li>
             <li><a href="#mdp-transition-model">MDP Transition Model</a></li>
             <li><a href="#utility-for-mdp">Utility for MDP</a></li>
@@ -2453,25 +2479,19 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#policy-for-mdp">Policy for MDP</a></li>
             <li><a href="#optimal-policy-for-mdp">Optimal Policy for MDP</a></li>
             <li><a href="#value-iteration">Value Iteration</a></li>
-          </ul>
-        </li>
-        <li><a href="#value-iteration---continued">Value Iteration - continued</a>
-          <ul>
-            <li><a href="#value-iteration---continued-1">Value Iteration - continued</a></li>
-            <li><a href="#value-iteration---continued-2">Value Iteration - continued</a></li>
-            <li><a href="#value-iteration---continued-3">Value Iteration - continued</a></li>
+            <li><a href="#value-iteration-1">Value Iteration</a></li>
+            <li><a href="#value-iteration-t0">Value Iteration (t=0)</a></li>
+            <li><a href="#value-iteration-t1">Value Iteration (t=1)</a></li>
+            <li><a href="#value-iteration-t2">Value Iteration (t=2)</a></li>
             <li><a href="#value-iteration---convergence">Value Iteration - Convergence</a></li>
             <li><a href="#policy-iteration">Policy Iteration</a></li>
             <li><a href="#policy-iteration-for-grid-world">Policy Iteration for Grid World</a></li>
-            <li><a href="#policy-iteration---continued">Policy Iteration - continued</a></li>
-            <li><a href="#policy-iteration---continued-1">Policy Iteration - continued</a></li>
-            <li><a href="#policy-iteration---continued-2">Policy Iteration - continued</a></li>
-            <li><a href="#policy-iteration---continued-3">Policy Iteration - continued</a></li>
+            <li><a href="#policy-iteration-step-1">Policy Iteration (Step 1)</a></li>
+            <li><a href="#policy-iteration-step-2">Policy Iteration (step 2)</a></li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="#break">BREAK&hellip;..</a></li>
     <li><a href="#part-34-pomdps">PART 3/4: POMDPs</a>
       <ul>
         <li>
@@ -2489,15 +2509,15 @@ https://github.com/alex-shpak/hugo-book
             </li>
             <li><a href="#pomdp-as-a-belief-state-mdp">POMDP as a Belief-state MDP</a></li>
             <li><a href="#solving-pomdp">Solving POMDP</a></li>
-            <li><a href="#solving-the-tiger-problem---1-step-horrizon">Solving the tiger problem - 1-step horrizon</a></li>
-            <li><a href="#solving-the-tiger-problem---1-step-horrizon-1">Solving the tiger problem - 1-step horrizon</a></li>
+            <li><a href="#solving-the-tiger-problem---1-step-horizon">Solving the tiger problem - 1-step horizon</a></li>
+            <li><a href="#solving-the-tiger-problem---1-step-horizon-1">Solving the tiger problem - 1-step horizon</a></li>
             <li><a href="#solving-the-tiger-problem---t-step-horrizon">Solving the tiger problem - t-step horrizon</a></li>
             <li><a href="#solving-the-tiger-problem---t-step-horrizon-1">Solving the tiger problem - t-step horrizon</a></li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="#part-44-reinforcement-learning">PART 4/4: Reinforcement Learning</a>
+    <li><a href="#part-44-reinforcement-learning-rl">PART 4/4: Reinforcement Learning (RL)</a>
       <ul>
         <li>
           <ul>
@@ -2696,7 +2716,7 @@ $P(open/e) = \frac{P(e/open)P(open)}{P(e)}$</li>
 <li>Robot is at the &ldquo;START&rdquo;</li>
 <li>Agent commands robot with <strong>actions</strong> : UP($\uparrow$),DOWN($\downarrow$),LEFT($\leftarrow$),RIGHT($\rightarrow$) and robot follows exactly</li>
 <li>Agent knows where it is i.e. environment is <em><strong>fully observable</strong></em></li>
-<li><strong>state</strong>: where Robot is for e.g. state $S_{42}$ is if robot is in the square with red oval</li>
+<li><strong>state</strong>: where Robot is for e.g. state $S_{42}$ is if robot is in the square with red oval.</li>
 <li><strong>reward</strong> or punishment received when a state is reached</li>
 </ul>
 <hr>
@@ -2711,8 +2731,9 @@ $P(open/e) = \frac{P(e/open)P(open)}{P(e)}$</li>
 </ul>
 <!-- .element: class="fragment" -->
 <ul>
-<li>Utility of a sequence of states is given by $U(s_0,s_1,&hellip;,s_T)=R(s_0)+R(s_1)+&hellip;+R(s_T)$</li>
+<li>Utility of a sequence of states is given by</li>
 </ul>
+<p>$$U(s_0,s_1,&hellip;,s_T)=R(s_0)+R(s_1)+&hellip;+R(s_T)$$</p>
 <!-- .element: class="fragment" -->
 <ul>
 <li>Question: Find sequence of actions from current state to goal (green oval) that maximizes utility?</li>
@@ -2726,22 +2747,28 @@ $P(open/e) = \frac{P(e/open)P(open)}{P(e)}$</li>
 </ul>
 <hr>
 <h3 id="maze-with-no-uncertainty-policy">MAZE with no uncertainty: Policy</h3>
-<p><img src="./images/policy.png" alt="Different policies"><!-- .element width="900px" -->
-<img src="./images/grid-world-1.png" alt="(A) 4x3 Maze "><!-- .element width="400px" --></p>
+<p><img src="./images/grid-world-1.png" alt="(A) 4x3 Maze "><!-- .element width="400px" --></p>
 <ul>
 <li><strong>Policy</strong>: $\pi(s) = a$ i.e. $\pi$ function maps state $s$ to action $a$.</li>
-<li><strong>Utility</strong> $U(s)$ of state $s$ is the sum of discounted rewards of the sequence of states starting at $s$ generated by using the policy $\pi$ i.e. $U^{\pi}(s) =  R(s) + \gamma R(s_1) + \gamma^{2} R(s_2) + &hellip;$</li>
 </ul>
+<p><img src="images/policy.png#center" alt="Different policies"></p>
+<ul>
+<li><strong>Utility</strong> $U(s)$ of state $s$ is the sum of discounted rewards of the sequence of states starting at $s$ generated by using the policy $\pi$ i.e.</li>
+</ul>
+<p>$$U^{\pi}(s) =  R(s) + \gamma R(s_1) + \gamma^{2} R(s_2) + &hellip;$$</p>
 <hr>
-<h3 id="maze-with-no-uncertainty-policy-1">MAZE with no uncertainty-Policy</h3>
+<h3 id="maze-with-no-uncertainty-policy-1">MAZE with no uncertainty: Policy</h3>
 <ul>
-<li><strong>Optimal</strong> policy $\pi^{<em>}$ : policy that yields the highest expected utility for the sequence of states generated by $\pi^</em>$.
-<img src="./images/opitmal-policy-maze-1.png" alt="Optimal Policy for Maze"><!-- .element width="400px" --></li>
-<li>For the maze, the optimal policy tells us which action to take so that we are closer to the goal
+<li><strong>Optimal</strong> policy $\pi$  policy that yields the highest expected utility for the sequence of states generated by $\pi^*$.</li>
+</ul>
+<p><img src="./images/opitmal-policy-maze-1.png" alt="Optimal Policy for Maze"><!-- .element width="400px" --></p>
 <ul>
-<li>*<em>$\pi^</em>(s_{41})=$ ???**</li>
-<li>*<em>$\pi^</em>(s_{32})=$ ???**</li>
-<li>*<em>$\pi^</em>(s_{11})=$ ???**</li>
+<li>
+<p>For the maze, the optimal policy tells us which action to take so that we are closer to the goal</p>
+<ul>
+<li>$\pi^*(s_{41})=$ ???</li>
+<li>$\pi^*(s_{32})=$ ???</li>
+<li>$\pi^*(s_{11})=$ ???</li>
 </ul>
 </li>
 </ul>
@@ -2789,30 +2816,33 @@ $P(open/e) = \frac{P(e/open)P(open)}{P(e)}$</li>
 <ul>
 <li>Suppose robot is in state $S_{33}$ and the action taken is &ldquo;RIGHT&rdquo;.  Also assume $\gamma = 1$</li>
 <li>We want to compute the utility of this state:
-\begin{eqnarray*}
-U(S_{33})   &amp; = &amp;  R(S_{33}) +  (P(S_{43} | S_{33}, \rightarrow)  U(S_{43}) + P(S_{33} | S_{33}, \rightarrow)  U(S_{33}) \\<br>
-&amp; &amp; + P(S_{32} | S_{33}, \rightarrow)  U(S_{32}))
-\end{eqnarray*}</li>
+$$ U(S_{33})   =   R(S_{33}) +  \gamma (P(S_{43} | S_{33}, \rightarrow)  U(S_{43}) + P(S_{33} | S_{33}, \rightarrow)  U(S_{33}) + P(S_{32} | S_{33}, \rightarrow)  U(S_{32}))$$</li>
 <li>Substituting we get:</li>
 </ul>
-<p>$U(S_{33}) = R(S_{33}) + \gamma ( (0.8 \times U(S_{43})) + (0.1 \times U(S_{33})) + (0.1 \times U(S_{23})))$</p>
+<p>$$U(S_{33}) = R(S_{33}) + \gamma ( (0.8 \times U(S_{43})) + (0.1 \times U(S_{33})) + (0.1 \times U(S_{23})))$$</p>
 <hr>
 <h3 id="policy-for-mdp">Policy for MDP</h3>
 <ul>
-<li>if we choose action $a$ that maximizes future rewards, $U(s)$ is the maximum we can get over all possible choices of actions  and is represented as $U^{*}(s)$.</li>
-<li>We can write this as $U^{*}(s) = R(s) + \gamma \underset{a}{ \max} (\sum_{s^{'}} P(s^{'}| s,a)U(s^{'}))$</li>
-<li>The optimal policy (which recommends $a$ that maximizes U) is given by:
-$\pi^{*}(s) = \underset{a}{\arg \max}(\sum_{s^{'}} P(s^{'}| s,a)U^{*}(s^{'}))$</li>
+<li>
+<p>If we choose action $a$ that maximizes future rewards, $U(s)$ is the maximum we can get over all possible choices of actions  and is represented as $U^{*}(s)$.</p>
+</li>
+<li>
+<p>We can write this as
+$$U^*(s) = R(s) + \gamma \underset{a}{ \max} (\sum_{s^{'}} P(s^{'}| s,a)U(s&rsquo;))$$</p>
+</li>
+<li>
+<p>The optimal policy (which recommends $a$ that maximizes U) is given by:</p>
+</li>
+</ul>
+<p>$$\pi^{*}(s) = \underset{a}{\arg \max}(\sum_{s^{'}} P(s^{'}| s,a)U^{*}(s^{'}))$$</p>
+<ul>
 <li>Can the above $2$ be solved directly?
 <ul>
-<li>The set of $|S|$ equations for  $U^{*}(s)$ cannot be solved directly because they are non-linear due the presence of &lsquo;max&rsquo; function.</li>
+<li>The set of $|S|$ equations for  $U^*(s)$ cannot be solved directly because they are non-linear due the presence of &lsquo;max&rsquo; function.</li>
+<li>The set of $|S|$ equations for $\pi^*(s)$ cannot be solved directly as it is dependent on unknown $U^*(s)$.</li>
 </ul>
 </li>
 </ul>
-<!-- .element: class="fragment" -->
-<pre><code>* The set of $|S|$ equations for $\pi^{*}(s)$ cannot be solved directly as it is dependent on unknown $U^{*}(s)$.
-</code></pre>
-<!-- .element: class="fragment" -->
 <hr>
 <h3 id="optimal-policy-for-mdp">Optimal Policy for MDP</h3>
 <p><img src="./images/policy-utiltiy.png" alt="Optimal Policy and Utilities for Maze"><!-- .element width="800px" --></p>
@@ -2823,146 +2853,138 @@ $\pi^{*}(s) = \underset{a}{\arg \max}(\sum_{s^{'}} P(s^{'}| s,a)U^{*}(s^{'}))$</
 <li>Steps:
 <ul>
 <li>Initialize estimates for the utilities of states with arbitrary values: $U(s) \leftarrow 0 \forall s \epsilon S$</li>
-<li>Next use the iteration step below which is also called <strong>Bellman Update</strong>: $U_{t+1}(s) \leftarrow R(s) + \gamma \underset{a}{ \max} (\sum_{s^{'}} P(s^{'}| s,a)U(s^{'})) \forall s \epsilon S$. This step is repeated and updated</li>
+<li>Next use the iteration step below which is also called <strong>Bellman Update</strong>:</li>
 </ul>
 </li>
+</ul>
+<p>$$U_{t+1}(s) \leftarrow R(s) + \gamma \underset{a}{ \max} \left[ \sum_{s^{'}} P(s^{'}| s,a) U_t(s^{'}) \right] \forall s \epsilon S$$</p>
+<pre><code>This step is repeated and updated
+</code></pre>
+<ul>
 <li>Let us apply this to the maze example.  Assume that $\gamma = 1$</li>
 </ul>
-<p><img src="./images/val-iter-initial.png" alt="Initialize value estimates to $0$"></p>
-<!-- .element: class="fragment" -->
+<p><img src="./images/val-iter-initial.png" alt="val-iter-initial">
+<em>Initialize value estimates to $0$</em></p>
 <hr>
-<h2 id="value-iteration---continued">Value Iteration - continued</h2>
+<h3 id="value-iteration-1">Value Iteration</h3>
 <ul>
-<li>Next we want to apply <strong>Bellman Update</strong>: $U_{t+1}(s) \leftarrow R(s) + \gamma max_{a} (\sum_{s^{'}} P(s^{'}| s,a)U(s^{'})) \forall s \epsilon S$.</li>
-<li>Since we are taking $max$ we only need to consider states whose next states have a positive utility value.</li>
+<li>Next we want to apply <strong>Bellman Update</strong>:
+$$U_{t+1}(s) \leftarrow R(s) + \gamma \max_{a} \left[\sum_{s^\prime} P(s^\prime | s,a)U_t(s^\prime) \right] \forall s \epsilon S$$</li>
+<li>Since we are taking $\max$ we only need to consider states whose next states have a positive utility value.</li>
 <li>For the remaining states, the utility is equal to the immediate reward in the first iteration.</li>
 </ul>
 <p><img src="./images/val-iter-step1-states.png" alt="States to consider for value iteration"></p>
 <hr>
-<h3 id="value-iteration---continued-1">Value Iteration - continued</h3>
-<p>\begin{eqnarray*}
-U_{t+1}(S_{33}) &amp; \leftarrow &amp; R(S_{33}) + \gamma max_{a} (\sum_{s^{'}} P(s^{'}| S_{33},a)U(s^{'})) \forall s \epsilon S \\<br>
-&amp; \leftarrow &amp; -0.04 + \max [\sum_{s^{'}}  P(s^{'}| S_{33},\uparrow)U(s^{'}),\sum_{s^{'}}  P(s^{'}| S_{33},\downarrow)U(s^{'}),  \\<br>
-&amp; &amp; \sum_{s^{'}}  P(s^{'}| S_{33},\rightarrow)U(s^{'}),\sum_{s^{'}}  P(s^{'}| S_{33},\leftarrow)U(s^{'})] \\<br>
-&amp; \leftarrow &amp;  -0.04 + \sum_{s^{'}}  P(s^{'}| S_{33},\rightarrow)U(s^{'}) \\<br>
-&amp; \leftarrow &amp; -0.04 + P(S_{43}|S_{33},\rightarrow)U(S_{43})+P(S_{33}|S_{33},\rightarrow)U(S_{33}) \\<br>
-&amp; &amp; +P(S_{32}|S_{33},\rightarrow)U(S_{32}) \\<br>
-&amp; \leftarrow &amp;  -0.04 + 0.8 \times 1 + 0.1 \times 0 + 0.1 \times 0 = 0.76
-\end{eqnarray*}</p>
+<h3 id="value-iteration-t0">Value Iteration (t=0)</h3>
+<p>$$ U_{t+1}(S_{33})  =  R(S_{33}) + \gamma \max_a \left[\sum_{s^{'}} P(s^{'}| S_{33},a)U(s^{'}) \right] \forall s \in S $$</p>
+<p>$$ U_{t+1}(S_{33}) =  -0.04 + \max_a \left[ \sum_{s&rsquo;}  P(s'| S_{33},\uparrow) U_t(s&rsquo;), \sum_{s&rsquo;}  P(s'| S_{33},\downarrow)U_t(s&rsquo;), \sum_{s&rsquo;}  P(s'| S_{33},\rightarrow) U_t(s&rsquo;),  \sum_{s&rsquo;}  P(s'| S_{33}, \leftarrow)U_t(s&rsquo;)  \right]$$</p>
+<p>$$U_{t+1}(S_{33})  =  -0.04 + \sum_{s^{'}}  P(s^{'}| S_{33},\rightarrow) U_t(s^\prime) $$</p>
+<p>$$U_{t+1}(S_{33}) = -0.04 + P(S_{43}|S_{33},\rightarrow)U(S_{43})+P(S_{33}|S_{33},\rightarrow)U(S_{33})+P(S_{32}|S_{33},\rightarrow)U_t(S_{32}) $$</p>
+<p>$$U_{t+1}(S_{33}) =   -0.04 + 0.8 \times 1 + 0.1 \times 0 + 0.1 \times 0 = 0.76 $$</p>
 <hr>
-<h3 id="value-iteration---continued-2">Value Iteration - continued</h3>
-<p><img src="./images/val-iter-step2-initial.png" alt="(A)Initial utility estimates for iteration 2 (B) States with next state positive utility"><!-- .element width="600px" --></p>
-<p>\begin{eqnarray*}
-U_{t+1}(S_{33}) &amp; \leftarrow &amp;   -0.04 + P(S_{43}|S_{33},\rightarrow)U(S_{43})+P(S_{33}|S_{33},\rightarrow)U(S_{33}) \\<br>
-&amp; &amp; +P(S_{32}|S_{33},\rightarrow)U(S_{32}) \\<br>
-&amp; \leftarrow &amp;  -0.04 + 0.8 \times 1 + 0.1 \times 0.76 + 0.1 \times 0 = 0.836 \\<br>
-U_{t+1}(S_{23}) &amp; \leftarrow &amp;   -0.04 + P(S_{33}|S_{23},\rightarrow)U(S_{23})+P(S_{23}|S_{23},\rightarrow)U(S_{23}) \\<br>
-&amp; \leftarrow &amp; = -.04 + 0.8 \times 0.76 = 0.568 \\<br>
-U_{t+1}(S_{32}) &amp; \leftarrow &amp;  -0.04 + P(S_{33}|S_{32},\uparrow)U(S_{33})+P(S_{42}|S_{32},\uparrow)U(S_{42}) \\<br>
-&amp; &amp; +P(S_{32}|S_{32},\uparrow)U(S_{32}) \\<br>
-&amp; \leftarrow &amp; = -0.04 + 0.8 \times 0.76 + 0.1 \times -1 + 0.1 \times 0= 0.468
-\end{eqnarray*}</p>
+<h3 id="value-iteration-t1">Value Iteration (t=1)</h3>
+<p><img src="./images/val-iter-step2-initial.png" alt="val-iter-step2">
+<em>(A) Initial utility estimates for iteration 2. (B) States with next state positive utility</em></p>
+<p>$$U_{t+1}(S_{33}) =   -0.04 + P(S_{43}|S_{33},\rightarrow)U_t(S_{43})+P(S_{33}|S_{33},\rightarrow)U_t(S_{33}) +P(S_{32}|S_{33},\rightarrow)U_t(S_{32}) $$</p>
+<p>$$U_{t+1}(S_{33}) = -0.04 + 0.8 \times 1 + 0.1 \times 0.76 + 0.1 \times 0 = 0.836$$</p>
+<p>$$U_{t+1}(S_{23}) =  -0.04 + P(S_{33}|S_{23},\rightarrow)U_t(S_{23})+P(S_{23}|S_{23},\rightarrow)U_t(S_{23}) = -0.04 + 0.8 \times 0.76 = 0.568$$</p>
+<p>$$U_{t+1}(S_{32}) =  -0.04 + P(S_{33}|S_{32},\uparrow)U_t(S_{33})+P(S_{42}|S_{32},\uparrow)U_t(S_{42}) +P(S_{32}|S_{32},\uparrow)U_t(S_{32})$$
+$$U_{t+1}(S_{32}) = -0.04 + 0.8 \times 0.76 + 0.1 \times -1 + 0.1 \times 0= 0.468$$</p>
 <hr>
-<h3 id="value-iteration---continued-3">Value Iteration - continued</h3>
-<p><img src="./images/val-iter-step3-initial.png" alt="(A)Initial utility estimates for iteration 3 (B) States with next state positive utility"><!-- .element width="700px" --></p>
+<h3 id="value-iteration-t2">Value Iteration (t=2)</h3>
+<p><img src="./images/val-iter-step3-initial.png" alt="val-iter-step3">
+<em>(A)Initial utility estimates for iteration 3. (B) States with next state positive utility</em></p>
 <ul>
 <li>Information propagates outward from terminal states
 and eventually all states have correct value estimates</li>
 <li>Notice that $S_{32}$ has a lower utility compared to $S_{23}$ due to the red oval state with negative reward next to $S_{32}$</li>
 </ul>
-<p><img src="./images/policy-utiltiy.png" alt="Optimal Policy and Utilities for Maze"><!-- .element width="600px" --></p>
+<p><img src="./images/policy-utiltiy.png" alt="Optimal Policy and Utilities for Maze"></p>
 <hr>
 <h3 id="value-iteration---convergence">Value Iteration - Convergence</h3>
 <ul>
 <li>Rate of convergence depends on the maximum reward value and more importantly on the discount factor $\gamma$.</li>
 <li>The policy that we get from coarse estimates is close to the optimal policy long before $U$ has converged.</li>
-<li>This means that after a reasonable number of iterations, we could use: $\pi(s) = argmax_{a}(\sum_{s^{'}} P(s^{'}| s,a)U_{est}(s^{'}))$</li>
-<li>Note that this is a form of <strong>greedy</strong> policy.
-<img src="./images/value-iter-converge.PNG" alt="Convergence of utility for the maze problem \(source: Norvig chap 17\)"><!-- .element width="400px" --></li>
+<li>This means that after a reasonable number of iterations, we could use:
+$$\pi(s) = \argmax_a \left[ \sum_{s^{'}} P(s^{'}| s,a)U_{est}(s^{'}) \right]$$</li>
+<li>Note that this is a form of <strong>greedy</strong> policy.</li>
+</ul>
+<p><img src="./images/value-iter-converge.PNG" alt="value-iter-convergence">
+<em>Convergence of utility for the maze problem (Norvig chap 17)</em></p>
+<ul>
 <li>For the maze problem, convergence is reached within 5 to 10  iterations</li>
 </ul>
 <hr>
 <h3 id="policy-iteration">Policy Iteration</h3>
 <ul>
-<li>Alternates between two steps:
+<li>
+<p>Alternates between two steps:</p>
 <ul>
 <li>Policy evaluation: given a policy, find the utility of states</li>
 <li>Policy improvement: given the utility estimates so far, find the best policy</li>
 </ul>
 </li>
-<li>The steps are as follows:
+<li>
+<p>The steps are as follows:</p>
 <ol>
-<li>Randomly initialize the policy $\pi$</li>
-<li>Compute utility/value of the policy $U^{\pi}$(by solving a system of linear equations)</li>
-<li>Update $\pi$ to be a greedy policy w.r.t. $U^{\pi}$: $\pi(s) \leftarrow \underset{a}{\arg\max} \sum_{s^{'}} P(s^{'}|s,a)U^{\pi}(s^{'})$</li>
-<li>If the policy changed then return to step $2$</li>
+<li>Compute utility/value of the policy $U^{\pi}$</li>
+<li>Update $\pi$ to be a greedy policy w.r.t. $U^{\pi}$:
+$$\pi(s) \leftarrow \arg\max_a \sum_{s^\prime} P(s^\prime|s,a)U^{\pi}(s^\prime)$$</li>
+<li>If the policy changed then return to step $1$</li>
 </ol>
 </li>
-<li>Policy improves each step and converges to the optimal policy $\pi^{*}$
-<img src="./images/policy-iter.PNG" alt="Policy iteration(source: sutton, chap 4)"><!-- .element width="225px" --></li>
+<li>
+<p>Policy improves each step and converges to the optimal policy $\pi^{*}$</p>
+</li>
 </ul>
+<p><img src="./images/policy-iter.PNG" alt="Policy iteration(source: sutton, chap 4)"><!-- .element width="225px" --></p>
 <hr>
 <h3 id="policy-iteration-for-grid-world">Policy Iteration for Grid World</h3>
 <ul>
-<li>Let us consider another grid world example.
-<img src="./images/gridworld-sutton.PNG" alt="Grid world (source: Sutton)"><!-- .element width="700px" --></li>
-<li>The terminal states are shaded. The reward is $-1$ on all transitions until the terminal states are reached. The non-terminal states are $S_1,S_2,&hellip;,S_{14}$.</li>
-<li>We begin with random values (or utilities) and random policy</li>
+<li>Let us consider another grid world example.</li>
 </ul>
-<p><img src="./images/policy-iter-1.PNG" alt="Initial values and policy for policy iteration"></p>
-<hr>
-<h3 id="policy-iteration---continued">Policy Iteration - continued</h3>
+<p><img src="./images/gridworld-sutton.PNG" alt="Grid world (source: Sutton)"></p>
 <ul>
-<li>Find value function based on initial random policy: $U(s) = R(s) + \sum_{s^{'}} P(s^{'}| s,a)U(s^{'})$
-\begin{eqnarray*}
-U(S_{1}) &amp; = -1 + \frac{1}{4}U(S_{1}) + \frac{1}{4}U(S_{2}) + \frac{1}{4}U(S_{5}) = -1 \\<br>
-\ldots &amp; \\<br>
-U(S_{9}) &amp; = -1 + \frac{1}{4}U(S_{8}) + \frac{1}{4}U(S_{5}) + \frac{1}{4}U(S_{13}) + \frac{1}{4}U(S_{10}) = -1 \\<br>
-\ldots
-\end{eqnarray*}</li>
+<li>
+<p>The terminal states are shaded. The reward is $-1$ on all transitions until the terminal states are reached. The non-terminal states are $S_1,S_2,&hellip;,S_{14}$.</p>
+</li>
+<li>
+<p>We begin with random values (or utilities) and random policy $\pi$</p>
+</li>
+</ul>
+<p><img src="images/policy-iter-1.PNG" alt="policy-iter-1">
+<em>Initial values and policy for policy iteration</em></p>
+<hr>
+<h3 id="policy-iteration-step-1">Policy Iteration (Step 1)</h3>
+<ul>
+<li>Find value function based on initial random policy:</li>
+</ul>
+<p>$$U(s) = R(s) + \sum_{s^\prime} P(s^\prime| s,a)U(s^\prime)$$</p>
+<p>$$U(S_{1}) = -1 + \frac{1}{4}U(S_{1}) + \frac{1}{4}U(S_{2}) + \frac{1}{4}U(S_{5}) = -1$$
+$$\ldots$$
+$$ U(S_{9}) = -1 + \frac{1}{4}U(S_{8}) + \frac{1}{4}U(S_{5}) + \frac{1}{4}U(S_{13}) + \frac{1}{4}U(S_{10}) = -1$$
+$$ \ldots $$</p>
+<ul>
 <li>The result is as shown below:</li>
 </ul>
-<p><img src="./images/policy-iter-value.PNG" alt=""><!-- .element width="200px" -->
-<img src="./images/gridworld-sutton.PNG" alt="Grid world (source: Sutton)"><!-- .element width="400px" --></p>
+<p><img src="images/policy-iter-2.PNG" alt="policy-iter-value"></p>
 <hr>
-<h3 id="policy-iteration---continued-1">Policy Iteration - continued</h3>
+<h3 id="policy-iteration-step-2">Policy Iteration (step 2)</h3>
 <ul>
-<li>Next we compute the policy:
-\begin{eqnarray*}
-\pi(S_{4}) &amp; = &amp;  \underset{a}{max}[\frac{1}{4}U(S_{term})| \uparrow,
+<li>Next we compute the policy:</li>
+</ul>
+<p>$$ \pi(S_{4}) =   \underset{a}{max}[\frac{1}{4}U(S_{term})| \uparrow,
 \frac{1}{4}U(S_5)| \rightarrow,
 \frac{1}{4}U(S_4)| \leftarrow,
-\frac{1}{4}U(S_8), \downarrow] = \uparrow \\<br>
-\pi(S_{6}) &amp; = &amp; \underset{a}{max}[\frac{1}{4}U(S_2)| \uparrow,
+\frac{1}{4}U(S_8), \downarrow] = \uparrow $$</p>
+<p>$$\pi(S_{6}) =  \underset{a}{max}[\frac{1}{4}U(S_2)| \uparrow,
 \frac{1}{4}U(S_7)| \rightarrow,
 \frac{1}{4}U(S_5)| \leftarrow,
-\frac{1}{4}U(S_{10}), \downarrow ] = random\ policy
-\end{eqnarray*}</li>
-<li>The result is shown below</li>
-</ul>
-<p><img src="./images/policy-iter-policy.PNG" alt="">
-<img src="./images/gridworld-sutton.PNG" alt="Grid world (source: Sutton)"><!-- .element width="400px" --></p>
-<hr>
-<h3 id="policy-iteration---continued-2">Policy Iteration - continued</h3>
+\frac{1}{4}U(S_{10}), \downarrow ] = \mathtt{random\ policy} $$</p>
 <ul>
-<li>We started with</li>
+<li>The result is shown below for $k=2$.</li>
 </ul>
-<p><img src="./images/policy-iter-1.PNG" alt="Initial values and policy for policy iteration"></p>
-<ul>
-<li>and after first iteration we get</li>
-</ul>
-<p><img src="./images/policy-iter-2.PNG" alt="Value/Utility table and policy after first iteration"></p>
-<ul>
-<li>Note that there is only change in policy in the states near the terminal states</li>
-</ul>
-<hr>
-<h3 id="policy-iteration---continued-3">Policy Iteration - continued</h3>
-<ul>
-<li>Continuing to alternate between policy evaluation and improvement, we see that the policy converges to the optimal policy after 3 iterations while the value function takes a while to converge (even after 10 iterations it has not converged!)</li>
-</ul>
-<p><img src="./images/policy-iter-3.PNG" alt="Value/Utility table and policy after multiple iterations"><!-- .element width="600px" --></p>
-<hr>
-<h1 id="break">BREAK&hellip;..</h1>
+<p><img src="images/policy-iter-3.PNG" alt="policy-iter-value"></p>
 <hr>
 <h1 id="part-34-pomdps">PART 3/4: POMDPs</h1>
 <hr>
@@ -2971,7 +2993,7 @@ U(S_{9}) &amp; = -1 + \frac{1}{4}U(S_{8}) + \frac{1}{4}U(S_{5}) + \frac{1}{4}U(S
 <li>We considered &ldquo;uncertainty&rdquo; in the action outcome previously. Now, the environment is partially observable.</li>
 <li>We now deal with a <strong>belief</strong> state which is the agent&rsquo;s current belief about the state that it is in.</li>
 </ul>
-<p><img src="./images/pomdp.png" alt="POMDP"></p>
+<p><img src="images/pomdp.png" alt="POMDP"></p>
 <hr>
 <h3 id="pomdp-parameters">POMDP Parameters</h3>
 <ul>
@@ -2986,18 +3008,17 @@ U(S_{9}) &amp; = -1 + \frac{1}{4}U(S_{8}) + \frac{1}{4}U(S_{5}) + \frac{1}{4}U(S
 <li>Additional POMDP parameters:
 <ul>
 <li>initial belief of state $s$: $b(s)=P(s)$</li>
-<li>if $b(s)$ was the previous belief state, agent does an action $a$ then perceives evidence $e$ then then new belief state is given by: $b^{'}(s^{'}) = P(s^{'} | e,a,b)$</li>
-<li>observation probablity: $P(e|s^{'},a)$</li>
+<li>if $b(s)$ was the previous belief state, agent does an action $a$ then perceives evidence $e$ then the new belief state is given by:
+$$b^\prime(s^\prime) = P(s^\prime | e,a,b)$$</li>
+<li>observation probability: $P(e|s^{'},a)$</li>
 </ul>
 </li>
 <li>The belief state $b$ also satisfies the Markov property</li>
 </ul>
 <hr>
 <h3 id="pomdp-versus-other-models">POMDP versus other models</h3>
-<p><img src="./images/pomdp-versus-others.PNG" alt=""></p>
-<div style="font-size: 15px; text-align: left;">
-source: https://www.cs.cmu.edu/~ggordon/780-fall07/lectures/POMDP_lecture.pdf
-</div>
+<p><img src="images/pomdp-versus-others.PNG" alt="">
+<a href="https://www.cs.cmu.edu/~ggordon/780-fall07/lectures/POMDP_lecture.pdf">source</a></p>
 <hr>
 <h3 id="pomdp-example">POMDP Example</h3>
 <p><img src="./images/tiger-1.png" alt="Tiger Problem"></p>
@@ -3236,8 +3257,11 @@ source: https://www.cs.cmu.edu/~ggordon/780-fall07/lectures/POMDP_lecture.pdf
 <hr>
 <h3 id="solving-pomdp">Solving POMDP</h3>
 <ul>
-<li>The value iteration approach for POMDP looks something like this:
-$U_{t+1}(b) \leftarrow \max_{a}[ \sum_s b(s)R(s,a) +\gamma \sum_eP(e|b,a)U(\tau(e,b,a)]$ where $\tau(e,b,a)$ is the transition function for the belief state.</li>
+<li>The value iteration approach for POMDP looks something like this:</li>
+</ul>
+<p>$$U_{t+1}(b) \leftarrow \max_{a}[ \sum_s b(s)R(s,a) +\gamma \sum_eP(e|b,a)U(\tau(e,b,a)]$$</p>
+<p>where $\tau(e,b,a)$ is the transition function for the belief state.</p>
+<ul>
 <li>This is in general very hard to solve as it is a continuous space MDP</li>
 <li>Instead one resorts to exploiting special properties in terms of
 <ul>
@@ -3247,14 +3271,15 @@ $U_{t+1}(b) \leftarrow \max_{a}[ \sum_s b(s)R(s,a) +\gamma \sum_eP(e|b,a)U(\tau(
 </li>
 </ul>
 <hr>
-<h3 id="solving-the-tiger-problem---1-step-horrizon">Solving the tiger problem - 1-step horrizon</h3>
+<h3 id="solving-the-tiger-problem---1-step-horizon">Solving the tiger problem - 1-step horizon</h3>
 <ul>
 <li>Suppose that you were told the $b(left) = \rho = 0.5$ i.e. tiger could be either on the left or right with equal probability.</li>
-<li><strong>You are told that you have only 1 chance to take an action, what would that be and why?</strong>
-<img src="./images/tiger-1.png" alt="Tiger Problem"></li>
+<li><strong>You are told that you have only 1 chance to take an action, what would that be and why?</strong></li>
 </ul>
+<p><img src="images/tiger-1.png" alt="Tiger Problem">
+<em>The Tiger Problem</em></p>
 <hr>
-<h3 id="solving-the-tiger-problem---1-step-horrizon-1">Solving the tiger problem - 1-step horrizon</h3>
+<h3 id="solving-the-tiger-problem---1-step-horizon-1">Solving the tiger problem - 1-step horizon</h3>
 <ul>
 <li>Determine expected utility for each possible action for different belief distributions</li>
 </ul>
@@ -3298,8 +3323,10 @@ $U_{t+1}(b) \leftarrow \max_{a}[ \sum_s b(s)R(s,a) +\gamma \sum_eP(e|b,a)U(\tau(
 <hr>
 <h3 id="solving-the-tiger-problem---t-step-horrizon">Solving the tiger problem - t-step horrizon</h3>
 <ul>
-<li>The value function of POMDPs can be represented as max of linear segments
-<img src="./images/tiger-1step-value.png" alt="(A) Utility as function of plan (B) Value function"><!-- .element width="800px" --></li>
+<li>The value function of POMDPs can be represented as max of linear segments</li>
+</ul>
+<p><img src="./images/tiger-1step-value.png" alt="(A) Utility as function of plan (B) Value function"></p>
+<ul>
 <li>How about if you were given $2$ chances? i.e. $t=2$ and $b(left)=0.5$.
 <ul>
 <li>It turns out that the optimal policy for the first step is to always &ldquo;listen&rdquo;.</li>
@@ -3317,7 +3344,8 @@ $U_{t+1}(b) \leftarrow \max_{a}[ \sum_s b(s)R(s,a) +\gamma \sum_eP(e|b,a)U(\tau(
 <p><img src="./images/tiger-2step.png" alt="Optimal policy tree for $2$-step horrizon">
 <img src="./images/tiger-t-step.PNG" alt="Convergence of policies"></p>
 <hr>
-<h1 id="part-44-reinforcement-learning">PART 4/4: Reinforcement Learning</h1>
+<h1 id="part-44-reinforcement-learning-rl">PART 4/4: Reinforcement Learning (RL)</h1>
+<p>NOTE: Reinforcement Learning and Deep RL (DRL) are covered in Lecture 9.</p>
 <hr>
 <h3 id="introduction">Introduction</h3>
 <ul>
@@ -3536,9 +3564,9 @@ source: https://worldmodels.github.io/
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/6b85137c24d6edd3813361c5ac82f748b924ffd4" title='Last modified by MONOGIOUDIS Pantelis | Apr 18, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/9f16844aef6d0dd8a1c1da2ccd4f3192209e31e9" title='Last modified by MONOGIOUDIS Pantelis | Apr 19, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Apr 18, 2020</span>
+      <span>Apr 19, 2020</span>
     </a>
   </div>
 
@@ -3625,7 +3653,7 @@ source: https://worldmodels.github.io/
             <li><a href="#maze---continued">Maze - continued</a></li>
             <li><a href="#maze-with-no-uncertainty-utility">MAZE with no uncertainty: Utility</a></li>
             <li><a href="#maze-with-no-uncertainty-policy">MAZE with no uncertainty: Policy</a></li>
-            <li><a href="#maze-with-no-uncertainty-policy-1">MAZE with no uncertainty-Policy</a></li>
+            <li><a href="#maze-with-no-uncertainty-policy-1">MAZE with no uncertainty: Policy</a></li>
             <li><a href="#markov-decision-process-mdp">Markov Decision Process (MDP)</a></li>
             <li><a href="#mdp-transition-model">MDP Transition Model</a></li>
             <li><a href="#utility-for-mdp">Utility for MDP</a></li>
@@ -3633,25 +3661,19 @@ source: https://worldmodels.github.io/
             <li><a href="#policy-for-mdp">Policy for MDP</a></li>
             <li><a href="#optimal-policy-for-mdp">Optimal Policy for MDP</a></li>
             <li><a href="#value-iteration">Value Iteration</a></li>
-          </ul>
-        </li>
-        <li><a href="#value-iteration---continued">Value Iteration - continued</a>
-          <ul>
-            <li><a href="#value-iteration---continued-1">Value Iteration - continued</a></li>
-            <li><a href="#value-iteration---continued-2">Value Iteration - continued</a></li>
-            <li><a href="#value-iteration---continued-3">Value Iteration - continued</a></li>
+            <li><a href="#value-iteration-1">Value Iteration</a></li>
+            <li><a href="#value-iteration-t0">Value Iteration (t=0)</a></li>
+            <li><a href="#value-iteration-t1">Value Iteration (t=1)</a></li>
+            <li><a href="#value-iteration-t2">Value Iteration (t=2)</a></li>
             <li><a href="#value-iteration---convergence">Value Iteration - Convergence</a></li>
             <li><a href="#policy-iteration">Policy Iteration</a></li>
             <li><a href="#policy-iteration-for-grid-world">Policy Iteration for Grid World</a></li>
-            <li><a href="#policy-iteration---continued">Policy Iteration - continued</a></li>
-            <li><a href="#policy-iteration---continued-1">Policy Iteration - continued</a></li>
-            <li><a href="#policy-iteration---continued-2">Policy Iteration - continued</a></li>
-            <li><a href="#policy-iteration---continued-3">Policy Iteration - continued</a></li>
+            <li><a href="#policy-iteration-step-1">Policy Iteration (Step 1)</a></li>
+            <li><a href="#policy-iteration-step-2">Policy Iteration (step 2)</a></li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="#break">BREAK&hellip;..</a></li>
     <li><a href="#part-34-pomdps">PART 3/4: POMDPs</a>
       <ul>
         <li>
@@ -3669,15 +3691,15 @@ source: https://worldmodels.github.io/
             </li>
             <li><a href="#pomdp-as-a-belief-state-mdp">POMDP as a Belief-state MDP</a></li>
             <li><a href="#solving-pomdp">Solving POMDP</a></li>
-            <li><a href="#solving-the-tiger-problem---1-step-horrizon">Solving the tiger problem - 1-step horrizon</a></li>
-            <li><a href="#solving-the-tiger-problem---1-step-horrizon-1">Solving the tiger problem - 1-step horrizon</a></li>
+            <li><a href="#solving-the-tiger-problem---1-step-horizon">Solving the tiger problem - 1-step horizon</a></li>
+            <li><a href="#solving-the-tiger-problem---1-step-horizon-1">Solving the tiger problem - 1-step horizon</a></li>
             <li><a href="#solving-the-tiger-problem---t-step-horrizon">Solving the tiger problem - t-step horrizon</a></li>
             <li><a href="#solving-the-tiger-problem---t-step-horrizon-1">Solving the tiger problem - t-step horrizon</a></li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="#part-44-reinforcement-learning">PART 4/4: Reinforcement Learning</a>
+    <li><a href="#part-44-reinforcement-learning-rl">PART 4/4: Reinforcement Learning (RL)</a>
       <ul>
         <li>
           <ul>

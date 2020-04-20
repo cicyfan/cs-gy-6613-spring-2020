@@ -1,0 +1,2541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Embodied AI Simulation"><meta property="og:title" content="Embodied AI Simulation" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drafts/simulation/" />
+
+<title>Embodied AI Simulation | CS-GY-6613 Spring 2020</title>
+<link rel="icon" href="/cs-gy-6613-spring-2020/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
+
+
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.83a4ed53c5a4a49897bcdcd18550a1101c1a41ec40599d97b51781b913f73dd2.js" integrity="sha256-g6TtU8WkpJiXvNzRhVChEBwaQexAWZ2XtReBuRP3PdI="></script>
+
+<link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drafts/simulation/index.xml" title="CS-GY-6613 Spring 2020" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/cs-gy-6613-spring-2020"><img src="/cs-gy-6613-spring-2020/tandon_long_black.png" alt="Logo" /><span>CS-GY-6613 Spring 2020</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/syllabus/" >
+      Syllabus
+  </a>
+
+</li>
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Lecture 1 - Introduction to AI</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/course-introduction/" >
+      Course Introduction
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/systems-approach/" >
+      A systems approach to AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      <span>Systems Approach Slides</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/ai-pipelines/" >
+      The Way of Working in AI
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      <span>Ai Pipelines Slides</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ai-intro/agents/" >
+      Intelligent Agents and Representations
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      <span>Agents Slides</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/learning-problem/" >
+      Lecture 2a - The Learning Problem
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Lecture 2b - Regression</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/regression/linear-regression/" >
+      Linear Regression
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/" >
+      Lecture 2c - Linear Classification
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/knn/" >
+      k-Nearest Neighbors (kNN) Classification
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/perceptron/" >
+      The Perceptron
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/logistic-regression/" >
+      Logistic Regression
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/kernels/" >
+      Kernels and the Kernel Trick
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/clustering/" >
+      K-means Clustering
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/" >
+      Support Vector Machines
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/face-recognition/" >
+      Face Recognition - SVM Case Study
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/mnist/" >
+      MNIST Classification - SVM Case Study
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/svm/iris/" >
+      Iris Classification - SVM Case Study
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/decision-trees/" >
+      Decision Trees
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/classification/random-forests/" >
+      Random Forests
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/dnn/" >
+      Lecture 3 - Deep Neural Networks
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/dnn/backprop-intro/" >
+      Introduction to Backpropagation
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/dnn/backprop-dnn/" >
+      Backpropagation in Deep Neural Networks
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Regularization in Deep Neural Networks</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/dnn/fashion-mnist-case-study/" >
+      Fashion MNIST Case Study
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Lecture 4a - Convolutional Neural Networks</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/cnn/cnn-intro/" >
+      Introduction to Convolutional Neural Networks
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/cnn/cnn-arch/" >
+      CNN Architectures
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/cnn/cnn-sizing/" >
+      CNN Sizing
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Attention Mechanisms in CNNs</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/rnn/" >
+      Lecture 4b - Sequences and Recurrent Neural Networks (RNN)
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/rnn/simple-rnn/" >
+      Simple RNNs and their Backpropagation
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/rnn/lstm/" >
+      The Long Short-Term Memory (LSTM) Cell Architecture
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Lecture 5 - Scene Understanding</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/scene-understanding-intro/" >
+      Introduction to Scene Understanding
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/feature-extraction-resnet/" >
+      Feature Extraction via Residual Networks
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/object-detection/" >
+      Object Detection
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Semantic Segmentation</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Lecture 6 - Probabilistic Graphical Models</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/pgm/pgm-intro/" >
+      Introduction to Probabilistic Reasoning
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/pgm/bayesian-inference/" >
+      Inference in Graphical Models
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/pgm/recursive-state-estimation/" >
+      Recursive State Estimation
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/pgm/localization/" >
+      Localization and Tracking
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/planning/" >
+      Lecture 7 - Planning
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/planning/propositional-logic/" >
+      Propositional Logic
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/planning/logical-agents/" >
+      Logical Agents
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/planning/classical-planning/" >
+      Classical Planning
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Linear Temporal Logic</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/planning/search/" >
+      Planning with Search
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Autonomous Agent Planning Application</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      <span>Online Prediction</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Behavioral Planning</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Trajectory Generation</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Lecture 8 - Markov Decision Processes</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      <span>The Agent - Environment Interface</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-slides/" >
+      Mdp Slides
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/" >
+      Projects
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/imu-classification/" >
+      Project 1 - Surface Type Classification
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/continuous-learning/" >
+      Project 2 - Continual Learning for Robotic Perception
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/semantic-code-search/" >
+      Project 3 - Semantic Code Search
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/going-back-to-work/" >
+      Project 4 - Going Back to Work
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/pneumonia/" >
+      Project 5 - Explainable COVID-19 Pneumonia (OPTIONAL)
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/env/" >
+      Your Programming Environment
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Background - Math for ML</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/linear-algebra/" >
+      Linear Algebra for Machine Learning
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/optimization/" >
+      Optimization and Stochastic Gradient Descent
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/probability/" >
+      Probability and Information Theory Basics
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-math/netflix/" >
+      The Netflix Prize and Singular Value Decomposition
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/" >
+      Background - ML Frameworks
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/numpy-pandas/" >
+      Numerical Python (Numpy/Scipy and Pandas) Tutorials
+  </a>
+
+</li>
+      
+    
+      
+        <li>
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/tensorflow-introduction/" >
+      Introduction to Tensorflow
+  </a>
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Drafts</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      <span>Constraint Satisfaction Programming</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Transfer Learning</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Generative Modeling and Continuous Variational Auto Encoders (VAE)</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Natural Language Processing</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      <span>Creating Reasonable Embeddings</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Embodied AI Simulation</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/cs-gy-6613-spring-2020/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Embodied AI Simulation</strong>
+
+  <label for="toc-control">
+    <img src="/cs-gy-6613-spring-2020/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+<article class="markdown"></article>
+ 
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/9f16844aef6d0dd8a1c1da2ccd4f3192209e31e9" title='Last modified by MONOGIOUDIS Pantelis | Apr 19, 2020' target="_blank" rel="noopener">
+      <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Apr 19, 2020</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/edit/master/cs-gy-6613-spring-2020/content/docs/lectures/drafts/simulation/_index.md" target="_blank" rel="noopener">
+      <img src="/cs-gy-6613-spring-2020/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+  
+ 
+      </footer>
+      
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  
+
+ 
+    </aside>
+    
+  </main>
+
+  <!DOCTYPE html> 
+
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css"
+  integrity="sha384-BdGj8xC2eZkQaxoQ8nSLefg4AV4/AwB3Fj+8SUSo7pnKP6Eoy18liIKTPn9oBYNG"
+  crossorigin="anonymous">
+
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.js"
+  integrity="sha384-JiKN5O8x9Hhs/UE5cT5AAJqieYlOZbGT3CHws/y97o3ty4R7/O5poG9F3JoiOYw1"
+  crossorigin="anonymous"></script>
+
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous" onload="renderMathInElement(document.body);">
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+          {left: "$$", right: "$$", display: true},
+          {left: "$", right: "$", display: false}
+      ],
+      macros: {
+        
+        "\\pdata": "p_{data}",
+        
+        "\\ptrain": "\\hat{p}_{data}",
+        "\\Ptrain": "\\hat{P}_{data}",
+        
+        "\\pmodel": "p_{model}",
+        "\\Pmodel": "P_{model}",
+        "\\ptildemodel": "\tilde p_{model}",
+        
+        "\\pencode": "p_{encoder}",
+        "\\pdecode": "p_{decoder}",
+        "\\precons": "p_{reconstruct}"
+      }
+    });
+  });
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"
+          integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous">
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css">
+<script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js"></script>
+
+<script>
+  pseudocode.renderElement(document.getElementById("forward-search"));
+</script>
+
+
+</html>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
