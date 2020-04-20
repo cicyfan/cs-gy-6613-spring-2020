@@ -1,5 +1,6 @@
 ---
 title: The Agent - Environment Interface
+weight: 102
 draft: true
 ---
 
@@ -40,8 +41,3 @@ $$s_{t+1} = p( s_{t+1} | (s_0, a_0), ..., (s_t, a_t) ) =  p(( s_{t+1} | s_t, a_t
 
 This assumption is sometimes erroneously called *memoryless* but in any MDP above we can incorporate memory (dependence in more than one state) by cleverly defining the state $S$ as a container of any number of states. For example, $S_t = \left \{ s_t, s_{t-1} \right \}$ can still define and MDP transition using $S$ states. The transition model $p(S_t | S_{t-1}) = p(s_t, s_{t-1} | s_{t-1}, s_{t-2}) = p(s_t|s_{t-1}, s_{t-2})$ is called the 2nd order Markov environment. 
 
-
-
-## Embodied AI
-
-https://arxiv.org/abs/1904.01201
