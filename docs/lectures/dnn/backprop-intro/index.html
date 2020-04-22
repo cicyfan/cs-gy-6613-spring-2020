@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.83a4ed53c5a4a49897bcdcd18550a1101c1a41ec40599d97b51781b913f73dd2.js" integrity="sha256-g6TtU8WkpJiXvNzRhVChEBwaQexAWZ2XtReBuRP3PdI="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.9fedae29ffa994c05adf8613ecf0e9ef7b3258ebf06fa05ee0a2eb460aa7bf44.js" integrity="sha256-n&#43;2uKf&#43;plMBa34YT7PDp73syWOvwb6Be4KLrRgqnv0Q="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/dnn/backprop-intro/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -1709,7 +1709,103 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>The Agent - Environment Interface</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-slides/" >
+      Mdp Slides
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/drl/" >
+      Lecture 9 - Deep Reinforcement Learning
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/drl/mdp/" >
+      RL as a Unknown Markov Decision Process
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Partially Observed MDP</span>
     
 
     
@@ -1737,8 +1833,40 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-slides/" >
-      Mdp Slides
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/drl/drl-policy/" >
+      Policy-based Deep RL
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/drl/drl-value/" >
+      Value-based Deep RL
   </a>
 
 
@@ -2443,9 +2571,9 @@ https://github.com/alex-shpak/hugo-book
 <p><img src="images/backpropagation-function-example.png" alt="backpropagation-function-example"></p>
 <h3 id="forward-pass">Forward Pass</h3>
 <p>In the forward pass, the algorithm works bottom up (or left to right depending how the computational graph is represented) and calculates the values of all &ldquo;gates&rdquo; (gates are the elementary functions that synthesize the function) of the graph and stores their values into variables as they will be used by the backwards pass. There are eight values stored in this specific example.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -2457,25 +2585,25 @@ https://github.com/alex-shpak/hugo-book
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">        sigy <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span> <span style="color:#f92672">/</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> exp(<span style="color:#f92672">-</span>y))  <span style="color:#75715e">#(1)</span>
-        num <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> sigy <span style="color:#75715e"># numerator    #(2)</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">        sigy = 1.0 / (1 + exp(-y))  <span style="color:#008000">#(1)</span>
+        num = x + sigy <span style="color:#008000"># numerator    #(2)</span>
 
-        sigx <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span> <span style="color:#f92672">/</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> exp(<span style="color:#f92672">-</span>x)) <span style="color:#75715e">#(3)</span>
-        xpy <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> y     <span style="color:#75715e">#(4)</span>
-        xpysqr <span style="color:#f92672">=</span> xpy<span style="color:#f92672">*</span><span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>     <span style="color:#75715e">#(5)</span>
-        den <span style="color:#f92672">=</span> sigx <span style="color:#f92672">+</span> xpysqr <span style="color:#75715e"># denominator    #(6)</span>
-        invden <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span> <span style="color:#f92672">/</span> den   <span style="color:#75715e">#(7)</span>
+        sigx = 1.0 / (1 + exp(-x)) <span style="color:#008000">#(3)</span>
+        xpy = x + y     <span style="color:#008000">#(4)</span>
+        xpysqr = xpy**2     <span style="color:#008000">#(5)</span>
+        den = sigx + xpysqr <span style="color:#008000"># denominator    #(6)</span>
+        invden = 1.0 / den   <span style="color:#008000">#(7)</span>
         
-        f <span style="color:#f92672">=</span> num <span style="color:#f92672">*</span> invden <span style="color:#75715e">#(8)</span>
+        f = num * invden <span style="color:#008000">#(8)</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="backwards-pass">Backwards Pass</h3>
 <p>In the backwards pass, we reverse direction and start at the top or rightmost node (the stored variables) of the graph and compute the input (in the reverse direction) derivative of input of each gate using the template depicted below:</p>
 <p><img src="images/backprop-template.png" alt="backprop-template">
 <em>Backpropagation template</em></p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -2507,36 +2635,36 @@ https://github.com/alex-shpak/hugo-book
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">        <span style="color:#75715e"># gradient at the top</span>
-        df <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">        <span style="color:#008000"># gradient at the top</span>
+        df = 1.0
 
-        <span style="color:#75715e"># backprop f = num * invden</span>
-        dnum <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span> <span style="color:#f92672">*</span> invden <span style="color:#75715e"># gradient on numerator   #(8)</span>
-        dinvden <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span> <span style="color:#f92672">*</span> num         <span style="color:#75715e">#(8)</span>
+        <span style="color:#008000"># backprop f = num * invden</span>
+        dnum = 1.0 * invden <span style="color:#008000"># gradient on numerator   #(8)</span>
+        dinvden = 1.0 * num         <span style="color:#008000">#(8)</span>
         
-        <span style="color:#75715e"># backprop invden = 1.0 / den </span>
-        dden <span style="color:#f92672">=</span> (<span style="color:#f92672">-</span><span style="color:#ae81ff">1.0</span> <span style="color:#f92672">/</span> (den<span style="color:#f92672">*</span><span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>)) <span style="color:#f92672">*</span> dinvden   <span style="color:#75715e">#(7)</span>
+        <span style="color:#008000"># backprop invden = 1.0 / den </span>
+        dden = (-1.0 / (den**2)) * dinvden   <span style="color:#008000">#(7)</span>
         
-        <span style="color:#75715e"># backprop den = sigx + xpysqr</span>
-        dsigx <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> dden      <span style="color:#75715e">#(6)</span>
-        dxpysqr <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> dden     <span style="color:#75715e">#(6)</span>
+        <span style="color:#008000"># backprop den = sigx + xpysqr</span>
+        dsigx = (1) * dden      <span style="color:#008000">#(6)</span>
+        dxpysqr = (1) * dden     <span style="color:#008000">#(6)</span>
         
-        <span style="color:#75715e"># backprop xpysqr = xpy**2</span>
-        dxpy <span style="color:#f92672">=</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> xpy) <span style="color:#f92672">*</span> dxpysqr     <span style="color:#75715e">#(5)</span>
+        <span style="color:#008000"># backprop xpysqr = xpy**2</span>
+        dxpy = (2 * xpy) * dxpysqr     <span style="color:#008000">#(5)</span>
 
-        <span style="color:#75715e"># backprop xpy = x + y</span>
-        dx <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> dxpy         <span style="color:#75715e">#(4)</span>
-        dy <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> dxpy         <span style="color:#75715e">#(4)</span>
+        <span style="color:#008000"># backprop xpy = x + y</span>
+        dx = (1) * dxpy         <span style="color:#008000">#(4)</span>
+        dy = (1) * dxpy         <span style="color:#008000">#(4)</span>
         
-        <span style="color:#75715e"># backprop sigx = 1.0 / (1 + exp(-x))</span>
-        dx <span style="color:#f92672">+</span><span style="color:#f92672">=</span> ((<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> sigx) <span style="color:#f92672">*</span> sigx) <span style="color:#f92672">*</span> dsigx <span style="color:#75715e"># ATTENTION !!</span>
+        <span style="color:#008000"># backprop sigx = 1.0 / (1 + exp(-x))</span>
+        dx += ((1 - sigx) * sigx) * dsigx <span style="color:#008000"># ATTENTION !!</span>
         
-        <span style="color:#75715e"># backprop num = x + sigy</span>
-        dx <span style="color:#f92672">+</span><span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> dnum         <span style="color:#75715e">#(2)</span>
-        dsigy <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> dnum         <span style="color:#75715e">#(2)</span>
+        <span style="color:#008000"># backprop num = x + sigy</span>
+        dx += (1) * dnum         <span style="color:#008000">#(2)</span>
+        dsigy = (1) * dnum         <span style="color:#008000">#(2)</span>
         
-        <span style="color:#75715e"># backprop sigy = 1.0 / (1 + exp(-y))</span>
-        dy <span style="color:#f92672">+</span><span style="color:#f92672">=</span> ((<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> sigy) <span style="color:#f92672">*</span> sigy) <span style="color:#f92672">*</span> dsigy       <span style="color:#75715e">#(1)</span>
+        <span style="color:#008000"># backprop sigy = 1.0 / (1 + exp(-y))</span>
+        dy += ((1 - sigy) * sigy) * dsigy       <span style="color:#008000">#(1)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="images/river-backpropagation.jpg" alt="river-backpropagation">

@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.83a4ed53c5a4a49897bcdcd18550a1101c1a41ec40599d97b51781b913f73dd2.js" integrity="sha256-g6TtU8WkpJiXvNzRhVChEBwaQexAWZ2XtReBuRP3PdI="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.9fedae29ffa994c05adf8613ecf0e9ef7b3258ebf06fa05ee0a2eb460aa7bf44.js" integrity="sha256-n&#43;2uKf&#43;plMBa34YT7PDp73syWOvwb6Be4KLrRgqnv0Q="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/search/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -1709,7 +1709,103 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>The Agent - Environment Interface</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-slides/" >
+      Mdp Slides
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/drl/" >
+      Lecture 9 - Deep Reinforcement Learning
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/drl/mdp/" >
+      RL as a Unknown Markov Decision Process
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Partially Observed MDP</span>
     
 
     
@@ -1737,8 +1833,40 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-slides/" >
-      Mdp Slides
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/drl/drl-policy/" >
+      Policy-based Deep RL
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/drl/drl-value/" >
+      Value-based Deep RL
   </a>
 
 
@@ -2574,9 +2702,9 @@ dummy nodes between nodes $s$ and $s^\prime$</em>.</p>
     </div>
     <input type="checkbox" class="hidden" />
     <div class="book-expand-content markdown-inner">
-      <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+      <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
@@ -2842,268 +2970,268 @@ dummy nodes between nodes $s$ and $s^\prime$</em>.</p>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">264
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> math
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#00f">import</span> math
+<span style="color:#00f">import</span> matplotlib.pyplot <span style="color:#00f">as</span> plt
 
-show_animation <span style="color:#f92672">=</span> True
+show_animation = True
 
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AStarPlanner</span>:
+<span style="color:#00f">class</span> <span style="color:#2b91af">AStarPlanner</span>:
 
-    <span style="color:#66d9ef">def</span> __init__(self, ox, oy, reso, rr):
+    <span style="color:#00f">def</span> __init__(self, ox, oy, reso, rr):
 
-        <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">        Initialize grid map for a star planning</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">        ox: x position list of Obstacles [m]</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">        oy: y position list of Obstacles [m]</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">        reso: grid resolution [m]</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">        rr: robot radius[m]</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">        </span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+        <span style="color:#a31515"></span><span style="color:#a31515">&#34;&#34;&#34;</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">        Initialize grid map for a star planning</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">        ox: x position list of Obstacles [m]</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">        oy: y position list of Obstacles [m]</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">        reso: grid resolution [m]</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">        rr: robot radius[m]</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">        </span><span style="color:#a31515">&#34;&#34;&#34;</span>
 
-        self<span style="color:#f92672">.</span>reso <span style="color:#f92672">=</span> reso
-        self<span style="color:#f92672">.</span>rr <span style="color:#f92672">=</span> rr
-        self<span style="color:#f92672">.</span>calc_obstacle_map(ox, oy)
-        self<span style="color:#f92672">.</span>motion <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>get_motion_model()
+        self.reso = reso
+        self.rr = rr
+        self.calc_obstacle_map(ox, oy)
+        self.motion = self.get_motion_model()
 
-    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Node</span>:
-        <span style="color:#66d9ef">def</span> __init__(self, x, y, cost, pind):
-            self<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> x  <span style="color:#75715e"># index of grid</span>
-            self<span style="color:#f92672">.</span>y <span style="color:#f92672">=</span> y  <span style="color:#75715e"># index of grid</span>
-            self<span style="color:#f92672">.</span>cost <span style="color:#f92672">=</span> cost
-            self<span style="color:#f92672">.</span>pind <span style="color:#f92672">=</span> pind
+    <span style="color:#00f">class</span> <span style="color:#2b91af">Node</span>:
+        <span style="color:#00f">def</span> __init__(self, x, y, cost, pind):
+            self.x = x  <span style="color:#008000"># index of grid</span>
+            self.y = y  <span style="color:#008000"># index of grid</span>
+            self.cost = cost
+            self.pind = pind
 
-        <span style="color:#66d9ef">def</span> __str__(self):
-            <span style="color:#66d9ef">return</span> str(self<span style="color:#f92672">.</span>x) <span style="color:#f92672">+</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">,</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(self<span style="color:#f92672">.</span>y) <span style="color:#f92672">+</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">,</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(self<span style="color:#f92672">.</span>cost) <span style="color:#f92672">+</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">,</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(self<span style="color:#f92672">.</span>pind)
+        <span style="color:#00f">def</span> __str__(self):
+            <span style="color:#00f">return</span> str(self.x) + <span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">,</span><span style="color:#a31515">&#34;</span> + str(self.y) + <span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">,</span><span style="color:#a31515">&#34;</span> + str(self.cost) + <span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">,</span><span style="color:#a31515">&#34;</span> + str(self.pind)
 
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">planning</span>(self, sx, sy, gx, gy):
-        <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">        A star path search</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">        input:</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">            sx: start x position [m]</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">            sy: start y position [m]</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">            gx: goal x position [m]</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">            gx: goal x position [m]</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">        output:</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">            rx: x position list of the final path</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">            ry: y position list of the final path</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">        </span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+    <span style="color:#00f">def</span> planning(self, sx, sy, gx, gy):
+        <span style="color:#a31515"></span><span style="color:#a31515">&#34;&#34;&#34;</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">        A star path search</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">        input:</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">            sx: start x position [m]</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">            sy: start y position [m]</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">            gx: goal x position [m]</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">            gx: goal x position [m]</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">        output:</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">            rx: x position list of the final path</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">            ry: y position list of the final path</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">        </span><span style="color:#a31515">&#34;&#34;&#34;</span>
 
-        nstart <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>Node(self<span style="color:#f92672">.</span>calc_xyindex(sx, self<span style="color:#f92672">.</span>minx),
-                           self<span style="color:#f92672">.</span>calc_xyindex(sy, self<span style="color:#f92672">.</span>miny), <span style="color:#ae81ff">0.0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
-        ngoal <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>Node(self<span style="color:#f92672">.</span>calc_xyindex(gx, self<span style="color:#f92672">.</span>minx),
-                          self<span style="color:#f92672">.</span>calc_xyindex(gy, self<span style="color:#f92672">.</span>miny), <span style="color:#ae81ff">0.0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+        nstart = self.Node(self.calc_xyindex(sx, self.minx),
+                           self.calc_xyindex(sy, self.miny), 0.0, -1)
+        ngoal = self.Node(self.calc_xyindex(gx, self.minx),
+                          self.calc_xyindex(gy, self.miny), 0.0, -1)
 
-        open_set, closed_set <span style="color:#f92672">=</span> dict(), dict()
+        open_set, closed_set = dict(), dict()
 
-        <span style="color:#75715e"># populate the frontier (open set) with the starting node</span>
-        open_set[self<span style="color:#f92672">.</span>calc_grid_index(nstart)] <span style="color:#f92672">=</span> nstart
+        <span style="color:#008000"># populate the frontier (open set) with the starting node</span>
+        open_set[self.calc_grid_index(nstart)] = nstart
 
-        <span style="color:#66d9ef">while</span> <span style="color:#ae81ff">1</span>:
-            <span style="color:#66d9ef">if</span> len(open_set) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
-                <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Open set is empty..</span><span style="color:#e6db74">&#34;</span>)
-                <span style="color:#66d9ef">break</span>
+        <span style="color:#00f">while</span> 1:
+            <span style="color:#00f">if</span> len(open_set) == 0:
+                <span style="color:#00f">print</span>(<span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">Open set is empty..</span><span style="color:#a31515">&#34;</span>)
+                <span style="color:#00f">break</span>
 
-            c_id <span style="color:#f92672">=</span> min(
-                open_set, key<span style="color:#f92672">=</span><span style="color:#66d9ef">lambda</span> o: open_set[o]<span style="color:#f92672">.</span>cost <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>calc_heuristic(ngoal, open_set[o]))
-            current <span style="color:#f92672">=</span> open_set[c_id]
+            c_id = min(
+                open_set, key=<span style="color:#00f">lambda</span> o: open_set[o].cost + self.calc_heuristic(ngoal, open_set[o]))
+            current = open_set[c_id]
 
-            <span style="color:#75715e"># show graph</span>
-            <span style="color:#66d9ef">if</span> show_animation:  <span style="color:#75715e"># pragma: no cover</span>
-                plt<span style="color:#f92672">.</span>plot(self<span style="color:#f92672">.</span>calc_grid_position(current<span style="color:#f92672">.</span>x, self<span style="color:#f92672">.</span>minx),
-                         self<span style="color:#f92672">.</span>calc_grid_position(current<span style="color:#f92672">.</span>y, self<span style="color:#f92672">.</span>miny), <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">xc</span><span style="color:#e6db74">&#34;</span>)
-                <span style="color:#75715e"># for stopping simulation with the esc key.</span>
-                plt<span style="color:#f92672">.</span>gcf()<span style="color:#f92672">.</span>canvas<span style="color:#f92672">.</span>mpl_connect(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">key_release_event</span><span style="color:#e6db74">&#39;</span>,
-                        <span style="color:#66d9ef">lambda</span> event: [exit(<span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">if</span> event<span style="color:#f92672">.</span>key <span style="color:#f92672">==</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">escape</span><span style="color:#e6db74">&#39;</span> <span style="color:#66d9ef">else</span> None])
-                <span style="color:#66d9ef">if</span> len(closed_set<span style="color:#f92672">.</span>keys()) <span style="color:#f92672">%</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
-                    plt<span style="color:#f92672">.</span>pause(<span style="color:#ae81ff">0.001</span>)
+            <span style="color:#008000"># show graph</span>
+            <span style="color:#00f">if</span> show_animation:  <span style="color:#008000"># pragma: no cover</span>
+                plt.plot(self.calc_grid_position(current.x, self.minx),
+                         self.calc_grid_position(current.y, self.miny), <span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">xc</span><span style="color:#a31515">&#34;</span>)
+                <span style="color:#008000"># for stopping simulation with the esc key.</span>
+                plt.gcf().canvas.mpl_connect(<span style="color:#a31515"></span><span style="color:#a31515">&#39;</span><span style="color:#a31515">key_release_event</span><span style="color:#a31515">&#39;</span>,
+                        <span style="color:#00f">lambda</span> event: [exit(0) <span style="color:#00f">if</span> event.key == <span style="color:#a31515"></span><span style="color:#a31515">&#39;</span><span style="color:#a31515">escape</span><span style="color:#a31515">&#39;</span> <span style="color:#00f">else</span> None])
+                <span style="color:#00f">if</span> len(closed_set.keys()) % 10 == 0:
+                    plt.pause(0.001)
 
-            <span style="color:#66d9ef">if</span> current<span style="color:#f92672">.</span>x <span style="color:#f92672">==</span> ngoal<span style="color:#f92672">.</span>x <span style="color:#f92672">and</span> current<span style="color:#f92672">.</span>y <span style="color:#f92672">==</span> ngoal<span style="color:#f92672">.</span>y:
-                <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Find goal</span><span style="color:#e6db74">&#34;</span>)
-                ngoal<span style="color:#f92672">.</span>pind <span style="color:#f92672">=</span> current<span style="color:#f92672">.</span>pind
-                ngoal<span style="color:#f92672">.</span>cost <span style="color:#f92672">=</span> current<span style="color:#f92672">.</span>cost
-                <span style="color:#66d9ef">break</span>
+            <span style="color:#00f">if</span> current.x == ngoal.x <span style="color:#00f">and</span> current.y == ngoal.y:
+                <span style="color:#00f">print</span>(<span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">Find goal</span><span style="color:#a31515">&#34;</span>)
+                ngoal.pind = current.pind
+                ngoal.cost = current.cost
+                <span style="color:#00f">break</span>
 
-            <span style="color:#75715e"># Remove the item from the open set</span>
-            <span style="color:#66d9ef">del</span> open_set[c_id]
+            <span style="color:#008000"># Remove the item from the open set</span>
+            <span style="color:#00f">del</span> open_set[c_id]
 
-            <span style="color:#75715e"># Add it to the closed set</span>
-            closed_set[c_id] <span style="color:#f92672">=</span> current
+            <span style="color:#008000"># Add it to the closed set</span>
+            closed_set[c_id] = current
 
-            <span style="color:#75715e"># expand_grid search grid based on motion model</span>
-            <span style="color:#66d9ef">for</span> i, _ <span style="color:#f92672">in</span> enumerate(self<span style="color:#f92672">.</span>motion):
-                node <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>Node(current<span style="color:#f92672">.</span>x <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>motion[i][<span style="color:#ae81ff">0</span>],
-                                 current<span style="color:#f92672">.</span>y <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>motion[i][<span style="color:#ae81ff">1</span>],
-                                 current<span style="color:#f92672">.</span>cost <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>motion[i][<span style="color:#ae81ff">2</span>], c_id)
-                n_id <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>calc_grid_index(node)
-
-
-                <span style="color:#75715e"># If the node is not safe, do nothing</span>
-                <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> self<span style="color:#f92672">.</span>verify_node(node):
-                    <span style="color:#66d9ef">continue</span>
-
-                <span style="color:#66d9ef">if</span> n_id <span style="color:#f92672">in</span> closed_set:
-                    <span style="color:#66d9ef">continue</span>
-
-                <span style="color:#66d9ef">if</span> n_id <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> open_set:
-                    open_set[n_id] <span style="color:#f92672">=</span> node  <span style="color:#75715e"># discovered a new node</span>
-                <span style="color:#66d9ef">else</span>:
-                    <span style="color:#66d9ef">if</span> open_set[n_id]<span style="color:#f92672">.</span>cost <span style="color:#f92672">&gt;</span> node<span style="color:#f92672">.</span>cost:
-                        <span style="color:#75715e"># This path is the best until now. record it</span>
-                        open_set[n_id] <span style="color:#f92672">=</span> node
-
-        rx, ry <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>calc_final_path(ngoal, closed_set)
-
-        <span style="color:#66d9ef">return</span> rx, ry
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calc_final_path</span>(self, ngoal, closedset):
-        <span style="color:#75715e"># generate final course</span>
-        rx, ry <span style="color:#f92672">=</span> [self<span style="color:#f92672">.</span>calc_grid_position(ngoal<span style="color:#f92672">.</span>x, self<span style="color:#f92672">.</span>minx)], [
-            self<span style="color:#f92672">.</span>calc_grid_position(ngoal<span style="color:#f92672">.</span>y, self<span style="color:#f92672">.</span>miny)]
-        pind <span style="color:#f92672">=</span> ngoal<span style="color:#f92672">.</span>pind
-        <span style="color:#66d9ef">while</span> pind <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>:
-            n <span style="color:#f92672">=</span> closedset[pind]
-            rx<span style="color:#f92672">.</span>append(self<span style="color:#f92672">.</span>calc_grid_position(n<span style="color:#f92672">.</span>x, self<span style="color:#f92672">.</span>minx))
-            ry<span style="color:#f92672">.</span>append(self<span style="color:#f92672">.</span>calc_grid_position(n<span style="color:#f92672">.</span>y, self<span style="color:#f92672">.</span>miny))
-            pind <span style="color:#f92672">=</span> n<span style="color:#f92672">.</span>pind
-
-        <span style="color:#66d9ef">return</span> rx, ry
-
-    <span style="color:#a6e22e">@staticmethod</span>
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calc_heuristic</span>(n1, n2):
-        w <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>  <span style="color:#75715e"># weight of heuristic</span>
-        d <span style="color:#f92672">=</span> w <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>hypot(n1<span style="color:#f92672">.</span>x <span style="color:#f92672">-</span> n2<span style="color:#f92672">.</span>x, n1<span style="color:#f92672">.</span>y <span style="color:#f92672">-</span> n2<span style="color:#f92672">.</span>y)
-        <span style="color:#66d9ef">return</span> d
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calc_grid_position</span>(self, index, minp):
-        <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">        calc grid position</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">        :param index:</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">        :param minp:</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">        :return:</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">        </span><span style="color:#e6db74">&#34;&#34;&#34;</span>
-        pos <span style="color:#f92672">=</span> index <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>reso <span style="color:#f92672">+</span> minp
-        <span style="color:#66d9ef">return</span> pos
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calc_xyindex</span>(self, position, min_pos):
-        <span style="color:#66d9ef">return</span> round((position <span style="color:#f92672">-</span> min_pos) <span style="color:#f92672">/</span> self<span style="color:#f92672">.</span>reso)
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calc_grid_index</span>(self, node):
-        <span style="color:#66d9ef">return</span> (node<span style="color:#f92672">.</span>y <span style="color:#f92672">-</span> self<span style="color:#f92672">.</span>miny) <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>xwidth <span style="color:#f92672">+</span> (node<span style="color:#f92672">.</span>x <span style="color:#f92672">-</span> self<span style="color:#f92672">.</span>minx)
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">verify_node</span>(self, node):
-        px <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>calc_grid_position(node<span style="color:#f92672">.</span>x, self<span style="color:#f92672">.</span>minx)
-        py <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>calc_grid_position(node<span style="color:#f92672">.</span>y, self<span style="color:#f92672">.</span>miny)
-
-        <span style="color:#66d9ef">if</span> px <span style="color:#f92672">&lt;</span> self<span style="color:#f92672">.</span>minx:
-            <span style="color:#66d9ef">return</span> False
-        <span style="color:#66d9ef">elif</span> py <span style="color:#f92672">&lt;</span> self<span style="color:#f92672">.</span>miny:
-            <span style="color:#66d9ef">return</span> False
-        <span style="color:#66d9ef">elif</span> px <span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>maxx:
-            <span style="color:#66d9ef">return</span> False
-        <span style="color:#66d9ef">elif</span> py <span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>maxy:
-            <span style="color:#66d9ef">return</span> False
-
-        <span style="color:#75715e"># collision check</span>
-        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>obmap[node<span style="color:#f92672">.</span>x][node<span style="color:#f92672">.</span>y]:
-            <span style="color:#66d9ef">return</span> False
-
-        <span style="color:#66d9ef">return</span> True
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calc_obstacle_map</span>(self, ox, oy):
-
-        <span style="color:#75715e"># map limits</span>
-        self<span style="color:#f92672">.</span>minx <span style="color:#f92672">=</span> round(min(ox))
-        self<span style="color:#f92672">.</span>miny <span style="color:#f92672">=</span> round(min(oy))
-        self<span style="color:#f92672">.</span>maxx <span style="color:#f92672">=</span> round(max(ox))
-        self<span style="color:#f92672">.</span>maxy <span style="color:#f92672">=</span> round(max(oy))
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">minx:</span><span style="color:#e6db74">&#34;</span>, self<span style="color:#f92672">.</span>minx)
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">miny:</span><span style="color:#e6db74">&#34;</span>, self<span style="color:#f92672">.</span>miny)
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">maxx:</span><span style="color:#e6db74">&#34;</span>, self<span style="color:#f92672">.</span>maxx)
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">maxy:</span><span style="color:#e6db74">&#34;</span>, self<span style="color:#f92672">.</span>maxy)
-
-        self<span style="color:#f92672">.</span>xwidth <span style="color:#f92672">=</span> round((self<span style="color:#f92672">.</span>maxx <span style="color:#f92672">-</span> self<span style="color:#f92672">.</span>minx) <span style="color:#f92672">/</span> self<span style="color:#f92672">.</span>reso)
-        self<span style="color:#f92672">.</span>ywidth <span style="color:#f92672">=</span> round((self<span style="color:#f92672">.</span>maxy <span style="color:#f92672">-</span> self<span style="color:#f92672">.</span>miny) <span style="color:#f92672">/</span> self<span style="color:#f92672">.</span>reso)
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">xwidth:</span><span style="color:#e6db74">&#34;</span>, self<span style="color:#f92672">.</span>xwidth)
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">ywidth:</span><span style="color:#e6db74">&#34;</span>, self<span style="color:#f92672">.</span>ywidth)
-
-        <span style="color:#75715e"># obstacle map generation</span>
-        self<span style="color:#f92672">.</span>obmap <span style="color:#f92672">=</span> [[False <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(self<span style="color:#f92672">.</span>ywidth)]
-                      <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(self<span style="color:#f92672">.</span>xwidth)]
-        <span style="color:#66d9ef">for</span> ix <span style="color:#f92672">in</span> range(self<span style="color:#f92672">.</span>xwidth):
-            x <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>calc_grid_position(ix, self<span style="color:#f92672">.</span>minx)
-            <span style="color:#66d9ef">for</span> iy <span style="color:#f92672">in</span> range(self<span style="color:#f92672">.</span>ywidth):
-                y <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>calc_grid_position(iy, self<span style="color:#f92672">.</span>miny)
-                <span style="color:#66d9ef">for</span> iox, ioy <span style="color:#f92672">in</span> zip(ox, oy):
-                    d <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>hypot(iox <span style="color:#f92672">-</span> x, ioy <span style="color:#f92672">-</span> y)
-                    <span style="color:#66d9ef">if</span> d <span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>rr:
-                        self<span style="color:#f92672">.</span>obmap[ix][iy] <span style="color:#f92672">=</span> True
-                        <span style="color:#66d9ef">break</span>
-
-    <span style="color:#a6e22e">@staticmethod</span>
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_motion_model</span>():
-        <span style="color:#75715e"># dx, dy, cost</span>
-        motion <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>],
-                  [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>],
-                  [<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>],
-                  [<span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>],
-                  [<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, math<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">2</span>)],
-                  [<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, math<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">2</span>)],
-                  [<span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, math<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">2</span>)],
-                  [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, math<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">2</span>)]]
-
-        <span style="color:#66d9ef">return</span> motion
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
-    <span style="color:#66d9ef">print</span>(__file__ <span style="color:#f92672">+</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> start!!</span><span style="color:#e6db74">&#34;</span>)
-
-    <span style="color:#75715e"># start and goal position</span>
-    sx <span style="color:#f92672">=</span> <span style="color:#ae81ff">10.0</span>  <span style="color:#75715e"># [m]</span>
-    sy <span style="color:#f92672">=</span> <span style="color:#ae81ff">10.0</span>  <span style="color:#75715e"># [m]</span>
-    gx <span style="color:#f92672">=</span> <span style="color:#ae81ff">50.0</span>  <span style="color:#75715e"># [m]</span>
-    gy <span style="color:#f92672">=</span> <span style="color:#ae81ff">50.0</span>  <span style="color:#75715e"># [m]</span>
-    grid_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">2.0</span>  <span style="color:#75715e"># [m]</span>
-    robot_radius <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>  <span style="color:#75715e"># [m]</span>
-
-    <span style="color:#75715e"># set obstable positions</span>
-    ox, oy <span style="color:#f92672">=</span> [], []
-    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">60</span>):
-        ox<span style="color:#f92672">.</span>append(i)
-        oy<span style="color:#f92672">.</span>append(<span style="color:#f92672">-</span><span style="color:#ae81ff">10.0</span>)
-    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">60</span>):
-        ox<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">60.0</span>)
-        oy<span style="color:#f92672">.</span>append(i)
-    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">61</span>):
-        ox<span style="color:#f92672">.</span>append(i)
-        oy<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">60.0</span>)
-    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">61</span>):
-        ox<span style="color:#f92672">.</span>append(<span style="color:#f92672">-</span><span style="color:#ae81ff">10.0</span>)
-        oy<span style="color:#f92672">.</span>append(i)
-    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">40</span>):
-        ox<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">20.0</span>)
-        oy<span style="color:#f92672">.</span>append(i)
-    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">40</span>):
-        ox<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">40.0</span>)
-        oy<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">60.0</span> <span style="color:#f92672">-</span> i)
-
-    <span style="color:#66d9ef">if</span> show_animation:  <span style="color:#75715e"># pragma: no cover</span>
-        plt<span style="color:#f92672">.</span>plot(ox, oy, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">.k</span><span style="color:#e6db74">&#34;</span>)
-        plt<span style="color:#f92672">.</span>plot(sx, sy, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">og</span><span style="color:#e6db74">&#34;</span>)
-        plt<span style="color:#f92672">.</span>plot(gx, gy, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">xb</span><span style="color:#e6db74">&#34;</span>)
-        plt<span style="color:#f92672">.</span>grid(True)
-        plt<span style="color:#f92672">.</span>axis(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">equal</span><span style="color:#e6db74">&#34;</span>)
-
-    a_star <span style="color:#f92672">=</span> AStarPlanner(ox, oy, grid_size, robot_radius)
-    rx, ry <span style="color:#f92672">=</span> a_star<span style="color:#f92672">.</span>planning(sx, sy, gx, gy)
-
-    <span style="color:#66d9ef">if</span> show_animation:  <span style="color:#75715e"># pragma: no cover</span>
-        plt<span style="color:#f92672">.</span>plot(rx, ry, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">-r</span><span style="color:#e6db74">&#34;</span>)
-        plt<span style="color:#f92672">.</span>show()
+            <span style="color:#008000"># expand_grid search grid based on motion model</span>
+            <span style="color:#00f">for</span> i, _ <span style="color:#00f">in</span> enumerate(self.motion):
+                node = self.Node(current.x + self.motion[i][0],
+                                 current.y + self.motion[i][1],
+                                 current.cost + self.motion[i][2], c_id)
+                n_id = self.calc_grid_index(node)
 
 
-<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">__main__</span><span style="color:#e6db74">&#39;</span>:
+                <span style="color:#008000"># If the node is not safe, do nothing</span>
+                <span style="color:#00f">if</span> <span style="color:#00f">not</span> self.verify_node(node):
+                    <span style="color:#00f">continue</span>
+
+                <span style="color:#00f">if</span> n_id <span style="color:#00f">in</span> closed_set:
+                    <span style="color:#00f">continue</span>
+
+                <span style="color:#00f">if</span> n_id <span style="color:#00f">not</span> <span style="color:#00f">in</span> open_set:
+                    open_set[n_id] = node  <span style="color:#008000"># discovered a new node</span>
+                <span style="color:#00f">else</span>:
+                    <span style="color:#00f">if</span> open_set[n_id].cost &gt; node.cost:
+                        <span style="color:#008000"># This path is the best until now. record it</span>
+                        open_set[n_id] = node
+
+        rx, ry = self.calc_final_path(ngoal, closed_set)
+
+        <span style="color:#00f">return</span> rx, ry
+
+    <span style="color:#00f">def</span> calc_final_path(self, ngoal, closedset):
+        <span style="color:#008000"># generate final course</span>
+        rx, ry = [self.calc_grid_position(ngoal.x, self.minx)], [
+            self.calc_grid_position(ngoal.y, self.miny)]
+        pind = ngoal.pind
+        <span style="color:#00f">while</span> pind != -1:
+            n = closedset[pind]
+            rx.append(self.calc_grid_position(n.x, self.minx))
+            ry.append(self.calc_grid_position(n.y, self.miny))
+            pind = n.pind
+
+        <span style="color:#00f">return</span> rx, ry
+
+    @staticmethod
+    <span style="color:#00f">def</span> calc_heuristic(n1, n2):
+        w = 1.0  <span style="color:#008000"># weight of heuristic</span>
+        d = w * math.hypot(n1.x - n2.x, n1.y - n2.y)
+        <span style="color:#00f">return</span> d
+
+    <span style="color:#00f">def</span> calc_grid_position(self, index, minp):
+        <span style="color:#a31515"></span><span style="color:#a31515">&#34;&#34;&#34;</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">        calc grid position</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">        :param index:</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">        :param minp:</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">        :return:</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">        </span><span style="color:#a31515">&#34;&#34;&#34;</span>
+        pos = index * self.reso + minp
+        <span style="color:#00f">return</span> pos
+
+    <span style="color:#00f">def</span> calc_xyindex(self, position, min_pos):
+        <span style="color:#00f">return</span> round((position - min_pos) / self.reso)
+
+    <span style="color:#00f">def</span> calc_grid_index(self, node):
+        <span style="color:#00f">return</span> (node.y - self.miny) * self.xwidth + (node.x - self.minx)
+
+    <span style="color:#00f">def</span> verify_node(self, node):
+        px = self.calc_grid_position(node.x, self.minx)
+        py = self.calc_grid_position(node.y, self.miny)
+
+        <span style="color:#00f">if</span> px &lt; self.minx:
+            <span style="color:#00f">return</span> False
+        <span style="color:#00f">elif</span> py &lt; self.miny:
+            <span style="color:#00f">return</span> False
+        <span style="color:#00f">elif</span> px &gt;= self.maxx:
+            <span style="color:#00f">return</span> False
+        <span style="color:#00f">elif</span> py &gt;= self.maxy:
+            <span style="color:#00f">return</span> False
+
+        <span style="color:#008000"># collision check</span>
+        <span style="color:#00f">if</span> self.obmap[node.x][node.y]:
+            <span style="color:#00f">return</span> False
+
+        <span style="color:#00f">return</span> True
+
+    <span style="color:#00f">def</span> calc_obstacle_map(self, ox, oy):
+
+        <span style="color:#008000"># map limits</span>
+        self.minx = round(min(ox))
+        self.miny = round(min(oy))
+        self.maxx = round(max(ox))
+        self.maxy = round(max(oy))
+        <span style="color:#00f">print</span>(<span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">minx:</span><span style="color:#a31515">&#34;</span>, self.minx)
+        <span style="color:#00f">print</span>(<span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">miny:</span><span style="color:#a31515">&#34;</span>, self.miny)
+        <span style="color:#00f">print</span>(<span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">maxx:</span><span style="color:#a31515">&#34;</span>, self.maxx)
+        <span style="color:#00f">print</span>(<span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">maxy:</span><span style="color:#a31515">&#34;</span>, self.maxy)
+
+        self.xwidth = round((self.maxx - self.minx) / self.reso)
+        self.ywidth = round((self.maxy - self.miny) / self.reso)
+        <span style="color:#00f">print</span>(<span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">xwidth:</span><span style="color:#a31515">&#34;</span>, self.xwidth)
+        <span style="color:#00f">print</span>(<span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">ywidth:</span><span style="color:#a31515">&#34;</span>, self.ywidth)
+
+        <span style="color:#008000"># obstacle map generation</span>
+        self.obmap = [[False <span style="color:#00f">for</span> i <span style="color:#00f">in</span> range(self.ywidth)]
+                      <span style="color:#00f">for</span> i <span style="color:#00f">in</span> range(self.xwidth)]
+        <span style="color:#00f">for</span> ix <span style="color:#00f">in</span> range(self.xwidth):
+            x = self.calc_grid_position(ix, self.minx)
+            <span style="color:#00f">for</span> iy <span style="color:#00f">in</span> range(self.ywidth):
+                y = self.calc_grid_position(iy, self.miny)
+                <span style="color:#00f">for</span> iox, ioy <span style="color:#00f">in</span> zip(ox, oy):
+                    d = math.hypot(iox - x, ioy - y)
+                    <span style="color:#00f">if</span> d &lt;= self.rr:
+                        self.obmap[ix][iy] = True
+                        <span style="color:#00f">break</span>
+
+    @staticmethod
+    <span style="color:#00f">def</span> get_motion_model():
+        <span style="color:#008000"># dx, dy, cost</span>
+        motion = [[1, 0, 1],
+                  [0, 1, 1],
+                  [-1, 0, 1],
+                  [0, -1, 1],
+                  [-1, -1, math.sqrt(2)],
+                  [-1, 1, math.sqrt(2)],
+                  [1, -1, math.sqrt(2)],
+                  [1, 1, math.sqrt(2)]]
+
+        <span style="color:#00f">return</span> motion
+
+<span style="color:#00f">def</span> main():
+    <span style="color:#00f">print</span>(__file__ + <span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515"> start!!</span><span style="color:#a31515">&#34;</span>)
+
+    <span style="color:#008000"># start and goal position</span>
+    sx = 10.0  <span style="color:#008000"># [m]</span>
+    sy = 10.0  <span style="color:#008000"># [m]</span>
+    gx = 50.0  <span style="color:#008000"># [m]</span>
+    gy = 50.0  <span style="color:#008000"># [m]</span>
+    grid_size = 2.0  <span style="color:#008000"># [m]</span>
+    robot_radius = 1.0  <span style="color:#008000"># [m]</span>
+
+    <span style="color:#008000"># set obstable positions</span>
+    ox, oy = [], []
+    <span style="color:#00f">for</span> i <span style="color:#00f">in</span> range(-10, 60):
+        ox.append(i)
+        oy.append(-10.0)
+    <span style="color:#00f">for</span> i <span style="color:#00f">in</span> range(-10, 60):
+        ox.append(60.0)
+        oy.append(i)
+    <span style="color:#00f">for</span> i <span style="color:#00f">in</span> range(-10, 61):
+        ox.append(i)
+        oy.append(60.0)
+    <span style="color:#00f">for</span> i <span style="color:#00f">in</span> range(-10, 61):
+        ox.append(-10.0)
+        oy.append(i)
+    <span style="color:#00f">for</span> i <span style="color:#00f">in</span> range(-10, 40):
+        ox.append(20.0)
+        oy.append(i)
+    <span style="color:#00f">for</span> i <span style="color:#00f">in</span> range(0, 40):
+        ox.append(40.0)
+        oy.append(60.0 - i)
+
+    <span style="color:#00f">if</span> show_animation:  <span style="color:#008000"># pragma: no cover</span>
+        plt.plot(ox, oy, <span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">.k</span><span style="color:#a31515">&#34;</span>)
+        plt.plot(sx, sy, <span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">og</span><span style="color:#a31515">&#34;</span>)
+        plt.plot(gx, gy, <span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">xb</span><span style="color:#a31515">&#34;</span>)
+        plt.grid(True)
+        plt.axis(<span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">equal</span><span style="color:#a31515">&#34;</span>)
+
+    a_star = AStarPlanner(ox, oy, grid_size, robot_radius)
+    rx, ry = a_star.planning(sx, sy, gx, gy)
+
+    <span style="color:#00f">if</span> show_animation:  <span style="color:#008000"># pragma: no cover</span>
+        plt.plot(rx, ry, <span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">-r</span><span style="color:#a31515">&#34;</span>)
+        plt.show()
+
+
+<span style="color:#00f">if</span> __name__ == <span style="color:#a31515"></span><span style="color:#a31515">&#39;</span><span style="color:#a31515">__main__</span><span style="color:#a31515">&#39;</span>:
     main()
 
 </code></pre></td></tr></table>

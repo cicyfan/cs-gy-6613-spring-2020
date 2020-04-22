@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.83a4ed53c5a4a49897bcdcd18550a1101c1a41ec40599d97b51781b913f73dd2.js" integrity="sha256-g6TtU8WkpJiXvNzRhVChEBwaQexAWZ2XtReBuRP3PdI="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.9fedae29ffa994c05adf8613ecf0e9ef7b3258ebf06fa05ee0a2eb460aa7bf44.js" integrity="sha256-n&#43;2uKf&#43;plMBa34YT7PDp73syWOvwb6Be4KLrRgqnv0Q="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-slides/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -1709,7 +1709,103 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>The Agent - Environment Interface</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-slides/"  class="active">
+      Mdp Slides
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/drl/" >
+      Lecture 9 - Deep Reinforcement Learning
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/drl/mdp/" >
+      RL as a Unknown Markov Decision Process
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Partially Observed MDP</span>
     
 
     
@@ -1737,8 +1833,40 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-slides/"  class="active">
-      Mdp Slides
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/drl/drl-policy/" >
+      Policy-based Deep RL
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/drl/drl-value/" >
+      Value-based Deep RL
   </a>
 
 
@@ -3001,7 +3129,7 @@ $$ \ldots $$</p>
 <ul>
 <li>a set of states $S$. State at time $t$ is $s_t$</li>
 <li>actions  $A$. Action at time $t$ is $a_t$.</li>
-<li>transition model describing outcome of each action in each state $P( s_{t+1} | s_t,a_t)$</li>
+<li>transition model describing outcome of each action in each state $P( s_{t+1} | s_t, a_t)$</li>
 <li>reward function $r_t=R(s_t)$</li>
 </ul>
 </li>
@@ -3248,7 +3376,8 @@ $$b^\prime(s^\prime) = P(s^\prime | e,a,b)$$</li>
 <ul>
 <li>Given the current belief state, execute the action $a=\pi^{*}(b)$</li>
 <li>Receive percept $e$</li>
-<li>Set the current belief state to $b^{'}(s^{'})$ given by $b^{'}(s^{'}) = \alpha P(e|s^{'}) \sum_{s} P(s^{'}|s,a)b(s)$</li>
+<li>Set the current belief state to $b^{'}(s^{'})$ given by
+$$b^{'}(s^{'}) = \alpha P(e|s^{'}) \sum_{s} P(s^{'}|s,a)b(s)$$</li>
 </ul>
 </li>
 </ul>
@@ -3564,9 +3693,9 @@ source: https://worldmodels.github.io/
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/9f16844aef6d0dd8a1c1da2ccd4f3192209e31e9" title='Last modified by MONOGIOUDIS Pantelis | Apr 19, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/4b84ad929e60b2bb17cbf79091c96fbb8fc67796" title='Last modified by MONOGIOUDIS Pantelis | Apr 22, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Apr 19, 2020</span>
+      <span>Apr 22, 2020</span>
     </a>
   </div>
 
