@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.9fedae29ffa994c05adf8613ecf0e9ef7b3258ebf06fa05ee0a2eb460aa7bf44.js" integrity="sha256-n&#43;2uKf&#43;plMBa34YT7PDp73syWOvwb6Be4KLrRgqnv0Q="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.db0de2cb4db40fb4281c66e4a0ac6b61ce9ee6a12fd3644121b08c36b29a52af.js" integrity="sha256-2w3iy020D7QoHGbkoKxrYc6e5qEv02RBIbCMNrKaUq8="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl/mdp/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -2688,7 +2688,7 @@ $$ = \mathop{\mathbb{E}} \left[ R_{t+1} + \gamma v(S_{t+1}=s^\prime) | S_t=s \ri
 <em>Tree that represents the state-value function after a one-step look ahead.</em></p>
 <p>With the substitution we can write the state-value function as,</p>
 <p>$$v_\pi(s) = \sum_{a \in \mathcal A} \pi(a|s) \left( \mathcal R_s^a + \gamma \sum_{s^\prime \in \mathcal S} \mathcal{P}^a_{ss^\prime} v_\pi(s^\prime) \right)$$</p>
-<p>As we will see in a separate chapter, this equation is going to be used to iteratively calculate the converged value function of each state given an MDP and a policy. This is known as the  <em>policy</em> iteration algorithm_ that _evaluates_ a given policy.  The equation also has a qualifier in its name. Sometimes is referred to as the _Bellman expectation backup_ - it took its name from the previously shown tree like structure where we use state value functions from the leaf modes $s^\prime$ to the root node.</p>
+<p>As we will see in a separate chapter, this equation is going to be used to iteratively calculate the converged value function of each state given an MDP and a policy.  The equation is referred to as the <em>Bellman expectation backup</em> - it took its name from the previously shown tree like structure where we use state value functions from the leaf modes $s^\prime$ to the root node.</p>
 <h3 id="solving-the-mdp">Solving the MDP</h3>
 <p>Now that we can calculate the value functions efficiently via the Bellman expectation recursions, we can now solve the MDP which requires to calculate the action-value function and maximizing it over all possible policies.  The <em>optimal</em> state-value function and <em>optimal</em> action value function are given by definition,</p>
 <p>$$v_*(s) = \max_\pi v_\pi(s)$$
@@ -2732,7 +2732,7 @@ $$q_*(s,a) = \max_\pi q_\pi(s,a)$$</p>
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/8163bceb4b4e0b719535f8f7c138ceaf2758f808" title='Last modified by MONOGIOUDIS Pantelis | Apr 22, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/92c689dc708ffadaaa0836e29be6990daa64cd59" title='Last modified by MONOGIOUDIS Pantelis | Apr 22, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Apr 22, 2020</span>
     </a>
