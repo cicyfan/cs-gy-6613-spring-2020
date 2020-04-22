@@ -1,7 +1,7 @@
 ---
 title: Value-based Deep RL 
 weight: 106
-draft: true
+draft: false
 ---
 
 # Value-based Deep RL
