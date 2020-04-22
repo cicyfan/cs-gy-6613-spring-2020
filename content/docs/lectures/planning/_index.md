@@ -3,6 +3,7 @@ title: Lecture 7 - Planning
 weight: 91
 draft: false
 ---
+
 # Planning
 
 In [recursive state estimation]({{<ref "../pgm/recursive-state-estimation">}}) chapter we made two advances in our modeling tool set:

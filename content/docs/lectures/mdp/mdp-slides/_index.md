@@ -515,7 +515,6 @@ $$\pi(S_{6}) =  \underset{a}{max}[\frac{1}{4}U(S_2)| \uparrow,
 
 ![policy-iter-value](images/policy-iter-3.PNG)
 
-
 ---
  
 # PART 3/4: POMDPs 
@@ -536,7 +535,7 @@ $$\pi(S_{6}) =  \underset{a}{max}[\frac{1}{4}U(S_2)| \uparrow,
 * The MDP parameters we listed previously continue to hold for POMDP:
     * a set of states $S$. State at time $t$ is $s_t$
     * actions  $A$. Action at time $t$ is $a_t$.
-    * transition model describing outcome of each action in each state $P( s_{t+1} | s_t,a_t)$ 
+    * transition model describing outcome of each action in each state $P( s_{t+1} | s_t, a_t)$ 
     * reward function $r_t=R(s_t)$ 
 * Additional POMDP parameters:
 	* initial belief of state $s$: $b(s)=P(s)$
@@ -638,9 +637,6 @@ $$\pi(S_{6}) =  \underset{a}{max}[\frac{1}{4}U(S_2)| \uparrow,
 
 * b(left) versus b(right)
 
-
-
-
 ----
 
 ### POMDP as a Belief-state MDP
@@ -655,10 +651,8 @@ $$\pi(S_{6}) =  \underset{a}{max}[\frac{1}{4}U(S_2)| \uparrow,
 	* The decision cycle in this case would comprise of the following $3$ steps:
 		* Given the current belief state, execute the action $a=\pi^{*}(b)$
 		* Receive percept $e$
-		* Set the current belief state to $b^{'}(s^{'})$ given by $b^{'}(s^{'}) = \alpha P(e|s^{'}) \sum_{s} P(s^{'}|s,a)b(s)$
-
-
-
+		* Set the current belief state to $b^{'}(s^{'})$ given by 
+  $$b^{'}(s^{'}) = \alpha P(e|s^{'}) \sum_{s} P(s^{'}|s,a)b(s)$$
 
 ----
 
@@ -674,8 +668,6 @@ where $\tau(e,b,a)$ is the transition function for the belief state.
 * Instead one resorts to exploiting special properties in terms of 
 	* Policy Tree
 	* Piecewise linear and convex property of the value function
-
-
 
 ----
 

@@ -52,7 +52,7 @@ markup:
     lineNos: true
     lineNumbersInTable: true
     noClasses: true
-    style: monokai
+    style: vs
     tabWidth: 4
   tableOfContents:
     startLevel: 1
