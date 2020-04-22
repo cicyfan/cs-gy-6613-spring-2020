@@ -183,7 +183,7 @@ So the question becomes how to calculate the optimal value functions. We return 
 
 Following similar reasoning as in the Bellman expectation equation where we calculated the value of state $s$ as an average of the values that can be claimed by taking all possible actions, now we replace the average with the max. 
 
-$$v_*(s) = max_a q_*(s,a)$$
+$$v_*(s) = \max_a q_*(s,a)$$
 
 
 ![optimal-action-value-tree](images/optimal-action-value-tree.png#center)
@@ -203,7 +203,7 @@ Now we can similarly attempt to create a recursion that will lead to the **Bellm
 ![optimal-action-state-action-value-tree](images/optimal-action-state-action-value-tree.png#center)
 *Tree that represents the optimal action-value function after a one-step look ahead.*
 
-$$v_*(s) = \max_a \mathcal R_s^a + \gamma \sum_{s^\prime \in \mathcal S} \mathcal{P}^a_{ss^\prime} v_*(s^\prime)$$
+$$v_*(s) = \max_a \left( \mathcal R_s^a + \gamma \sum_{s^\prime \in \mathcal S} \mathcal{P}^a_{ss^\prime} v_*(s^\prime) \right)$$
 
 $$q_*(s,a) = \mathcal R_s^a + \gamma \sum_{s^\prime \in \mathcal S} \mathcal{P}^a_{ss^\prime} \max_{a^\prime} q_*(s^\prime,a^\prime)$$
 
