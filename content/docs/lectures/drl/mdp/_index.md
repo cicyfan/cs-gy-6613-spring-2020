@@ -1,10 +1,10 @@
 ---
-title: RL as a Markov Decision Process
+title: RL as a Unknown Markov Decision Process
 weight: 102
 draft: false
 ---
 
-# RL as a Markov Decision Process
+# RL as a Unknown Markov Decision Process
 
 This chapter builds on the [MDP chapter]({{<ref "../../mdp">}}) and uses slightly different notation that is more conventionally followed in Reinforcement Learning (RL) literature.  We start by reviewing the agent-environment interface with this evolved notation and provide additional definitions that will help in grasping the concepts behind DRL.
 
@@ -17,8 +17,8 @@ The following table summarizes the notation and provides some other useful defin
 
 | Symbol  | Description  |
 |:-:|---|
-| $A_t$ | agent action within time step $t$, $a \in \mathcal{A}$ the finite set of actions |
-| $S_t$ | environment state within time step $t$, $s \in \mathcal{S}$ the finite set of states|
+| $A_t$ | agent action at time step $t$, $a \in \mathcal{A}$ the finite set of actions |
+| $S_t$ | environment state at time step $t$, $s \in \mathcal{S}$ the finite set of states|
 | $R_{t+1}$ | reward sent by the environment after taking action $A_t$ |
 | $t$ | time step index associated with each tuple ($S_t, A_t, R_{t+1}$) called the *experience*. | 
 | $T$ | maximum time step beyond which the interaction terminates |
@@ -33,7 +33,7 @@ The agent function, called **policy** $\pi$, produces an action either determini
 
 $$\pi(a|s)=p(A_t=a|S_t=s)$$
 
-The policy is assumed to be stationary i.e. not change with time step $t$ and it will depend only on the state $A_t ~ \pi(.|S_t), \forall t > 0$
+The policy is assumed to be stationary i.e. not change with time step $t$ and it will depend only on the state $A_t \sim \pi(.|S_t), \forall t > 0$
 
 This will have two effects:
 
@@ -47,7 +47,7 @@ $$s_{t+1} = p( s_{t+1} | (s_0, a_0), ..., (s_t, a_t) ) =  p( s_{t+1} | s_t, a_t)
 
 we define a Markov Decision Process as the 5-tuple $\mathcal M = <\mathcal S, \mathcal P, \mathcal R, \mathcal A, \gamma>$ that produces a sequence of experiences $(S_1, A_1, R_2), (S_2, A_2, R_3), ...$. Together with the policy $\pi$, the state transition probability matrix $\mathcal P$ is defined as
 
-$$P^a_{ss^\prime} = p[S_{t+1}=s^\prime | S_t=s, A_t=a ]$$
+$$\mathcal P^a_{ss^\prime} = p[S_{t+1}=s^\prime | S_t=s, A_t=a ]$$
 
 {{<hint info>}}
 Can you determine the state transition matrix for the 4x3 Gridworld in [MDP chapter]({{<ref "../../mdp">}})?  What each row of this matrix represents?
@@ -83,7 +83,7 @@ $$ … $$
 
 Please note that the actual values are different - these are sample numbers to make the point that the return depends on the specific trajectory.
 
-The _state-value function_ $v\pi(s)$ provides a notion of the long-term value of state $s$. It is equivalent to the _utility_ we have seen in the [MDP chapter]({{<ref "../../mdp">}}). It is defined as the _expected_ return starting at state $s$ and following policy $\pi(a|s)$, 
+The _state-value function_ $v_\pi(s)$ provides a notion of the long-term value of state $s$. It is equivalent to the _utility_ we have seen in the [MDP chapter]({{<ref "../../mdp">}}). It is defined as the _expected_ return starting at state $s$ and following policy $\pi(a|s)$, 
 
 $$v_\pi(s) = \mathop{\mathbb{E}_\pi}(G_t | S_t=s)$$
 
@@ -114,7 +114,7 @@ NOTE: All above expectations are with respect to policy $\pi$.
 
 This is perhaps one of the _most important_ recursions in control theory - it is known as the **Bellman expectation equation**. 
 
-The parts of the value function above are (1) the immediate reward, (2) the discounted value of the successor state $\gamma v(S_{t+1}=s')$. 
+The parts of the value function above are (1) the immediate reward, (2) the discounted value of the successor state $\gamma v(S_{t+1}=s^\prime)$. 
 
 $$v_\pi(s) = \mathop{\mathbb{E}_\pi} \left[ R_{t+1} + \gamma ~ v_\pi(S_{t+1}=s^\prime) | S_t=s \right]$$
 
