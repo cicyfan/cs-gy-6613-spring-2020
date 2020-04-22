@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.db0de2cb4db40fb4281c66e4a0ac6b61ce9ee6a12fd3644121b08c36b29a52af.js" integrity="sha256-2w3iy020D7QoHGbkoKxrYc6e5qEv02RBIbCMNrKaUq8="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.71dbd1b1901b587da3851577ee5825355fde30cd7c377eb34b060c17b1d1ca70.js" integrity="sha256-cdvRsZAbWH2jhRV37lglNV/eMM18N36zSwYMF7HRynA="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl/mdp/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -2700,7 +2700,7 @@ $$q_*(s,a) = \max_\pi q_\pi(s,a)$$</p>
 <p><img src="images/optimal-state-value-tree.png#center" alt="optimal-state-value-tree">
 *Actions can be taken from that state $s$ according to the policy $\pi_*$*</p>
 <p>Following similar reasoning as in the Bellman expectation equation where we calculated the value of state $s$ as an average of the values that can be claimed by taking all possible actions, now we replace the average with the max.</p>
-<p>$$v_*(s) = max_a q_*(s,a)$$</p>
+<p>$$v_*(s) = \max_a q_*(s,a)$$</p>
 <p><img src="images/optimal-action-value-tree.png#center" alt="optimal-action-value-tree">
 *Successor states that can be reached from state $s$ if the agent selects action $a$. $R_{t+1}=r$ we denote the instantaneous reward for each of the possibilities.*</p>
 <p>Similarly, we can express  $q_*(s,a)$ as a function of $v_*(s)$ by looking at the corresponding tree above.</p>
@@ -2711,7 +2711,7 @@ $$q_*(s,a) = \max_\pi q_\pi(s,a)$$</p>
 <em>Tree that represents the optimal state-value function after a one-step look ahead.</em></p>
 <p><img src="images/optimal-action-state-action-value-tree.png#center" alt="optimal-action-state-action-value-tree">
 <em>Tree that represents the optimal action-value function after a one-step look ahead.</em></p>
-<p>$$v_*(s) = \max_a \mathcal R_s^a + \gamma \sum_{s^\prime \in \mathcal S} \mathcal{P}^a_{ss^\prime} v_*(s^\prime)$$</p>
+<p>$$v_*(s) = \max_a \left( \mathcal R_s^a + \gamma \sum_{s^\prime \in \mathcal S} \mathcal{P}^a_{ss^\prime} v_*(s^\prime) \right)$$</p>
 <p>$$q_*(s,a) = \mathcal R_s^a + \gamma \sum_{s^\prime \in \mathcal S} \mathcal{P}^a_{ss^\prime} \max_{a^\prime} q_*(s^\prime,a^\prime)$$</p>
 <p>These equations due to the $\max$ operator are non-linear and can be solved to obtain the MDP solution aka $q_*(s,a)$ iteratively via a number of methods: policy iteration, value iteration, Q-learning, SARSA. We will see some of these methods in detail in later chapters. The key advantage in the Bellman optimality equations is efficiency:</p>
 <ol>
@@ -2732,7 +2732,7 @@ $$q_*(s,a) = \max_\pi q_\pi(s,a)$$</p>
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/92c689dc708ffadaaa0836e29be6990daa64cd59" title='Last modified by MONOGIOUDIS Pantelis | Apr 22, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/e8391f6e2bdc0887927a4419384403d631b2feb8" title='Last modified by MONOGIOUDIS Pantelis | Apr 22, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Apr 22, 2020</span>
     </a>
