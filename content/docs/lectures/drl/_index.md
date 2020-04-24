@@ -7,7 +7,7 @@ draft: false
 # Deep Reinforcement Learning
 
 ![drl-concept](images/drl-concept.png#center)
-*DRL Principle - we will see this figure again when we treat policy-based RL*
+*DRL Principle - we will explain this figure when we treat policy-based RL*
 
 In this chapter we build upon what we learned in the [MDP]({{<ref "../mdp">}}) chapter and develop agents that can act in an initially unknown environment and learn via their interactions with it, gradually improving their policy.
 
