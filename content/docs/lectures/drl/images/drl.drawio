@@ -1,6 +1,6 @@
-<mxfile host="www.draw.io" modified="2020-04-24T17:48:55.401Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Safari/537.36" etag="m8baFPlHtnwv1CPJCIO4" version="13.0.1" type="github">
+<mxfile host="www.draw.io" modified="2020-04-24T21:37:55.737Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Safari/537.36" etag="eyi0PfTtaGyJYq41MVj_" version="13.0.1" type="github">
   <diagram id="f6YDRorcCoCOShzBDmNz" name="DRL-algorithms">
-    <mxGraphModel dx="655" dy="438" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="925" dy="619" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="keFImo63B462XZ4PSRHO-0" />
         <mxCell id="keFImo63B462XZ4PSRHO-1" parent="keFImo63B462XZ4PSRHO-0" />
@@ -41,7 +41,7 @@
           <mxGeometry x="375" y="90" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="keFImo63B462XZ4PSRHO-11" value="QT-OPT" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="350" y="250" width="40" height="20" as="geometry" />
+          <mxGeometry x="350" y="240" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="keFImo63B462XZ4PSRHO-13" value="Value Based&lt;br&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#595959;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
           <mxGeometry x="500" y="280" width="70" height="20" as="geometry" />
@@ -66,7 +66,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="keFImo63B462XZ4PSRHO-19" value="Model based" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#595959;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="490" y="490" width="110" height="20" as="geometry" />
+          <mxGeometry x="480" y="480" width="110" height="20" as="geometry" />
         </mxCell>
         <mxCell id="keFImo63B462XZ4PSRHO-20" value="REINFORCE" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
           <mxGeometry x="220" y="330" width="40" height="20" as="geometry" />
