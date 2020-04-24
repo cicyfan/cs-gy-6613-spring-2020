@@ -1,148 +1,188 @@
-<mxfile host="www.draw.io" modified="2020-04-24T16:15:01.811Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Safari/537.36" etag="-Pq5w4UGBWtOzzGZJiuR" version="13.0.1" type="github">
+<mxfile host="www.draw.io" modified="2020-04-24T16:20:05.356Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Safari/537.36" etag="zWhvF4sOtm8_jihOyUu2" version="13.0.1" type="github">
   <diagram id="f6YDRorcCoCOShzBDmNz" name="DRL-algorithms">
-    <mxGraphModel dx="786" dy="526" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="655" dy="438" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="keFImo63B462XZ4PSRHO-0" />
         <mxCell id="keFImo63B462XZ4PSRHO-1" parent="keFImo63B462XZ4PSRHO-0" />
         <mxCell id="keFImo63B462XZ4PSRHO-4" value="" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CCCCCC;labelBackgroundColor=none;fontSize=16" parent="keFImo63B462XZ4PSRHO-1" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="280" y="280" as="sourcePoint" />
-            <mxPoint x="700" y="240" as="targetPoint" />
+            <mxPoint x="150" y="320" as="sourcePoint" />
+            <mxPoint x="570" y="280" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="320" y="240" />
+              <mxPoint x="190" y="280" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="keFImo63B462XZ4PSRHO-5" value="" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CCCCCC;labelBackgroundColor=none;fontSize=16" parent="keFImo63B462XZ4PSRHO-1" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="280" y="280" as="sourcePoint" />
-            <mxPoint x="700" y="320" as="targetPoint" />
+            <mxPoint x="150" y="320" as="sourcePoint" />
+            <mxPoint x="570" y="360" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="320" y="320" />
+              <mxPoint x="190" y="360" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="keFImo63B462XZ4PSRHO-7" value="SARSA" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="330" y="210" width="40" height="20" as="geometry" />
+          <mxGeometry x="200" y="250" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="C4--QSFAImvwtVpB8lWb-9" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=#595959;" parent="keFImo63B462XZ4PSRHO-1" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="425" y="190" as="sourcePoint" />
-            <mxPoint x="440" y="170" as="targetPoint" />
+            <mxPoint x="295" y="230" as="sourcePoint" />
+            <mxPoint x="310" y="210" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="keFImo63B462XZ4PSRHO-8" value="Deep Q-Networks&lt;br&gt;(DQN)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="400" y="200" width="40" height="20" as="geometry" />
+          <mxGeometry x="270" y="240" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="keFImo63B462XZ4PSRHO-9" value="Double&lt;br&gt;DQN" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="435" y="140" width="40" height="20" as="geometry" />
+          <mxGeometry x="305" y="180" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="keFImo63B462XZ4PSRHO-10" value="DQN&amp;nbsp; + Prioritized Experience Replay" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="500" y="60" width="40" height="20" as="geometry" />
+          <mxGeometry x="370" y="100" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="keFImo63B462XZ4PSRHO-11" value="QT-OPT" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="480" y="210" width="40" height="20" as="geometry" />
+          <mxGeometry x="350" y="250" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="keFImo63B462XZ4PSRHO-13" value="Value Based&lt;br&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#595959;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="630" y="240" width="70" height="20" as="geometry" />
+          <mxGeometry x="500" y="280" width="70" height="20" as="geometry" />
         </mxCell>
         <mxCell id="keFImo63B462XZ4PSRHO-14" value="Policy based" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#595959;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="610" y="320" width="110" height="20" as="geometry" />
+          <mxGeometry x="480" y="360" width="110" height="20" as="geometry" />
         </mxCell>
         <mxCell id="keFImo63B462XZ4PSRHO-17" value="" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CCCCCC;labelBackgroundColor=none;fontSize=16" parent="keFImo63B462XZ4PSRHO-1" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="280" y="280" as="sourcePoint" />
-            <mxPoint x="720" y="440" as="targetPoint" />
+            <mxPoint x="150" y="320" as="sourcePoint" />
+            <mxPoint x="590" y="480" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="320" y="440" />
+              <mxPoint x="190" y="480" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="keFImo63B462XZ4PSRHO-18" value="" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CCCCCC;labelBackgroundColor=none;fontSize=16" parent="keFImo63B462XZ4PSRHO-1" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="190" y="280" as="sourcePoint" />
-            <mxPoint x="280" y="280" as="targetPoint" />
+            <mxPoint x="60" y="320" as="sourcePoint" />
+            <mxPoint x="150" y="320" as="targetPoint" />
             <Array as="points" />
           </mxGeometry>
         </mxCell>
         <mxCell id="keFImo63B462XZ4PSRHO-19" value="Model based" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#595959;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="620" y="450" width="110" height="20" as="geometry" />
+          <mxGeometry x="490" y="490" width="110" height="20" as="geometry" />
         </mxCell>
         <mxCell id="keFImo63B462XZ4PSRHO-20" value="REINFORCE" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="340" y="300" width="40" height="20" as="geometry" />
+          <mxGeometry x="210" y="340" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="keFImo63B462XZ4PSRHO-21" value="Iterative Linear Quadratic Regulator (LQR)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="360" y="390" width="40" height="20" as="geometry" />
+          <mxGeometry x="230" y="430" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="keFImo63B462XZ4PSRHO-24" value="Model Predictive&amp;nbsp; Control&lt;br&gt;(MPC)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="460" y="400" width="40" height="20" as="geometry" />
+          <mxGeometry x="330" y="440" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="keFImo63B462XZ4PSRHO-25" value="MC Tree Search" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="530" y="410" width="50" height="20" as="geometry" />
+          <mxGeometry x="400" y="450" width="50" height="20" as="geometry" />
         </mxCell>
         <mxCell id="keFImo63B462XZ4PSRHO-26" value="" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CCCCCC;labelBackgroundColor=none;fontSize=16" parent="keFImo63B462XZ4PSRHO-1" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="700" y="240" as="sourcePoint" />
-            <mxPoint x="1090" y="280" as="targetPoint" />
+            <mxPoint x="570" y="280" as="sourcePoint" />
+            <mxPoint x="1030" y="320" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="760" y="280" />
+              <mxPoint x="630" y="320" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="C4--QSFAImvwtVpB8lWb-0" value="" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CCCCCC;labelBackgroundColor=none;fontSize=16" parent="keFImo63B462XZ4PSRHO-1" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="700" y="320" as="sourcePoint" />
-            <mxPoint x="760" y="280" as="targetPoint" />
+            <mxPoint x="570" y="360" as="sourcePoint" />
+            <mxPoint x="630" y="320" as="targetPoint" />
             <Array as="points" />
           </mxGeometry>
         </mxCell>
         <mxCell id="C4--QSFAImvwtVpB8lWb-1" value="Actor&lt;br&gt;Critic (AC)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="770" y="250" width="60" height="20" as="geometry" />
+          <mxGeometry x="640" y="290" width="60" height="20" as="geometry" />
         </mxCell>
         <mxCell id="C4--QSFAImvwtVpB8lWb-2" value="Async A2C" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="850" y="130" width="40" height="20" as="geometry" />
+          <mxGeometry x="720" y="170" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="C4--QSFAImvwtVpB8lWb-3" value="Trust Region Policy Opt.&amp;nbsp;&lt;br&gt;(TRPO)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="860" y="240" width="80" height="20" as="geometry" />
+          <mxGeometry x="730" y="280" width="80" height="20" as="geometry" />
         </mxCell>
         <mxCell id="C4--QSFAImvwtVpB8lWb-4" value="Proximal Policy Opt.&lt;br&gt;(PPO)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="960" y="240" width="70" height="20" as="geometry" />
+          <mxGeometry x="830" y="280" width="70" height="20" as="geometry" />
         </mxCell>
         <mxCell id="C4--QSFAImvwtVpB8lWb-5" value="Soft Actor Critic" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="1050" y="240" width="40" height="20" as="geometry" />
+          <mxGeometry x="920" y="280" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="C4--QSFAImvwtVpB8lWb-6" value="Advantage AC (A2C)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="800" y="190" width="40" height="20" as="geometry" />
+          <mxGeometry x="670" y="230" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="C4--QSFAImvwtVpB8lWb-8" value="" style="endArrow=classic;html=1;fontColor=#595959;" parent="keFImo63B462XZ4PSRHO-1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="800" y="240" as="sourcePoint" />
-            <mxPoint x="810" y="220" as="targetPoint" />
+            <mxPoint x="670" y="280" as="sourcePoint" />
+            <mxPoint x="680" y="260" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="C4--QSFAImvwtVpB8lWb-10" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=#595959;" parent="keFImo63B462XZ4PSRHO-1" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="470" y="130" as="sourcePoint" />
-            <mxPoint x="500" y="100" as="targetPoint" />
+            <mxPoint x="340" y="170" as="sourcePoint" />
+            <mxPoint x="370" y="140" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="C4--QSFAImvwtVpB8lWb-11" value="" style="endArrow=classic;html=1;fontColor=#595959;" parent="keFImo63B462XZ4PSRHO-1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="830" y="190" as="sourcePoint" />
-            <mxPoint x="850" y="160" as="targetPoint" />
+            <mxPoint x="700" y="230" as="sourcePoint" />
+            <mxPoint x="720" y="200" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="C4--QSFAImvwtVpB8lWb-12" value="AC Generalized Advantage Estimation" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="keFImo63B462XZ4PSRHO-1" vertex="1">
-          <mxGeometry x="910" y="40" width="40" height="20" as="geometry" />
+          <mxGeometry x="780" y="80" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="C4--QSFAImvwtVpB8lWb-13" value="" style="endArrow=classic;html=1;fontColor=#595959;" parent="keFImo63B462XZ4PSRHO-1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="880" y="120" as="sourcePoint" />
-            <mxPoint x="900" y="90" as="targetPoint" />
+            <mxPoint x="750" y="160" as="sourcePoint" />
+            <mxPoint x="770" y="130" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="C4--QSFAImvwtVpB8lWb-16" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;fontColor=#595959;" parent="keFImo63B462XZ4PSRHO-1" source="keFImo63B462XZ4PSRHO-21" target="keFImo63B462XZ4PSRHO-21" edge="1">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Iopo-lMNRPYW-bU6Or77-0" value="SARSA" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="keFImo63B462XZ4PSRHO-1">
+          <mxGeometry x="60" y="290" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Iopo-lMNRPYW-bU6Or77-1" value="" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CCCCCC;labelBackgroundColor=none;fontSize=16;exitX=1;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="keFImo63B462XZ4PSRHO-1" source="keFImo63B462XZ4PSRHO-13">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="390" as="sourcePoint" />
+            <mxPoint x="1030" y="440" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="650" y="440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Iopo-lMNRPYW-bU6Or77-2" value="" style="endArrow=none;html=1;strokeWidth=3;strokeColor=#CCCCCC;labelBackgroundColor=none;fontSize=16" edge="1" parent="keFImo63B462XZ4PSRHO-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="480" as="sourcePoint" />
+            <mxPoint x="650" y="440" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Iopo-lMNRPYW-bU6Or77-3" value="Dyna-Q" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="keFImo63B462XZ4PSRHO-1">
+          <mxGeometry x="660" y="420" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Iopo-lMNRPYW-bU6Or77-4" value="Dyna-AC" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="keFImo63B462XZ4PSRHO-1">
+          <mxGeometry x="710" y="380" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Iopo-lMNRPYW-bU6Or77-5" value="" style="endArrow=classic;html=1;fontColor=#595959;" edge="1" parent="keFImo63B462XZ4PSRHO-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="710" y="420" as="sourcePoint" />
+            <mxPoint x="720" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Iopo-lMNRPYW-bU6Or77-6" value="Alpha Zero" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="keFImo63B462XZ4PSRHO-1">
+          <mxGeometry x="760" y="400" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Iopo-lMNRPYW-bU6Or77-7" value="Imagination&lt;br&gt;Augmented&lt;br&gt;Agents (I2A)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="keFImo63B462XZ4PSRHO-1">
+          <mxGeometry x="850" y="400" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Iopo-lMNRPYW-bU6Or77-8" value="Value Prediction Networks" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="keFImo63B462XZ4PSRHO-1">
+          <mxGeometry x="950" y="400" width="80" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
