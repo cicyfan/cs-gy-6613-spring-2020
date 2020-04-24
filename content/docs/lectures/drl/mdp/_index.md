@@ -1,19 +1,21 @@
 ---
-title: RL as a Unknown Markov Decision Process
+title: MDP and RL
 weight: 102
 draft: false
 ---
 
-# RL as a Unknown Markov Decision Process
+# MDP and RL 
 
-This chapter builds on the [MDP chapter]({{<ref "../../mdp">}}) and uses slightly different notation that is more conventionally followed in Reinforcement Learning (RL) literature.  We start by reviewing the agent-environment interface with this evolved notation and provide additional definitions that will help in grasping the concepts behind DRL.
+This chapter builds on the [MDP chapter]({{<ref "../../mdp">}}) and uses slightly different notation that is more conventionally followed in Reinforcement Learning (RL) literature.  
 
 ## The MDP Agent - Environment Interface 
+
+We start by reviewing the agent-environment interface with this evolved notation and provide additional definitions that will help in grasping the concepts behind DRL. We treat MDP analytically effectively deriving the four Bellman equations 
 
 ![agent-env-interface](images/agent-env-interface.png#center)
 *Agent-Environment Interface*
 
-The following table summarizes the notation and provides some other useful definitions that we will use to describe required concepts later.  
+The following table summarizes the notation and contains useful definitions that we will use to describe required concepts later.  
 
 | Symbol  | Description  |
 |:-:|---|
@@ -22,7 +24,7 @@ The following table summarizes the notation and provides some other useful defin
 | $R_{t+1}$ | reward sent by the environment after taking action $A_t$ |
 | $t$ | time step index associated with each tuple ($S_t, A_t, R_{t+1}$) called the *experience*. | 
 | $T$ | maximum time step beyond which the interaction terminates |
-| _episode_ | the time horizon from $t=0$ to $T$ |
+| _episode_ | the time horizon from $t=0$ to $T-1$ |
 | $\tau$ | _trajectory_ - the sequence of experiences over an episode |
 | $G_t$ | _return_ - the total discounted rewards from time step $t$ - it will be qualified shortly. |
 | $\gamma$ | the discount factor $\gamma \in [0,1]$ |
@@ -212,7 +214,7 @@ These equations due to the $\max$ operator are non-linear and can be solved to o
 1. They _recursively decompose_ the value function into two subproblems: the optimal value function in the subproblem of the next step and the optimal value function in all subsequent steps of the trajectory. 
 2. They cache the optimal value functions to the sub-problems and by caching we can reuse them as needed. 
 
-## Reinforcement Learning as MDP
+## Reinforcement Learning and MDP
 
 In the reinforcement learning problem setting, agents _do not know_ essential elements of the MDP $\mathcal M = <\mathcal S, \mathcal P, \mathcal R, \mathcal A, \gamma>$ that were assumed as given in the previous section. This includes the transition function, $P^a_{ss^\prime}$ and the reward function $\mathcal R_s^a$ that are essential as we have seen above to estimate the value function and optimize the policy.
 
