@@ -49,6 +49,70 @@ As a trivial example, that shortest path problems we have seen in the [planning 
 ![value-iteration-simple-grid-world](images/../../drl-policy/images/value-iteration-simple-grid-world.png#center)
 *Simple grid world where each action results in a reward of -1 and we are asked to define the shortest path towards the goal state $g$. Notice that in the synchronous backup case in each iteration we update all states.*
 
+### Gridworld Value Iteration Calculation
+
+In a hypothetical small grid world, shown below (from [here](http://i-systems.github.io/HSE545/iAI/AI/topics/05_MDP/11_MDP.html))
+
+![gridworld](images/gridworld.png#center)
+*Gridworld to showcase the state-value calculation in Python code below. The states are numbered sequentially from top right.*
+
+we can calculate the state-value function its the vector form - the function in this world maps the state space to the 11th dim real vector space  $v(s): \mathcal S \rightarrow \mathbb R^{11}$ aka the value function is a vector of size 11.
+
+$$\mathbf{v}^{k+1} = \mathbf{\mathcal R}^\pi + \gamma \mathbf{\mathcal P}^\pi \mathbf{v}^k$$
+
+{{<expand "Grid world value function estimation" >}}
+
+```python
+
+# Each of the 11 rows of the "matrix" P[s][a] has 4 tuples - one for each of the allowed actions. Each tuple / action is written in the format (probability, s') and is associated with the 3 possible next states that the agent may end up despite its intention to go to the desired state. 
+
+P = {
+ 0: {0: [(0.9,0),(0.1,1),(0,4)], 1: [(0.8,1),(0.1,4),(0.1,0)], 2: [(0.8,4),(0.1,1),(0.1,0)], 3: [(0.9,0),(0.1,4)]},
+ 1: {0: [(0.8,1),(0.1,2),(0.1,0)], 1: [(0.8,2),(0.2,1)], 2: [(0.8,1),(0.1,0),(0.1,2)], 3: [(0.8,0),(0.2,1)]},
+ 2: {0: [(0.8,2),(0.1,3),(0.1,1)], 1: [(0.8,3),(0.1,5),(0.1,2)], 2: [(0.8,5),(0.1,1),(0.1,3)], 3: [(0.8,1),(0.1,2),(0.1,5)]},
+ 3: {0: [(0.9,3),(0.1,2)], 1: [(0.9,3),(0.1,6)], 2: [(0.8,6),(0.1,2),(0.1,3)], 3: [(0.8,2),(0.1,3),(0.1,6)]},
+ 4: {0: [(0.8,0),(0.2,4)], 1: [(0.8,4),(0.1,7),(0.1,0)], 2: [(0.8,7),(0.2,4)], 3: [(0.8,4),(0.1,0),(0.1,7)]},
+ 5: {0: [(0.8,2),(0.1,6),(0.1,5)], 1: [(0.8,6),(0.1,9),(0.1,2)], 2: [(0.8,9),(0.1,5),(0.1,6)], 3: [(0.8,5),(0.1,2),(0.1,9)]},
+ 6: {0: [(0.8,3),(0.1,6),(0.1,5)], 1: [(0.8,6),(0.1,10),(0.1,3)], 2: [(0.8,10),(0.1,5),(0.1,6)], 3: [(0.8,5),(0.1,3),(0.1,10)]},
+ 7: {0: [(0.8,4),(0.1,8),(0.1,7)], 1: [(0.8,8),(0.1,7),(0.1,4)], 2: [(0.9,7),(0.1,8)], 3: [(0.9,7),(0.1,4)]},
+ 8: {0: [(0.8,8),(0.1,9),(0.1,7)], 1: [(0.8,9),(0.2,8)], 2: [(0.8,8),(0.1,7),(0.1,9)], 3: [(0.8,7),(0.2,8)]},
+ 9: {0: [(0.8,5),(0.1,10),(0.1,8)], 1: [(0.8,9),(0.1,9),(0.1,5)], 2: [(0.8,9),(0.1,8),(0.1,10)], 3: [(0.8,8),(0.1,5),(0.1,9)]},
+ 10: {0: [(0.8,6),(0.1,10),(0.1,9)], 1: [(0.9,10),(0.1,6)], 2: [(0.9,10),(0.1,9)], 3: [(0.8,9),(0.1,6),(0.1,10)]}
+}
+
+R = [0, 0, 0, 1, 0, 0, -100, 0, 0, 0, 0]
+gamma = 0.9
+
+States = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+Actions = [0, 1, 2, 3] # [north, east, south, west]
+
+v = [0]*11
+
+# value iteration
+
+for i in range(100):
+    for s in States:
+        q_0 = sum(trans[0]*v[trans[1]] for trans in P[s][0])
+        q_1 = sum(trans[0]*v[trans[1]] for trans in P[s][1])
+        q_2 = sum(trans[0]*v[trans[1]] for trans in P[s][2])
+        q_3 = sum(trans[0]*v[trans[1]] for trans in P[s][3])
+
+        v[s] = R[s] + gamma*max(q_0, q_1, q_2, q_3)
+    
+print(v)
+
+# [5.46991289990088, 6.313016781079707, 7.189835364530538, 8.668832766371658, 4.8028486314273, 3.346646443535637, -96.67286272722137, 4.161433444369266, 3.6539401768050603, 3.2220160316109103, 1.526193402980731]
+
+# once v computed, we can calculate the optimal policy 
+optPolicy = [0]*11
+
+for s in States:       
+    optPolicy[s] = np.argmax([sum([trans[0]*v[trans[1]] for trans in P[s][a]]) for a in Actions])
+
+print(optPolicy)    
+# [1, 1, 1, 0, 0, 3, 3, 0, 3, 3, 2]
+```
 
 ## The SARSA RL Algorithm 
-TBC
+
+

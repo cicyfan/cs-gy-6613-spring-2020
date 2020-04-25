@@ -216,7 +216,7 @@ These equations due to the $\max$ operator are non-linear and can be solved to o
 
 ## Relationship between MDP and Reinforcement Learning 
 
-Its been a long road to reach this point, arguably for a very short conclusion on the relationship of RL and the previously derived MDP solution. 
+Its been a long road to reach this point and we have just a short very short conclusion on the relationship of RL and the previously derived MDP solution. 
 
 In the reinforcement learning problem setting, agents _do not know_ essential elements of the MDP $\mathcal M = <\mathcal S, \mathcal P, \mathcal R, \mathcal A, \gamma>$ that were assumed as given in the previous section. This includes the transition function, $P^a_{ss^\prime}$ and the reward function $\mathcal R_s^a$ that are essential as we have seen above to estimate the value function and optimize the policy.
 
