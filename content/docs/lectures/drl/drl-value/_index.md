@@ -60,7 +60,7 @@ we can calculate the state-value function its the vector form - the function in 
 
 $$\mathbf v_{k+1} = \max_a \left( \mathcal R^a + \gamma \mathcal P^a \mathbf v_k \right) $$
 
-{{<expand "Grid world value function estimation" >}}
+{{<expand "Grid world value iteration" >}}
 
 ```python
 
