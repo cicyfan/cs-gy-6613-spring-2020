@@ -25,7 +25,7 @@ A policy $\pi(a|s)$ achieves the optimal value from state $s$, $v_\pi(s) = v_*(s
 
 As an example if I want to move optimally towards a location in the room, I can make a optimal first step and at that point I can follow the optimal policy that I was magically given towards the desired final location. Effectively this principle allows us to decompose the problem into two sub-problems with one of them bring straightforward to determine and use the Bellman **optimality equation** that provides the one step backup induction at each iteration.  
 
-$$v_*(s) = \max_a \mathcal R_s^a + \gamma \sum_{s^\prime \in \mathcal S} \mathcal{P}^a_{ss^\prime} v_*(s^\prime)$$
+$$v_*(s) = \max_a \left( \mathcal R_s^a + \gamma \sum_{s^\prime \in \mathcal S} \mathcal{P}^a_{ss^\prime} v_*(s^\prime) \right)$$
 
 So we start at the end of the problem where we know the final rewards and work backwards to all the states that correct to it in our look ahead tree. Note that algorithm can function though without consideration as to what state results in a successor that is the goal. 
 
@@ -49,16 +49,16 @@ As a trivial example, that shortest path problems we have seen in the [planning 
 ![value-iteration-simple-grid-world](images/../../drl-policy/images/value-iteration-simple-grid-world.png#center)
 *Simple grid world where each action results in a reward of -1 and we are asked to define the shortest path towards the goal state $g$. Notice that in the synchronous backup case in each iteration we update all states.*
 
-### Gridworld Value Iteration Calculation
+### Value Iteration Calculation Example
 
-In a hypothetical small grid world, shown below (from [here](http://i-systems.github.io/HSE545/iAI/AI/topics/05_MDP/11_MDP.html))
+In another more elaborate example shown below (from [here](http://i-systems.github.io/HSE545/iAI/AI/topics/05_MDP/11_MDP.html))
 
 ![gridworld](images/gridworld.png#center)
 *Gridworld to showcase the state-value calculation in Python code below. The states are numbered sequentially from top right.*
 
 we can calculate the state-value function its the vector form - the function in this world maps the state space to the 11th dim real vector space  $v(s): \mathcal S \rightarrow \mathbb R^{11}$ aka the value function is a vector of size 11.
 
-$$\mathbf{v}^{k+1} = \mathbf{\mathcal R}^\pi + \gamma \mathbf{\mathcal P}^\pi \mathbf{v}^k$$
+$$\mathbf v_{k+1} = \max_a \left( \mathcal R^a + \gamma \mathcal P^a \mathbf v_k \right) $$
 
 {{<expand "Grid world value function estimation" >}}
 
