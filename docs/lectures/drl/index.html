@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.71dbd1b1901b587da3851577ee5825355fde30cd7c377eb34b060c17b1d1ca70.js" integrity="sha256-cdvRsZAbWH2jhRV37lglNV/eMM18N36zSwYMF7HRynA="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.d32a8ab1fd72f0a86dc2ddd5e9c732505bddd7d5f6d1c77ae774adc6c553f171.js" integrity="sha256-0yqKsf1y8Khtwt3V6ccyUFvd19X20cd653StxsVT8XE="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -1776,7 +1776,7 @@ https://github.com/alex-shpak/hugo-book
       
 
   <a href="/cs-gy-6613-spring-2020/docs/lectures/drl/mdp/" >
-      RL as a Unknown Markov Decision Process
+      MDP and RL
   </a>
 
 
@@ -2552,9 +2552,13 @@ https://github.com/alex-shpak/hugo-book
 
       
 <article class="markdown"><h1 id="deep-reinforcement-learning">Deep Reinforcement Learning</h1>
+<p><img src="images/drl-concept.png#center" alt="drl-concept">
+<em>DRL Principle - we will explain this figure when we treat policy-based RL</em></p>
 <p>In this chapter we build upon what we learned in the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/">MDP</a> chapter and develop agents that can act in an initially unknown environment and learn via their interactions with it, gradually improving their policy.</p>
 <p>These agents are different from the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/">planning agents</a> where the <em>model</em> of the environment is known and with <em>no interaction</em> with it the agent improves its policy, using this model as well as problem solving and logical reasoning skills.</p>
-<p>Apart from the notes here that are largely based on <a href="https://www.davidsilver.uk/teaching/">David Silver&rsquo;s (Deep Mind) course material</a> and <a href="https://www.youtube.com/watch?v=2pWv7GOvuf0&amp;list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ">video lectures</a>, the curious mind will be find additional resources in the suggested book by Google researchers as well as on <a href="https://openai.com/resources/">OpenAI&rsquo;s website</a>.</p>
+<p>Apart from the notes here that are largely based on <a href="https://www.davidsilver.uk/teaching/">David Silver&rsquo;s (Deep Mind) course material</a> and <a href="https://www.youtube.com/watch?v=2pWv7GOvuf0&amp;list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ">video lectures</a>, the curious mind will be find additional resources <a href="https://www.amazon.com/Deep-Reinforcement-Learning-Python-Hands-dp-0135172381/dp/0135172381/ref=mt_paperback?_encoding=UTF8&amp;me=&amp;qid=">in the suggested book for this part of the course</a> written by Google researchers as well as on <a href="https://openai.com/resources/">OpenAI&rsquo;s website</a>.</p>
+<p>The algorithmic exploration in RL is a very long journey as shown below - we will cover only 2-3 algorithms that can be used as design patterns for the others.</p>
+<p><img src="images/drl-algorithm-evolution.png#center" alt="drl-algorithm-evolution"></p>
 </article>
  
 
@@ -2566,9 +2570,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/4b84ad929e60b2bb17cbf79091c96fbb8fc67796" title='Last modified by MONOGIOUDIS Pantelis | Apr 22, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/1458aa375d8b91d3b59f9e9b71a6d786239a4f7d" title='Last modified by MONOGIOUDIS Pantelis | Apr 24, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Apr 22, 2020</span>
+      <span>Apr 24, 2020</span>
     </a>
   </div>
 

@@ -4,19 +4,19 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="RL as a Unknown Markov Decision Process"><meta property="og:title" content="RL as a Unknown Markov Decision Process" />
+<meta name="description" content="MDP and RL"><meta property="og:title" content="MDP and RL" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl/mdp/" />
 
-<title>RL as a Unknown Markov Decision Process | CS-GY-6613 Spring 2020</title>
+<title>MDP and RL | CS-GY-6613 Spring 2020</title>
 <link rel="icon" href="/cs-gy-6613-spring-2020/favicon.png" type="image/x-icon">
 
 
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.71dbd1b1901b587da3851577ee5825355fde30cd7c377eb34b060c17b1d1ca70.js" integrity="sha256-cdvRsZAbWH2jhRV37lglNV/eMM18N36zSwYMF7HRynA="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.d32a8ab1fd72f0a86dc2ddd5e9c732505bddd7d5f6d1c77ae774adc6c553f171.js" integrity="sha256-0yqKsf1y8Khtwt3V6ccyUFvd19X20cd653StxsVT8XE="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl/mdp/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -1776,7 +1776,7 @@ https://github.com/alex-shpak/hugo-book
       
 
   <a href="/cs-gy-6613-spring-2020/docs/lectures/drl/mdp/"  class="active">
-      RL as a Unknown Markov Decision Process
+      MDP and RL
   </a>
 
 
@@ -2526,7 +2526,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/cs-gy-6613-spring-2020/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>RL as a Unknown Markov Decision Process</strong>
+  <strong>MDP and RL</strong>
 
   <label for="toc-control">
     <img src="/cs-gy-6613-spring-2020/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -2540,16 +2540,16 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#rl-as-a-unknown-markov-decision-process">RL as a Unknown Markov Decision Process</a>
+    <li><a href="#mdp-and-rl">MDP and RL</a>
       <ul>
         <li><a href="#the-mdp-agent---environment-interface">The MDP Agent - Environment Interface</a></li>
         <li><a href="#value-functions">Value Functions</a>
           <ul>
-            <li><a href="#calculating-the-value-functions-given-a-policy">Calculating the value functions given a policy</a></li>
+            <li><a href="#computing-the-value-functions-given-a-policy">Computing the value functions given a policy</a></li>
             <li><a href="#solving-the-mdp">Solving the MDP</a></li>
           </ul>
         </li>
-        <li><a href="#reinforcement-learning-as-mdp">Reinforcement Learning as MDP</a></li>
+        <li><a href="#reinforcement-learning-and-mdp">Reinforcement Learning and MDP</a></li>
       </ul>
     </li>
   </ul>
@@ -2562,12 +2562,13 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-<article class="markdown"><h1 id="rl-as-a-unknown-markov-decision-process">RL as a Unknown Markov Decision Process</h1>
-<p>This chapter builds on the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/">MDP chapter</a> and uses slightly different notation that is more conventionally followed in Reinforcement Learning (RL) literature.  We start by reviewing the agent-environment interface with this evolved notation and provide additional definitions that will help in grasping the concepts behind DRL.</p>
+<article class="markdown"><h1 id="mdp-and-rl">MDP and RL</h1>
+<p>This chapter builds on the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/">MDP chapter</a> and uses slightly different notation that is more conventionally followed in Reinforcement Learning (RL) literature.</p>
 <h2 id="the-mdp-agent---environment-interface">The MDP Agent - Environment Interface</h2>
+<p>We start by reviewing the agent-environment interface with this evolved notation and provide additional definitions that will help in grasping the concepts behind DRL. We treat MDP analytically effectively deriving the four Bellman equations</p>
 <p><img src="images/agent-env-interface.png#center" alt="agent-env-interface">
 <em>Agent-Environment Interface</em></p>
-<p>The following table summarizes the notation and provides some other useful definitions that we will use to describe required concepts later.</p>
+<p>The following table summarizes the notation and contains useful definitions that we will use to describe required concepts later.</p>
 <table>
 <thead>
 <tr>
@@ -2598,7 +2599,7 @@ https://github.com/alex-shpak/hugo-book
 </tr>
 <tr>
 <td align="center"><em>episode</em></td>
-<td>the time horizon from $t=0$ to $T$</td>
+<td>the time horizon from $t=0$ to $T-1$</td>
 </tr>
 <tr>
 <td align="center">$\tau$</td>
@@ -2625,6 +2626,7 @@ https://github.com/alex-shpak/hugo-book
 <p>$$s_{t+1} = p( s_{t+1} | (s_0, a_0), &hellip;, (s_t, a_t) ) =  p( s_{t+1} | s_t, a_t)$$</p>
 <p>we define a Markov Decision Process as the 5-tuple $\mathcal M = &lt;\mathcal S, \mathcal P, \mathcal R, \mathcal A, \gamma&gt;$ that produces a sequence of experiences $(S_1, A_1, R_2), (S_2, A_2, R_3), &hellip;$. Together with the policy $\pi$, the state transition probability matrix $\mathcal P$ is defined as</p>
 <p>$$\mathcal P^a_{ss^\prime} = p[S_{t+1}=s^\prime | S_t=s, A_t=a ]$$</p>
+<p>where $s^\prime$ simply translates in English to the successor state whatever the new state is.</p>
 <blockquote class="book-hint info">
   Can you determine the state transition matrix for the 4x3 Gridworld in <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/">MDP chapter</a>?  What each row of this matrix represents?
 </blockquote>
@@ -2653,7 +2655,7 @@ $$ … $$</p>
 <p>We also define the <em>action-value function</em> $q_\pi(s,a)$ as the expected return starting from the state $s$, taking action $a$ and following policy $\pi(a|s)$.</p>
 <p>$$q_\pi(s,a) = \mathop{\mathbb{E}_\pi} (G_t | S_t=s, A_t=a)$$</p>
 <p>This is an important quantity as it helps us decide the action we need to take while in state $s$.</p>
-<h3 id="calculating-the-value-functions-given-a-policy">Calculating the value functions given a policy</h3>
+<h3 id="computing-the-value-functions-given-a-policy">Computing the value functions given a policy</h3>
 <p>In this section we describe how to calculate the value functions. As you can imagine this means replacing the expectations with summations over quantities such as states and actions while, at the same time, making the required computations as efficient as possible.</p>
 <p>Lets start with the state-value function that can be written as,</p>
 <p>$$v(s) = \mathop{\mathbb{E}} \left[G_t | S_t=s\right] = \mathop{\mathbb{E}} \left[ \sum_{k=0}^∞\gamma^k R_{t+1+k} | S_t=s\right]$$
@@ -2661,17 +2663,16 @@ $$ = \mathop{\mathbb{E}} \left[ R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3}+ &he
 $$ = \mathop{\mathbb{E}} \left[ R_{t+1} + \gamma (R_{t+2} + \gamma R_{t+3}+ &hellip;) | S_t=s \right]$$
 $$ = \mathop{\mathbb{E}} \left[ R_{t+1} + \gamma v(S_{t+1}=s^\prime) | S_t=s \right]$$</p>
 <p>NOTE: All above expectations are with respect to policy $\pi$.</p>
-<p>This is perhaps one of the <em>most important</em> recursions in control theory - it is known as the <strong>Bellman expectation equation</strong>.</p>
-<p>The parts of the value function above are (1) the immediate reward, (2) the discounted value of the successor state $\gamma v(S_{t+1}=s^\prime)$.</p>
+<p>This is perhaps one of the <em>most important</em> recursions in control theory - it is known as the <strong>Bellman expectation equation</strong> repeated below:</p>
 <p>$$v_\pi(s) = \mathop{\mathbb{E}_\pi} \left[ R_{t+1} + \gamma ~ v_\pi(S_{t+1}=s^\prime) | S_t=s \right]$$</p>
-<p>Similarly to the state-value function we can decompose the action-value function as,</p>
+<p>The parts of the value function above are (1) the immediate reward, (2) the discounted value of the successor state $\gamma v(S_{t+1}=s^\prime)$. Similarly to the state-value function we can decompose the action-value function as,</p>
 <p>$$q_\pi(s,a) = \mathop{\mathbb{E}_\pi} \left[ R_{t+1} + \gamma ~ q_\pi(S_{t+1}=s^\prime, A_{t+1}) | S_t=s, A_t=a \right]$$</p>
-<p>The value functions can be written in a more computationally attractive form by considering what is happening at each time step. At each time step while in state $S_t=s$ we have a number of actions we can choose, the probabilities of which depend on the policy $\pi(a|s)$. What value we can reap from each action is given to us by $q_\pi(s,a)$.  This is depicted below.</p>
+<p>We now face the problem that we need to compute these two value functions and we start by considering what is happening at each time step. At each time step while in state $S_t=s$ we have a number of actions we can choose, the probabilities of which depend on the policy $\pi(a|s)$. What value we can reap from each action is given to us by $q_\pi(s,a)$.  This is depicted below.</p>
 <p><img src="images/state-value-tree.png#center" alt="state-value-tree">
-<em>Actions can be taken from that state $s$ according to the policy $\pi$</em></p>
+<em>Actions can be taken from that state $s$ according to the policy $\pi$. Actions are represented in this simple tree with action nodes (solid circles) while state nodes are represented by empty circles.</em></p>
 <p>Translating what we have just described in equation form, allows us to write the state-value equation as,</p>
 <p>$$v(s) = \sum_{a \in \mathcal A} \pi(a|s) q_\pi(s,a)$$</p>
-<p>Similarly the action-value function can be written by taking the expectation,</p>
+<p>This sum is easily understood if you move backwards from the action nodes of the tree to the state node. Each edge weighs with $\pi(a|s)$ the corresponding action-value. This backwards calculation is referred to a a <em>backup</em>. We can now reason fairly similarly about the action-value function that can be written by taking the expectation,</p>
 <p>$$q_\pi(s,a)  = \mathop{\mathbb{E}_\pi} \left[ R_{t+1} |  S_t=s, A_t= a \right] + \gamma ~ \mathop{\mathbb{E}_\pi} \left[ v_\pi(S_{t+1}=s^\prime) | S_t=s, A_t= a \right]$$</p>
 <p>The first expectation is the reward function $\mathcal{R}^a_s$ by definition. The second expectation can be written in matrix form by considering that at each time step if we are to take an action $A_t=a$, the environment can transition to a number of successor states $S_{t+1}=s'$ and signal a reward $R_{t+1}$ as shown in the next figure.</p>
 <p><img src="images/action-value-tree.png#center" alt="action-value-tree">
@@ -2718,7 +2719,7 @@ $$q_*(s,a) = \max_\pi q_\pi(s,a)$$</p>
 <li>They <em>recursively decompose</em> the value function into two subproblems: the optimal value function in the subproblem of the next step and the optimal value function in all subsequent steps of the trajectory.</li>
 <li>They cache the optimal value functions to the sub-problems and by caching we can reuse them as needed.</li>
 </ol>
-<h2 id="reinforcement-learning-as-mdp">Reinforcement Learning as MDP</h2>
+<h2 id="reinforcement-learning-and-mdp">Reinforcement Learning and MDP</h2>
 <p>In the reinforcement learning problem setting, agents <em>do not know</em> essential elements of the MDP $\mathcal M = &lt;\mathcal S, \mathcal P, \mathcal R, \mathcal A, \gamma&gt;$ that were assumed as given in the previous section. This includes the transition function, $P^a_{ss^\prime}$ and the reward function $\mathcal R_s^a$ that are essential as we have seen above to estimate the value function and optimize the policy.</p>
 <p>The only way an agent can get information about these missing functions is through its experiences (states, actions, and rewards) in the environment—that is, the tuples ($S_t, A_t, R_{t+1}$). Provided that it can learn such functions, RL has be posed as an MDP policy optimization problem.</p>
 </article>
@@ -2732,9 +2733,9 @@ $$q_*(s,a) = \max_\pi q_\pi(s,a)$$</p>
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/e8391f6e2bdc0887927a4419384403d631b2feb8" title='Last modified by MONOGIOUDIS Pantelis | Apr 22, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/c1071361dd854d42f1972fd20db0bdba2df10165" title='Last modified by MONOGIOUDIS Pantelis | Apr 25, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Apr 22, 2020</span>
+      <span>Apr 25, 2020</span>
     </a>
   </div>
 
@@ -2762,16 +2763,16 @@ $$q_*(s,a) = \max_\pi q_\pi(s,a)$$</p>
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#rl-as-a-unknown-markov-decision-process">RL as a Unknown Markov Decision Process</a>
+    <li><a href="#mdp-and-rl">MDP and RL</a>
       <ul>
         <li><a href="#the-mdp-agent---environment-interface">The MDP Agent - Environment Interface</a></li>
         <li><a href="#value-functions">Value Functions</a>
           <ul>
-            <li><a href="#calculating-the-value-functions-given-a-policy">Calculating the value functions given a policy</a></li>
+            <li><a href="#computing-the-value-functions-given-a-policy">Computing the value functions given a policy</a></li>
             <li><a href="#solving-the-mdp">Solving the MDP</a></li>
           </ul>
         </li>
-        <li><a href="#reinforcement-learning-as-mdp">Reinforcement Learning as MDP</a></li>
+        <li><a href="#reinforcement-learning-and-mdp">Reinforcement Learning and MDP</a></li>
       </ul>
     </li>
   </ul>
