@@ -51,6 +51,8 @@ we define a Markov Decision Process as the 5-tuple $\mathcal M = <\mathcal S, \m
 
 $$\mathcal P^a_{ss^\prime} = p[S_{t+1}=s^\prime | S_t=s, A_t=a ]$$
 
+where $s^\prime$ simply translates in English to the successor state whatever the new state is.
+
 {{<hint info>}}
 Can you determine the state transition matrix for the 4x3 Gridworld in [MDP chapter]({{<ref "../../mdp">}})?  What each row of this matrix represents?
 {{</hint>}}
@@ -101,7 +103,7 @@ $$q_\pi(s,a) = \mathop{\mathbb{E}_\pi} (G_t | S_t=s, A_t=a)$$
 
 This is an important quantity as it helps us decide the action we need to take while in state $s$. 
 
-### Calculating the value functions given a policy
+### Computing the value functions given a policy
 
 In this section we describe how to calculate the value functions. As you can imagine this means replacing the expectations with summations over quantities such as states and actions while, at the same time, making the required computations as efficient as possible. 
 
@@ -114,26 +116,24 @@ $$ = \mathop{\mathbb{E}} \left[ R_{t+1} + \gamma v(S_{t+1}=s^\prime) | S_t=s \ri
 
 NOTE: All above expectations are with respect to policy $\pi$.
 
-This is perhaps one of the _most important_ recursions in control theory - it is known as the **Bellman expectation equation**. 
-
-The parts of the value function above are (1) the immediate reward, (2) the discounted value of the successor state $\gamma v(S_{t+1}=s^\prime)$. 
+This is perhaps one of the _most important_ recursions in control theory - it is known as the **Bellman expectation equation** repeated below:
 
 $$v_\pi(s) = \mathop{\mathbb{E}_\pi} \left[ R_{t+1} + \gamma ~ v_\pi(S_{t+1}=s^\prime) | S_t=s \right]$$
 
-Similarly to the state-value function we can decompose the action-value function as,
+The parts of the value function above are (1) the immediate reward, (2) the discounted value of the successor state $\gamma v(S_{t+1}=s^\prime)$. Similarly to the state-value function we can decompose the action-value function as,
 
 $$q_\pi(s,a) = \mathop{\mathbb{E}_\pi} \left[ R_{t+1} + \gamma ~ q_\pi(S_{t+1}=s^\prime, A_{t+1}) | S_t=s, A_t=a \right]$$
 
-The value functions can be written in a more computationally attractive form by considering what is happening at each time step. At each time step while in state $S_t=s$ we have a number of actions we can choose, the probabilities of which depend on the policy $\pi(a|s)$. What value we can reap from each action is given to us by $q_\pi(s,a)$.  This is depicted below. 
+We now face the problem that we need to compute these two value functions and we start by considering what is happening at each time step. At each time step while in state $S_t=s$ we have a number of actions we can choose, the probabilities of which depend on the policy $\pi(a|s)$. What value we can reap from each action is given to us by $q_\pi(s,a)$.  This is depicted below. 
 
 ![state-value-tree](images/state-value-tree.png#center)
-*Actions can be taken from that state $s$ according to the policy $\pi$*
+*Actions can be taken from that state $s$ according to the policy $\pi$. Actions are represented in this simple tree with action nodes (solid circles) while state nodes are represented by empty circles.*
 
 Translating what we have just described in equation form, allows us to write the state-value equation as,
 
 $$v(s) = \sum_{a \in \mathcal A} \pi(a|s) q_\pi(s,a)$$
 
-Similarly the action-value function can be written by taking the expectation,
+This sum is easily understood if you move backwards from the action nodes of the tree to the state node. Each edge weighs with $\pi(a|s)$ the corresponding action-value. This backwards calculation is referred to a a _backup_. We can now reason fairly similarly about the action-value function that can be written by taking the expectation,
 
 $$q_\pi(s,a)  = \mathop{\mathbb{E}_\pi} \left[ R_{t+1} |  S_t=s, A_t= a \right] + \gamma ~ \mathop{\mathbb{E}_\pi} \left[ v_\pi(S_{t+1}=s^\prime) | S_t=s, A_t= a \right]$$
 
