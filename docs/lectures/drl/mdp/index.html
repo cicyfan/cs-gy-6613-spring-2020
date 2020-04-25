@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.30f17b9ff440489f92eb3363930b3fca03addb5dd3a732d961c096f8b4396056.js" integrity="sha256-MPF7n/RASJ&#43;S6zNjkws/ygOt213TpzLZYcCW&#43;LQ5YFY="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.a2dc26b1e7193d9ee4832f3fd5bb47cecc5c19e52c1e6d5da1f0475ec55a8595.js" integrity="sha256-otwmsecZPZ7kgy8/1btHzsxcGeUsHm1dofBHXsVahZU="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl/mdp/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -2549,7 +2549,7 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#solving-the-mdp">Solving the MDP</a></li>
           </ul>
         </li>
-        <li><a href="#reinforcement-learning-and-mdp">Reinforcement Learning and MDP</a></li>
+        <li><a href="#relationship-between-mdp-and-reinforcement-learning">Relationship between MDP and Reinforcement Learning</a></li>
       </ul>
     </li>
   </ul>
@@ -2719,7 +2719,8 @@ $$q_*(s,a) = \max_\pi q_\pi(s,a)$$</p>
 <li>They <em>recursively decompose</em> the value function into two subproblems: the optimal value function in the subproblem of the next step and the optimal value function in all subsequent steps of the trajectory.</li>
 <li>They cache the optimal value functions to the sub-problems and by caching we can reuse them as needed.</li>
 </ol>
-<h2 id="reinforcement-learning-and-mdp">Reinforcement Learning and MDP</h2>
+<h2 id="relationship-between-mdp-and-reinforcement-learning">Relationship between MDP and Reinforcement Learning</h2>
+<p>Its been a long road to reach this point, arguably for a very short conclusion on the relationship of RL and the previously derived MDP solution.</p>
 <p>In the reinforcement learning problem setting, agents <em>do not know</em> essential elements of the MDP $\mathcal M = &lt;\mathcal S, \mathcal P, \mathcal R, \mathcal A, \gamma&gt;$ that were assumed as given in the previous section. This includes the transition function, $P^a_{ss^\prime}$ and the reward function $\mathcal R_s^a$ that are essential as we have seen above to estimate the value function and optimize the policy.</p>
 <p>The only way an agent can get information about these missing functions is through its experiences (states, actions, and rewards) in the environment—that is, the tuples ($S_t, A_t, R_{t+1}$). Provided that it can learn such functions, RL has be posed as an MDP policy optimization problem.</p>
 </article>
@@ -2733,7 +2734,7 @@ $$q_*(s,a) = \max_\pi q_\pi(s,a)$$</p>
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/c1071361dd854d42f1972fd20db0bdba2df10165" title='Last modified by MONOGIOUDIS Pantelis | Apr 25, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/814c6ff495f368f19e86b434387edba476e701e5" title='Last modified by MONOGIOUDIS Pantelis | Apr 25, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Apr 25, 2020</span>
     </a>
@@ -2772,7 +2773,7 @@ $$q_*(s,a) = \max_\pi q_\pi(s,a)$$</p>
             <li><a href="#solving-the-mdp">Solving the MDP</a></li>
           </ul>
         </li>
-        <li><a href="#reinforcement-learning-and-mdp">Reinforcement Learning and MDP</a></li>
+        <li><a href="#relationship-between-mdp-and-reinforcement-learning">Relationship between MDP and Reinforcement Learning</a></li>
       </ul>
     </li>
   </ul>
