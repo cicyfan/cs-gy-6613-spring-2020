@@ -7,6 +7,8 @@ title: Project 5 - Explainable COVID-19 Pneumonia (OPTIONAL)
 ![lung-opacity](images/lung-opacity.png#center)
 *Opacities in the lungs caused by pneumonia*
 
+**This project is due May 3 at 11:59pm**
+
 In spring of 2020, the spread of COVID-19 caused hundreds of thousands of deaths world wide due to the severe pneumonia in combination of immune system reactions to it.  Your job is to develop an AI system that detects pneumonia.  Doctors are reluctant to accept black box algorithms such as your deep learning based method - as an AI engineer you need to listen to them and try to satisfy their needs, they are your customer after all. They tell you that your automated diagnostic system that processes the imaging they give you, must be  _explainable_. 
 
 They give you [the COVID X-ray / CT Imaging dataset](https://github.com/ieee8023/covid-chestxray-dataset) and:
