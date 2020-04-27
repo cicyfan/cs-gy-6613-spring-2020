@@ -69,7 +69,7 @@
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/syllabus/</loc>
-    <lastmod>2020-04-22T14:16:05-04:00</lastmod>
+    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
   </url>
   
   <url>
@@ -278,28 +278,53 @@
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl/mdp/</loc>
-    <lastmod>2020-04-25T16:35:36-04:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl-i/mdp/</loc>
+    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl/pomdp/</loc>
-    <lastmod>2020-04-22T14:16:05-04:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl-i/pomdp/</loc>
+    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl/drl-policy/</loc>
-    <lastmod>2020-04-22T17:24:17-04:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl-i/drl-policy/</loc>
+    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl/drl-value/</loc>
-    <lastmod>2020-04-25T16:43:43-04:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl-i/REINFORCE/</loc>
+    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl/</loc>
-    <lastmod>2020-04-24T18:35:16-04:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl-ii/drl-value/</loc>
+    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl-ii/sarsa/</loc>
+    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl-i/</loc>
+    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl-ii/</loc>
+    <lastmod>2020-04-27T17:22:39-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/nlp-i/</loc>
+    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/nlp-ii/</loc>
+    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
   </url>
   
   <url>
@@ -325,11 +350,6 @@
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drafts/drl-model/vae/</loc>
     <lastmod>2020-04-09T10:40:40-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drafts/nlp/</loc>
-    <lastmod>2020-04-06T21:02:57-04:00</lastmod>
   </url>
   
   <url>
@@ -367,8 +387,8 @@
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drafts/nlp/word2vec/</loc>
-    <lastmod>2020-04-06T21:02:34-04:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/nlp-i/word2vec/</loc>
+    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
   </url>
   
   <url>
@@ -383,7 +403,7 @@
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/</loc>
-    <lastmod>2020-04-22T14:16:05-04:00</lastmod>
+    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
   </url>
   
   <url>
@@ -394,6 +414,11 @@
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/tensorflow-introduction/</loc>
     <lastmod>2020-01-29T21:03:45-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drafts/knowledge-representations/</loc>
+    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
   </url>
   
   <url>
@@ -439,6 +464,11 @@
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/classification/random-forests/</loc>
     <lastmod>2020-02-02T18:55:03-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drafts/language-grounding/</loc>
+    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
   </url>
   
   <url>
