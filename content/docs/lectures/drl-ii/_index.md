@@ -1,7 +1,7 @@
 ---
 title: Lecture 10 - Deep Reinforcement Learning II
 weight: 120
-draft: true
+draft: false
 ---
 
 # Deep Reinforcement Learning II
