@@ -1,10 +1,10 @@
 ---
-title: Lecture 9 - Deep Reinforcement Learning
+title: Lecture 9 - Deep Reinforcement Learning I
 weight: 110
 draft: false
 ---
 
-# Deep Reinforcement Learning
+# Deep Reinforcement Learning I 
 
 ![drl-concept](images/drl-concept.png#center)
 *DRL Principle - we will explain this figure when we treat policy-based RL*
@@ -18,3 +18,4 @@ Apart from the notes here that are largely based on [David Silver's (Deep Mind) 
 The algorithmic exploration in RL is a very long journey as shown below - we will cover only 2-3 algorithms that can be used as design patterns for the others. 
 
 ![drl-algorithm-evolution](images/drl-algorithm-evolution.png#center)
+*DRL algorithms - taxonomy and evolution*

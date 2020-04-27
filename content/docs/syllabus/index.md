@@ -13,7 +13,13 @@ The course schedule below highlights our journey to understand the multiple subs
 
 The publisher is about to release the [4th edition (2020) of this classic](https://www.amazon.com/Artificial-Intelligence-A-Modern-Approach/dp/0134610997/ref=sr_1_3?crid=17NGBV1XXV150&keywords=ai+a+modern+approach&qid=1576432686&sprefix=ai+the+modern+appr%2Caps%2C158&sr=8-3). We will be monitoring availability in bookstores but it does not seem likely this edition to appear on time for the Spring 2020 class.  
 
-Other recommended texts are: (a) DRL: "Foundations of Deep Reinforcement Learning", by Graesser & Keng, 2020. (b) GERON: "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow", 2nd Edition, by Geron, 2019. (c) DL: https://www.deeplearningbook.org/ (free)
+Other recommended texts are: 
+
+(a) DRL: "Foundations of Deep Reinforcement Learning", by Graesser & Keng, 2020. 
+
+(b) GERON: "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow", 2nd Edition, by Geron, 2019. 
+
+(c) DL: https://www.deeplearningbook.org/ (free)
 
 ## Schedule
 
@@ -29,7 +35,7 @@ The schedule is based on [Academic Calendar Spring 2020](https://www.nyu.edu/reg
 
 **3/16/2020**  Enjoy President's Day holiday.
 
-4. **Lecture 4: (2/24/2020)** We dive into the most dominant DNN architecture today -  _Convolutional Neural Networks (CNNs) and Recursive Neural Networks (RNNs)_. Reading: DL Chapter 9 & 10. 
+4. **Lecture 4: (2/24/2020)** We dive into the most dominant DNN architecture today -  _Convolutional Neural Networks (CNNs). Reading: DL Chapter 9 & 10. 
 
 5. **Lecture 5: (3/2/2020)** When agents move in the environment they need to abilities such as _scene understanding_.  We will go through few key perception building blocks such as Object Detection, Semantic and Instance Segmentation. Some of these building blocks (autoencoders) are instructive examples of representations learning that will be shown to be an essential tool in the construction of environment state representations. Reading: Various papers 
         
@@ -39,7 +45,7 @@ The schedule is based on [Academic Calendar Spring 2020](https://www.nyu.edu/reg
 
 **3/16/2020**  Enjoy your Spring Break.
 
-7. **Lecture 7: (3/23/2020)** After the last lecture, the agent has a clear view of the environment state such as what and where the objects that surround it are, its able to track them as they potentially move. It needs to plan the best sequence of actions to reach its goal state and the approach we take here is that of _problem solving_. In fact planning and problem solving are inherently connected as concepts. If the goal state is feasible then the problem to solve  becomes that of  _search_. For instructive purposes we start from simple environmental conditions that are fully observed, known and deterministic. This is where the A* algorithm comes in. We then relax some of the assumptions and treat environments that are deterministic but the agent takes stochastic actions or when both the environment and agent actions are stochastic. We also investigate what happens when we do not just care about reaching our goal state, but when we, in addition, need to do so with optimality. Optimal planning under uncertainty is perhaps the cornerstone application today in robotics and other fields. Readings: Reading: AIMA Chapters 3 & 4 (problem solving)  AIMA Chapters 10 & 11 (planning) and selected papers.
+7. **Lecture 7: (4/13/2020)** After the last lecture, the agent has a clear view of the environment state such as what and where the objects that surround it are, its able to track them as they potentially move. It needs to plan the best sequence of actions to reach its goal state and the approach we take here is that of _problem solving_. In fact planning and problem solving are inherently connected as concepts. If the goal state is feasible then the problem to solve  becomes that of  _search_. For instructive purposes we start from simple environmental conditions that are fully observed, known and deterministic. This is where the A* algorithm comes in. We then relax some of the assumptions and treat environments that are deterministic but the agent takes stochastic actions or when both the environment and agent actions are stochastic. We also investigate what happens when we do not just care about reaching our goal state, but when we, in addition, need to do so with optimality. Optimal planning under uncertainty is perhaps the cornerstone application today in robotics and other fields. Readings: Reading: AIMA Chapters 3 & 4 (problem solving)  AIMA Chapters 10 & 11 (planning) and selected papers.
 
 **3/30/2020 - This is your Midterm Test (2h)** 
 
@@ -47,20 +53,15 @@ The schedule is based on [Academic Calendar Spring 2020](https://www.nyu.edu/reg
 
 8. **Lecture 8: (4/6/2020)** We now make a considerable extension to our assumptions: the utility of the agent now depends on a sequence of decisions and, further, the stochastic environment offers a feedback signal to the agent called _reward_. We review how the agent's policy, the sequence of actions, can be calculated when it fully observes its current state (MDP) and also when it can only partially do so (POMDP). We conclude with the basic taxonomy of the algorithmic space for RL problems.   Readings: AIMA Chapter 16 & 17, DRL Chapter 1. This lecture will be delivered by my colleague Gurudutt Hossangadi. 
         
-9.  **Lecture 9: (4/13/2020)**  The algorithms that learn optimal policies in such settings are known as Reinforcement Learning (RL). Today they are enhanced with the Deep Neural Networks that we met in Part I, to significantly improve the expected reward since DNNs are excellent in approximating the various functions embedded in such problems. In this lecture we start on the exploration of the various algorithms and treat the policy-based algorithm called REINFORCE and the value based algorithm called State Action Reward State Action (SARSA).  DRL Chapter 2 & 3.  
+9.  **Lecture 9: (4/20/2020)**  The algorithms that learn optimal policies in such settings are known as Reinforcement Learning (RL). In this lecture we establish the connection between MDP and RL, by introducing the Bellman expectation backup and Bellman optimality equations. We then use these equations to derive the policy iteration algorithm that is behind the policy-based REINFORCE algorithm that is empowered by approximating the policy function using the Deep Neural Networks that we met in the perception subsystem. DRL Chapter 2.  
                 
-10.   **Lecture 10: (4/20/2020)**  Staying in the setting of model-free algorithms we will look into DQN and DDQN. Readings: DRL Chapter 4 and 5. 
+10.   **Lecture 10: (4/27/2020)**  In this lecture we aim to expand our DRL treatment on value-based methods and the principle of action-value iteration. We then look at algorithm incarnations of value-based methods such as State Action Reward State Action (SARSA) and DQN and understand how they learn the value functions. Readings: DRL Chapter 3 and 4. 
 
-### Part IV: Knowledge Bases and Communication
-
-11.    **Lecture 11: (4/27/2019)**  Every intelligent agent needs to know how the world works for each task it encounters. These facts are stored in its Knowledge Base also known as Knowledge Graph. In addition as the agent affects the environment it must be able to create the right representations using its perception systems and update the knowledge base with dynamic content. Finally it needs to draw conclusions - aka infer new facts from existing ones - that will help the task at hand.  Readings: AIMA Chapter 12 and selected papers. 
+### Part IV: Natural Language Processing and Representations
                 
-12.    **Lecture 12: (5/05/2020)**  We are all familiar that natural language is the prime means of communication between humans to collaboratively complete successfully tasks or simply share our knowledge bases. How can we achieve the same objectives when we enable communicate with intelligent agents. Is natural language the universal language that together with imitation is the missing link in our ability to (re)task robots from intelligent assistants to cognitive collaborative robots in our factories of the future? Readings: AIMA Chapter 23 and selected papers. 
+11.    **Lecture 11: (5/05/2020)**  We are all familiar that natural language is the prime means of communication between humans to collaboratively complete successfully tasks or simply share information. How machines can understand language? In this lecture we pose the NLP problem, understand its components and their mechanics. We then talk extensively about _language modeling_ and start with an approach based on the [RNN / LTSM]({{<ref "../lectures/rnn">}}) architecture. The later is used far beyond language modeling and expands into every use case that involves sequences. AIMA Chapter 23 and DL Chapter 10. 
         
-13.   **Lecture 13: (5/11/2020)** We will have a special lecture titled **COVID19: How AI can enable us to return safely to work**. We will also review what kind of questions you are expected to face in the final exam. **Final projects are due 5/10/2020 11:59pm.** 
+12.    **Lecture 12: (5/11/2020)** . We introduce the concept of _attention_ and go through the Transformer framework - perhaps the most successful architecture in NLP today. We also cover some key aspects of the course to prepare for the final test. 
         
-14.   **Lecture 14: (5/18/2020)**  Good luck with your final test.
+13.    **Lecture 13: (5/18/2020)**  Good luck with your final test.
           
-
-
-

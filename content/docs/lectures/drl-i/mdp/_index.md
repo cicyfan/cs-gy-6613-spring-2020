@@ -148,12 +148,14 @@ What successor states we will transition to depends on the _transition model_ $P
 
 $$q_\pi(s,a) = \mathcal R_s^a + \gamma \sum_{s^\prime \in \mathcal S} \mathcal{P}^a_{ss^\prime} v_\pi(s^\prime)$$
 
-Substituting the  $v_\pi(s^\prime)$ is represented by the following tree that considers the action-value function over two steps. 
+Substituting the  $v_\pi(s^\prime)$ is represented by the following tree that considers the action-value function over a look ahead step. 
 
 ![action-state-action-value-tree](images/action-state-action-value-tree.png#center)
 *Tree that represents the action-value function after a one-step look ahead.*
 
+{{<hint danger>}}
 $$q_\pi(s,a) = \mathcal R_s^a + \gamma \sum_{s^\prime \in \mathcal S} \mathcal{P}^a_{ss^\prime} \sum_{a^\prime \in \mathcal A} \pi(a^\prime|s^\prime) q_\pi(s^\prime,a^\prime)$$
+{{</hint>}}
 
 Now that we have a computable $q_\pi(s,a)$ value function we can go back and substitute it into the equation of the state-value function. Again we can representing this substitution by the tree structure below.
 
@@ -162,31 +164,32 @@ Now that we have a computable $q_\pi(s,a)$ value function we can go back and sub
 
 With the substitution we can write the state-value function as,
 
+{{<hint danger>}}
 $$v_\pi(s) = \sum_{a \in \mathcal A} \pi(a|s) \left( \mathcal R_s^a + \gamma \sum_{s^\prime \in \mathcal S} \mathcal{P}^a_{ss^\prime} v_\pi(s^\prime) \right)$$
+{{</hint>}}
 
 As we will see in a separate chapter, this equation is going to be used to iteratively calculate the converged value function of each state given an MDP and a policy.  The equation is referred to as the _Bellman expectation backup_ - it took its name from the previously shown tree like structure where we use state value functions from the leaf modes $s^\prime$ to the root node.
 
 ### Solving the MDP
 
-Now that we can calculate the value functions efficiently via the Bellman expectation recursions, we can now solve the MDP which requires to calculate the action-value function and maximizing it over all possible policies.  The _optimal_ state-value function and _optimal_ action value function are given by definition,
+Now that we can calculate the value functions efficiently via the Bellman expectation recursions, we can now solve the MDP which requires maximize either of the two functions over all possible policies.  The _optimal_ state-value function and _optimal_ action-value function are given by definition,
 
 $$v_*(s) = \max_\pi v_\pi(s)$$
 $$q_*(s,a) = \max_\pi q_\pi(s,a)$$
 
-If we can calculate $q_*(s,a)$ we have found the best possible action in each state of the environment - in other words we can now obtain the _optimal deterministic policy_ by maximizing over $q_*(s,a)$
+If we can calculate $q_*(s,a)$ we have found the best possible action in each state of the environment. In other words we can now obtain the _optimal deterministic policy_ by maximizing over $q_*(s,a)$ - mathematically this can be expressed as,
 
 $$\pi_*(a|s) = \begin{cases}1 & \text{if }\ a = \argmax_{a \in \mathcal A} q_*(s,a), \\\\ 
 0 & \text{otherwise}\end{cases}$$
 
-So the question becomes how to calculate the optimal value functions. We return to the tree structures that helped us understand the interdependencies between the two and this time we look at the optimal equivalents. 
+So the problem now becomes how to calculate the optimal value functions. We return to the tree structures that helped us understand the interdependencies between the two and this time we look at the optimal equivalents. 
 
 ![optimal-state-value-tree](images/optimal-state-value-tree.png#center)
 *Actions can be taken from that state $s$ according to the policy $\pi_*$*
 
-Following similar reasoning as in the Bellman expectation equation where we calculated the value of state $s$ as an average of the values that can be claimed by taking all possible actions, now we replace the average with the max. 
+Following similar reasoning as in the Bellman expectation equation where we calculated the value of state $s$ as an average of the values that can be claimed by taking all possible actions, now we simply replace the average with the max. 
 
 $$v_*(s) = \max_a q_*(s,a)$$
-
 
 ![optimal-action-value-tree](images/optimal-action-value-tree.png#center)
 *Successor states that can be reached from state $s$ if the agent selects action $a$. $R_{t+1}=r$ we denote the instantaneous reward for each of the possibilities.*
@@ -197,22 +200,24 @@ $$q_*(s,a) = \mathcal R_s^a + \gamma \sum_{s^\prime \in \mathcal S} \mathcal{P}^
 
 Notice that there is no $\max$ is this expression as we have no control on the successor state - that is something the environment controls. So all we can do is average. 
 
-Now we can similarly attempt to create a recursion that will lead to the **Bellman optimality equation** that effectively solve the MDP, by going into the second step expanding the trees above.
+Now we can similarly attempt to create a _recursion_ that will lead to the **Bellman optimality equations** that effectively solve the MDP, by expanding the trees above.
 
 ![optimal-state-action-state-value-tree](images/optimal-state-action-state-value-tree.png#center)
-*Tree that represents the optimal state-value function after a one-step look ahead.*
+*Tree that represents the optimal state-value function after a two-step look ahead.*
 
 ![optimal-action-state-action-value-tree](images/optimal-action-state-action-value-tree.png#center)
-*Tree that represents the optimal action-value function after a one-step look ahead.*
+*Tree that represents the optimal action-value function after a two-step look ahead.*
 
+{{<hint danger>}}
 $$v_*(s) = \max_a \left( \mathcal R_s^a + \gamma \sum_{s^\prime \in \mathcal S} \mathcal{P}^a_{ss^\prime} v_*(s^\prime) \right)$$
 
 $$q_*(s,a) = \mathcal R_s^a + \gamma \sum_{s^\prime \in \mathcal S} \mathcal{P}^a_{ss^\prime} \max_{a^\prime} q_*(s^\prime,a^\prime)$$
+{{</hint>}}
 
 These equations due to the $\max$ operator are non-linear and can be solved to obtain the MDP solution aka $q_*(s,a)$ iteratively via a number of methods: policy iteration, value iteration, Q-learning, SARSA. We will see some of these methods in detail in later chapters. The key advantage in the Bellman optimality equations is efficiency: 
 
-1. They _recursively decompose_ the value function into two subproblems: the optimal value function in the subproblem of the next step and the optimal value function in all subsequent steps of the trajectory. 
-2. They cache the optimal value functions to the sub-problems and by caching we can reuse them as needed. 
+1. They _recursively decompose_ the problem into two subproblems: the subproblem of the next step and the optimal value function in all subsequent steps of the trajectory.
+2. They cache the optimal value functions to the sub-problems and by doing so we can reuse them as needed.
 
 ## Relationship between MDP and Reinforcement Learning 
 
