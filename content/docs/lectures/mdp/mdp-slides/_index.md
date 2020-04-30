@@ -13,7 +13,7 @@ draft: false
 * Review
 * Sequential Decisions and MDP
 * POMDPs
-* Reinforcement Learning   
+* Reinforcement Learning 
 
 
 ---
@@ -39,9 +39,9 @@ An agent is anything that can perceive an **environment** through sensors and th
 
 $4$ main categories depending on how percepts are mapped to actions:
 * **Simple reflex agent**: selects an action based on current percept
-* **Model based reflex agent**: uses current perspect and a model of the world to take action
-* **Goal based agent**:  uses current perspective, a model of the world and set of goals it is trying to achieve to take action
-* **Utility based agent**: uses current perspective, a model of the world, set of goals it is trying to achieve and utility of outcomes to take action
+* **Model based reflex agent**: uses current percept and a model of the world to take action
+* **Goal based agent**:  uses current perceptive, a model of the world and set of goals it is trying to achieve to take action
+* **Utility based agent**: uses current perceptive, a model of the world, set of goals it is trying to achieve and utility of outcomes to take action
 
 
 ----

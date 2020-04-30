@@ -1,12 +1,10 @@
 ---
-title: MDP and RL
+title: Introduction to MDP
 weight: 102
 draft: false
 ---
 
-# MDP and RL 
-
-This chapter builds on the [MDP chapter]({{<ref "../../mdp">}}) and uses slightly different notation that is more conventionally followed in Reinforcement Learning (RL) literature.  
+# Introduction to MDP
 
 ## The MDP Agent - Environment Interface 
 
@@ -54,7 +52,7 @@ $$\mathcal P^a_{ss^\prime} = p[S_{t+1}=s^\prime | S_t=s, A_t=a ]$$
 where $s^\prime$ simply translates in English to the successor state whatever the new state is.
 
 {{<hint info>}}
-Can you determine the state transition matrix for the 4x3 Gridworld in [MDP chapter]({{<ref "../../mdp">}})?  What each row of this matrix represents?
+Can you determine the state transition matrix for the 4x3 Gridworld in [MDP slides]({{<ref "../mdp-slides">}})?  What each row of this matrix represents?
 {{</hint>}}
 
 Note that Markov processes are sometimes erroneously called _memoryless_ but in any MDP above we can incorporate memory aka dependence in more than one state over time by cleverly defining the state $S_t$ as a container of a number of states. For example, $S_t = \left[ S_t=s, S_{t-1} = s^\prime \right]$ can still define an Markov transition using $S$ states. The transition model $p(S_t | S_{t-1}) = p(s_t, s_{t-1} | s_{t-1}, s_{t-2}) = p(s_t|s_{t-1}, s_{t-2})$ is called the 2nd order Markov chain. 
@@ -79,7 +77,7 @@ Notice the two indices needed for its definition - one is the time step $t$ that
 
 $$ \sum_{k=0}^∞\gamma^k R_{t+1+k} <  \sum_{k=0}^∞\gamma^k R_{max} = \frac{R_{max}}{1-\gamma}$$
 
-The return is itself a random variable - for each trajectory defined by sampling the policy (strategy) of the agent we get a different return. For the Gridworld of the [MDP chapter]({{<ref "../../mdp">}}):
+The return is itself a random variable - for each trajectory defined by sampling the policy (strategy) of the agent we get a different return. For the Gridworld of the [MDP slides]({{<ref "../mdp-slides">}}):
 
 $$\tau_1: S_0=s_{11}, S_1 = s_{12},  ... S_T=s_{43} \rightarrow G^{\tau_1}_0 = 5.6$$
 $$\tau_2: S_0=s_{11}, S_1=s_{21}, ... , S_T=s_{43} \rightarrow G^{\tau_2}_0 = 6.9$$
@@ -87,7 +85,7 @@ $$ … $$
 
 Please note that the actual values are different - these are sample numbers to make the point that the return depends on the specific trajectory.
 
-The _state-value function_ $v_\pi(s)$ provides a notion of the long-term value of state $s$. It is equivalent to the _utility_ we have seen in the [MDP chapter]({{<ref "../../mdp">}}). It is defined as the _expected_ return starting at state $s$ and following policy $\pi(a|s)$, 
+The _state-value function_ $v_\pi(s)$ provides a notion of the long-term value of state $s$. It is equivalent to the _utility_ we have seen in the [MDP slides]({{<ref "../mdp-slides">}}). It is defined as the _expected_ return starting at state $s$ and following policy $\pi(a|s)$, 
 
 $$v_\pi(s) = \mathop{\mathbb{E}_\pi}(G_t | S_t=s)$$
 
@@ -216,14 +214,7 @@ $$q_*(s,a) = \mathcal R_s^a + \gamma \sum_{s^\prime \in \mathcal S} \mathcal{P}^
 
 These equations due to the $\max$ operator are non-linear and can be solved to obtain the MDP solution aka $q_*(s,a)$ iteratively via a number of methods: policy iteration, value iteration, Q-learning, SARSA. We will see some of these methods in detail in later chapters. The key advantage in the Bellman optimality equations is efficiency: 
 
-1. They _recursively decompose_ the problem into two subproblems: the subproblem of the next step and the optimal value function in all subsequent steps of the trajectory.
+1. They _recursively decompose_ the problem into two sub-problems: the subproblem of the next step and the optimal value function in all subsequent steps of the trajectory.
 2. They cache the optimal value functions to the sub-problems and by doing so we can reuse them as needed.
 
-## Relationship between MDP and Reinforcement Learning 
-
-Its been a long road to reach this point and we have just a short very short conclusion on the relationship of RL and the previously derived MDP solution. 
-
-In the reinforcement learning problem setting, agents _do not know_ essential elements of the MDP $\mathcal M = <\mathcal S, \mathcal P, \mathcal R, \mathcal A, \gamma>$ that were assumed as given in the previous section. This includes the transition function, $P^a_{ss^\prime}$ and the reward function $\mathcal R_s^a$ that are essential as we have seen above to estimate the value function and optimize the policy.
-
-The only way an agent can get information about these missing functions is through its experiences (states, actions, and rewards) in the environment—that is, the tuples ($S_t, A_t, R_{t+1}$). Provided that it can learn such functions, RL has be posed as an MDP policy optimization problem. 
 

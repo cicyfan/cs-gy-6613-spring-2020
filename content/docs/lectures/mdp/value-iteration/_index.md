@@ -6,7 +6,7 @@ draft: false
 
 # Value Iteration
 
-This chapter, is divided into two parts. In the first part, similar to the [policy-based DRL]({{<ref "../../drl-i/drl-policy">}}) that we presume the reader has gone through, we continue to investigate approaches for the _planning_ problem with a _known MDP_. 
+This chapter, is divided into two parts. In the first part, similar to the [policy-based DRL]({{<ref "../../mdp/policy-iteration">}}) that we presume the reader has gone through, we continue to investigate approaches for the _planning_ problem with a _known MDP_. 
 
 In the second part, we find optimal policy solutions when the MDP is _unknown_ and we need to _learn_ its underlying functions - also known as the  _model free_ prediction problem.  
 
@@ -118,7 +118,7 @@ print(optPolicy)
 
 ## Monte-Carlo (MC) Approximations
 
-The state-value function was defined in the [MDP chapter]({{<ref "../../drl-i/mdp">}}) as the _expected_ return.
+The state-value function was defined in the [MDP chapter]({{<ref "../../mdp">}}) as the _expected_ return.
 
 $$v_\pi(s) = \mathop{\mathbb{E}_\pi}(G_t | S_t=s)$$
 

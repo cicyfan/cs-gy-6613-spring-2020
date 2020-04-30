@@ -8,7 +8,7 @@ draft: false
 
 The SARSA algorithm is a value-based algorithm and far more applicable in practice than policy-based since it tends to be more sample efficient - a general trait of many value-based algorithms despite the usual hybridization that is usually applicable today. Its name is attributed to the fact that we need to know the State-Action-Reward-State-Action before performing an update. There are two concepts that we need to grasp:
 
-1. The first is a technique for learning the Q-function known via the [_temporal difference (TD) learning_]({{<ref "../drl-value">}}) we saw earlier. 
+1. The first is a technique for learning the Q-function known via the [_temporal difference (TD) learning_]({{<ref "../../mdp/value-iteration">}}) we saw earlier. 
 
 2. The second is a method for generating actions using the learned Q-function. 
 

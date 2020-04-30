@@ -6,13 +6,13 @@ draft: false
 
 # Policy Iteration
 
-In this chapter is divided into two parts. In the first part, we develop the so called _planning_ problem (which is RL without learning) where we are dealing with a _known MDP_. This means that we know the transition and reward functions/models of the environment and we are after the optimal policy solutions. 
+In this chapter is divided into two parts. In the first part, we develop the so called _planning_ problem (which is RL without learning) where we are dealing with a _known MDP_. This means that we know the transition and reward functions/models of the environment and we are after the optimal policy solutions.
 
 In the second part, we find optimal policy solutions when the MDP is _unknown_ and we need to _learn_ its underlying functions / models - also known as the  _model free_ control problem. Learning in this chapter follows the _on-policy_ approach where the agent learns these models "on the job", so to speak. 
 
 ## Dynamic Programming and Policy Iteration
 
-In the [MDP]({{<ref "../mdp">}}) chapter we have derived the Bellman expectation _backup_ equations which allowed us to efficiently compute the value function. 
+In the [MDP]({{<ref "../mdp-intro">}}) chapter we have derived the Bellman expectation _backup_ equations which allowed us to efficiently compute the value function. 
 
 We have seen also that the Bellman optimality equations are non linear and need to be solved using iterative approaches - their solution will result in the optimal value function $v_*$ and the optimal policy $\pi_*$. Since the Bellman equations allow us to decompose recursively the problem into sub-problems, they in fact implement a general and exact approach called _dynamic programming_ which assumes full knowledge of the MDP.
 
@@ -36,7 +36,7 @@ It can be shown that the policy iteration will converge to the optimal value fun
 
 The policy $\pi$ is evaluated when we have produced the state-value function $v_\pi(s)$ for all states. In other words when we know the expected discounted returns that each state can offer us. To do so we apply the Bellman expectation backup equations repeatedly in an iterative fashion. 
 
-We start at $k=0$ by initializing all state-value function (a vactor) to $v_0(s)=0$. In each iteration $k+1$ we start with the state value function of the previous iteration $v_k(s)$ and apply the Bellman expectation backup as prescribed by the one step lookahead tree below that is decorated relative to what [we have seen]({{<ref "../../drl-i/mdp">}}) with the iteration information. This is called the synchronous backup formulation as we are updating all the elements of the value function vector at the same time. 
+We start at $k=0$ by initializing all state-value function (a vactor) to $v_0(s)=0$. In each iteration $k+1$ we start with the state value function of the previous iteration $v_k(s)$ and apply the Bellman expectation backup as prescribed by the one step lookahead tree below that is decorated relative to what [we have seen]({{<ref "../../mdp">}}) with the iteration information. This is called the synchronous backup formulation as we are updating all the elements of the value function vector at the same time. 
 
 ![policy-evaluation-tree](images/policy-evaluation-tree.png#center)
 *Tree representation of the state-value function with one step look ahead across iterations.*
