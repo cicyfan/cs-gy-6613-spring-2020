@@ -1,4 +1,4 @@
-<mxfile host="www.draw.io" modified="2020-04-30T22:35:58.662Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36" etag="7bjALS-1F3F6jsog4xwa" version="13.0.1" type="github" pages="2">
+<mxfile host="www.draw.io" modified="2020-04-30T22:49:32.604Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36" etag="n3BlzFs0vqYCXoYeiKSX" version="13.0.1" type="github" pages="2">
   <diagram id="f6YDRorcCoCOShzBDmNz" name="DRL-algorithms">
     <mxGraphModel dx="1026" dy="526" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -344,21 +344,49 @@
     </mxGraphModel>
   </diagram>
   <diagram id="BYep8m-cIbj7f0HKQsaV" name="Learning Path">
-    <mxGraphModel dx="1026" dy="559" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="1026" dy="559" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="1" shadow="0">
       <root>
         <mxCell id="1Aak9sEa_BhuOLAaGC4q-0" />
         <mxCell id="1Aak9sEa_BhuOLAaGC4q-1" parent="1Aak9sEa_BhuOLAaGC4q-0" />
-        <mxCell id="1Aak9sEa_BhuOLAaGC4q-2" value="MDP" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF4C3;" vertex="1" parent="1Aak9sEa_BhuOLAaGC4q-1">
+        <mxCell id="1Aak9sEa_BhuOLAaGC4q-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1Aak9sEa_BhuOLAaGC4q-1" target="1Aak9sEa_BhuOLAaGC4q-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="160" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1Aak9sEa_BhuOLAaGC4q-9" value="&lt;div style=&quot;font-family: &amp;#34;verdana&amp;#34; , &amp;#34;menlo&amp;#34; , &amp;#34;monaco&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; line-height: 17px&quot;&gt;&lt;span&gt;\( \mathcal M = &amp;lt;\mathcal S, \mathcal P, \mathcal R, \mathcal A, \gamma&amp;gt; \)&lt;/span&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1Aak9sEa_BhuOLAaGC4q-6">
+          <mxGeometry x="0.6429" y="1" relative="1" as="geometry">
+            <mxPoint x="-51" y="-19" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1Aak9sEa_BhuOLAaGC4q-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1Aak9sEa_BhuOLAaGC4q-1" source="1Aak9sEa_BhuOLAaGC4q-2" target="1Aak9sEa_BhuOLAaGC4q-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1Aak9sEa_BhuOLAaGC4q-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1Aak9sEa_BhuOLAaGC4q-1" target="1Aak9sEa_BhuOLAaGC4q-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="400" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1Aak9sEa_BhuOLAaGC4q-2" value="MDP&lt;br&gt;$$\mathcal M$$" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF4C3;" vertex="1" parent="1Aak9sEa_BhuOLAaGC4q-1">
           <mxGeometry x="120" y="120" width="80" height="320" as="geometry" />
         </mxCell>
-        <mxCell id="1Aak9sEa_BhuOLAaGC4q-3" value="PLANNING&lt;br&gt;PROBLEM" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF4C3;" vertex="1" parent="1Aak9sEa_BhuOLAaGC4q-1">
-          <mxGeometry x="240" y="120" width="160" height="80" as="geometry" />
+        <mxCell id="1Aak9sEa_BhuOLAaGC4q-3" value="PLANNING&lt;br&gt;VIA &lt;br&gt;DYNAMIC PROGRAMMING" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF4C3;" vertex="1" parent="1Aak9sEa_BhuOLAaGC4q-1">
+          <mxGeometry x="360" y="120" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="1Aak9sEa_BhuOLAaGC4q-4" value="PREDICTION" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF4C3;" vertex="1" parent="1Aak9sEa_BhuOLAaGC4q-1">
-          <mxGeometry x="240" y="240" width="160" height="80" as="geometry" />
+        <mxCell id="1Aak9sEa_BhuOLAaGC4q-4" value="MODEL-FREE&lt;br&gt;PREDICTION" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF4C3;" vertex="1" parent="1Aak9sEa_BhuOLAaGC4q-1">
+          <mxGeometry x="360" y="240" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="1Aak9sEa_BhuOLAaGC4q-5" value="CONTROL" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF4C3;" vertex="1" parent="1Aak9sEa_BhuOLAaGC4q-1">
-          <mxGeometry x="240" y="360" width="160" height="80" as="geometry" />
+        <mxCell id="1Aak9sEa_BhuOLAaGC4q-5" value="MODEL-FREE&lt;br&gt;CONTROL" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF4C3;" vertex="1" parent="1Aak9sEa_BhuOLAaGC4q-1">
+          <mxGeometry x="360" y="360" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="1Aak9sEa_BhuOLAaGC4q-15" value="&lt;div style=&quot;font-family: &amp;#34;verdana&amp;#34; , &amp;#34;menlo&amp;#34; , &amp;#34;monaco&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; line-height: 17px&quot;&gt;&lt;span&gt;\( \mathcal M = &amp;lt;\mathcal S, \mathcal A, \gamma&amp;gt; \)&lt;/span&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1Aak9sEa_BhuOLAaGC4q-1">
+          <mxGeometry x="330" y="280" as="geometry">
+            <mxPoint x="-51" y="-19" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1Aak9sEa_BhuOLAaGC4q-16" value="&lt;div style=&quot;font-family: &amp;#34;verdana&amp;#34; , &amp;#34;menlo&amp;#34; , &amp;#34;monaco&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; line-height: 17px&quot;&gt;&lt;span&gt;\( \mathcal M = &amp;lt;\mathcal S, \mathcal A, \gamma&amp;gt; \)&lt;/span&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1Aak9sEa_BhuOLAaGC4q-1">
+          <mxGeometry x="330" y="400" as="geometry">
+            <mxPoint x="-51" y="-19" as="offset" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
