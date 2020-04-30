@@ -233,12 +233,19 @@ print("")
 ```
 {{</expand>}}
 
-We already have seen that in the Gridworld environment, we may not _need_ to reach the optimal state value function $v_*(s)$ for an optimal policy to result, as shown in the next figure where the value function for the $k=3$ iteration results the same policy as the policy from a far more accurate value function (large k). 
+We already have seen that in the Gridworld environment, we may not _need_ to reach the optimal state value function $v_*(s)$ for an optimal policy to result, as shown in the next figure where the value function for the $k=3$ iteration results the same policy as the policy from a far more accurate value function (large k). The gridworld below is characterized by:
+
+* Undiscounted episodic MDP (γ = 1)
+* Nonterminal states 1, ..., 14
+* One terminal state (shown twice as shaded squares)
+* Actions leading out of the grid leave state unchanged
+* Reward is −1 until the terminal state is reached
+* Agent follows uniform random policy $\pi(north|.) = \pi(south|.) = \pi(east|.) = \pi(west | .) = 0.25$
 
 ![gridworld-policy-iterations](images/gridworld-policy-iterations.png#center)
 *Convergence to optimal policy via separate prediction and policy improvement iterations*
 
-We can therefore stop early and taking the argument to the limit, do the policy improvement step in _each_ iteration. This is equivalent to the value iteration that we will treat in a different chapter. 
+We can therefore stop early and taking the argument to the limit, do the policy improvement step in _each_ iteration. 
 
 In summary, we have seen that policy iteration solves the known MDPs. In the next section we remove the known MDP assumption and deal with the first Reinforcement Learning (RL) algorithm. 
 

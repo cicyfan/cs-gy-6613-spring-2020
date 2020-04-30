@@ -6,7 +6,7 @@ draft: false
 
 # Value Iteration
 
-This chapter, is divided into two parts. In the first part, similar to the [policy-based DRL]({{<ref "../../mdp/policy-iteration">}}) that we presume the reader has gone through, we continue to investigate approaches for the _planning_ problem with a _known MDP_. 
+In this chapter we continue to investigate approaches for the _planning_ problem with a _known MDP_. This is similar to the [policy-based]({{<ref "../../mdp/policy-iteration">}}) that we presume the reader has gone through. 
 
 In the second part, we find optimal policy solutions when the MDP is _unknown_ and we need to _learn_ its underlying functions - also known as the  _model free_ prediction problem.  
 
@@ -64,8 +64,9 @@ $$\mathbf v_{k+1} = \max_a \left( \mathcal R^a + \gamma \mathcal P^a \mathbf v_k
 {{<expand "Grid world value iteration" >}}
 
 ```python
-
-# Each of the 11 rows of the "matrix" P[s][a] has 4 tuples - one for each of the allowed actions. Each tuple / action is written in the format (probability, s') and is associated with the 3 possible next states that the agent may end up despite its intention to go to the desired state. 
+# Look at the backup tree above and the vector form Bellman equation to understand this code. 
+# Have them side by side while you are reading. 
+# Each of the 11 rows of the "matrix" P[s][a] has 4 tuples - one for each of the allowed actions. Each tuple / action is written in the format (probability, s') and is associated with the 3 possible next states that the agent may end up despite its intention to go to the desired state. The states are numbered sequentially from top left to bottom right. 
 
 P = {
  0: {0: [(0.9,0),(0.1,1),(0,4)], 1: [(0.8,1),(0.1,4),(0.1,0)], 2: [(0.8,4),(0.1,1),(0.1,0)], 3: [(0.9,0),(0.1,4)]},
@@ -93,6 +94,8 @@ v = [0]*11
 
 for i in range(100):
     for s in States:
+        # trans[1] = s'
+        # trans[0] = P_ss'
         q_0 = sum(trans[0]*v[trans[1]] for trans in P[s][0])
         q_1 = sum(trans[0]*v[trans[1]] for trans in P[s][1])
         q_2 = sum(trans[0]*v[trans[1]] for trans in P[s][2])
@@ -110,32 +113,44 @@ optPolicy = [0]*11
 for s in States:       
     optPolicy[s] = np.argmax([sum([trans[0]*v[trans[1]] for trans in P[s][a]]) for a in Actions])
 
-print(optPolicy)    
+print(optPolicy)
 # [1, 1, 1, 0, 0, 3, 3, 0, 3, 3, 2]
 ```
 
 {{</expand>}}
 
-## Monte-Carlo (MC) Approximations
+## Monte-Carlo (MC) Learning
 
-The state-value function was defined in the [MDP chapter]({{<ref "../../mdp">}}) as the _expected_ return.
+The state-value function was defined in the introductory [MDP section]({{<ref "../../mdp">}}) as the _expected_ return.
 
 $$v_\pi(s) = \mathop{\mathbb{E}_\pi}(G_t | S_t=s)$$
 
-In the discussion of the REINFORCE algorithm, we came across the approximation of the return, called _sample mean_ over a _sample_ episode / trajectory, 
+We can approximate the return, called _sample mean_ over a _sample_ episode / trajectory, 
 
 $$G_t(\tau) = \sum_{k=0}^{T-1}\gamma^k R_{t+1+k}$$
 
-We can therefore approximate the value function in what is in essence called _Monte-Carlo approximation_, by the sample mean of the returns over multiple over episodes / trajectories. In other words, to update each element of the state value function 
+We can therefore approximate the value function in what is in essence called _Monte-Carlo approximation_, by the sample mean of the returns over multiple episodes / trajectories. In other words, to update each element of the state value function 
 
-1. For each time step $t$ that state $s$ is visited in an episode
-   * Increment a counter $N(s)$ of visitations  
-   * Calculate the total return $S(s) = S(s) + G_t$
-2. At the end of multiple episodes, the value is estimated as $V(s) = S(s) / N(s)$
+1. For each time step $t$ that state $S_t$ is visited in an episode
+   * Increment a counter $N(S_t)$ of visitations  
+   * Calculate the total return $S(S_t) = S(S_t) + G_t$
+2. At the end of multiple episodes, the value is estimated as $V(S_t) = S(S_t) / N(S_t)$
 
-As $N(s) \rightarrow ∞$ the estimate will converge to $V(s) \rightarrow v_\pi(s)$.
+As $N(S_t) \rightarrow ∞$ the estimate will converge to $V(S_t) \rightarrow v_\pi(s)$.
 
 Notice that we started using capital letters for the _estimates_ of the value functions.  
+
+But we can also do the following trick, called _incremental mean approximation_, to get into a more flexible sample mean - the _running mean_.
+
+$$ \mu_k = \frac{1}{k} \sum_{j=1}^k x_j = \frac{1}{k} \left( x_k + \sum_{j=1}^{k-1} x_j \right)$$ 
+$$ = \frac{1}{k} \left(x_k + (k-1) \mu_{k-1}) \right) =  \mu_{k-1} + \frac{1}{k} ( x_k - \mu_{k-1} )$$
+
+Using the incremental sample mean we can approximate the value function after each episode if for each state $S_t$ with return $G_t$,
+
+$$ N(S_t) = N(S_t) +1 $$
+$$ V(S_t) = V(S_t) + \alpha \left( G_t - V(S_t) \right)$$
+
+where $\alpha = \frac{1}{N(S_t)}$ can be interpreted as the forgetting factor - it can also be any number $< 1$ to convert the sample mean into a running mean. 
 
 Going back to the familiar tree structure its interesting to see what MC does to the value estimate, given its equation:
 
@@ -150,19 +165,7 @@ $$V(S_t) = V(S_t) + \alpha(G_t - V(S_t))$$
 
 ## Temporal Difference (TD) Approximations
 
-Instead of waiting for the value function to be estimated at the end of multiple episodes, we can use the incremental mean approximation as shown below to update the value function after each episode. 
-
-$$ \mu_k = \frac{1}{k} \sum_{j=1}^k x_j = \frac{1}{k} \left( x_k + \sum_{j=1}^{k-1} x_j \right)$$ 
-$$ = \frac{1}{k} \left(x_k + (k-1) \mu_{k-1}) \right) =  \mu_{k-1} + \frac{1}{k} ( x_k - \mu_{k-1} )$$
-
-Using the incremental sample mean we can approximate the value function after each episode if for each state $S_t$ with return $G_t$,
-
-$$ N(S_t) = N(S_t) +1 $$
-$$ V(S_t) = V(S_t) + \alpha \left( G_t - V(S_t) \right)$$
-
-where $\alpha = \frac{1}{N(S_t)}$ can be interpreted as the forgetting factor - it can also be any number $< 1$ to convert the sample mean into a running mean. 
-
-Going back to the example of crossing the room optimally, we sample a trajectory, take a number steps and use an approximate value functions for the remaining trajectory. We repeat this as we go along effectively _bootstrapping_ the value function approximation with whatever we have experienced up to now. Mathematically, instead of using the _true_ return, TD uses a (biased) _estimated_ return called the _TD target_: $ R_{t+1} + \gamma V(S_{t+1})$ approximating the value function as:
+Instead of waiting for the value function to be estimated at the end of multiple episodes, we can use the incremental mean approximation to update the value function after each episode. Going back to the example of crossing the room optimally, we sample a trajectory, take a number steps and use an approximate value functions for the remaining trajectory. We repeat this as we go along effectively _bootstrapping_ the value function approximation with whatever we have experienced up to now. Mathematically, instead of using the _true_ return, TD uses a (biased) _estimated_ return called the _TD target_: $ R_{t+1} + \gamma V(S_{t+1})$ approximating the value function as:
 
 {{<hint danger>}}
 

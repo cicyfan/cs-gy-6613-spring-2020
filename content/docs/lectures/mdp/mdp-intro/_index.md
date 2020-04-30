@@ -33,7 +33,7 @@ The agent function, called **policy** $\pi$, produces an action either determini
 
 $$\pi(a|s)=p(A_t=a|S_t=s)$$
 
-The policy is assumed to be stationary i.e. not change with time step $t$ and it will depend only on the state $A_t \sim \pi(.|S_t), \forall t > 0$
+The policy is assumed to be stationary i.e. not change with time step $t$ and it will depend only on the state $S_t$ i.e. $A_t \sim \pi(.|S_t), \forall t > 0$
 
 This will have two effects:
 
