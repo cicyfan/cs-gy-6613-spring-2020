@@ -1,6 +1,6 @@
-<mxfile host="www.draw.io" modified="2020-04-30T23:35:08.216Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36" etag="qjn1XA1URRroMC49V78C" version="13.0.1" type="github" pages="2">
+<mxfile host="www.draw.io" modified="2020-04-30T23:37:54.032Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36" etag="DzCHvC5Ox9P0yXt_sakO" version="13.0.1" type="github" pages="2">
   <diagram id="f6YDRorcCoCOShzBDmNz" name="DRL-algorithms">
-    <mxGraphModel dx="1026" dy="526" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="1053" dy="701" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="keFImo63B462XZ4PSRHO-0" />
         <mxCell id="keFImo63B462XZ4PSRHO-1" parent="keFImo63B462XZ4PSRHO-0" />
@@ -399,7 +399,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="1Aak9sEa_BhuOLAaGC4q-27" value="&lt;meta charset=&quot;utf-8&quot;&gt;&lt;span style=&quot;font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;\( q_\pi(s,a) = \mathcal&amp;nbsp;R_s^a + \gamma&amp;nbsp;\sum_{s^\prime&amp;nbsp;\in&amp;nbsp;\mathcal&amp;nbsp;S} \mathcal{P}^a_{ss^\prime} \sum_{a^\prime&amp;nbsp;\in&amp;nbsp;\mathcal&amp;nbsp;A} \pi(a^\prime|s^\prime) q_\pi(s^\prime, a^\prime) \)&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1Aak9sEa_BhuOLAaGC4q-1">
-          <mxGeometry x="720" y="340" width="550" height="60" as="geometry" />
+          <mxGeometry x="590" y="340" width="550" height="60" as="geometry" />
         </mxCell>
         <mxCell id="1Aak9sEa_BhuOLAaGC4q-28" value="$$v_\pi(s) = \sum_{a \in \mathcal A} \pi(a|s) \left( \mathcal R_s^a + \gamma \sum_{s^\prime \in \mathcal S} \mathcal{P}^a_{ss^\prime} v_\pi(s^\prime) \right)$$" style="text;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;html=1;" vertex="1" parent="1Aak9sEa_BhuOLAaGC4q-1">
           <mxGeometry x="380" y="290" width="970" height="20" as="geometry" />
