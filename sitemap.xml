@@ -274,47 +274,42 @@
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/</loc>
-    <lastmod>2020-03-07T17:23:50-05:00</lastmod>
+    <lastmod>2020-04-30T06:06:33-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl-i/mdp/</loc>
-    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-intro/</loc>
+    <lastmod>2020-04-30T06:06:33-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl-i/pomdp/</loc>
-    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drafts/pomdp/</loc>
+    <lastmod>2020-04-30T06:06:33-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl-i/drl-policy/</loc>
-    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/policy-iteration/</loc>
+    <lastmod>2020-04-30T06:06:33-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl-i/REINFORCE/</loc>
-    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl/reinforce/</loc>
+    <lastmod>2020-04-30T06:06:33-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl-ii/drl-value/</loc>
-    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/value-iteration/</loc>
+    <lastmod>2020-04-30T06:06:33-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl-ii/sarsa/</loc>
-    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl/sarsa/</loc>
+    <lastmod>2020-04-30T06:06:33-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl-i/</loc>
-    <lastmod>2020-04-27T17:21:58-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl-ii/</loc>
-    <lastmod>2020-04-27T17:22:39-04:00</lastmod>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl/</loc>
+    <lastmod>2020-04-30T06:06:33-04:00</lastmod>
   </url>
   
   <url>
@@ -379,7 +374,7 @@
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-slides/</loc>
-    <lastmod>2020-04-22T14:16:05-04:00</lastmod>
+    <lastmod>2020-04-30T06:06:33-04:00</lastmod>
   </url>
   
   <url>
@@ -467,6 +462,10 @@
   </url>
   
   <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/resources/</loc>
+  </url>
+  
+  <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drafts/language-grounding/</loc>
     <lastmod>2020-04-27T17:21:58-04:00</lastmod>
   </url>
@@ -478,6 +477,10 @@
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-math/netflix/</loc>
     <lastmod>2020-01-29T21:03:45-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/resources/mdp-study-guide/</loc>
   </url>
   
   <url>
