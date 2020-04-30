@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.fed7ddf26a8a81f05a6f9d69a2b8cc0d7e2792eb0051f58f8e1f2fd4c3e89887.js" integrity="sha256-/tfd8mqKgfBab51porjMDX4nkusAUfWPjh8v1MPomIc="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.0196800d5bb96468d4f2ff2d34070bfea0463016da5dd53e0a60347a8a1f3edb.js" integrity="sha256-AZaADVu5ZGjU8v8tNAcL/qBGMBbaXdU&#43;CmA0eoofPts="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-intro/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -2665,13 +2665,7 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      
-
-  <a href="/cs-gy-6613-spring-2020/docs/resources/mdp-study-guide/" >
-      What you need to know on MDP
-  </a>
-
-
+      <span>What you need to know on MDP</span>
     
 
     
@@ -2828,7 +2822,7 @@ https://github.com/alex-shpak/hugo-book
 <p>As the figure above indicates, the agent <em>perceives fully</em> the environment state $S_t$  (<strong>fully observed</strong>) via a bank of sensors. In other words the agent knows which state the environment is perfectly.</p>
 <p>The agent function, called <strong>policy</strong> $\pi$, produces an action either deterministically $a=\pi(s)$ or stochastically where the function produces a probability of actions conditioned in the current state:</p>
 <p>$$\pi(a|s)=p(A_t=a|S_t=s)$$</p>
-<p>The policy is assumed to be stationary i.e. not change with time step $t$ and it will depend only on the state $A_t \sim \pi(.|S_t), \forall t &gt; 0$</p>
+<p>The policy is assumed to be stationary i.e. not change with time step $t$ and it will depend only on the state $S_t$ i.e. $A_t \sim \pi(.|S_t), \forall t &gt; 0$</p>
 <p>This will have two effects:</p>
 <p>The first is that the action itself will change the environment state to some other state. This can be represented via the environment <em>state transition</em> probabilistic model that generically can be written as:</p>
 <p>$$s_{t+1} = p( s_{t+1} | (s_0, a_0), &hellip;, (s_t, a_t) )$$</p>
@@ -2950,7 +2944,7 @@ $$q_*(s,a) = \max_\pi q_\pi(s,a)$$</p>
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/55aafc93c05d31d4a835fa5bbe284b037d2ebffb" title='Last modified by MONOGIOUDIS Pantelis | Apr 30, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/d717250e09bea8ccbb07fcc225e93aac291b08d8" title='Last modified by MONOGIOUDIS Pantelis | Apr 30, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Apr 30, 2020</span>
     </a>

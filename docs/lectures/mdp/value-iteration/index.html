@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.fed7ddf26a8a81f05a6f9d69a2b8cc0d7e2792eb0051f58f8e1f2fd4c3e89887.js" integrity="sha256-/tfd8mqKgfBab51porjMDX4nkusAUfWPjh8v1MPomIc="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.0196800d5bb96468d4f2ff2d34070bfea0463016da5dd53e0a60347a8a1f3edb.js" integrity="sha256-AZaADVu5ZGjU8v8tNAcL/qBGMBbaXdU&#43;CmA0eoofPts="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/value-iteration/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -2665,13 +2665,7 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      
-
-  <a href="/cs-gy-6613-spring-2020/docs/resources/mdp-study-guide/" >
-      What you need to know on MDP
-  </a>
-
-
+      <span>What you need to know on MDP</span>
     
 
     
@@ -2759,7 +2753,7 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#dp-value-iteration-example">DP Value-iteration example</a></li>
           </ul>
         </li>
-        <li><a href="#monte-carlo-mc-approximations">Monte-Carlo (MC) Approximations</a></li>
+        <li><a href="#monte-carlo-mc-learning">Monte-Carlo (MC) Learning</a></li>
         <li><a href="#temporal-difference-td-approximations">Temporal Difference (TD) Approximations</a>
           <ul>
             <li><a href="#the-tdlambda">The TD($\lambda$)</a></li>
@@ -2778,7 +2772,7 @@ https://github.com/alex-shpak/hugo-book
 
       
 <article class="markdown"><h1 id="value-iteration">Value Iteration</h1>
-<p>This chapter, is divided into two parts. In the first part, similar to the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/policy-iteration/">policy-based DRL</a> that we presume the reader has gone through, we continue to investigate approaches for the <em>planning</em> problem with a <em>known MDP</em>.</p>
+<p>In this chapter we continue to investigate approaches for the <em>planning</em> problem with a <em>known MDP</em>. This is similar to the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/policy-iteration/">policy-based</a> that we presume the reader has gone through.</p>
 <p>In the second part, we find optimal policy solutions when the MDP is <em>unknown</em> and we need to <em>learn</em> its underlying functions - also known as the  <em>model free</em> prediction problem.</p>
 <h2 id="dynamic-programming-and-value-iteration">Dynamic Programming and Value Iteration</h2>
 <p>The basic principle behind value-iteration is the principle that underlines dynamic programming and is called the <em>principle of optimality</em> as applied to policies. According to this principle an <em>optimal</em> policy can be divided into two components.</p>
@@ -2868,10 +2862,14 @@ https://github.com/alex-shpak/hugo-book
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
-<span style="color:#008000"># Each of the 11 rows of the &#34;matrix&#34; P[s][a] has 4 tuples - one for each of the allowed actions. Each tuple / action is written in the format (probability, s&#39;) and is associated with the 3 possible next states that the agent may end up despite its intention to go to the desired state. </span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#008000"># Look at the backup tree above and the vector form Bellman equation to understand this code. </span>
+<span style="color:#008000"># Have them side by side while you are reading. </span>
+<span style="color:#008000"># Each of the 11 rows of the &#34;matrix&#34; P[s][a] has 4 tuples - one for each of the allowed actions. Each tuple / action is written in the format (probability, s&#39;) and is associated with the 3 possible next states that the agent may end up despite its intention to go to the desired state. The states are numbered sequentially from top left to bottom right. </span>
 
 P = {
  0: {0: [(0.9,0),(0.1,1),(0,4)], 1: [(0.8,1),(0.1,4),(0.1,0)], 2: [(0.8,4),(0.1,1),(0.1,0)], 3: [(0.9,0),(0.1,4)]},
@@ -2899,6 +2897,8 @@ v = [0]*11
 
 <span style="color:#00f">for</span> i <span style="color:#00f">in</span> range(100):
     <span style="color:#00f">for</span> s <span style="color:#00f">in</span> States:
+        <span style="color:#008000"># trans[1] = s&#39;</span>
+        <span style="color:#008000"># trans[0] = P_ss&#39;</span>
         q_0 = sum(trans[0]*v[trans[1]] <span style="color:#00f">for</span> trans <span style="color:#00f">in</span> P[s][0])
         q_1 = sum(trans[0]*v[trans[1]] <span style="color:#00f">for</span> trans <span style="color:#00f">in</span> P[s][1])
         q_2 = sum(trans[0]*v[trans[1]] <span style="color:#00f">for</span> trans <span style="color:#00f">in</span> P[s][2])
@@ -2916,7 +2916,7 @@ optPolicy = [0]*11
 <span style="color:#00f">for</span> s <span style="color:#00f">in</span> States:       
     optPolicy[s] = np.argmax([sum([trans[0]*v[trans[1]] <span style="color:#00f">for</span> trans <span style="color:#00f">in</span> P[s][a]]) <span style="color:#00f">for</span> a <span style="color:#00f">in</span> Actions])
 
-<span style="color:#00f">print</span>(optPolicy)    
+<span style="color:#00f">print</span>(optPolicy)
 <span style="color:#008000"># [1, 1, 1, 0, 0, 3, 3, 0, 3, 3, 2]</span>
 </code></pre></td></tr></table>
 </div>
@@ -2925,23 +2925,30 @@ optPolicy = [0]*11
   </label>
 </div>
 
-<h2 id="monte-carlo-mc-approximations">Monte-Carlo (MC) Approximations</h2>
-<p>The state-value function was defined in the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/">MDP chapter</a> as the <em>expected</em> return.</p>
+<h2 id="monte-carlo-mc-learning">Monte-Carlo (MC) Learning</h2>
+<p>The state-value function was defined in the introductory <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/">MDP section</a> as the <em>expected</em> return.</p>
 <p>$$v_\pi(s) = \mathop{\mathbb{E}_\pi}(G_t | S_t=s)$$</p>
-<p>In the discussion of the REINFORCE algorithm, we came across the approximation of the return, called <em>sample mean</em> over a <em>sample</em> episode / trajectory,</p>
+<p>We can approximate the return, called <em>sample mean</em> over a <em>sample</em> episode / trajectory,</p>
 <p>$$G_t(\tau) = \sum_{k=0}^{T-1}\gamma^k R_{t+1+k}$$</p>
-<p>We can therefore approximate the value function in what is in essence called <em>Monte-Carlo approximation</em>, by the sample mean of the returns over multiple over episodes / trajectories. In other words, to update each element of the state value function</p>
+<p>We can therefore approximate the value function in what is in essence called <em>Monte-Carlo approximation</em>, by the sample mean of the returns over multiple episodes / trajectories. In other words, to update each element of the state value function</p>
 <ol>
-<li>For each time step $t$ that state $s$ is visited in an episode
+<li>For each time step $t$ that state $S_t$ is visited in an episode
 <ul>
-<li>Increment a counter $N(s)$ of visitations</li>
-<li>Calculate the total return $S(s) = S(s) + G_t$</li>
+<li>Increment a counter $N(S_t)$ of visitations</li>
+<li>Calculate the total return $S(S_t) = S(S_t) + G_t$</li>
 </ul>
 </li>
-<li>At the end of multiple episodes, the value is estimated as $V(s) = S(s) / N(s)$</li>
+<li>At the end of multiple episodes, the value is estimated as $V(S_t) = S(S_t) / N(S_t)$</li>
 </ol>
-<p>As $N(s) \rightarrow ∞$ the estimate will converge to $V(s) \rightarrow v_\pi(s)$.</p>
+<p>As $N(S_t) \rightarrow ∞$ the estimate will converge to $V(S_t) \rightarrow v_\pi(s)$.</p>
 <p>Notice that we started using capital letters for the <em>estimates</em> of the value functions.</p>
+<p>But we can also do the following trick, called <em>incremental mean approximation</em>, to get into a more flexible sample mean - the <em>running mean</em>.</p>
+<p>$$ \mu_k = \frac{1}{k} \sum_{j=1}^k x_j = \frac{1}{k} \left( x_k + \sum_{j=1}^{k-1} x_j \right)$$
+$$ = \frac{1}{k} \left(x_k + (k-1) \mu_{k-1}) \right) =  \mu_{k-1} + \frac{1}{k} ( x_k - \mu_{k-1} )$$</p>
+<p>Using the incremental sample mean we can approximate the value function after each episode if for each state $S_t$ with return $G_t$,</p>
+<p>$$ N(S_t) = N(S_t) +1 $$
+$$ V(S_t) = V(S_t) + \alpha \left( G_t - V(S_t) \right)$$</p>
+<p>where $\alpha = \frac{1}{N(S_t)}$ can be interpreted as the forgetting factor - it can also be any number $&lt; 1$ to convert the sample mean into a running mean.</p>
 <p>Going back to the familiar tree structure its interesting to see what MC does to the value estimate, given its equation:</p>
 <blockquote class="book-hint danger">
   $$V(S_t) = V(S_t) + \alpha(G_t - V(S_t))$$
@@ -2950,14 +2957,7 @@ optPolicy = [0]*11
 <p><img src="images/mc-value-iteration-tree.png#center" alt="mc-value-iteration-tree">
 <em>Backup tree with value iteration based on the MC approach. MC samples a complete trajectory to the goal node T shown with red.</em></p>
 <h2 id="temporal-difference-td-approximations">Temporal Difference (TD) Approximations</h2>
-<p>Instead of waiting for the value function to be estimated at the end of multiple episodes, we can use the incremental mean approximation as shown below to update the value function after each episode.</p>
-<p>$$ \mu_k = \frac{1}{k} \sum_{j=1}^k x_j = \frac{1}{k} \left( x_k + \sum_{j=1}^{k-1} x_j \right)$$
-$$ = \frac{1}{k} \left(x_k + (k-1) \mu_{k-1}) \right) =  \mu_{k-1} + \frac{1}{k} ( x_k - \mu_{k-1} )$$</p>
-<p>Using the incremental sample mean we can approximate the value function after each episode if for each state $S_t$ with return $G_t$,</p>
-<p>$$ N(S_t) = N(S_t) +1 $$
-$$ V(S_t) = V(S_t) + \alpha \left( G_t - V(S_t) \right)$$</p>
-<p>where $\alpha = \frac{1}{N(S_t)}$ can be interpreted as the forgetting factor - it can also be any number $&lt; 1$ to convert the sample mean into a running mean.</p>
-<p>Going back to the example of crossing the room optimally, we sample a trajectory, take a number steps and use an approximate value functions for the remaining trajectory. We repeat this as we go along effectively <em>bootstrapping</em> the value function approximation with whatever we have experienced up to now. Mathematically, instead of using the <em>true</em> return, TD uses a (biased) <em>estimated</em> return called the <em>TD target</em>: $ R_{t+1} + \gamma V(S_{t+1})$ approximating the value function as:</p>
+<p>Instead of waiting for the value function to be estimated at the end of multiple episodes, we can use the incremental mean approximation to update the value function after each episode. Going back to the example of crossing the room optimally, we sample a trajectory, take a number steps and use an approximate value functions for the remaining trajectory. We repeat this as we go along effectively <em>bootstrapping</em> the value function approximation with whatever we have experienced up to now. Mathematically, instead of using the <em>true</em> return, TD uses a (biased) <em>estimated</em> return called the <em>TD target</em>: $ R_{t+1} + \gamma V(S_{t+1})$ approximating the value function as:</p>
 <blockquote class="book-hint danger">
   $$ V(S_t) = V(S_t) + \alpha \left( R_{t+1} + \gamma V(S_{t+1}) - V(S_t) \right)$$
 </blockquote>
@@ -2997,7 +2997,7 @@ $$ V(S_t) = V(S_t) + \alpha \left( G_t - V(S_t) \right)$$</p>
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/55aafc93c05d31d4a835fa5bbe284b037d2ebffb" title='Last modified by MONOGIOUDIS Pantelis | Apr 30, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/d717250e09bea8ccbb07fcc225e93aac291b08d8" title='Last modified by MONOGIOUDIS Pantelis | Apr 30, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Apr 30, 2020</span>
     </a>
@@ -3034,7 +3034,7 @@ $$ V(S_t) = V(S_t) + \alpha \left( G_t - V(S_t) \right)$$</p>
             <li><a href="#dp-value-iteration-example">DP Value-iteration example</a></li>
           </ul>
         </li>
-        <li><a href="#monte-carlo-mc-approximations">Monte-Carlo (MC) Approximations</a></li>
+        <li><a href="#monte-carlo-mc-learning">Monte-Carlo (MC) Learning</a></li>
         <li><a href="#temporal-difference-td-approximations">Temporal Difference (TD) Approximations</a>
           <ul>
             <li><a href="#the-tdlambda">The TD($\lambda$)</a></li>
