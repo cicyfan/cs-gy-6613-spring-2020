@@ -1,4 +1,4 @@
-<mxfile host="www.draw.io" modified="2020-05-01T00:35:47.746Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36" etag="K7aPdXld0e9zj2IbP6iH" version="13.0.1" type="github" pages="3">
+<mxfile host="www.draw.io" modified="2020-05-01T09:26:56.289Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36" etag="jstJWKH54A2bnQiXqtyg" version="13.0.1" type="github" pages="3">
   <diagram id="f6YDRorcCoCOShzBDmNz" name="DRL-algorithms">
     <mxGraphModel dx="1053" dy="701" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -343,8 +343,8 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="BYep8m-cIbj7f0HKQsaV" name="Solving MDP ">
-    <mxGraphModel dx="1053" dy="701" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="1" shadow="0">
+  <diagram id="BYep8m-cIbj7f0HKQsaV" name="solving-the-mdp">
+    <mxGraphModel dx="2153" dy="701" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="1" shadow="0">
       <root>
         <mxCell id="1Aak9sEa_BhuOLAaGC4q-0" />
         <mxCell id="1Aak9sEa_BhuOLAaGC4q-1" parent="1Aak9sEa_BhuOLAaGC4q-0" />
