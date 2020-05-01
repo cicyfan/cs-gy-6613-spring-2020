@@ -8,6 +8,9 @@ draft: false
 
 In this chapter we will look at an approach called value iteration for the _control_ problem with a _known MDP_. This is similar to the [policy-based]({{<ref "../policy-iteration">}}) that we presume the reader has gone through. 
 
+![value-iteration-summary](images/value-iteration-summary.png#center)
+*Summary of Value Iteration*
+
 ## Dynamic Programming and Value Iteration
 
 The basic principle behind value-iteration is the principle that underlines dynamic programming and is called the _principle of optimality_ as applied to policies. According to this principle an _optimal_ policy can be divided into two components.
@@ -117,4 +120,5 @@ print(optPolicy)
 
 {{</expand>}}
 
+> A more graphical way to understand how policy iteration functions is through [this python code](https://github.com/rlcode/reinforcement-learning/tree/master/1-grid-world/1-value-iteration) that depicts a more elaborate gridworld. 
 

@@ -247,3 +247,4 @@ We can therefore stop early and taking the argument to the limit, do the policy 
 
 In summary, we have seen that policy iteration solves the known MDPs. In the next section we remove the known MDP assumption and deal with the first Reinforcement Learning (RL) algorithm. 
 
+> A more graphical way to understand how policy iteration functions is through [this python code](https://github.com/rlcode/reinforcement-learning/tree/master/1-grid-world/1-policy-iteration) that depicts a more elaborate gridworld. 
