@@ -6,9 +6,7 @@ draft: false
 
 # Value Iteration
 
-In this chapter we continue to investigate approaches for the _planning_ problem with a _known MDP_. This is similar to the [policy-based]({{<ref "../../mdp/policy-iteration">}}) that we presume the reader has gone through. 
-
-In the second part, we find optimal policy solutions when the MDP is _unknown_ and we need to _learn_ its underlying functions - also known as the  _model free_ prediction problem.  
+In this chapter we will look at an approach called value iteration for the _control_ problem with a _known MDP_. This is similar to the [policy-based]({{<ref "../policy-iteration">}}) that we presume the reader has gone through. 
 
 ## Dynamic Programming and Value Iteration
 
@@ -119,99 +117,4 @@ print(optPolicy)
 
 {{</expand>}}
 
-## Monte-Carlo (MC) Learning
 
-The state-value function was defined in the introductory [MDP section]({{<ref "../../mdp">}}) as the _expected_ return.
-
-$$v_\pi(s) = \mathop{\mathbb{E}_\pi}(G_t | S_t=s)$$
-
-We can approximate the return, called _sample mean_ over a _sample_ episode / trajectory, 
-
-$$G_t(\tau) = \sum_{k=0}^{T-1}\gamma^k R_{t+1+k}$$
-
-We can therefore approximate the value function in what is in essence called _Monte-Carlo approximation_, by the sample mean of the returns over multiple episodes / trajectories. In other words, to update each element of the state value function 
-
-1. For each time step $t$ that state $S_t$ is visited in an episode
-   * Increment a counter $N(S_t)$ of visitations  
-   * Calculate the total return $S(S_t) = S(S_t) + G_t$
-2. At the end of multiple episodes, the value is estimated as $V(S_t) = S(S_t) / N(S_t)$
-
-As $N(S_t) \rightarrow ∞$ the estimate will converge to $V(S_t) \rightarrow v_\pi(s)$.
-
-Notice that we started using capital letters for the _estimates_ of the value functions.  
-
-But we can also do the following trick, called _incremental mean approximation_, to get into a more flexible sample mean - the _running mean_.
-
-$$ \mu_k = \frac{1}{k} \sum_{j=1}^k x_j = \frac{1}{k} \left( x_k + \sum_{j=1}^{k-1} x_j \right)$$ 
-$$ = \frac{1}{k} \left(x_k + (k-1) \mu_{k-1}) \right) =  \mu_{k-1} + \frac{1}{k} ( x_k - \mu_{k-1} )$$
-
-Using the incremental sample mean we can approximate the value function after each episode if for each state $S_t$ with return $G_t$,
-
-$$ N(S_t) = N(S_t) +1 $$
-$$ V(S_t) = V(S_t) + \alpha \left( G_t - V(S_t) \right)$$
-
-where $\alpha = \frac{1}{N(S_t)}$ can be interpreted as the forgetting factor - it can also be any number $< 1$ to convert the sample mean into a running mean. 
-
-Going back to the familiar tree structure its interesting to see what MC does to the value estimate, given its equation:
-
-{{<hint danger>}}
-
-$$V(S_t) = V(S_t) + \alpha(G_t - V(S_t))$$
-
-{{</hint>}}
-
-![mc-value-iteration-tree](images/mc-value-iteration-tree.png#center)
-*Backup tree with value iteration based on the MC approach. MC samples a complete trajectory to the goal node T shown with red.*
-
-## Temporal Difference (TD) Approximations
-
-Instead of waiting for the value function to be estimated at the end of multiple episodes, we can use the incremental mean approximation to update the value function after each episode. Going back to the example of crossing the room optimally, we sample a trajectory, take a number steps and use an approximate value functions for the remaining trajectory. We repeat this as we go along effectively _bootstrapping_ the value function approximation with whatever we have experienced up to now. Mathematically, instead of using the _true_ return, TD uses a (biased) _estimated_ return called the _TD target_: $ R_{t+1} + \gamma V(S_{t+1})$ approximating the value function as:
-
-{{<hint danger>}}
-
-$$ V(S_t) = V(S_t) + \alpha \left( R_{t+1} + \gamma V(S_{t+1}) - V(S_t) \right)$$
-
-{{</hint>}}
-
-The difference below is called the _TD error_,
-
-$$\delta_t = R_{t+1} + \gamma (V(S_{t+1}) - V(S_t))$$
-
-We can now use an example that has no explicit actions but focuses on how TD differs from MC with respect to the rewards, as depicted in the figure below:
-
-![td-driving-to-work-example](images/td-driving-to-work-example.png#center)
-*Two value approximation methods: MC (left), TD (right) as converging in their predictions of the value of each of the states in the x-axis. The example is from a hypothetical commute from office back home. In MC you have to wait until the episode ended (reach the goal) to update the value function at each state of the trajectory. In contrast, TD updates the value function at each state based on the estimates of the total travel time. The goal state is "arrive home", while the reward function is time.*
-
-As you can notice in the figure above the solid arrows in the MC case, adjust the predicted value of each state to the _actual_ return while in the TD case the value prediction happens every step in the way. We call TD for this reason an _online_ learning scheme. Another characteristic of TD is that it does not depend on reaching the goal, it _continuously_ learns. MC does depend on the goal and therefore is _episodic_. 
-
-Finally, here is our tree for the TD behavior,  
-
-![td-value-iteration-tree](images/td-value-iteration-tree.png#center)
-*Backup tree for value iteration with the TD approach. TD samples a single step ahead as shown with red.* 
-
-### The TD($\lambda$)
-
-The TD approach of the previous section, can be extended to multiple steps. Instead of a single look ahead step we can take multiple successive look ahead steps (n), we will call this TD(n) for now, and at the end of the n-th step, we use the value function at that state to backup and get the value function at the state where we started. Effectively after n-steps our return will be:
-
-$$G_t^{(n)} = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + ... + \gamma^{n-1}R_{t+n} + \gamma_n V(S_n)$$
-
-and the TD(n) learning equation becomes
-
-$$ V(S_t) = V(S_t) + \alpha \left( G^{(n)}_t - V(S_t) \right) $$
-
-We now define the so called $\lambda$-return that combines all n-step return $G_t^{(n)}$ via the weighting function shown below as,
-
-$$G_t^{(n)} = (1-\lambda) \sum_{n=1}^\infty \lambda^{n-1} G_t^{(n)}$$
-
-![lambda-weighting-function](images/lambda-weighting-function.png#center)
-*$\lambda$ weighting function for TD($\lambda$)*
-
-the TD(n) learning equation becomes
-
-{{<hint danger>}}
-
-$$ V(S_t) = V(S_t) + \alpha \left( G^\lambda_t - V(S_t) \right) $$
-
-{{</hint>}}
-
-When $\lambda=0$ we get TD(0) learning, while when $\lambda=1$ we get learning that is roughly equivalent to MC. 

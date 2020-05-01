@@ -6,19 +6,17 @@ draft: false
 
 # Policy Iteration
 
-In this chapter is divided into two parts. In the first part, we develop the so called _planning_ problem (which is RL without learning) where we are dealing with a _known MDP_. This means that we know the transition and reward functions/models of the environment and we are after the optimal policy solutions.
-
-In the second part, we find optimal policy solutions when the MDP is _unknown_ and we need to _learn_ its underlying functions / models - also known as the  _model free_ control problem. Learning in this chapter follows the _on-policy_ approach where the agent learns these models "on the job", so to speak. 
+In this chapter we develop the so called _planning_ problem (which is RL without learning) where we are dealing with a _known MDP_. This means that we know the transition and reward functions/models of the environment and we are after the optimal policy solutions.
 
 ## Dynamic Programming and Policy Iteration
 
-In the [MDP]({{<ref "../mdp-intro">}}) chapter we have derived the Bellman expectation _backup_ equations which allowed us to efficiently compute the value function. 
+In the [MDP]({{<ref "../../mdp/mdp-intro">}}) chapter we have derived the Bellman expectation _backup_ equations which allowed us to efficiently compute the value function. 
 
 We have seen also that the Bellman optimality equations are non linear and need to be solved using iterative approaches - their solution will result in the optimal value function $v_*$ and the optimal policy $\pi_*$. Since the Bellman equations allow us to decompose recursively the problem into sub-problems, they in fact implement a general and exact approach called _dynamic programming_ which assumes full knowledge of the MDP.
 
 In the policy iteration, given the policy $\pi$, we iterate two distinct steps as shown below:
 
-![policy-iteration-steps](images/policy-iteration-steps.png#center)
+![policy-iteration-steps](images/policy-iteration-summary.png#center)
 *Policy iteration in solving the MDP - in each iteration we execute two steps, policy evaluation and policy improvement*
 
 1. In the _evaluation_ (also called the _prediction_) step we estimate the state value function $v_\pi ~ \forall s \in \mathcal S$.
@@ -235,8 +233,8 @@ print("")
 
 We already have seen that in the Gridworld environment, we may not _need_ to reach the optimal state value function $v_*(s)$ for an optimal policy to result, as shown in the next figure where the value function for the $k=3$ iteration results the same policy as the policy from a far more accurate value function (large k). The gridworld below is characterized by:
 
-* Undiscounted episodic MDP (γ = 1)
-* Nonterminal states 1, ..., 14
+* Not discounted episodic MDP (γ = 1)
+* Non terminal states 1, ..., 14
 * One terminal state (shown twice as shaded squares)
 * Actions leading out of the grid leave state unchanged
 * Reward is −1 until the terminal state is reached

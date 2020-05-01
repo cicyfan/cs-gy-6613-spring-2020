@@ -6,23 +6,28 @@ draft: false
 
 # Deep Reinforcement Learning
 
-We started looking at different agent behavior architectures starting from the [planning agents]({{<ref "../planning">}}) where the _model_ of the environment is known and with _no interaction_ with it the agent improves its policy, using this model as well as problem solving and logical reasoning skills. We then looked at agents that can plan by interacting with the environment still knowing the model - this was covered in the [MDP]({{<ref "../mdp">}}) chapter. In this chapter we develop agents that can act in an _initially unknown_ environment and learn via their interactions with it, gradually improving their policy. 
-
-Its been a long road to reach this point and we have just a short very short conclusion on the relationship of RL and the previously derived MDP solution. 
-
-In the reinforcement learning problem setting, agents _do not know_ essential elements of the MDP $\mathcal M = <\mathcal S, \mathcal P, \mathcal R, \mathcal A, \gamma>$ that were assumed as given in the previous section. This includes the transition function, $P^a_{ss^\prime}$ and the reward function $\mathcal R_s^a$ that are essential as we have seen above to estimate the value function and optimize the policy.
-
-The only way an agent can get information about these missing functions is through its experiences (states, actions, and rewards) in the environment—that is, the tuples ($S_t, A_t, R_{t+1}$). Provided that it can learn such functions, RL can be posed as an MDP policy optimization problem and many algorithms that we have looked at already, such as dynamic programming, policy and value iteration are different ways to solve what is unified approach to Reinforcement Learning shown below. 
-
 ![unified-view-rl](images/unified-view-rl.png#center)
-*Different Approaches to solve RL as an MDP*
+*Different Approaches to solve known and unknown MDPs*
 
-The MDP functions we dont know can be approximated using DNNs as we will see later, but for now the high level architecture is that of what is shown below. 
+We started looking at different agent behavior architectures starting from the [planning agents]({{<ref "../planning">}}) where the _model_ of the environment is known and with _no interaction_ with it the agent improves its policy, using this model as well as problem solving and logical reasoning skills. 
+
+We then looked at agents that can plan by interacting with the environment still knowing the model - this was covered in the [MDP]({{<ref "../mdp">}}) chapter.  We have seen that DP uses _full width_ backups as every successor state and action is considered and evaluated using the known transition (environment dynamics) and reward functions. This can be dealt with for moderate size problems but even a single backup cant be feasible when we have very large state spaces like in the game of Go for example. So we definitely need to develop approaches that allow agents to 
+
+* optimally act in very large _known_ MDPs or 
+* optimally act when we don't know the MDP functions. 
+
+In this chapter we we outline the _prediction_ and _control_ methods that are the basic building blocks behind both problems. 
+
+We develop agents that can act in an _initially unknown_ environment and learn via their _interactions_ with it, gradually improving their policy. In the reinforcement learning problem setting, agents _do not know_ essential elements of the MDP $\mathcal M = <\mathcal S, \mathcal P, \mathcal R, \mathcal A, \gamma>$ that were assumed as given in the previous section. This includes the transition function, $P^a_{ss^\prime}$ and the reward function $\mathcal R_s^a$ that are essential as we have seen previously to estimate the value function and optimize the policy. 
+
+The only way an agent can get information about these missing functions is through its experiences (states, actions, and rewards) in the environment—that is, the sequences of tuples ($S_t, A_t, R_{t+1}$). Provided that it can _learn_ such functions, RL can be posed as an MDP and many concepts we have already covered in the [MDP]({{<ref "../mdp">}}) chapter still apply. 
+ 
+To scale to large problems however, we also need to develop approaches that can learn both computation and space (memory) _efficiency_ . We will go through algorithms that use DNNs to provide, in the form of approximations, the needed efficiency boost. 
 
 ![drl-concept](images/drl-concept.png#center)
-*DRL Principle - we will explain this figure later.*
+*DRL principle - we will cover it in the SARSA section.*
 
-Suffice to say that exploring DRL algorithms is a very long journey as shown below - we will cover only three key algorithms: REINFORCE, SARSA and DQN that can be used as design patterns for the others. 
+Suffice to say that exploring DRL algorithms is a very long journey as shown below - we will cover only three key algorithms: REINFORCE, SARSA and DQN that can be used as design patterns for the others. These algorithms were not invented in vacuum though. The reader must appreciate that these algorithms are instantiations of the so called model-free prediction and model-free control approaches to solving either unknown MDP problems (RL) or known MDP problems that are too large to apply the methods outlined in the [MDP]({{<ref "../mdp">}}) chapter. 
 
 ![drl-algorithm-evolution](images/drl-algorithm-evolution.png#center)
 *DRL algorithms - taxonomy and evolution*
