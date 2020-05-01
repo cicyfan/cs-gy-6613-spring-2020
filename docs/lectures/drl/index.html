@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.0196800d5bb96468d4f2ff2d34070bfea0463016da5dd53e0a60347a8a1f3edb.js" integrity="sha256-AZaADVu5ZGjU8v8tNAcL/qBGMBbaXdU&#43;CmA0eoofPts="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.1ff849b6bd4ad49b54907a0f0bf28526f820f28821423fff8fe43a59c195e5df.js" integrity="sha256-H/hJtr1K1JtUkHoPC/KFJvgg8oghQj//j&#43;Q6WcGV5d8="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -1875,6 +1875,58 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
+      <span>Model-free Prediction</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Model-free Control</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
       
 
   <a href="/cs-gy-6613-spring-2020/docs/lectures/drl/reinforce/" >
@@ -2665,7 +2717,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>What you need to know on MDP</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/resources/mdp-study-guide/" >
+      What you need to know on MDP &amp; RL
+  </a>
+
+
     
 
     
@@ -2758,16 +2816,21 @@ https://github.com/alex-shpak/hugo-book
 
       
 <article class="markdown"><h1 id="deep-reinforcement-learning">Deep Reinforcement Learning</h1>
-<p>We started looking at different agent behavior architectures starting from the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/">planning agents</a> where the <em>model</em> of the environment is known and with <em>no interaction</em> with it the agent improves its policy, using this model as well as problem solving and logical reasoning skills. We then looked at agents that can plan by interacting with the environment still knowing the model - this was covered in the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/">MDP</a> chapter. In this chapter we develop agents that can act in an <em>initially unknown</em> environment and learn via their interactions with it, gradually improving their policy.</p>
-<p>Its been a long road to reach this point and we have just a short very short conclusion on the relationship of RL and the previously derived MDP solution.</p>
-<p>In the reinforcement learning problem setting, agents <em>do not know</em> essential elements of the MDP $\mathcal M = &lt;\mathcal S, \mathcal P, \mathcal R, \mathcal A, \gamma&gt;$ that were assumed as given in the previous section. This includes the transition function, $P^a_{ss^\prime}$ and the reward function $\mathcal R_s^a$ that are essential as we have seen above to estimate the value function and optimize the policy.</p>
-<p>The only way an agent can get information about these missing functions is through its experiences (states, actions, and rewards) in the environment—that is, the tuples ($S_t, A_t, R_{t+1}$). Provided that it can learn such functions, RL can be posed as an MDP policy optimization problem and many algorithms that we have looked at already, such as dynamic programming, policy and value iteration are different ways to solve what is unified approach to Reinforcement Learning shown below.</p>
 <p><img src="images/unified-view-rl.png#center" alt="unified-view-rl">
-<em>Different Approaches to solve RL as an MDP</em></p>
-<p>The MDP functions we dont know can be approximated using DNNs as we will see later, but for now the high level architecture is that of what is shown below.</p>
+<em>Different Approaches to solve known and unknown MDPs</em></p>
+<p>We started looking at different agent behavior architectures starting from the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/">planning agents</a> where the <em>model</em> of the environment is known and with <em>no interaction</em> with it the agent improves its policy, using this model as well as problem solving and logical reasoning skills.</p>
+<p>We then looked at agents that can plan by interacting with the environment still knowing the model - this was covered in the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/">MDP</a> chapter.  We have seen that DP uses <em>full width</em> backups as every successor state and action is considered and evaluated using the known transition (environment dynamics) and reward functions. This can be dealt with for moderate size problems but even a single backup cant be feasible when we have very large state spaces like in the game of Go for example. So we definitely need to develop approaches that allow agents to</p>
+<ul>
+<li>optimally act in very large <em>known</em> MDPs or</li>
+<li>optimally act when we don&rsquo;t know the MDP functions.</li>
+</ul>
+<p>In this chapter we we outline the <em>prediction</em> and <em>control</em> methods that are the basic building blocks behind both problems.</p>
+<p>We develop agents that can act in an <em>initially unknown</em> environment and learn via their <em>interactions</em> with it, gradually improving their policy. In the reinforcement learning problem setting, agents <em>do not know</em> essential elements of the MDP $\mathcal M = &lt;\mathcal S, \mathcal P, \mathcal R, \mathcal A, \gamma&gt;$ that were assumed as given in the previous section. This includes the transition function, $P^a_{ss^\prime}$ and the reward function $\mathcal R_s^a$ that are essential as we have seen previously to estimate the value function and optimize the policy.</p>
+<p>The only way an agent can get information about these missing functions is through its experiences (states, actions, and rewards) in the environment—that is, the sequences of tuples ($S_t, A_t, R_{t+1}$). Provided that it can _learn_ such functions, RL can be posed as an MDP and many concepts we have already covered in the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/">MDP</a> chapter still apply.</p>
+<p>To scale to large problems however, we also need to develop approaches that can learn both computation and space (memory) <em>efficiency</em> . We will go through algorithms that use DNNs to provide, in the form of approximations, the needed efficiency boost.</p>
 <p><img src="images/drl-concept.png#center" alt="drl-concept">
-<em>DRL Principle - we will explain this figure later.</em></p>
-<p>Suffice to say that exploring DRL algorithms is a very long journey as shown below - we will cover only three key algorithms: REINFORCE, SARSA and DQN that can be used as design patterns for the others.</p>
+<em>DRL principle - we will cover it in the SARSA section.</em></p>
+<p>Suffice to say that exploring DRL algorithms is a very long journey as shown below - we will cover only three key algorithms: REINFORCE, SARSA and DQN that can be used as design patterns for the others. These algorithms were not invented in vacuum though. The reader must appreciate that these algorithms are instantiations of the so called model-free prediction and model-free control approaches to solving either unknown MDP problems (RL) or known MDP problems that are too large to apply the methods outlined in the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/">MDP</a> chapter.</p>
 <p><img src="images/drl-algorithm-evolution.png#center" alt="drl-algorithm-evolution">
 <em>DRL algorithms - taxonomy and evolution</em></p>
 <blockquote>
@@ -2788,9 +2851,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/d717250e09bea8ccbb07fcc225e93aac291b08d8" title='Last modified by MONOGIOUDIS Pantelis | Apr 30, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/217b4331574f92a5ad455fba4502f27425f03610" title='Last modified by MONOGIOUDIS Pantelis | May 1, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Apr 30, 2020</span>
+      <span>May 1, 2020</span>
     </a>
   </div>
 

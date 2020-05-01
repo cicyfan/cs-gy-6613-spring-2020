@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.0196800d5bb96468d4f2ff2d34070bfea0463016da5dd53e0a60347a8a1f3edb.js" integrity="sha256-AZaADVu5ZGjU8v8tNAcL/qBGMBbaXdU&#43;CmA0eoofPts="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.1ff849b6bd4ad49b54907a0f0bf28526f820f28821423fff8fe43a59c195e5df.js" integrity="sha256-H/hJtr1K1JtUkHoPC/KFJvgg8oghQj//j&#43;Q6WcGV5d8="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl/sarsa/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -1875,6 +1875,58 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
+      <span>Model-free Prediction</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Model-free Control</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
       
 
   <a href="/cs-gy-6613-spring-2020/docs/lectures/drl/reinforce/" >
@@ -2665,7 +2717,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>What you need to know on MDP</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/resources/mdp-study-guide/" >
+      What you need to know on MDP &amp; RL
+  </a>
+
+
     
 
     
@@ -2762,33 +2820,24 @@ https://github.com/alex-shpak/hugo-book
 
       
 <article class="markdown"><h1 id="the-sarsa-drl-algorithm">The SARSA DRL Algorithm</h1>
-<p>The SARSA algorithm is a value-based algorithm and far more applicable in practice than policy-based since it tends to be more sample efficient - a general trait of many value-based algorithms despite the usual hybridization that is usually applicable today. Its name is attributed to the fact that we need to know the State-Action-Reward-State-Action before performing an update. There are two concepts that we need to grasp:</p>
-<ol>
-<li>
-<p>The first is a technique for learning the Q-function known via the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/value-iteration/"><em>temporal difference (TD) learning</em></a> we saw earlier.</p>
-</li>
-<li>
-<p>The second is a method for generating actions using the learned Q-function.</p>
-</li>
-</ol>
-<p>The tree for SARSA is shown below:</p>
+<p>As we discussed in the [model-free control] section, the SARSA algorithm implements a $Q(s,a)$ value-based algorithm. SARSA is one of the best known RL algorithms and is very practical as compared to pure policy-based algorithms. It tends to be more sample efficient - a general trait of many value-based algorithms despite the algorithmic hybridization that is usually applicable today. Its name is attributed to the fact that we need to know the State-Action-Reward-State-Action before performing an update. The tree for SARSA is shown below:</p>
 <p><img src="images/sarsa-update-tree.png#center" alt="sarsa-update-tree">
 <em>SARSA action-value backup update tree. The name SARSA is written as you read from the top to the bottom of the tree :)</em></p>
-<p>Using this tree and following the value iteration section, we can write the value update equation as:</p>
+<p>There are two concepts that we need to grasp:</p>
+<ol>
+<li>The first is a technique for learning the Q-function via TD-learning that we have seen earlier.</li>
+<li>The second is a method for evolving the policy using the learned Q-function.</li>
+</ol>
+<p>Using the tree and following the value estimate of <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl/prediction/"><em>temporal difference (TD) learning</em></a>, we can write the value update equation as:</p>
 <p>$$Q(S,A) = Q(S,A) + \alpha (R + \gamma Q(S^\prime, A^\prime)-Q(S,A))$$</p>
-<p>Effectively the equation above updates the Q function by $\alpha$ times the direction of the TD-error.</p>
-<p>Going back to the policy iteration instead of starting from a policy and a state value function we can start from a policy and action value function and follow the same principle of iterating over action value estimation and greedy policy improvement.</p>
-<p><img src="images/generalized-policy-iteration.png#center" alt="generalized-policy-iteration">
-<em>Generalized policy iteration using action-value function</em></p>
-<p>The policy improvement step over $Q(s,a)$ is <em>model-free</em></p>
-<p>$$\pi^\prime = \argmax_{a \in \mathcal A} Q(s,a)$$</p>
-<p>What SARSA does is basically the diagram above but with a twist. Instead of trying to evaluate the policy all the way using the DP, or over an episode using MC,  SARSA does policy improvement <strong>over each time step</strong> significantly increasing the iteration rate - this is figuratively shown below:</p>
+<p>Effectively the equation above updates the Q function by $\alpha$ times the direction of the TD-error. What SARSA does is basically the policy iteration diagram we have seen in the control above but with a twist. Instead of trying to evaluate the policy all the way using the DP, or over an episode using MC,  SARSA does policy improvement <strong>over each time step</strong> significantly increasing the iteration rate - this is figuratively shown below:</p>
 <p><img src="images/sarsa-policy-iteration.png#center" alt="sarsa-policy-iteration">
 <em>SARSA on-policy control</em></p>
-<p>The idea is to increase the frequency of the so called $\epsilon$-Greedy policy improvement step where we select with probability $\epsilon$ a random action instead of the action that maximizes the $Q(s,a)$ function (greedy).</p>
+<p>The idea is to increase the frequency of the so called $\epsilon$-Greedy policy improvement step where we select with probability $\epsilon$ a random action instead of the action that maximizes the $Q(s,a)$ function (greedy). We do so, in order to &ldquo;hit&rdquo; new states that we havent seen before (exploration).</p>
 <p>The SARSA algorithm is summarized below:</p>
 <p><img src="images/sarsa-on-policy-control-algorithm.png#center" alt="sarsa-on-policy-control-algorithm">
 <em>SARSA algorithm for on-policy control</em></p>
+<p>$Q(s,a)$ in practice is a table (matrix) stored in memory. Every step that we take an action we flip a &ldquo;bent coin&rdquo; and if &ldquo;heads&rdquo; comes up we take the maximum of the $Q(s,a)$ values and this will be the policy improvement for the subsequent step. If it comes up as &ldquo;tails&rdquo; we just pick a random action and update the policy accordingly.</p>
 <h2 id="sarsa-example">SARSA Example</h2>
 <p><img src="images/td-environment.jpg#center" alt="td-environment"></p>
 <p>Suppose an agent is learning to play the toy environment shown above. This is a essentially a corridor and the agent has to learn to navigate to the end of the corridor to the good terminal state $s_{T2}$, denoted with a star.</p>
@@ -2800,8 +2849,6 @@ https://github.com/alex-shpak/hugo-book
 <li>The game is  optimally solved by a policy which reaches $s_{T2}$ in the smallest number of steps because an agent values rewards received sooner more than rewards received later in time. In this case, the smallest number of steps an agent can take to optimally solve the environment is 3.</li>
 </ul>
 <p>How can we learn the optimal Q function?</p>
-<p><img src="images/td-q-function-learning.jpg#center" alt="td-q-function-learning">
-<em>TD Q-function learning</em></p>
 <p>The diagram is split into five blocks from top to bottom. Each block corresponds to a single episode of experiences in the environment; the first block corresponds to the first episode, the second block the second episode, and so on. Each block contains a number of columns. They are interpreted from left to right as follows:</p>
 <ul>
 <li>
@@ -2829,6 +2876,493 @@ https://github.com/alex-shpak/hugo-book
 <p><strong>Q-function episode end</strong>: The value of Q-function at the end of the episode. The Bellman update has been applied for each experience of the episode in time step order. This means that the Bellman update was applied first for the experience corresponding to time step 1, then time step 2, and so on. The table shows the final result after all of the Bellman updates have been applied for the episode.</p>
 </li>
 </ul>
+<p><img src="images/td-q-function-learning.jpg#center" alt="td-q-function-learning">
+<em>TD Q-function learning</em></p>
+<p>Obviously this is a trivial example to show in detail the calculations that are being done at every episode and time step. For a more elaborate gridworld, the python code that follows shows how SARSA would work in the environment below.</p>
+<p><img src="images/sarsa-gridworld.png#center" alt="sarsa-gridworld">
+<em>SARSA Gridworld</em></p>
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>Python SARSA Gridworld Envrironment</span>
+      <span>↕</span>
+    </div>
+    <input type="checkbox" class="hidden" />
+    <div class="book-expand-content markdown-inner">
+      <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">131
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">132
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">133
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">134
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">135
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">136
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">137
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">138
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">139
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">140
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">141
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">142
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">143
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">144
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#008000"># code is from https://github.com/rlcode/reinforcement-learning/tree/master/1-grid-world</span>
+
+<span style="color:#00f">import</span> time
+<span style="color:#00f">import</span> numpy <span style="color:#00f">as</span> np
+<span style="color:#00f">import</span> tkinter <span style="color:#00f">as</span> tk
+<span style="color:#00f">from</span> PIL <span style="color:#00f">import</span> ImageTk, Image
+
+np.random.seed(1)
+PhotoImage = ImageTk.PhotoImage
+UNIT = 100  <span style="color:#008000"># pixels</span>
+HEIGHT = 5  <span style="color:#008000"># grid height</span>
+WIDTH = 5  <span style="color:#008000"># grid width</span>
+
+
+<span style="color:#00f">class</span> <span style="color:#2b91af">Env</span>(tk.Tk):
+    <span style="color:#00f">def</span> __init__(self):
+        super(Env, self).__init__()
+        self.action_space = [<span style="color:#a31515"></span><span style="color:#a31515">&#39;</span><span style="color:#a31515">u</span><span style="color:#a31515">&#39;</span>, <span style="color:#a31515"></span><span style="color:#a31515">&#39;</span><span style="color:#a31515">d</span><span style="color:#a31515">&#39;</span>, <span style="color:#a31515"></span><span style="color:#a31515">&#39;</span><span style="color:#a31515">l</span><span style="color:#a31515">&#39;</span>, <span style="color:#a31515"></span><span style="color:#a31515">&#39;</span><span style="color:#a31515">r</span><span style="color:#a31515">&#39;</span>]
+        self.n_actions = len(self.action_space)
+        self.title(<span style="color:#a31515"></span><span style="color:#a31515">&#39;</span><span style="color:#a31515">SARSA</span><span style="color:#a31515">&#39;</span>)
+        self.geometry(<span style="color:#a31515"></span><span style="color:#a31515">&#39;</span><span style="color:#a31515">{0}x{1}</span><span style="color:#a31515">&#39;</span>.format(HEIGHT * UNIT, HEIGHT * UNIT))
+        self.shapes = self.load_images()
+        self.canvas = self._build_canvas()
+        self.texts = []
+
+    <span style="color:#00f">def</span> _build_canvas(self):
+        canvas = tk.Canvas(self, bg=<span style="color:#a31515"></span><span style="color:#a31515">&#39;</span><span style="color:#a31515">white</span><span style="color:#a31515">&#39;</span>,
+                           height=HEIGHT * UNIT,
+                           width=WIDTH * UNIT)
+        <span style="color:#008000"># create grids</span>
+        <span style="color:#00f">for</span> c <span style="color:#00f">in</span> range(0, WIDTH * UNIT, UNIT):  <span style="color:#008000"># 0~400 by 80</span>
+            x0, y0, x1, y1 = c, 0, c, HEIGHT * UNIT
+            canvas.create_line(x0, y0, x1, y1)
+        <span style="color:#00f">for</span> r <span style="color:#00f">in</span> range(0, HEIGHT * UNIT, UNIT):  <span style="color:#008000"># 0~400 by 80</span>
+            x0, y0, x1, y1 = 0, r, HEIGHT * UNIT, r
+            canvas.create_line(x0, y0, x1, y1)
+
+        <span style="color:#008000"># add img to canvas</span>
+        self.rectangle = canvas.create_image(50, 50, image=self.shapes[0])
+        self.triangle1 = canvas.create_image(250, 150, image=self.shapes[1])
+        self.triangle2 = canvas.create_image(150, 250, image=self.shapes[1])
+        self.circle = canvas.create_image(250, 250, image=self.shapes[2])
+
+        <span style="color:#008000"># pack all</span>
+        canvas.pack()
+
+        <span style="color:#00f">return</span> canvas
+
+    <span style="color:#00f">def</span> load_images(self):
+        rectangle = PhotoImage(
+            Image.open(<span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">../img/rectangle.png</span><span style="color:#a31515">&#34;</span>).resize((65, 65)))
+        triangle = PhotoImage(
+            Image.open(<span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">../img/triangle.png</span><span style="color:#a31515">&#34;</span>).resize((65, 65)))
+        circle = PhotoImage(
+            Image.open(<span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">../img/circle.png</span><span style="color:#a31515">&#34;</span>).resize((65, 65)))
+
+        <span style="color:#00f">return</span> rectangle, triangle, circle
+
+    <span style="color:#00f">def</span> text_value(self, row, col, contents, action, font=<span style="color:#a31515"></span><span style="color:#a31515">&#39;</span><span style="color:#a31515">Helvetica</span><span style="color:#a31515">&#39;</span>, size=10,
+                   style=<span style="color:#a31515"></span><span style="color:#a31515">&#39;</span><span style="color:#a31515">normal</span><span style="color:#a31515">&#39;</span>, anchor=<span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">nw</span><span style="color:#a31515">&#34;</span>):
+        <span style="color:#00f">if</span> action == 0:
+            origin_x, origin_y = 7, 42
+        <span style="color:#00f">elif</span> action == 1:
+            origin_x, origin_y = 85, 42
+        <span style="color:#00f">elif</span> action == 2:
+            origin_x, origin_y = 42, 5
+        <span style="color:#00f">else</span>:
+            origin_x, origin_y = 42, 77
+
+        x, y = origin_y + (UNIT * col), origin_x + (UNIT * row)
+        font = (font, str(size), style)
+        text = self.canvas.create_text(x, y, fill=<span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">black</span><span style="color:#a31515">&#34;</span>, text=contents,
+                                       font=font, anchor=anchor)
+        <span style="color:#00f">return</span> self.texts.append(text)
+
+    <span style="color:#00f">def</span> print_value_all(self, q_table):
+        <span style="color:#00f">for</span> i <span style="color:#00f">in</span> self.texts:
+            self.canvas.delete(i)
+        self.texts.clear()
+        <span style="color:#00f">for</span> x <span style="color:#00f">in</span> range(HEIGHT):
+            <span style="color:#00f">for</span> y <span style="color:#00f">in</span> range(WIDTH):
+                <span style="color:#00f">for</span> action <span style="color:#00f">in</span> range(0, 4):
+                    state = [x, y]
+                    <span style="color:#00f">if</span> str(state) <span style="color:#00f">in</span> q_table.keys():
+                        temp = q_table[str(state)][action]
+                        self.text_value(y, x, round(temp, 2), action)
+
+    <span style="color:#00f">def</span> coords_to_state(self, coords):
+        x = int((coords[0] - 50) / 100)
+        y = int((coords[1] - 50) / 100)
+        <span style="color:#00f">return</span> [x, y]
+
+    <span style="color:#00f">def</span> reset(self):
+        self.update()
+        time.sleep(0.5)
+        x, y = self.canvas.coords(self.rectangle)
+        self.canvas.move(self.rectangle, UNIT / 2 - x, UNIT / 2 - y)
+        self.render()
+        <span style="color:#008000"># return observation</span>
+        <span style="color:#00f">return</span> self.coords_to_state(self.canvas.coords(self.rectangle))
+
+    <span style="color:#00f">def</span> step(self, action):
+        state = self.canvas.coords(self.rectangle)
+        base_action = np.array([0, 0])
+        self.render()
+
+        <span style="color:#00f">if</span> action == 0:  <span style="color:#008000"># up</span>
+            <span style="color:#00f">if</span> state[1] &gt; UNIT:
+                base_action[1] -= UNIT
+        <span style="color:#00f">elif</span> action == 1:  <span style="color:#008000"># down</span>
+            <span style="color:#00f">if</span> state[1] &lt; (HEIGHT - 1) * UNIT:
+                base_action[1] += UNIT
+        <span style="color:#00f">elif</span> action == 2:  <span style="color:#008000"># left</span>
+            <span style="color:#00f">if</span> state[0] &gt; UNIT:
+                base_action[0] -= UNIT
+        <span style="color:#00f">elif</span> action == 3:  <span style="color:#008000"># right</span>
+            <span style="color:#00f">if</span> state[0] &lt; (WIDTH - 1) * UNIT:
+                base_action[0] += UNIT
+
+        <span style="color:#008000"># move agent</span>
+        self.canvas.move(self.rectangle, base_action[0], base_action[1])
+        <span style="color:#008000"># move rectangle to top level of canvas</span>
+        self.canvas.tag_raise(self.rectangle)
+        next_state = self.canvas.coords(self.rectangle)
+
+        <span style="color:#008000"># reward function</span>
+        <span style="color:#00f">if</span> next_state == self.canvas.coords(self.circle):
+            reward = 100
+            done = True
+        <span style="color:#00f">elif</span> next_state <span style="color:#00f">in</span> [self.canvas.coords(self.triangle1),
+                            self.canvas.coords(self.triangle2)]:
+            reward = -100
+            done = True
+        <span style="color:#00f">else</span>:
+            reward = 0
+            done = False
+
+        next_state = self.coords_to_state(next_state)
+
+        <span style="color:#00f">return</span> next_state, reward, done
+
+    <span style="color:#00f">def</span> render(self):
+        time.sleep(0.03)
+        self.update()
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+  </label>
+</div>
+
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>Python SARSA code for agent</span>
+      <span>↕</span>
+    </div>
+    <input type="checkbox" class="hidden" />
+    <div class="book-expand-content markdown-inner">
+      <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#00f">import</span> numpy <span style="color:#00f">as</span> np
+<span style="color:#00f">import</span> random
+<span style="color:#00f">from</span> collections <span style="color:#00f">import</span> defaultdict
+<span style="color:#00f">from</span> environment <span style="color:#00f">import</span> Env
+
+
+<span style="color:#008000"># SARSA agent learns every time step from the sample &lt;s, a, r, s&#39;, a&#39;&gt;</span>
+<span style="color:#00f">class</span> <span style="color:#2b91af">SARSAgent</span>:
+    <span style="color:#00f">def</span> __init__(self, actions):
+        self.actions = actions
+        self.learning_rate = 0.01
+        self.discount_factor = 0.9
+        self.epsilon = 0.1
+        self.q_table = defaultdict(<span style="color:#00f">lambda</span>: [0.0, 0.0, 0.0, 0.0])
+
+    <span style="color:#008000"># with sample &lt;s, a, r, s&#39;, a&#39;&gt;, learns new q function</span>
+    <span style="color:#00f">def</span> learn(self, state, action, reward, next_state, next_action):
+        current_q = self.q_table[state][action]
+        next_state_q = self.q_table[next_state][next_action]
+        new_q = (current_q + self.learning_rate *
+                (reward + self.discount_factor * next_state_q - current_q))
+        self.q_table[state][action] = new_q
+
+    <span style="color:#008000"># get action for the state according to the q function table</span>
+    <span style="color:#008000"># agent pick action of epsilon-greedy policy</span>
+    <span style="color:#00f">def</span> get_action(self, state):
+        <span style="color:#00f">if</span> np.random.rand() &lt; self.epsilon:
+            <span style="color:#008000"># take random action</span>
+            action = np.random.choice(self.actions)
+        <span style="color:#00f">else</span>:
+            <span style="color:#008000"># take action according to the q function table</span>
+            state_action = self.q_table[state]
+            action = self.arg_max(state_action)
+        <span style="color:#00f">return</span> action
+
+    @staticmethod
+    <span style="color:#00f">def</span> arg_max(state_action):
+        max_index_list = []
+        max_value = state_action[0]
+        <span style="color:#00f">for</span> index, value <span style="color:#00f">in</span> enumerate(state_action):
+            <span style="color:#00f">if</span> value &gt; max_value:
+                max_index_list.clear()
+                max_value = value
+                max_index_list.append(index)
+            <span style="color:#00f">elif</span> value == max_value:
+                max_index_list.append(index)
+        <span style="color:#00f">return</span> random.choice(max_index_list)
+
+<span style="color:#00f">if</span> __name__ == <span style="color:#a31515"></span><span style="color:#a31515">&#34;</span><span style="color:#a31515">__main__</span><span style="color:#a31515">&#34;</span>:
+    env = Env()
+    agent = SARSAgent(actions=list(range(env.n_actions)))
+
+    <span style="color:#00f">for</span> episode <span style="color:#00f">in</span> range(1000):
+        <span style="color:#008000"># reset environment and initialize state</span>
+
+        state = env.reset()
+        <span style="color:#008000"># get action of state from agent</span>
+        action = agent.get_action(str(state))
+
+        <span style="color:#00f">while</span> True:
+            env.render()
+
+            <span style="color:#008000"># take action and proceed one step in the environment</span>
+            next_state, reward, done = env.step(action)
+            next_action = agent.get_action(str(next_state))
+
+            <span style="color:#008000"># with sample &lt;s,a,r,s&#39;,a&#39;&gt;, agent learns new q function</span>
+            agent.learn(str(state), action, reward, str(next_state), next_action)
+
+            state = next_state
+            action = next_action
+
+            <span style="color:#008000"># print q function of all states at screen</span>
+            env.print_value_all(agent.q_table)
+
+            <span style="color:#008000"># if episode ends, then break</span>
+            <span style="color:#00f">if</span> done:
+                <span style="color:#00f">break</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+  </label>
+</div>
+
 </article>
  
 
@@ -2840,9 +3374,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/d717250e09bea8ccbb07fcc225e93aac291b08d8" title='Last modified by MONOGIOUDIS Pantelis | Apr 30, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/217b4331574f92a5ad455fba4502f27425f03610" title='Last modified by MONOGIOUDIS Pantelis | May 1, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Apr 30, 2020</span>
+      <span>May 1, 2020</span>
     </a>
   </div>
 

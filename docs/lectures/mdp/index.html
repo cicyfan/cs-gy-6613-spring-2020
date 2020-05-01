@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.0196800d5bb96468d4f2ff2d34070bfea0463016da5dd53e0a60347a8a1f3edb.js" integrity="sha256-AZaADVu5ZGjU8v8tNAcL/qBGMBbaXdU&#43;CmA0eoofPts="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.1ff849b6bd4ad49b54907a0f0bf28526f820f28821423fff8fe43a59c195e5df.js" integrity="sha256-H/hJtr1K1JtUkHoPC/KFJvgg8oghQj//j&#43;Q6WcGV5d8="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -1875,6 +1875,58 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
+      <span>Model-free Prediction</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Model-free Control</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
       
 
   <a href="/cs-gy-6613-spring-2020/docs/lectures/drl/reinforce/" >
@@ -2665,7 +2717,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>What you need to know on MDP</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/resources/mdp-study-guide/" >
+      What you need to know on MDP &amp; RL
+  </a>
+
+
     
 
     
@@ -2759,7 +2817,13 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown"><h1 id="markov-decision-processes">Markov Decision Processes</h1>
 <p>We started looking at different agent behavior architectures starting from the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/planning/">planning agents</a> where the <em>model</em> of the environment is known and with <em>no interaction</em> with it the agent improves its policy, using this model as well as problem solving and logical reasoning skills.</p>
-<p>We now look at agents that can plan <em>by interacting</em> with the environment still knowing the model.</p>
+<p>We now look at agents that can plan <em>by interacting</em> with the environment still knowing the model (model-based) of the environment such as its dynamics and rewards. The planning problem as will see, it will be described via a set of four equations called Bellman expectation and Bellman optimality equations that connect the values (utility) with each state or action with the policy. These equations can be solved by Dynamic Programming algorithms to produce the optimal policy (strategy) that the agent must adopt.</p>
+<p>Computationally we will go through approaches that solve the MDP as efficiently as possible - namely, the value and policy iteration algorithms.</p>
+<p><img src="images/solving-mdp.png#center" alt="solving-mpd">
+<em>Solving MDP Problems</em></p>
+<blockquote>
+<p>Many of the algorithms presented here like policy and value iteration have been developed in <a href="https://github.com/rlcode/reinforcement-learning">this</a> git repo that you should download and run while reading the notes.</p>
+</blockquote>
 </article>
  
 
@@ -2771,9 +2835,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/55aafc93c05d31d4a835fa5bbe284b037d2ebffb" title='Last modified by MONOGIOUDIS Pantelis | Apr 30, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/217b4331574f92a5ad455fba4502f27425f03610" title='Last modified by MONOGIOUDIS Pantelis | May 1, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Apr 30, 2020</span>
+      <span>May 1, 2020</span>
     </a>
   </div>
 
