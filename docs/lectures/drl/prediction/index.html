@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.befa71a24d00d090a6d903ba0fd8fa27a304d5138576a422b77ca96f5de5198a.js" integrity="sha256-vvpxok0A0JCm2QO6D9j6J6ME1ROFdqQit3ypb13lGYo="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.77ffa6d467379e78e1a3d2f3f6b0667ea0d1a88dbf2e864082499ad7a1c587a6.js" integrity="sha256-d/&#43;m1Gc3nnjho9Lz9rBmfqDRqI2/LoZAgkma16HFh6Y="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl/prediction/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -1875,7 +1875,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Model-free Prediction</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/drl/prediction/"  class="active">
+      Model-free Prediction
+  </a>
+
+
     
 
     
@@ -1901,7 +1907,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Model-free Control</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/drl/control/" >
+      Model-free Control
+  </a>
+
+
     
 
     
@@ -2802,7 +2814,20 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#model-free-prediction">Model-free Prediction</a>
+      <ul>
+        <li><a href="#monte-carlo-mc-learning">Monte-Carlo (MC) Learning</a></li>
+        <li><a href="#temporal-difference-td-approximations">Temporal Difference (TD) Approximations</a>
+          <ul>
+            <li><a href="#the-tdlambda">The TD($\lambda$)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
     </aside>
@@ -2811,7 +2836,72 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-<article class="markdown"></article>
+<article class="markdown"><h1 id="model-free-prediction">Model-free Prediction</h1>
+<p>In this chapter we find optimal policy solutions when the MDP is <em>unknown</em> and we need to <em>learn</em> its underlying value functions - also known as the  <em>model free</em> prediction problem.  The main idea here is to learn value functions via sampling. These methods are in fact also applicable when the MDP is known but its models are simply too large to use the approaches outlined in the  <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/">MDP chapter</a>. The two sampling approaches we will cover here are (incremental) Monte-Carlo (MC) and Temporal Difference (TD).</p>
+<h2 id="monte-carlo-mc-learning">Monte-Carlo (MC) Learning</h2>
+<p>The the MC learning approach for every state at time $t$ we sample one complete trajectory as shown below.</p>
+<p><img src="images/mc-value-iteration-tree.png#center" alt="mc-value-iteration-tree">
+<em>Backup tree with value iteration based on the MC approach. MC samples a complete trajectory to the goal node T shown with red.</em></p>
+<p>There is some rationale of doing so, if we recall that the state-value function that was defined in the introductory <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-intro/">MDP section</a> i.e. the <em>expected</em> return.</p>
+<p>$$v_\pi(s) = \mathop{\mathbb{E}_\pi}(G_t | S_t=s)$$</p>
+<p>can be approximated by using the <em>sample mean</em> return over a <em>sample</em> episode / trajectory:</p>
+<p>$$G_t(\tau) = \sum_{k=0}^{T-1}\gamma^k R_{t+1+k}$$</p>
+<p>The value function is therefore approximated in <em>Monte-Carlo</em>, by the sample mean of the returns over multiple episodes / trajectories. In other words, to update each element of the state value function</p>
+<ol>
+<li>For each time step $t$ that state $S_t$ is visited in an episode
+<ul>
+<li>Increment a counter $N(S_t)$ of visitations</li>
+<li>Calculate the total return $S(S_t) = S(S_t) + G_t$</li>
+</ul>
+</li>
+<li>At the end of multiple episodes, the value is estimated as $V(S_t) = S(S_t) / N(S_t)$</li>
+</ol>
+<p>As $N(S_t) \rightarrow ∞$ the estimate will converge to $V(S_t) \rightarrow v_\pi(s)$. **Notice that we started using capital letters for the _estimates_ of the value functions.**</p>
+<p>But we can also do the following trick, called <em>incremental mean approximation</em>:</p>
+<p>$$ \mu_k = \frac{1}{k} \sum_{j=1}^k x_j = \frac{1}{k} \left( x_k + \sum_{j=1}^{k-1} x_j \right)$$
+$$ = \frac{1}{k} \left(x_k + (k-1) \mu_{k-1}) \right) =  \mu_{k-1} + \frac{1}{k} ( x_k - \mu_{k-1} )$$</p>
+<p>Using the incremental sample mean, we can approximate the value function after each episode if for each state $S_t$ with return $G_t$,
+<blockquote class="book-hint danger">
+  <p>$$ N(S_t) = N(S_t) +1 $$
+$$ V(S_t) = V(S_t) + \alpha \left( G_t - V(S_t) \right)$$</p>
+<p>where $\alpha = \frac{1}{N(S_t)}$ can be interpreted as the forgetting factor.</p>
+
+</blockquote>
+</p>
+<p>$\alpha$ can also be any number $&lt; 1$ to get into a more flexible sample mean - the <em>running mean</em> that will increase the robustness of this approach in non-stationary environments.</p>
+<h2 id="temporal-difference-td-approximations">Temporal Difference (TD) Approximations</h2>
+<p><img src="images/td-value-iteration-tree.png#center" alt="td-value-iteration-tree">
+<em>Backup tree for value iteration with the TD approach. TD samples a single step ahead as shown with red.</em></p>
+<p>Instead of getting an estimated value function at the end of multiple episodes, we can use the incremental mean approximation to update the value function after each step.</p>
+<p>Going back to the example of crossing the room optimally, we take one step towards the goal and the we  <em>bootstrap</em> the value function of the state we were in from an estimated return for the remaining trajectory. We repeat this as we go along effectively adjusting the value estimate of the starting state from the true returns we have experienced up to now, gradually grounding the whole estimate as we approach the goal.</p>
+<p><img src="images/td-driving-to-work-example.png#center" alt="td-driving-to-work-example">
+<em>Two value approximation methods: MC (left), TD (right) as converging in their predictions of the value of each of the states in the x-axis. The example is from a hypothetical commute from office back home. In MC you have to wait until the episode ended (reach the goal) to update the value function at each state of the trajectory. In contrast, TD updates the value function at each state based on the estimates of the total travel time. The goal state is &ldquo;arrive home&rdquo;, while the reward function is time.</em></p>
+<p>As you can notice in the figure above the solid arrows in the MC case, adjust the predicted value of each state to the <em>actual</em> return while in the TD case the value prediction happens every step in the way. We call TD for this reason an <em>online</em> learning scheme. Another characteristic of TD is that it does not depend on reaching the goal, it <em>continuously</em> learns. MC does depend on the goal and therefore is <em>episodic</em>. This is important in many mission critical applications eg self-driving cars where you dont wait to &ldquo;crash&rdquo; to apply corrections to your state value based on what you experienced.</p>
+<p>Mathematically, instead of using the <em>true</em> return, $G_t$, something that it is possible in the MC as we are trully experiencing the world along a trajectory, TD uses a (biased) <em>estimated</em> return called the <em>TD target</em>: $ R_{t+1} + \gamma V(S_{t+1})$ approximating the value function as:</p>
+<blockquote class="book-hint danger">
+  $$ V(S_t) = V(S_t) + \alpha \left( R_{t+1} + \gamma V(S_{t+1}) - V(S_t) \right)$$
+</blockquote>
+
+<p>The difference below is called the <em>TD approximation error</em>,</p>
+<p>$$\delta_t = R_{t+1} + \gamma (V(S_{t+1}) - V(S_t))$$</p>
+<h3 id="the-tdlambda">The TD($\lambda$)</h3>
+<p>The TD approach of the previous section, can be extended to multiple steps. Instead of a single look ahead step we can take multiple successive look ahead steps (n), we will call this TD(n) for now, and at the end of the n-th step, we use the value function at that state to backup and get the value function at the state where we started. Effectively after n-steps our return will be:</p>
+<p>$$G_t^{(n)} = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + &hellip; + \gamma^{n-1}R_{t+n} + \gamma_n V(S_n)$$</p>
+<p>and the TD(n) learning equation becomes</p>
+<p>$$ V(S_t) = V(S_t) + \alpha \left( G^{(n)}_t - V(S_t) \right) $$</p>
+<p>We now define the so called $\lambda$-return that combines all n-step return $G_t^{(n)}$ via the weighting function shown below as,</p>
+<p>$$G_t^{(n)} = (1-\lambda) \sum_{n=1}^\infty \lambda^{n-1} G_t^{(n)}$$</p>
+<p><img src="images/lambda-weighting-function.png#center" alt="lambda-weighting-function">
+<em>$\lambda$ weighting function for TD($\lambda$)</em></p>
+<p>the TD(n) learning equation becomes</p>
+<blockquote class="book-hint danger">
+  $$ V(S_t) = V(S_t) + \alpha \left( G^\lambda_t - V(S_t) \right) $$
+</blockquote>
+
+<p>When $\lambda=0$ we get TD(0) learning, while when $\lambda=1$ we get learning that is roughly equivalent to MC. It is instructive to see the difference between MC and TD approaches.</p>
+<p><img src="images/td-vs-mc.png#center" alt="td-vs-mc">
+<em>TD vs MC approaches to $V(s)$ function estimation. TD is converging much faster but it has larger bias compared to MC.</em></p>
+</article>
  
 
       <footer class="book-footer">
@@ -2822,7 +2912,7 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/217b4331574f92a5ad455fba4502f27425f03610" title='Last modified by MONOGIOUDIS Pantelis | May 1, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/e05bd7e6e4e192b314aaf79b5df0bc49e78e1475" title='Last modified by MONOGIOUDIS Pantelis | May 1, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>May 1, 2020</span>
     </a>
@@ -2850,7 +2940,20 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#model-free-prediction">Model-free Prediction</a>
+      <ul>
+        <li><a href="#monte-carlo-mc-learning">Monte-Carlo (MC) Learning</a></li>
+        <li><a href="#temporal-difference-td-approximations">Temporal Difference (TD) Approximations</a>
+          <ul>
+            <li><a href="#the-tdlambda">The TD($\lambda$)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
  
     </aside>
