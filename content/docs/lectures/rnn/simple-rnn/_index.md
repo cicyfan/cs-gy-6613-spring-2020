@@ -46,6 +46,7 @@ where $\bm w = \\{ \bm W, \bm U, \bm V, \bm b, \bm c \\}$.
 
 
 ## Back-Propagation Through Time (BPTT)
+
 Lets now see how the backward propagation would work. 
 
 ![rnn-BPTT](images/rnn-BPTT.png#center)

@@ -16,38 +16,10 @@ We start though by augmenting the overall [agent architecture]({{<ref "../ai-int
 ![overall-agent-architecture](images/overall-agent-architecture.png#center)
 *Overall AI agent architecture and language components*
 
-The next few sections effectively explain the rationale behind the assignment of these blocks in the corresponding subsystems of the agent. Note that in this book we are going to 
-
-
-## Language Models
-
-In programming languages we have 
-despite the fact that words in a sentence may appear very similar
-Naturally expressed languages on the other hand can carry quite different meanings.  
-
-{{< columns >}} 
-## Same context, different meaning
-"The food in this restaurant was good, not bad at all"
-
-"The food in this restaurant was bad, not good at all."
-<---> 
-
-## Different context alltogether 
-"The bank's profits eroded soon after the 2008 crisis"
-
-"The river's bank eroded after the 2008 floods"
-{{< /columns >}}
-
-Bag of words will fail to capture the different meaning especially in sentences like the restaurant reviews above that have the same distribution of words. One of key ideas that made NLP successful is the _distributional semantics_ that originated from Firth's work: A word’s meaning is given by the words that frequently appear close-by. When a word $w$ appears in a text, its context is the set of words that appear nearby (within a fixed-size window). Use the many contexts of $w$ to build up a representation of $w$. This is the main idea behind word2vec representations that we address next. 
-
-## Word2Vec
-
-In 2012, Thomas Mikolov, an intern at Microsoft, found a way to encode the meaning of words in a modest number of vector dimensions. Mikolov trained a neural network to predict word occurrences near each target word. In 2013, once at Google, Mikolov and his teammates released the software for creating these word vectors and called it Word2vec.
+After going over the next few sections the rationale behind the assignment of these blocks in the corresponding subsystems of the agent will be made apparent to you. To start with explaining the approach we will follow here, similar to what took place in the ML field in general, classical methods in NLP are largely superseded by deep learning architectures. Our focus here will be towards the later deep architectures and the changes that took place after 2012. On the other hand we need to cover certain stages that are common to both approaches - these stages are processing the text to allow representation learning stages to function.  
 
 
 
 > Most of the material presented here are from the sources below:
-
-* [CS224n: Natural Language Processing with Deep Learning](http://web.stanford.edu/class/cs224n/) - see also the [2019 version of the video lectures](https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z)
-* [Natural Language Processing in Action](https://www.amazon.com/Natural-Language-Processing-Action-Understanding/dp/1617294632). This book takes a hands on perspective to NLP. It uses both nltk (suitable for students and researchers) and spacy (suitable for developers) for implementing some of the stages of the NLP pipelines.
-* 
+>> * [CS224n: Natural Language Processing with Deep Learning](http://web.stanford.edu/class/cs224n/) - see also the [2019 version of the video lectures](https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z)
+>> * [Natural Language Processing in Action](https://www.amazon.com/Natural-Language-Processing-Action-Understanding/dp/1617294632). This book takes a hands on perspective to NLP. It uses both nltk (originally targeting students and researchers) and spacy (originally targeting development for production) for implementing some of the stages of the NLP pipelines.
