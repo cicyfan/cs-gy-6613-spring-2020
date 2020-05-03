@@ -4,19 +4,19 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Lecture 4b - Sequences and Recurrent Neural Networks (RNN)"><meta property="og:title" content="Lecture 4b - Sequences and Recurrent Neural Networks (RNN)" />
+<meta name="description" content="Lecture 10 - Sequences and Recurrent Neural Networks (RNN)"><meta property="og:title" content="Lecture 10 - Sequences and Recurrent Neural Networks (RNN)" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/rnn/" />
 
-<title>Lecture 4b - Sequences and Recurrent Neural Networks (RNN) | CS-GY-6613 Spring 2020</title>
+<title>Lecture 10 - Sequences and Recurrent Neural Networks (RNN) | CS-GY-6613 Spring 2020</title>
 <link rel="icon" href="/cs-gy-6613-spring-2020/favicon.png" type="image/x-icon">
 
 
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.77ffa6d467379e78e1a3d2f3f6b0667ea0d1a88dbf2e864082499ad7a1c587a6.js" integrity="sha256-d/&#43;m1Gc3nnjho9Lz9rBmfqDRqI2/LoZAgkma16HFh6Y="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.e9bdb85b2aaa7d5a4142f6def4ca142f6240f657fe026fcd0c9725b4bc6b8e61.js" integrity="sha256-6b24WyqqfVpBQvbe9MoUL2JA9lf&#43;Am/NDJcltLxrjmE="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/rnn/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -857,7 +857,7 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Lecture 4a - Convolutional Neural Networks</span>
+      <span>Lecture 4 - Convolutional Neural Networks</span>
     
 
     
@@ -1008,7 +1008,7 @@ https://github.com/alex-shpak/hugo-book
       
 
   <a href="/cs-gy-6613-spring-2020/docs/lectures/rnn/"  class="active">
-      Lecture 4b - Sequences and Recurrent Neural Networks (RNN)
+      Lecture 10 - Sequences and Recurrent Neural Networks (RNN)
   </a>
 
 
@@ -1856,7 +1856,7 @@ https://github.com/alex-shpak/hugo-book
       
 
   <a href="/cs-gy-6613-spring-2020/docs/lectures/drl/" >
-      Lecture 9/10 - Deep Reinforcement Learning
+      Lecture 9 - Reinforcement Learning
   </a>
 
 
@@ -2013,7 +2013,7 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Lecture 11 - Natural Language Processing I</span>
+      <span>Lecture 12 - Natural Language Processing</span>
     
 
     
@@ -2023,6 +2023,32 @@ https://github.com/alex-shpak/hugo-book
 
   
   <ul>
+    
+      
+        
+
+  <li >
+    
+      <span>Introduction to NLP</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
     
       
         
@@ -2049,32 +2075,6 @@ https://github.com/alex-shpak/hugo-book
 
 
       
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li >
-    
-      <span>Lecture 12 - Natural Language Processing II</span>
-    
-
-    
-
-
-
-
-  
-  <ul>
     
   </ul>
   
@@ -2802,7 +2802,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/cs-gy-6613-spring-2020/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Lecture 4b - Sequences and Recurrent Neural Networks (RNN)</strong>
+  <strong>Lecture 10 - Sequences and Recurrent Neural Networks (RNN)</strong>
 
   <label for="toc-control">
     <img src="/cs-gy-6613-spring-2020/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -2834,7 +2834,7 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown"><h1 id="sequences-and-recurrent-neural-networks-rnn">Sequences and Recurrent Neural Networks (RNN)</h1>
 <h2 id="sequences">Sequences</h2>
-<p>Data streams are everywhere in various applications. For example, weather station sensor data arrive in streams indexed by time,  in financial trading data - one can think of many others. We are interested to fit sequenced data with a model and in order to do so we need a hypothesis set that we can draw from that is rich enough for the task at hand.</p>
+<p>Data streams are everywhere in various applications. For example, weather station sensor data arrive in streams indexed by time,  in financial trading data - one can think of many others. We are interested to fit sequenced data with a model and in order to do so we need a hypothesis set that we can draw from, that is rich enough for the task at hand.</p>
 <p><em>Dynamical systems</em> are such rich models. In the following we use $t$ as the index variable and the notation $s_{1:\tau}$ means the sequence from 1 to $\tau$, without this implying any time semantics for the index $t$. In a dynamical system,  its _recurrent_ state evolution can be represented as:</p>
 <p>$$\mathbf{s}_t = f_t(\mathbf{s}_{t-1}, \mathbf{a}_t ; \bm \theta_t)$$</p>
 <p>where $\bm s$ is the evolving state,  $\bm a$ is an external action or control and $\bm \theta$ is a set of parameters that specify the state evolution model $f$.  This innocent looking equation can capture quite a lot of complexity.</p>
@@ -2843,7 +2843,7 @@ https://github.com/alex-shpak/hugo-book
 <li>The <em>action space</em> similarly can depend on $t$</li>
 <li>Finally, the function that maps previous states and actions to a new state can also depend on $t$</li>
 </ol>
-<p>So the dynamical system above has indeed offer a very profound modeling flexibility.</p>
+<p>So the dynamical system above has indeed offered a very profound modeling flexibility.</p>
 <h2 id="rnn-architecture">RNN Architecture</h2>
 <p>The RNN architecture is a constrained implementation of the above dynamical system</p>
 <p>$$\mathbf{h}_t = f(\mathbf{h}_{t-1}, \mathbf{x}_t ; \bm \theta)$$</p>
@@ -2867,9 +2867,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/f5768478236755c3f7e85aceb8a41c6ba7313814" title='Last modified by MONOGIOUDIS Pantelis | Feb 23, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/89854c4514ece19312c95393fd51dc829b0e2561" title='Last modified by MONOGIOUDIS Pantelis | May 3, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Feb 23, 2020</span>
+      <span>May 3, 2020</span>
     </a>
   </div>
 
