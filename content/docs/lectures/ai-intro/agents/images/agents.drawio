@@ -1,4 +1,4 @@
-<mxfile host="www.draw.io" modified="2020-05-03T11:33:58.313Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36" etag="mmSOA9VJ2xJQhpXvYvxw" version="13.0.5" type="github" pages="4">
+<mxfile host="www.draw.io" modified="2020-05-03T11:51:22.282Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36" etag="x0Ic1Uj70tAScWEG5uLo" version="13.0.5" type="github" pages="4">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="environment-taxonomy">
     <mxGraphModel dx="1892" dy="662" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="1" shadow="0">
       <root>
@@ -206,7 +206,7 @@
         <mxCell id="rAZiIYb8oKvVf2O9s_tk-18" value="SPATIO-TEMPORAL SCENE GRAPH&lt;br&gt;GENERATION" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=#fff2cc;strokeColor=#d6b656;" parent="rAZiIYb8oKvVf2O9s_tk-1" vertex="1">
           <mxGeometry x="560" y="270" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="rAZiIYb8oKvVf2O9s_tk-22" value="TRAJECTORY&lt;br&gt;PLANNING" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=#f8cecc;strokeColor=#b85450;" parent="rAZiIYb8oKvVf2O9s_tk-1" vertex="1">
+        <mxCell id="rAZiIYb8oKvVf2O9s_tk-22" value="MOTION&lt;br&gt;PLANNING" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=#f8cecc;strokeColor=#b85450;" parent="rAZiIYb8oKvVf2O9s_tk-1" vertex="1">
           <mxGeometry x="280" y="460" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="rAZiIYb8oKvVf2O9s_tk-23" value="CLASSICAL PLANNING" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=#f8cecc;strokeColor=#b85450;" parent="rAZiIYb8oKvVf2O9s_tk-1" vertex="1">
@@ -282,7 +282,7 @@
         <mxCell id="ZNAAsJ8KH1t0wXK9AFCA-12" value="LANGUAGE&lt;br&gt;REPRESENTATION&lt;br&gt;LEARNING" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="rAZiIYb8oKvVf2O9s_tk-1">
           <mxGeometry x="190" y="110" width="110" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="ZNAAsJ8KH1t0wXK9AFCA-15" value="DOMAIN KB" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="rAZiIYb8oKvVf2O9s_tk-1">
+        <mxCell id="ZNAAsJ8KH1t0wXK9AFCA-15" value="DOMAIN KB&lt;br&gt;LEARNING" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="rAZiIYb8oKvVf2O9s_tk-1">
           <mxGeometry x="560" y="360" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ZNAAsJ8KH1t0wXK9AFCA-16" value="LANGUAGE&lt;br&gt;DIALOG PLANNING" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="rAZiIYb8oKvVf2O9s_tk-1">
