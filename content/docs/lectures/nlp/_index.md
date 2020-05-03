@@ -11,7 +11,14 @@ weight: 130
 
 In this chapter we will start the journey to discover how agents can process _and respond_ to input sources that contain natural language. Such inputs are all the the trillions of web pages, billions of captioned videos, real-time multi-modal speech and video etc.  We wil rewind developments in this space starting in 2012 to discover how J.R. Firth's words translate to the NLP space as it evolved over the last 8 years.
 
-We start though with a overall architecture and 
+We start though by augmenting the overall [agent architecture]({{<ref "../ai-intro/agents">}}) with blocks that bring the language domain in the picture as shown below:
+
+![overall-agent-architecture](images/overall-agent-architecture.png#center)
+*Overall AI agent architecture and language components*
+
+The next few sections effectively explain the rationale behind the assignment of these blocks in the corresponding subsystems of the agent. Note that in this book we are going to 
+
+
 ## Language Models
 
 In programming languages we have 
@@ -25,10 +32,10 @@ Naturally expressed languages on the other hand can carry quite different meanin
 "The food in this restaurant was bad, not good at all."
 <---> 
 
-## Different context all together 
-"The valuation of this bank eroded soon after the 2008 crisis"
+## Different context alltogether 
+"The bank's profits eroded soon after the 2008 crisis"
 
-"The bank of this river eroded after the 2008 floods"
+"The river's bank eroded after the 2008 floods"
 {{< /columns >}}
 
 Bag of words will fail to capture the different meaning especially in sentences like the restaurant reviews above that have the same distribution of words. One of key ideas that made NLP successful is the _distributional semantics_ that originated from Firth's work: A word’s meaning is given by the words that frequently appear close-by. When a word $w$ appears in a text, its context is the set of words that appear nearby (within a fixed-size window). Use the many contexts of $w$ to build up a representation of $w$. This is the main idea behind word2vec representations that we address next. 
