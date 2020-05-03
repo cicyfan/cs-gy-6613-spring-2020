@@ -1,5 +1,5 @@
 ---
-title: Lecture 4b - Sequences and Recurrent Neural Networks (RNN)
+title: Lecture 10 - Sequences and Recurrent Neural Networks (RNN)
 draft: false
 weight: 70
 ---
@@ -8,7 +8,7 @@ weight: 70
 
 ## Sequences
 
-Data streams are everywhere in various applications. For example, weather station sensor data arrive in streams indexed by time,  in financial trading data - one can think of many others. We are interested to fit sequenced data with a model and in order to do so we need a hypothesis set that we can draw from that is rich enough for the task at hand. 
+Data streams are everywhere in various applications. For example, weather station sensor data arrive in streams indexed by time,  in financial trading data - one can think of many others. We are interested to fit sequenced data with a model and in order to do so we need a hypothesis set that we can draw from, that is rich enough for the task at hand. 
 
 _Dynamical systems_ are such rich models. In the following we use $t$ as the index variable and the notation $s_{1:\tau}$ means the sequence from 1 to $\tau$, without this implying any time semantics for the index $t$. In a dynamical system,  its _recurrent_ state evolution can be represented as:
 
@@ -20,7 +20,7 @@ where $\bm s$ is the evolving state,  $\bm a$ is an external action or control a
 2.  The _action space_ similarly can depend on $t$
 3.  Finally, the function that maps previous states and actions to a new state can also depend on $t$
 
-So the dynamical system above has indeed offer a very profound modeling flexibility. 
+So the dynamical system above has indeed offered a very profound modeling flexibility. 
 
 ## RNN Architecture
 The RNN architecture is a constrained implementation of the above dynamical system 

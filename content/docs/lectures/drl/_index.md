@@ -1,10 +1,10 @@
 ---
-title: Lecture 9/10 - Deep Reinforcement Learning
+title: Lecture 9 - Reinforcement Learning
 weight: 110
 draft: false
 ---
 
-# Deep Reinforcement Learning
+# Reinforcement Learning
 
 ![unified-view-rl](images/unified-view-rl.png#center)
 *Different Approaches to solve known and unknown MDPs*
@@ -33,5 +33,6 @@ Suffice to say that exploring DRL algorithms is a very long journey as shown bel
 *DRL algorithms - taxonomy and evolution*
 
 > Apart from the notes here that are largely based on [David Silver's (Deep Mind) course material](https://www.davidsilver.uk/teaching/) and [video lectures](https://www.youtube.com/watch?v=2pWv7GOvuf0&list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ), the curious mind will be find additional resources: 
+> * [in the Richard Sutton's book](http://incompleteideas.net/book/RLbook2020.pdf) - David Silver's slides and video lectures are based on this book. The code in Python of the book is [here](https://github.com/ShangtongZhang/reinforcement-learning-an-introduction)
 > * [in the suggested book](https://www.amazon.com/Deep-Reinforcement-Learning-Python-Hands-dp-0135172381/dp/0135172381/ref=mt_paperback?_encoding=UTF8&me=&qid=) written by Google researchers as well as on [OpenAI's website](https://openai.com/resources/). The chapters we covered is 1-4. 
 > * You may also want to watch Andrew Ng's, [2018 version of his ML class](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU) that includes MDP and RL lectures.

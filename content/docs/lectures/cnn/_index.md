@@ -1,5 +1,5 @@
 ---
-title: Lecture 4a - Convolutional Neural Networks
+title: Lecture 4 - Convolutional Neural Networks
 weight: 60
 draft: false
 ---

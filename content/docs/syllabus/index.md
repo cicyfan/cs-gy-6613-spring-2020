@@ -35,7 +35,7 @@ The schedule is based on [Academic Calendar Spring 2020](https://www.nyu.edu/reg
 
 **3/16/2020**  Enjoy President's Day holiday.
 
-4. **Lecture 4: (2/24/2020)** We dive into the most dominant DNN architecture today -  _Convolutional Neural Networks (CNNs). Reading: DL Chapter 9 & 10. 
+4. **Lecture 4: (2/24/2020)** We dive into the most dominant DNN architecture today -  _Convolutional Neural Networks (CNNs)_. Reading: DL Chapter 9 & 10. 
 
 5. **Lecture 5: (3/2/2020)** When agents move in the environment they need to abilities such as _scene understanding_.  We will go through few key perception building blocks such as Object Detection, Semantic and Instance Segmentation. Some of these building blocks (autoencoders) are instructive examples of representations learning that will be shown to be an essential tool in the construction of environment state representations. Reading: Various papers 
         
@@ -49,19 +49,21 @@ The schedule is based on [Academic Calendar Spring 2020](https://www.nyu.edu/reg
 
 **3/30/2020 - This is your Midterm Test (2h)** 
 
-### Part III: Deep Reinforcement Learning
+### Part III: Reinforcement Learning
 
 8. **Lecture 8: (4/6/2020)** We now make a considerable extension to our assumptions: the utility of the agent now depends on a sequence of decisions and, further, the stochastic environment offers a feedback signal to the agent called _reward_. We review how the agent's policy, the sequence of actions, can be calculated when it fully observes its current state (MDP) and also when it can only partially do so (POMDP). We conclude with the basic taxonomy of the algorithmic space for RL problems.   Readings: AIMA Chapter 16 & 17, DRL Chapter 1. This lecture will be delivered by my colleague Gurudutt Hossangadi. 
-        
+
+**4/13/2020** Good luck with your midterm.
+
 9.  **Lecture 9: (4/20/2020)**  The algorithms that learn optimal policies in such settings are known as Reinforcement Learning (RL). In this lecture we establish the connection between MDP and RL, by introducing the Bellman expectation backup and Bellman optimality equations. We then use these equations to derive the policy iteration algorithm that is behind the policy-based REINFORCE algorithm that is empowered by approximating the policy function using the Deep Neural Networks that we met in the perception subsystem. DRL Chapter 2.  
                 
-10.   **Lecture 10: (4/27/2020)**  In this lecture we aim to expand our DRL treatment on value-based methods and the principle of action-value iteration. We then look at algorithm incarnations of value-based methods such as State Action Reward State Action (SARSA) and DQN and understand how they learn the value functions. Readings: DRL Chapter 3 and 4. 
+10.   **Lecture 10: (4/27/2020)**  In this lecture we aim to expand our DRL treatment on value-based methods and the principle of action-value iteration. We then look at algorithm incarnations of value-based methods such as State Action Reward State Action (SARSA) and if time allows off-policy DQN and understand how they learn the value functions. Readings: DRL Chapter 3 / 4. 
 
 ### Part IV: Natural Language Processing and Representations
                 
-11.    **Lecture 11: (5/05/2020)**  We are all familiar that natural language is the prime means of communication between humans to collaboratively complete successfully tasks or simply share information. How machines can understand language? In this lecture we pose the NLP problem, understand its components and their mechanics. We then talk extensively about _language modeling_ and start with an approach based on the [RNN / LTSM]({{<ref "../lectures/rnn">}}) architecture. The later is used far beyond language modeling and expands into every use case that involves sequences. AIMA Chapter 23 and DL Chapter 10. 
+11. **Lecture 11: (5/05/2020)**  NLP is the pinnacle of applied AI in every day life - we are all using natural language as the prime means of communicate between us and increasingly between us and robots. In this lecture we pose the NLP problem, understand its components and their mechanics. We then talk extensively about _language modeling_ and start with an approach based on the [RNN / LTSM]({{<ref "../lectures/rnn">}}) architecture. The later is used far beyond language modeling and expands into every use case that involves sequences. AIMA Chapter 23 and DL Chapter 10. 
         
-12.    **Lecture 12: (5/11/2020)** . We introduce the concept of _attention_ and go through the Transformer framework - perhaps the most successful architecture in NLP today. We also cover some key aspects of the course to prepare for the final test. 
+12. **Lecture 12: (5/11/2020)**  We introduce the concept of _attention_ and go through the Transformer framework - perhaps the most successful architecture in NLP today. We also cover some key aspects of the course to prepare for the final test. 
         
-13.    **Lecture 13: (5/18/2020)**  Good luck with your final test.
+**5/18/2020**  Good luck with your final test.
           
