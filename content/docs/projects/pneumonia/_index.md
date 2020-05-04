@@ -1,5 +1,5 @@
 ---
-title: Project 5 - Explainable COVID-19 Pneumonia (OPTIONAL) 
+title: Explainable COVID-19 Pneumonia (OPTIONAL) 
 ---
 
 # Explainable COVID-19 Pneumonia

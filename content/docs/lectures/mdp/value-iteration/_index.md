@@ -120,5 +120,5 @@ print(optPolicy)
 
 {{</expand>}}
 
-> A more graphical way to understand how policy iteration functions is through [this python code](https://github.com/rlcode/reinforcement-learning/tree/master/1-grid-world/1-value-iteration) that depicts a more elaborate gridworld. 
+> A more graphical way to understand how policy iteration functions is through [this python code](https://github.com/rlcode/reinforcement-learning/tree/master/1-grid-world/2-value-iteration) that depicts a more elaborate gridworld. You can type ```python value_iteration.py``` to debug and step through the code after installing the dependencies. 
 

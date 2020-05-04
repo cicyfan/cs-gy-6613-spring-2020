@@ -6,7 +6,7 @@ draft: true
 
 # Introduction to NLP
 
-To get started we need some common ground on the NLP terminology - the terms are presented in the processing order of an NLP pipeline. This paragraph is heavily borrowed from [here](https://medium.com/@ageitgey/natural-language-processing-is-fun-9a0bff37854e).
+To get started, we need some common ground on the NLP terminology - the terms are presented in the processing order of an NLP pipeline. This paragraph is heavily borrowed from [here](https://medium.com/@ageitgey/natural-language-processing-is-fun-9a0bff37854e).
 
 | Term | Definition |
 | --- | --- |
@@ -22,17 +22,11 @@ To get started we need some common ground on the NLP terminology - the terms are
 | **Dependency Parsing** | The next step is to figure out how all the words in our sentence relate to each other. This is called dependency parsing. The goal is to build a tree that assigns a single parent word to each word in the sentence. The root of the tree will be the main verb in the sentence. In addition to identifying the parent word of each word, we can also predict the type of relationship that exists between those parent and child. This parse tree shows us that the subject of the sentence is the noun “London” and it has a “be” relationship with “capital”. We finally know something useful — London is a capital. Dependency parsing in NLP stacks circa 2017 was heavily based on [deep learning](https://ai.googleblog.com/2017/03/an-upgrade-to-syntaxnet-new-models-and.html) architectures - [demo](https://explosion.ai/demos/displacy?text=the%20students%20of%20CS-GY-6613%20are%20having%20a%20difficult%20time%20with%20professor%20Pantelis&model=en_core_web_sm&cpu=1&cph=1) |
 | | ![dependency-parsing](images/dependency-parsing.png#center) |
 | **Named Entity Recognition (NER)** | The goal of Named Entity Recognition, or NER, is to detect and label nouns with the real-world concepts that they represent. NER systems aren’t just doing a simple dictionary lookup. Instead, they are using the context of how a word appears in the sentence and a statistical model to guess which type of noun a word represents. [demo](https://explosion.ai/demos/displacy-ent?text=A%20rapid%20increase%20in%20virtual%20visits%20during%20the%202019%20coronavirus%20disease%20(COVID-19)%20pandemic%20could%20transform%20the%20way%20physicians%20provide%20care%20in%20the%20United%20States%20going%20forward%2C%20according%20to%20a%20new%20study%20led%20by%20researchers%20from%20NYU%20Grossman%20School%20of%20Medicine.%0A%0A%E2%80%9CThe%20pandemic%20created%20an%20urgent%20need%20to%20divert%20patients%20from%20inpatient%20care%20and%20prevent%20the%20flooding%20of%20our%20emergency%20rooms%20beyond%20capacity%2C%E2%80%9D%20says%20Devin%20Mann%2C%20MD%2C%20associate%20professor%20in%20the%20Departments%20of%20Population%20Health%20and%20Medicine%2C%20senior%20director%20for%20informatics%20innovation%20and%20the%20information%20technology%20team%20at%20NYU%20Langone%2C%20and%20the%20study%E2%80%99s%20lead%20author.%20%E2%80%9CThrough%20telemedicine%2C%20we%20pushed%20the%20front%20lines%20to%20locations%20far%20from%20our%20hospitals%20and%20doctor%E2%80%99s%20offices.%20And%20because%20NYU%20%0ALangone%20invested%20early%20in%20this%20technology%2C%20we%20quickly%20leveraged%20it%20to%20help%20hundreds%20of%20thousands%20of%20patients.%E2%80%9D&model=en_core_web_sm&ents=person%2Corg%2Cgpe%2Cloc%2Cproduct%2Cnorp%2Cdate%2Cper%2Cmisc)|
-| **Coreference Resolution** |  |
+| **Coreference Resolution** | Coreference resolution is the task of finding all expressions that refer to the same entity in a text. It is an important step for a lot of higher level NLP tasks that involve natural language understanding such as document summarization, question answering, and information extraction. Coreference resolution is one of the most difficult steps in our pipeline to [implement](https://huggingface.co/coref/) |
 | | ![coreference-resolution](images/coreference-resolution.png#center) |
 
 
-Python and almost all programming languages 
-
-## Language Models
-
-In programming languages we have 
-despite the fact that words in a sentence may appear very similar
-Naturally expressed languages on the other hand can carry quite different meanings.  
+Python and almost all programming languages are formal. They define a strict set of rules called a _grammar_ that the programmer must follow religiously. In addition formal languages also define semantics or meaning of the program via a set of rules. So the exit code ```0``` after the execution of a routine has the meaning of ```successful termination``` but a ```1``` the opposite. The English language on the other hand is "free wheeling" so to speak due to its ambiguity ("he met his maker") and size. 
 
 {{< columns >}} 
 ## Same context, different meaning
@@ -47,10 +41,7 @@ Naturally expressed languages on the other hand can carry quite different meanin
 "The river's bank eroded after the 2008 floods"
 {{< /columns >}}
 
-Bag of words will fail to capture the different meaning especially in sentences like the restaurant reviews above that have the same distribution of words. One of key ideas that made NLP successful is the _distributional semantics_ that originated from Firth's work: A word’s meaning is given by the words that frequently appear close-by. When a word $w$ appears in a text, its context is the set of words that appear nearby (within a fixed-size window). Use the many contexts of $w$ to build up a representation of $w$. This is the main idea behind word2vec representations that we address next. 
 
-## Word2Vec
-
-In 2012, Thomas Mikolov, an intern at Microsoft, found a way to encode the meaning of words in a modest number of vector dimensions. Mikolov trained a neural network to predict word occurrences near each target word. In 2013, once at Google, Mikolov and his teammates released the software for creating these word vectors and called it Word2vec.
+To capture the fuzziness of natural language we define language models probabilistically. We do not speak of a single meaning for a sentence - rather we speak of _a probability distribution over possible meanings_. In the next section we will start to quantify such probabilistic language models in detail. 
 
 

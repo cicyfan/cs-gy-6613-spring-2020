@@ -2,7 +2,7 @@
 title: Project 3 - Semantic Code Search
 ---
 
-# Project 3 - Semantic Code Search
+# Semantic Code Search
 
 **This project is due May 10 at 11:59pm**
 

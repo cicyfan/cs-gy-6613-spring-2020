@@ -2,7 +2,7 @@
 title: Project 2 - Continual Learning for Robotic Perception
 ---
 
-# Project 2 - Continual Learning (CL) for Robotic Perception
+# Continual Learning (CL) for Robotic Perception
 
 **This project is due March 29 at 11:59pm**
 

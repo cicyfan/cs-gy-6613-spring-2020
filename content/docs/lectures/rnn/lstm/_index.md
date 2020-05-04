@@ -1,7 +1,7 @@
 ---
 title: The Long Short-Term Memory (LSTM) Cell Architecture
 draft: false
-weight: 75
+weight: 135
 ---
 
 # The Long Short-Term Memory (LSTM) Cell Architecture
@@ -19,7 +19,7 @@ In each area there is a corresponding gate (filled node) - these are the input g
 
 ## The Cell State
 
-Starting at the heart of the LSTM cell, to describe the update of we will use two indices: one for the unfolding sequence index $t$ and the other for the cell index $i$. We use the additional index to allow the current cell at step $t$ to use or forget inputs and hidden states from other cells. 
+Starting at the heart of the LSTM cell, to describe the update we will use two indices: one for the unfolding sequence index $t$ and the other for the cell index $i$. We use the additional index to allow the current cell at step $t$ to use or forget inputs and hidden states from other cells. 
 
 $$s_t(i) = f_t(i) s_{t-1}(i) + g_t(i) \sigma \Big( \bm W^T(i) \bm h_{t-1}(i) + \bm U^T(i) \bm x_t(i) + \bm b(i) \Big)$$
 

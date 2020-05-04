@@ -2,7 +2,7 @@
 title: Project 1 - Surface Type Classification 
 ---
 
-# Project 1 - Surface Type Classification 
+# Surface Type Classification 
 
 ![imu](images/6df-imu.jpg)
 
