@@ -1,7 +1,7 @@
 ---
 title: Introduction to NLP
 weight: 131
-draft: true
+draft: false
 ---
 
 # Introduction to NLP

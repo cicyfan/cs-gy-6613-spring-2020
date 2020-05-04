@@ -1,6 +1,6 @@
 ---
 title: Word Embeddings
-draft: true
+draft: false
 weight: 132
 ---
 
