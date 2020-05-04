@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.ff6296ebc6837ec10608dcf0a3aa734f841fef713a080fc7c37d629691821a39.js" integrity="sha256-/2KW68aDfsEGCNzwo6pzT4Qf73E6CA/Hw31ilpGCGjk="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.17a503d6f281ca010ca218d979fe9c8741f93d76ab9ac2bd1bdea5fcea4d97be.js" integrity="sha256-F6UD1vKBygEMohjZef6ch0H5PXarmsK9G96l/OpNl74="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/nlp/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -2039,7 +2039,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Lecture 11/12 - Natural Language Processing</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/nlp/"  class="active">
+      Lecture 11/12 - Natural Language Processing
+  </a>
+
+
     
 
     
@@ -2055,7 +2061,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Introduction to NLP</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/nlp/nlp-intro/" >
+      Introduction to NLP
+  </a>
+
+
     
 
     
@@ -2081,7 +2093,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Word Embeddings</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/nlp/word2vec/" >
+      Word Embeddings
+  </a>
+
+
     
 
     
@@ -2840,7 +2858,11 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#natural-language-processing">Natural Language Processing</a></li>
+  </ul>
+</nav>
 
 
     </aside>
@@ -2849,7 +2871,24 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-<article class="markdown"></article>
+<article class="markdown"><h1 id="natural-language-processing">Natural Language Processing</h1>
+<p><img src="images/national-library-greece.jpg#center" alt="national-library-greece">
+<em>“You shall know a word by the company it keeps” (J. R. Firth 1957: 11) - many modern discoveries are in fact rediscoveries from other works sometimes decades old. NLP is non an exception.</em></p>
+<p>In this chapter we will start discovering how agents can process <em>and respond</em> to input sources that contain natural language. Such inputs are all the the trillions of web pages, billions of captioned videos, real-time multi-modal speech and video etc.  We wil rewind developments in this space starting in 2012 to discover how J.R. Firth&rsquo;s words translate to the NLP space as it evolved over the last 8 years.</p>
+<p>We start though by augmenting the overall <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ai-intro/agents/">agent architecture</a> with blocks that bring the language domain in the picture as shown below:</p>
+<p><img src="images/overall-agent-architecture.png#center" alt="overall-agent-architecture">
+<em>Overall AI agent architecture and language components</em></p>
+<p>After going over the next few sections the rationale behind the assignment of these blocks in the corresponding subsystems of the agent will be made apparent to you. To start with explaining the approach we will follow here, similar to what took place in the ML field in general, classical methods in NLP are largely superseded by deep learning architectures. Our focus will be towards the later deep architectures and the changes that took place after 2012. On the other hand we need to cover certain stages that are common to both approaches - these stages are processing the text to allow representation learning stages to be able to function.</p>
+<blockquote>
+<p>Most of the material presented here are from the sources below:</p>
+<blockquote>
+<ul>
+<li><a href="http://web.stanford.edu/class/cs224n/">CS224n: Natural Language Processing with Deep Learning</a> - see also the <a href="https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z">2019 version of the video lectures</a></li>
+<li><a href="https://www.amazon.com/Natural-Language-Processing-Action-Understanding/dp/1617294632">Natural Language Processing in Action</a>. This book takes a hands on perspective to NLP. It uses both nltk (originally targeting students and researchers) and spacy (originally targeting development for production) for implementing some of the stages of the NLP pipelines.</li>
+</ul>
+</blockquote>
+</blockquote>
+</article>
  
 
       <footer class="book-footer">
@@ -2860,7 +2899,7 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/6773e1826e82be6bab29c979a4c19889a464dc91" title='Last modified by MONOGIOUDIS Pantelis | May 4, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/b7263f4da8a606ee7f629ca6aa6297a90a0547fa" title='Last modified by MONOGIOUDIS Pantelis | May 4, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>May 4, 2020</span>
     </a>
@@ -2888,7 +2927,11 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#natural-language-processing">Natural Language Processing</a></li>
+  </ul>
+</nav>
 
  
     </aside>

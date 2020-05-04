@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.ff6296ebc6837ec10608dcf0a3aa734f841fef713a080fc7c37d629691821a39.js" integrity="sha256-/2KW68aDfsEGCNzwo6pzT4Qf73E6CA/Hw31ilpGCGjk="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.17a503d6f281ca010ca218d979fe9c8741f93d76ab9ac2bd1bdea5fcea4d97be.js" integrity="sha256-F6UD1vKBygEMohjZef6ch0H5PXarmsK9G96l/OpNl74="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/nlp/word2vec/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -2039,7 +2039,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Lecture 11/12 - Natural Language Processing</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/nlp/" >
+      Lecture 11/12 - Natural Language Processing
+  </a>
+
+
     
 
     
@@ -2055,7 +2061,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Introduction to NLP</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/nlp/nlp-intro/" >
+      Introduction to NLP
+  </a>
+
+
     
 
     
@@ -2081,7 +2093,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Word Embeddings</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/nlp/word2vec/"  class="active">
+      Word Embeddings
+  </a>
+
+
     
 
     
@@ -2840,7 +2858,15 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#word-embeddings">Word Embeddings</a>
+      <ul>
+        <li><a href="#word2vec">Word2Vec</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
     </aside>
@@ -2849,7 +2875,61 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-<article class="markdown"></article>
+<article class="markdown"><h1 id="word-embeddings">Word Embeddings</h1>
+<p>In the so called classical NLP, words were treated as atomic symbols, e.g. <code>hotel</code>, <code>conference</code>, <code>walk</code> and they were represented with on-hot encoded (sparse) vectors e.g.</p>
+<p>$$\mathtt{hotel} = [0,0, &hellip;, 0,1, 0,0,..,0]$$
+$$\mathtt{motel} = [0,0, &hellip;, 0,0, 0,1,..,0]$$</p>
+<p>The size of the vectors is equal to the vocabulary size $V$. These vocabularies are very long - for speech recognition we may be looking at 20K entries but for information retrieval on the web google has released vocabularies with 13 million words (1TB). In addition such representations are orthogonal to each other by construction - there is no way we can relate <code>motel</code> and <code>hotel</code> as their dot product is</p>
+<p>$$ s = \mathtt{hotel}^T \mathtt{motel} = 0.0$$</p>
+<p>One of key ideas that made NLP successful is the <em>distributional semantics</em> that originated from Firth&rsquo;s work: <em>a word’s meaning is given by the words that frequently appear close-by</em>. When a word $x$ appears in a text, its context is the set of words that appear nearby (within a fixed-size window). Use the many contexts of $x$ to build up a representation of $x$.</p>
+<p><img src="images/distributional-similarity.png#center" alt="distributional-similarity">
+<em>Distributional similarity representations - <code>banking</code> is represented by the words left and right across all sentences of our corpus.</em></p>
+<p>This is the main idea behind word2vec word embeddings (representations) that we address next.</p>
+<h2 id="word2vec">Word2Vec</h2>
+<p>In 2012, Thomas Mikolov, an <em>intern</em> at Microsoft, <a href="https://arxiv.org/abs/1310.4546">found a way</a><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> to encode the meaning of words in a modest number of vector dimensions $d$. Mikolov trained a neural network to predict word occurrences near each target word. In 2013, once at Google, Mikolov and his teammates released the software for creating these word vectors and called it word2vec.</p>
+<p><img src="images/banking-vector.png#center" alt="banking-vector">
+<em>word2vec generated embedding for the word <code>banking</code> in d=8 dimensions</em></p>
+<p>Here is a <a href="http://projector.tensorflow.org/">visualization</a> of these embeddings in the re-projected 3D space (from $d$ to 3). Try searching for the word &ldquo;truck&rdquo; for the visualizer to show the <em>distorted</em> neighbors of this work - distorted because of the 3D re-projection. In another example, word2vec embeddings of US cities projected in the 2D space result in poor topological but excellent <em>semantic</em> mapping which is exactly what we are after.</p>
+<p><img src="images/semantic-map-word2vec.png#center" alt="semantic-map-word2vec">
+<em>Semantic Map produced by word2vec for US cities</em></p>
+<p>Another classic example that shows the power of word2vec representations to encode analogies, is  classical king + woman − man ≈ queen example shown below.</p>
+<p><img src="images/queen-example.png#center" alt="queen-example">
+<em>Classic queen example where <code>king − man ≈ queen − woman</code>, and we can visually see that in the red arrows. There are 4 analogies one can construct, based on the parallel red arrows and their direction. This is slightly idealized; the vectors need not be so similar to be the most similar from all word vectors. The similar direction of the red arrows indicates similar relational meaning.</em></p>
+<p>So what is the more formal description of the word2vec algorithm? We will focus on one of the two computational algorithms<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> - the skip-gram method and use the following diagrams as examples to explain how it works.</p>
+<p><img src="images/word2vec-idea.png#center" alt="word2vec-idea">
+*Computing $p(w_{t+j}|w_t)$ with word2vec*</p>
+<p><img src="images/word2vec-idea2.png#center" alt="word2vec-idea2">
+*Computing $p(w_{t+j}|w_t)$ with word2vec*</p>
+<p>The algorithm starts with all word embeddings in our corpus being random vectors.</p>
+<p>It then iteratively goes through each position $t$ in each sentence and for the center word at that location$w_t$ we predict the outside words $w_{t+j}$ where $j$ is over a window of size $C = |\{ j: -m \le j \le m \}|-1$ around $w_t$. In other words we need to calculate the probability $p(w_{t+j}|w_t)$ and in each iteration we adjust the word vectors to maximize this probability.</p>
+<p>So for example, the meaning of <code>banking</code> is predicting the context (the words around it) in which <code>banking</code> occurs across our corpus.  The term <em>prediction</em> remind us the discussion we had in the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/regression/">linear regression</a> section and the maximum likelihood principle. Therefore the objective is to minimize the negative log likelihood that is,</p>
+<p>$$J(\theta) = -\frac{1}{V} \log L(\theta) = -\frac{1}{V} \sum_{t=1}^V \sum_{-m\le j \le m, j \neq 0} \log p(w_{t+j} | w_t; \theta)$$</p>
+<p>where $V$ is the size of the vocabulary (words) that results after executing, in a corpora of documents, some of the steps we have seen in the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/nlp/nlp-intro/">introductory</a> section. T could be very large - 1 billion words. The ML principle, powered by a corresponding algorithm, will result into a model that for each word at the input will predict the context words around it.  The model parameters $\theta$ will need to be optimized based on a training dataset that we soon see how we create. The parameters $\theta$ are just the vector representations of each word in the training dataset.</p>
+<p>So the question now becomes how to calculate $p(w_{t+j} | w_t; \theta)$ and we do so with the network architecture below.</p>
+<p><img src="images/word2vec-network.png#center" alt="word2vec-network">
+<em>Conceptual architecture of the neural network that learns word2vec embeddings. The text refers to the hidden layer dimensions as $d$ rather than $N$ and hidden layer $\mathbf z$ rather than $\mathbf h$.</em></p>
+<p>The network accepts the center word and via an embedding layer $\mathbf W_{V \times d}$ produces a hidden layer $\mathbf z$. The same hidden layer output is then mapped to an output layer of size $C \times V$, via $\mathbf W^\prime_{d \times V}$. One mapping is done for each of the words that we include in the context. In the output layer we then convert the metrics $\mathbf z^\prime$ to a probability distribution $\hat{\mathbf y}$ via the softmax. This is summarized next:</p>
+<p>$$\mathbf z = \mathbf x^T \mathbf W$$
+$$\mathbf z^\prime_j = \mathbf z \mathbf W^\prime_j,  j \in [1,&hellip;,C]$$
+$$\hat{\mathbf y}_j = \mathtt{softmax}(\mathbf z^\prime), j \in [1,&hellip;,C]$$
+$$L = CE(\mathbf{y}, \hat{\mathbf y} )$$</p>
+<p>The parameters $\theta = [ \mathbf W, \mathbf W^\prime ]$ will be optimized via an optimization algorithm (from the usual SGD family). The only missing piece now is the training data. Training data can be easily generated from our corpus assuming we fix the $m$. Lets see an example:</p>
+<p><img src="images/training-data-word2vec.png#center" alt="training-data-word2vec">
+<em>Training data generation for the sentence &lsquo;Claude Monet painted the Grand Canal of Venice in 1908&rsquo;</em></p>
+<p>Training for large vocabularies can be quite computationally intensive. This <a href="https://github.com/ujhuyz0110/wrd_emb/blob/master/word2vec_skipgram_medium_v1.ipynb">self-contained implementation</a> is instructive and you should <a href="https://towardsdatascience.com/word2vec-from-scratch-with-numpy-8786ddd49e72">go through it</a> to understand the algorithm analysis above. Exercising the <code>gensim</code> and other library APIs is easy especially with pre-trained models, but to really understand a topic, you need to code something from scratch.</p>
+<p>At the end of training we are then able to store the matrix $\mathbf W$ and load it during the parsing stage of the NLP pipeline.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>You don&rsquo;t come across papers with 10K citations very often. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>The other method is called Continuous Bag of Words (CBOW) and its the reverse of the skip-gram method: it predicts the center word from the words around it. Skip-gram works well with small corpora and rare terms while CBOW shows higher accuracies for frequent words and is faster to train <a href="https://www.manning.com/books/natural-language-processing-in-action">ref</a>. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</article>
  
 
       <footer class="book-footer">
@@ -2860,7 +2940,7 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/6773e1826e82be6bab29c979a4c19889a464dc91" title='Last modified by MONOGIOUDIS Pantelis | May 4, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/b7263f4da8a606ee7f629ca6aa6297a90a0547fa" title='Last modified by MONOGIOUDIS Pantelis | May 4, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>May 4, 2020</span>
     </a>
@@ -2888,7 +2968,15 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#word-embeddings">Word Embeddings</a>
+      <ul>
+        <li><a href="#word2vec">Word2Vec</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
  
     </aside>

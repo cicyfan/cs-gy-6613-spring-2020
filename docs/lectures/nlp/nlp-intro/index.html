@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.ff6296ebc6837ec10608dcf0a3aa734f841fef713a080fc7c37d629691821a39.js" integrity="sha256-/2KW68aDfsEGCNzwo6pzT4Qf73E6CA/Hw31ilpGCGjk="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.17a503d6f281ca010ca218d979fe9c8741f93d76ab9ac2bd1bdea5fcea4d97be.js" integrity="sha256-F6UD1vKBygEMohjZef6ch0H5PXarmsK9G96l/OpNl74="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/nlp/nlp-intro/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -2039,7 +2039,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Lecture 11/12 - Natural Language Processing</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/nlp/" >
+      Lecture 11/12 - Natural Language Processing
+  </a>
+
+
     
 
     
@@ -2055,7 +2061,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Introduction to NLP</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/nlp/nlp-intro/"  class="active">
+      Introduction to NLP
+  </a>
+
+
     
 
     
@@ -2081,7 +2093,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Word Embeddings</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/nlp/word2vec/" >
+      Word Embeddings
+  </a>
+
+
     
 
     
@@ -2840,7 +2858,11 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction-to-nlp">Introduction to NLP</a></li>
+  </ul>
+</nav>
 
 
     </aside>
@@ -2849,7 +2871,95 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-<article class="markdown"></article>
+<article class="markdown"><h1 id="introduction-to-nlp">Introduction to NLP</h1>
+<p>To get started, we need some common ground on the NLP terminology - the terms are presented in the processing order of an NLP pipeline. This paragraph is heavily borrowed from <a href="https://medium.com/@ageitgey/natural-language-processing-is-fun-9a0bff37854e">here</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Segmentation</strong></td>
+<td>The first step in the pipeline is to break the text apart into separate sentences. Coding a Sentence Segmentation model can be as simple as splitting apart sentences whenever you see a punctuation mark. But modern NLP pipelines often use more complex techniques that work even when a document isn’t formatted cleanly. Take for example the sentence “London is the capital and most populous city of England and the United Kingdom.”</td>
+</tr>
+<tr>
+<td><strong>Word Tokenization</strong></td>
+<td>The next step in our pipeline is to break this sentence into separate words or tokens. This is called tokenization. “London”, “is”, “ the”, “capital”, “and”, “most”, “populous”, “city”, “of”, “England”, “and”, “the”, “United”, “Kingdom”, “.”</td>
+</tr>
+<tr>
+<td><strong>Part of Speech Tagging</strong></td>
+<td>The next step tags each word with a classification result of its part - whether it is a noun, a verb, an adjective and so on. We can do this by feeding each word (and some extra words around it for context) into a pre-trained part-of-speech classification model:</td>
+</tr>
+<tr>
+<td></td>
+<td><img src="images/pos-classification.png#center" alt="pos-classification"></td>
+</tr>
+<tr>
+<td></td>
+<td><img src="images/pos-example.png#center" alt="pos-example"></td>
+</tr>
+<tr>
+<td><strong>Lematization</strong></td>
+<td>This is one of the stages of <em>vocabulary normalization</em>.  At this stage we are figuring out the most basic form or lemma of each word in the sentence.</td>
+</tr>
+<tr>
+<td></td>
+<td><img src="images/lemmatization.png#center" alt="lemmatization"></td>
+</tr>
+<tr>
+<td><strong>Stop words identification</strong></td>
+<td>This is one of the stages of <em>vocabulary normalization</em>.  Stop words are common words in any language that occur with a high frequency but carry much less substantive information about the meaning of a phrase.</td>
+</tr>
+<tr>
+<td></td>
+<td><img src="images/stop-words.png#center" alt="stop-words"></td>
+</tr>
+<tr>
+<td><strong>Dependency Parsing</strong></td>
+<td>The next step is to figure out how all the words in our sentence relate to each other. This is called dependency parsing. The goal is to build a tree that assigns a single parent word to each word in the sentence. The root of the tree will be the main verb in the sentence. In addition to identifying the parent word of each word, we can also predict the type of relationship that exists between those parent and child. This parse tree shows us that the subject of the sentence is the noun “London” and it has a “be” relationship with “capital”. We finally know something useful — London is a capital. Dependency parsing in NLP stacks circa 2017 was heavily based on <a href="https://ai.googleblog.com/2017/03/an-upgrade-to-syntaxnet-new-models-and.html">deep learning</a> architectures - <a href="https://explosion.ai/demos/displacy?text=the%20students%20of%20CS-GY-6613%20are%20having%20a%20difficult%20time%20with%20professor%20Pantelis&amp;model=en_core_web_sm&amp;cpu=1&amp;cph=1">demo</a></td>
+</tr>
+<tr>
+<td></td>
+<td><img src="images/dependency-parsing.png#center" alt="dependency-parsing"></td>
+</tr>
+<tr>
+<td><strong>Named Entity Recognition (NER)</strong></td>
+<td>The goal of Named Entity Recognition, or NER, is to detect and label nouns with the real-world concepts that they represent. NER systems aren’t just doing a simple dictionary lookup. Instead, they are using the context of how a word appears in the sentence and a statistical model to guess which type of noun a word represents. <a href="https://explosion.ai/demos/displacy-ent?text=A%20rapid%20increase%20in%20virtual%20visits%20during%20the%202019%20coronavirus%20disease%20(COVID-19)%20pandemic%20could%20transform%20the%20way%20physicians%20provide%20care%20in%20the%20United%20States%20going%20forward%2C%20according%20to%20a%20new%20study%20led%20by%20researchers%20from%20NYU%20Grossman%20School%20of%20Medicine.%0A%0A%E2%80%9CThe%20pandemic%20created%20an%20urgent%20need%20to%20divert%20patients%20from%20inpatient%20care%20and%20prevent%20the%20flooding%20of%20our%20emergency%20rooms%20beyond%20capacity%2C%E2%80%9D%20says%20Devin%20Mann%2C%20MD%2C%20associate%20professor%20in%20the%20Departments%20of%20Population%20Health%20and%20Medicine%2C%20senior%20director%20for%20informatics%20innovation%20and%20the%20information%20technology%20team%20at%20NYU%20Langone%2C%20and%20the%20study%E2%80%99s%20lead%20author.%20%E2%80%9CThrough%20telemedicine%2C%20we%20pushed%20the%20front%20lines%20to%20locations%20far%20from%20our%20hospitals%20and%20doctor%E2%80%99s%20offices.%20And%20because%20NYU%20%0ALangone%20invested%20early%20in%20this%20technology%2C%20we%20quickly%20leveraged%20it%20to%20help%20hundreds%20of%20thousands%20of%20patients.%E2%80%9D&amp;model=en_core_web_sm&amp;ents=person%2Corg%2Cgpe%2Cloc%2Cproduct%2Cnorp%2Cdate%2Cper%2Cmisc">demo</a></td>
+</tr>
+<tr>
+<td><strong>Coreference Resolution</strong></td>
+<td>Coreference resolution is the task of finding all expressions that refer to the same entity in a text. It is an important step for a lot of higher level NLP tasks that involve natural language understanding such as document summarization, question answering, and information extraction. Coreference resolution is one of the most difficult steps in our pipeline to <a href="https://huggingface.co/coref/">implement</a></td>
+</tr>
+<tr>
+<td></td>
+<td><img src="images/coreference-resolution.png#center" alt="coreference-resolution"></td>
+</tr>
+</tbody>
+</table>
+<p>Python and almost all programming languages are formal. They define a strict set of rules called a <em>grammar</em> that the programmer must follow religiously. In addition formal languages also define semantics or meaning of the program via a set of rules. So the exit code <code>0</code> after the execution of a routine has the meaning of <code>successful termination</code> but a <code>1</code> the opposite. The English language on the other hand is &ldquo;free wheeling&rdquo; so to speak due to its ambiguity (&ldquo;he met his maker&rdquo;) and size.</p>
+<div class="book-columns flex flex-wrap">
+  
+  <div class="flex-even markdown-inner">
+    <h2 id="same-context-different-meaning">Same context, different meaning</h2>
+<p>&ldquo;The food in this restaurant was good, not bad at all&rdquo;</p>
+<p>&ldquo;The food in this restaurant was bad, not good at all.&rdquo;</p>
+
+  </div>
+  
+  <div class="flex-even markdown-inner">
+    <h2 id="different-context-alltogether">Different context alltogether</h2>
+<p>&ldquo;The bank&rsquo;s profits eroded soon after the 2008 crisis&rdquo;</p>
+<p>&ldquo;The river&rsquo;s bank eroded after the 2008 floods&rdquo;</p>
+
+  </div>
+  
+</div>
+
+<p>To capture the fuzziness of natural language we define language models probabilistically. We do not speak of a single meaning for a sentence - rather we speak of <em>a probability distribution over possible meanings</em>. In the next section we will start to quantify such probabilistic language models in detail.</p>
+</article>
  
 
       <footer class="book-footer">
@@ -2860,7 +2970,7 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/6773e1826e82be6bab29c979a4c19889a464dc91" title='Last modified by MONOGIOUDIS Pantelis | May 4, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/b7263f4da8a606ee7f629ca6aa6297a90a0547fa" title='Last modified by MONOGIOUDIS Pantelis | May 4, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>May 4, 2020</span>
     </a>
@@ -2888,7 +2998,11 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction-to-nlp">Introduction to NLP</a></li>
+  </ul>
+</nav>
 
  
     </aside>

@@ -1,9 +1,23 @@
-<mxfile host="www.draw.io" modified="2020-05-03T11:55:18.789Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36" etag="qmjc-1oZtZabpsp44avc" version="13.0.5" type="github">
+<mxfile host="www.draw.io" modified="2020-05-04T16:28:15.235Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36" etag="BXXj7nFozHlIaIgrFoOr" version="13.0.5" type="github" pages="2">
   <diagram id="bD53E8nyOGbHJpfK05qM" name="architecture">
     <mxGraphModel dx="1042" dy="662" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="ScOtGIwUI5al1HmJdsSV-1" value="PARSER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="80" y="160" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ScOtGIwUI5al1HmJdsSV-12" value="PARSER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="240" y="160" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="wTohVuKzUihbxb-eSNx3" name="word2vec">
+    <mxGraphModel dx="1042" dy="662" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="1" shadow="0">
+      <root>
+        <mxCell id="3RL4X9vnwLKiUC88pM-W-0" />
+        <mxCell id="3RL4X9vnwLKiUC88pM-W-1" parent="3RL4X9vnwLKiUC88pM-W-0" />
       </root>
     </mxGraphModel>
   </diagram>
