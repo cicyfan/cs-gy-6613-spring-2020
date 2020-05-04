@@ -158,11 +158,6 @@
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/rnn/</loc>
-    <lastmod>2020-05-03T07:53:33-04:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/</loc>
     <lastmod>2020-03-02T17:34:08-05:00</lastmod>
   </url>
@@ -173,11 +168,6 @@
   </url>
   
   <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/rnn/simple-rnn/</loc>
-    <lastmod>2020-05-03T14:32:17-04:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/object-detection/</loc>
     <lastmod>2020-03-02T17:32:49-05:00</lastmod>
   </url>
@@ -185,11 +175,6 @@
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/scene-understanding/semantic-segmentation/</loc>
     <lastmod>2020-03-07T16:36:58-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/rnn/lstm/</loc>
-    <lastmod>2020-02-24T12:49:03-05:00</lastmod>
   </url>
   
   <url>
@@ -294,7 +279,7 @@
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/policy-iteration/</loc>
-    <lastmod>2020-05-01T16:53:14-04:00</lastmod>
+    <lastmod>2020-05-04T17:33:59-04:00</lastmod>
   </url>
   
   <url>
@@ -309,7 +294,7 @@
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/value-iteration/</loc>
-    <lastmod>2020-05-01T16:53:14-04:00</lastmod>
+    <lastmod>2020-05-04T17:33:59-04:00</lastmod>
   </url>
   
   <url>
@@ -323,18 +308,38 @@
   </url>
   
   <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/rnn/</loc>
+    <lastmod>2020-05-04T17:33:59-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/nlp/</loc>
-    <lastmod>2020-05-03T14:32:17-04:00</lastmod>
+    <lastmod>2020-05-04T17:33:59-04:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/nlp/nlp-intro/</loc>
-    <lastmod>2020-05-03T14:33:18-04:00</lastmod>
+    <lastmod>2020-05-04T17:33:59-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/rnn/introduction/</loc>
+    <lastmod>2020-05-04T17:33:59-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/rnn/simple-rnn/</loc>
+    <lastmod>2020-05-04T17:33:59-04:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/nlp/word2vec/</loc>
-    <lastmod>2020-05-03T14:33:18-04:00</lastmod>
+    <lastmod>2020-05-04T17:33:59-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/rnn/lstm/</loc>
+    <lastmod>2020-05-04T17:33:59-04:00</lastmod>
   </url>
   
   <url>
@@ -417,6 +422,11 @@
   </url>
   
   <url>
+    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/pneumonia/</loc>
+    <lastmod>2020-05-04T17:33:59-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/tensorflow-introduction/</loc>
     <lastmod>2020-01-29T21:03:45-05:00</lastmod>
   </url>
@@ -443,27 +453,22 @@
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/imu-classification/</loc>
-    <lastmod>2020-01-30T12:00:37-05:00</lastmod>
+    <lastmod>2020-05-04T17:33:59-04:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/continuous-learning/</loc>
-    <lastmod>2020-03-17T17:19:10-04:00</lastmod>
+    <lastmod>2020-05-04T17:33:59-04:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/semantic-code-search/</loc>
-    <lastmod>2020-05-03T14:32:17-04:00</lastmod>
+    <lastmod>2020-05-04T17:33:59-04:00</lastmod>
   </url>
   
   <url>
     <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/going-back-to-work/</loc>
     <lastmod>2020-04-16T17:28:01-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://pantelis.github.io/cs-gy-6613-spring-2020/docs/projects/pneumonia/</loc>
-    <lastmod>2020-04-25T07:19:57-04:00</lastmod>
   </url>
   
   <url>
