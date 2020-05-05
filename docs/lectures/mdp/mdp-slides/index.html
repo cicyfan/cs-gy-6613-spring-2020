@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.17a503d6f281ca010ca218d979fe9c8741f93d76ab9ac2bd1bdea5fcea4d97be.js" integrity="sha256-F6UD1vKBygEMohjZef6ch0H5PXarmsK9G96l/OpNl74="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.d87bb48b1b7d17cbfb76d1d7b566e1005042cab502a99f0d239de3231fbdc9ac.js" integrity="sha256-2Hu0ixt9F8v7dtHXtWbhAFBCyrUCqZ8NI53jIx&#43;9yaw="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/mdp/mdp-slides/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -2991,7 +2991,6 @@ https://github.com/alex-shpak/hugo-book
         </li>
       </ul>
     </li>
-    <li><a href="#thank-you">THANK YOU!!!!</a></li>
   </ul>
 </nav>
 
@@ -3164,7 +3163,7 @@ $P(open/e) = \frac{P(e/open)P(open)}{P(e)}$</li>
 <li>Robot is at the &ldquo;START&rdquo;</li>
 <li>Agent commands robot with <strong>actions</strong> : UP($\uparrow$),DOWN($\downarrow$),LEFT($\leftarrow$),RIGHT($\rightarrow$) and robot follows exactly</li>
 <li>Agent knows where it is i.e. environment is <em><strong>fully observable</strong></em></li>
-<li><strong>state</strong>: where Robot is for e.g. state $S_{42}$ is if robot is in the square with red oval.</li>
+<li><strong>state</strong>: where Robot is for e.g. state $s_{42}$ is if robot is in the square with red oval.</li>
 <li><strong>reward</strong> or punishment received when a state is reached</li>
 </ul>
 <hr>
@@ -3262,12 +3261,12 @@ $P(open/e) = \frac{P(e/open)P(open)}{P(e)}$</li>
 <h3 id="utility-for-mdp---continued">Utility for MDP - continued</h3>
 <p><img src="./images/maze-utilt.png" alt="Robot in $(3,3)$ of Maze "><!-- .element width="300px" --></p>
 <ul>
-<li>Suppose robot is in state $S_{33}$ and the action taken is &ldquo;RIGHT&rdquo;.  Also assume $\gamma = 1$</li>
+<li>Suppose robot is in state $s_{33}$ and the action taken is &ldquo;RIGHT&rdquo;.  Also assume $\gamma = 1$</li>
 <li>We want to compute the utility of this state:
-$$ U(S_{33})   =   R(S_{33}) +  \gamma (P(S_{43} | S_{33}, \rightarrow)  U(S_{43}) + P(S_{33} | S_{33}, \rightarrow)  U(S_{33}) + P(S_{32} | S_{33}, \rightarrow)  U(S_{32}))$$</li>
+$$ U(s_{33})   =   R(s_{33}) +  \gamma (P(s_{43} | s_{33}, \rightarrow)  U(s_{43}) + P(s_{33} | s_{33}, \rightarrow)  U(s_{33}) + P(s_{32} | s_{33}, \rightarrow)  U(s_{32}))$$</li>
 <li>Substituting we get:</li>
 </ul>
-<p>$$U(S_{33}) = R(S_{33}) + \gamma ( (0.8 \times U(S_{43})) + (0.1 \times U(S_{33})) + (0.1 \times U(S_{23})))$$</p>
+<p>$$U(s_{33}) = R(s_{33}) + \gamma ( (0.8 \times U(s_{43})) + (0.1 \times U(s_{33})) + (0.1 \times U(s_{23})))$$</p>
 <hr>
 <h3 id="policy-for-mdp">Policy for MDP</h3>
 <ul>
@@ -3305,7 +3304,7 @@ $$U^*(s) = R(s) + \gamma \underset{a}{ \max} (\sum_{s^{'}} P(s^{'}| s,a)U(s&rsqu
 </ul>
 </li>
 </ul>
-<p>$$U_{t+1}(s) \leftarrow R(s) + \gamma \underset{a}{ \max} \left[ \sum_{s^{'}} P(s^{'}| s,a) U_t(s^{'}) \right] \forall s \epsilon S$$</p>
+<p>$$V_{t+1}(s) \leftarrow R(s) + \gamma \underset{a}{ \max} \left[ \sum_{s^{'}} P(s^{'}| s,a) U_t(s^{'}) \right] \forall s \epsilon S$$</p>
 <pre><code>This step is repeated and updated
 </code></pre>
 <ul>
@@ -3317,27 +3316,27 @@ $$U^*(s) = R(s) + \gamma \underset{a}{ \max} (\sum_{s^{'}} P(s^{'}| s,a)U(s&rsqu
 <h3 id="value-iteration-1">Value Iteration</h3>
 <ul>
 <li>Next we want to apply <strong>Bellman Update</strong>:
-$$U_{t+1}(s) \leftarrow R(s) + \gamma \max_{a} \left[\sum_{s^\prime} P(s^\prime | s,a)U_t(s^\prime) \right] \forall s \epsilon S$$</li>
+$$V_{t+1}(s) \leftarrow R(s) + \gamma \max_{a} \left[\sum_{s^\prime} P(s^\prime | s,a)U_t(s^\prime) \right] \forall s \epsilon S$$</li>
 <li>Since we are taking $\max$ we only need to consider states whose next states have a positive utility value.</li>
 <li>For the remaining states, the utility is equal to the immediate reward in the first iteration.</li>
 </ul>
 <p><img src="./images/val-iter-step1-states.png" alt="States to consider for value iteration"></p>
 <hr>
 <h3 id="value-iteration-t0">Value Iteration (t=0)</h3>
-<p>$$ U_{t+1}(S_{33})  =  R(S_{33}) + \gamma \max_a \left[\sum_{s^{'}} P(s^{'}| S_{33},a)U(s^{'}) \right] \forall s \in S $$</p>
-<p>$$ U_{t+1}(S_{33}) =  -0.04 + \max_a \left[ \sum_{s&rsquo;}  P(s'| S_{33},\uparrow) U_t(s&rsquo;), \sum_{s&rsquo;}  P(s'| S_{33},\downarrow)U_t(s&rsquo;), \sum_{s&rsquo;}  P(s'| S_{33},\rightarrow) U_t(s&rsquo;),  \sum_{s&rsquo;}  P(s'| S_{33}, \leftarrow)U_t(s&rsquo;)  \right]$$</p>
-<p>$$U_{t+1}(S_{33})  =  -0.04 + \sum_{s^{'}}  P(s^{'}| S_{33},\rightarrow) U_t(s^\prime) $$</p>
-<p>$$U_{t+1}(S_{33}) = -0.04 + P(S_{43}|S_{33},\rightarrow)U(S_{43})+P(S_{33}|S_{33},\rightarrow)U(S_{33})+P(S_{32}|S_{33},\rightarrow)U_t(S_{32}) $$</p>
-<p>$$U_{t+1}(S_{33}) =   -0.04 + 0.8 \times 1 + 0.1 \times 0 + 0.1 \times 0 = 0.76 $$</p>
+<p>$$ V_{t+1}(s_{33})  =  R(s_{33}) + \gamma \max_a \left[\sum_{s^{'}} P(s^{'}| s_{33},a)U(s^{'}) \right] \forall s \in S $$</p>
+<p>$$ V_{t+1}(s_{33}) =  -0.04 + \max_a \left[ \sum_{s&rsquo;}  P(s'| s_{33},\uparrow) U_t(s&rsquo;), \sum_{s&rsquo;}  P(s'| s_{33},\downarrow)U_t(s&rsquo;), \sum_{s&rsquo;}  P(s'| s_{33},\rightarrow) U_t(s&rsquo;),  \sum_{s&rsquo;}  P(s'| s_{33}, \leftarrow)U_t(s&rsquo;)  \right]$$</p>
+<p>$$V_{t+1}(s_{33})  =  -0.04 + \sum_{s^{'}}  P(s^{'}| s_{33},\rightarrow) U_t(s^\prime) $$</p>
+<p>$$V_{t+1}(s_{33}) = -0.04 + P(s_{43}|s_{33},\rightarrow)U(s_{43})+P(s_{33}|s_{33},\rightarrow)U(s_{33})+P(s_{32}|s_{33},\rightarrow)U_t(s_{32}) $$</p>
+<p>$$V_{t+1}(s_{33}) =   -0.04 + 0.8 \times 1 + 0.1 \times 0 + 0.1 \times 0 = 0.76 $$</p>
 <hr>
 <h3 id="value-iteration-t1">Value Iteration (t=1)</h3>
 <p><img src="./images/val-iter-step2-initial.png" alt="val-iter-step2">
 <em>(A) Initial utility estimates for iteration 2. (B) States with next state positive utility</em></p>
-<p>$$U_{t+1}(S_{33}) =   -0.04 + P(S_{43}|S_{33},\rightarrow)U_t(S_{43})+P(S_{33}|S_{33},\rightarrow)U_t(S_{33}) +P(S_{32}|S_{33},\rightarrow)U_t(S_{32}) $$</p>
-<p>$$U_{t+1}(S_{33}) = -0.04 + 0.8 \times 1 + 0.1 \times 0.76 + 0.1 \times 0 = 0.836$$</p>
-<p>$$U_{t+1}(S_{23}) =  -0.04 + P(S_{33}|S_{23},\rightarrow)U_t(S_{23})+P(S_{23}|S_{23},\rightarrow)U_t(S_{23}) = -0.04 + 0.8 \times 0.76 = 0.568$$</p>
-<p>$$U_{t+1}(S_{32}) =  -0.04 + P(S_{33}|S_{32},\uparrow)U_t(S_{33})+P(S_{42}|S_{32},\uparrow)U_t(S_{42}) +P(S_{32}|S_{32},\uparrow)U_t(S_{32})$$
-$$U_{t+1}(S_{32}) = -0.04 + 0.8 \times 0.76 + 0.1 \times -1 + 0.1 \times 0= 0.468$$</p>
+<p>$$V_{t+1}(s_{33}) =   -0.04 + P(s_{43}|s_{33},\rightarrow)U_t(s_{43})+P(s_{33}|s_{33},\rightarrow)U_t(s_{33}) +P(s_{32}|s_{33},\rightarrow)U_t(s_{32}) $$</p>
+<p>$$V_{t+1}(s_{33}) = -0.04 + 0.8 \times 1 + 0.1 \times 0.76 + 0.1 \times 0 = 0.836$$</p>
+<p>$$V_{t+1}(s_{23}) =  -0.04 + P(s_{33}|s_{23},\rightarrow)U_t(s_{23})+P(s_{23}|s_{23},\rightarrow)U_t(s_{23}) = -0.04 + 0.8 \times 0.76 = 0.568$$</p>
+<p>$$V_{t+1}(s_{32}) =  -0.04 + P(s_{33}|s_{32},\uparrow)U_t(s_{33})+P(s_{42}|s_{32},\uparrow)U_t(s_{42}) +P(s_{32}|s_{32},\uparrow)U_t(s_{32})$$
+$$V_{t+1}(s_{32}) = -0.04 + 0.8 \times 0.76 + 0.1 \times -1 + 0.1 \times 0= 0.468$$</p>
 <hr>
 <h3 id="value-iteration-t2">Value Iteration (t=2)</h3>
 <p><img src="./images/val-iter-step3-initial.png" alt="val-iter-step3">
@@ -3345,7 +3344,7 @@ $$U_{t+1}(S_{32}) = -0.04 + 0.8 \times 0.76 + 0.1 \times -1 + 0.1 \times 0= 0.46
 <ul>
 <li>Information propagates outward from terminal states
 and eventually all states have correct value estimates</li>
-<li>Notice that $S_{32}$ has a lower utility compared to $S_{23}$ due to the red oval state with negative reward next to $S_{32}$</li>
+<li>Notice that $s_{32}$ has a lower utility compared to $s_{23}$ due to the red oval state with negative reward next to $s_{32}$</li>
 </ul>
 <p><img src="./images/policy-utiltiy.png" alt="Optimal Policy and Utilities for Maze"></p>
 <hr>
@@ -3354,7 +3353,7 @@ and eventually all states have correct value estimates</li>
 <li>Rate of convergence depends on the maximum reward value and more importantly on the discount factor $\gamma$.</li>
 <li>The policy that we get from coarse estimates is close to the optimal policy long before $U$ has converged.</li>
 <li>This means that after a reasonable number of iterations, we could use:
-$$\pi(s) = \argmax_a \left[ \sum_{s^{'}} P(s^{'}| s,a)U_{est}(s^{'}) \right]$$</li>
+$$\pi(s) = \argmax_a \left[ \sum_{s^{'}} P(s^{'}| s,a)V_{est}(s^{'}) \right]$$</li>
 <li>Note that this is a form of <strong>greedy</strong> policy.</li>
 </ul>
 <p><img src="./images/value-iter-converge.PNG" alt="value-iter-convergence">
@@ -3394,7 +3393,7 @@ $$\pi(s) \leftarrow \arg\max_a \sum_{s^\prime} P(s^\prime|s,a)U^{\pi}(s^\prime)$
 <p><img src="./images/gridworld-sutton.PNG" alt="Grid world (source: Sutton)"></p>
 <ul>
 <li>
-<p>The terminal states are shaded. The reward is $-1$ on all transitions until the terminal states are reached. The non-terminal states are $S_1,S_2,&hellip;,S_{14}$.</p>
+<p>The terminal states are shaded. The reward is $-1$ on all transitions until the terminal states are reached. The non-terminal states are $S_1,S_2,&hellip;,s_{14}$.</p>
 </li>
 <li>
 <p>We begin with random values (or utilities) and random policy $\pi$</p>
@@ -3408,9 +3407,9 @@ $$\pi(s) \leftarrow \arg\max_a \sum_{s^\prime} P(s^\prime|s,a)U^{\pi}(s^\prime)$
 <li>Find value function based on initial random policy:</li>
 </ul>
 <p>$$U(s) = R(s) + \sum_{s^\prime} P(s^\prime| s,a)U(s^\prime)$$</p>
-<p>$$U(S_{1}) = -1 + \frac{1}{4}U(S_{1}) + \frac{1}{4}U(S_{2}) + \frac{1}{4}U(S_{5}) = -1$$
+<p>$$U(s_{1}) = -1 + \frac{1}{4}U(s_{1}) + \frac{1}{4}U(s_{2}) + \frac{1}{4}U(s_{5}) = -1$$
 $$\ldots$$
-$$ U(S_{9}) = -1 + \frac{1}{4}U(S_{8}) + \frac{1}{4}U(S_{5}) + \frac{1}{4}U(S_{13}) + \frac{1}{4}U(S_{10}) = -1$$
+$$ U(s_{9}) = -1 + \frac{1}{4}U(s_{8}) + \frac{1}{4}U(s_{5}) + \frac{1}{4}U(s_{13}) + \frac{1}{4}U(s_{10}) = -1$$
 $$ \ldots $$</p>
 <ul>
 <li>The result is as shown below:</li>
@@ -3421,14 +3420,14 @@ $$ \ldots $$</p>
 <ul>
 <li>Next we compute the policy:</li>
 </ul>
-<p>$$ \pi(S_{4}) =   \underset{a}{max}[\frac{1}{4}U(S_{term})| \uparrow,
+<p>$$ \pi(s_{4}) =   \underset{a}{max}[\frac{1}{4}U(s_{term})| \uparrow,
 \frac{1}{4}U(S_5)| \rightarrow,
 \frac{1}{4}U(S_4)| \leftarrow,
 \frac{1}{4}U(S_8), \downarrow] = \uparrow $$</p>
-<p>$$\pi(S_{6}) =  \underset{a}{max}[\frac{1}{4}U(S_2)| \uparrow,
+<p>$$\pi(s_{6}) =  \underset{a}{max}[\frac{1}{4}U(S_2)| \uparrow,
 \frac{1}{4}U(S_7)| \rightarrow,
 \frac{1}{4}U(S_5)| \leftarrow,
-\frac{1}{4}U(S_{10}), \downarrow ] = \mathtt{random\ policy} $$</p>
+\frac{1}{4}U(s_{10}), \downarrow ] = \mathtt{random\ policy} $$</p>
 <ul>
 <li>The result is shown below for $k=2$.</li>
 </ul>
@@ -3708,7 +3707,7 @@ $$b^{'}(s^{'}) = \alpha P(e|s^{'}) \sum_{s} P(s^{'}|s,a)b(s)$$</li>
 <ul>
 <li>The value iteration approach for POMDP looks something like this:</li>
 </ul>
-<p>$$U_{t+1}(b) \leftarrow \max_{a}[ \sum_s b(s)R(s,a) +\gamma \sum_eP(e|b,a)U(\tau(e,b,a)]$$</p>
+<p>$$V_{t+1}(b) \leftarrow \max_{a}[ \sum_s b(s)R(s,a) +\gamma \sum_eP(e|b,a)U(\tau(e,b,a)]$$</p>
 <p>where $\tau(e,b,a)$ is the transition function for the belief state.</p>
 <ul>
 <li>This is in general very hard to solve as it is a continuous space MDP</li>
@@ -4001,7 +4000,7 @@ source: https://worldmodels.github.io/
 <h4 id="case-study---world-models---continued-2">Case Study - World Models - continued</h4>
 <p><video data-autoplay src="./images/carracing_mistake_short.mp4"></video></p>
 <hr>
-<h1 id="thank-you">THANK YOU!!!!</h1>
+<p>!</p>
 </article>
  
 
@@ -4013,9 +4012,9 @@ source: https://worldmodels.github.io/
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/55aafc93c05d31d4a835fa5bbe284b037d2ebffb" title='Last modified by MONOGIOUDIS Pantelis | Apr 30, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/e3de4b0cfad9ffa22e152333bf1b1c598cb962dc" title='Last modified by MONOGIOUDIS Pantelis | May 5, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Apr 30, 2020</span>
+      <span>May 5, 2020</span>
     </a>
   </div>
 
@@ -4174,7 +4173,6 @@ source: https://worldmodels.github.io/
         </li>
       </ul>
     </li>
-    <li><a href="#thank-you">THANK YOU!!!!</a></li>
   </ul>
 </nav>
 
