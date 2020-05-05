@@ -219,7 +219,7 @@ $P(open/e) = \frac{P(e/open)P(open)}{P(e)}$
 * Robot is at the "START"
 * Agent commands robot with **actions** : UP($\uparrow$),DOWN($\downarrow$),LEFT($\leftarrow$),RIGHT($\rightarrow$) and robot follows exactly
 * Agent knows where it is i.e. environment is ***fully observable***
-* **state**: where Robot is for e.g. state $S_{42}$ is if robot is in the square with red oval.
+* **state**: where Robot is for e.g. state $s_{42}$ is if robot is in the square with red oval.
 * **reward** or punishment received when a state is reached    
 
 
@@ -328,12 +328,12 @@ $U(s) = R(s) + \gamma \sum_{s^{'}} P(s^{'}| s,a)U(s^{'})$
 
 ![Robot in $(3,3)$ of Maze ](./images/maze-utilt.png)<!-- .element width="300px" -->
  
-* Suppose robot is in state $S_{33}$ and the action taken is "RIGHT".  Also assume $\gamma = 1$
+* Suppose robot is in state $s_{33}$ and the action taken is "RIGHT".  Also assume $\gamma = 1$
 * We want to compute the utility of this state:
-$$ U(S_{33})   =   R(S_{33}) +  \gamma (P(S_{43} | S_{33}, \rightarrow)  U(S_{43}) + P(S_{33} | S_{33}, \rightarrow)  U(S_{33}) + P(S_{32} | S_{33}, \rightarrow)  U(S_{32}))$$
+$$ U(s_{33})   =   R(s_{33}) +  \gamma (P(s_{43} | s_{33}, \rightarrow)  U(s_{43}) + P(s_{33} | s_{33}, \rightarrow)  U(s_{33}) + P(s_{32} | s_{33}, \rightarrow)  U(s_{32}))$$
 * Substituting we get:
 
- $$U(S_{33}) = R(S_{33}) + \gamma ( (0.8 \times U(S_{43})) + (0.1 \times U(S_{33})) + (0.1 \times U(S_{23})))$$
+ $$U(s_{33}) = R(s_{33}) + \gamma ( (0.8 \times U(s_{43})) + (0.1 \times U(s_{33})) + (0.1 \times U(s_{23})))$$
 
 ----
 
@@ -367,7 +367,7 @@ $$\pi^{*}(s) = \underset{a}{\arg \max}(\sum_{s^{'}} P(s^{'}| s,a)U^{*}(s^{'}))$$
 	* Initialize estimates for the utilities of states with arbitrary values: $U(s) \leftarrow 0 \forall s \epsilon S$
 	* Next use the iteration step below which is also called **Bellman Update**: 
 
-$$U_{t+1}(s) \leftarrow R(s) + \gamma \underset{a}{ \max} \left[ \sum_{s^{'}} P(s^{'}| s,a) U_t(s^{'}) \right] \forall s \epsilon S$$ 
+$$V_{t+1}(s) \leftarrow R(s) + \gamma \underset{a}{ \max} \left[ \sum_{s^{'}} P(s^{'}| s,a) U_t(s^{'}) \right] \forall s \epsilon S$$ 
 
 	This step is repeated and updated
 * Let us apply this to the maze example.  Assume that $\gamma = 1$
@@ -380,7 +380,7 @@ $$U_{t+1}(s) \leftarrow R(s) + \gamma \underset{a}{ \max} \left[ \sum_{s^{'}} P(
 ### Value Iteration 
 
 * Next we want to apply **Bellman Update**: 
-  	$$U_{t+1}(s) \leftarrow R(s) + \gamma \max_{a} \left[\sum_{s^\prime} P(s^\prime | s,a)U_t(s^\prime) \right] \forall s \epsilon S$$
+  	$$V_{t+1}(s) \leftarrow R(s) + \gamma \max_{a} \left[\sum_{s^\prime} P(s^\prime | s,a)U_t(s^\prime) \right] \forall s \epsilon S$$
 * Since we are taking $\max$ we only need to consider states whose next states have a positive utility value.
 * For the remaining states, the utility is equal to the immediate reward in the first iteration.
 
@@ -390,15 +390,15 @@ $$U_{t+1}(s) \leftarrow R(s) + \gamma \underset{a}{ \max} \left[ \sum_{s^{'}} P(
 
 ### Value Iteration (t=0)
 
-$$ U_{t+1}(S_{33})  =  R(S_{33}) + \gamma \max_a \left[\sum_{s^{'}} P(s^{'}| S_{33},a)U(s^{'}) \right] \forall s \in S $$
+$$ V_{t+1}(s_{33})  =  R(s_{33}) + \gamma \max_a \left[\sum_{s^{'}} P(s^{'}| s_{33},a)U(s^{'}) \right] \forall s \in S $$
 
-$$ U_{t+1}(S_{33}) =  -0.04 + \max_a \left[ \sum_{s'}  P(s'| S_{33},\uparrow) U_t(s'), \sum_{s'}  P(s'| S_{33},\downarrow)U_t(s'), \sum_{s'}  P(s'| S_{33},\rightarrow) U_t(s'),  \sum_{s'}  P(s'| S_{33}, \leftarrow)U_t(s')  \right]$$
+$$ V_{t+1}(s_{33}) =  -0.04 + \max_a \left[ \sum_{s'}  P(s'| s_{33},\uparrow) U_t(s'), \sum_{s'}  P(s'| s_{33},\downarrow)U_t(s'), \sum_{s'}  P(s'| s_{33},\rightarrow) U_t(s'),  \sum_{s'}  P(s'| s_{33}, \leftarrow)U_t(s')  \right]$$
 
-$$U_{t+1}(S_{33})  =  -0.04 + \sum_{s^{'}}  P(s^{'}| S_{33},\rightarrow) U_t(s^\prime) $$
+$$V_{t+1}(s_{33})  =  -0.04 + \sum_{s^{'}}  P(s^{'}| s_{33},\rightarrow) U_t(s^\prime) $$
 
-$$U_{t+1}(S_{33}) = -0.04 + P(S_{43}|S_{33},\rightarrow)U(S_{43})+P(S_{33}|S_{33},\rightarrow)U(S_{33})+P(S_{32}|S_{33},\rightarrow)U_t(S_{32}) $$
+$$V_{t+1}(s_{33}) = -0.04 + P(s_{43}|s_{33},\rightarrow)U(s_{43})+P(s_{33}|s_{33},\rightarrow)U(s_{33})+P(s_{32}|s_{33},\rightarrow)U_t(s_{32}) $$
 
-$$U_{t+1}(S_{33}) =   -0.04 + 0.8 \times 1 + 0.1 \times 0 + 0.1 \times 0 = 0.76 $$
+$$V_{t+1}(s_{33}) =   -0.04 + 0.8 \times 1 + 0.1 \times 0 + 0.1 \times 0 = 0.76 $$
 
 ----
 
@@ -407,14 +407,14 @@ $$U_{t+1}(S_{33}) =   -0.04 + 0.8 \times 1 + 0.1 \times 0 + 0.1 \times 0 = 0.76 
 ![val-iter-step2](./images/val-iter-step2-initial.png)
 *(A) Initial utility estimates for iteration 2. (B) States with next state positive utility*
 
-$$U_{t+1}(S_{33}) =   -0.04 + P(S_{43}|S_{33},\rightarrow)U_t(S_{43})+P(S_{33}|S_{33},\rightarrow)U_t(S_{33}) +P(S_{32}|S_{33},\rightarrow)U_t(S_{32}) $$
+$$V_{t+1}(s_{33}) =   -0.04 + P(s_{43}|s_{33},\rightarrow)U_t(s_{43})+P(s_{33}|s_{33},\rightarrow)U_t(s_{33}) +P(s_{32}|s_{33},\rightarrow)U_t(s_{32}) $$
 
-$$U_{t+1}(S_{33}) = -0.04 + 0.8 \times 1 + 0.1 \times 0.76 + 0.1 \times 0 = 0.836$$
+$$V_{t+1}(s_{33}) = -0.04 + 0.8 \times 1 + 0.1 \times 0.76 + 0.1 \times 0 = 0.836$$
 
-$$U_{t+1}(S_{23}) =  -0.04 + P(S_{33}|S_{23},\rightarrow)U_t(S_{23})+P(S_{23}|S_{23},\rightarrow)U_t(S_{23}) = -0.04 + 0.8 \times 0.76 = 0.568$$
+$$V_{t+1}(s_{23}) =  -0.04 + P(s_{33}|s_{23},\rightarrow)U_t(s_{23})+P(s_{23}|s_{23},\rightarrow)U_t(s_{23}) = -0.04 + 0.8 \times 0.76 = 0.568$$
 
-$$U_{t+1}(S_{32}) =  -0.04 + P(S_{33}|S_{32},\uparrow)U_t(S_{33})+P(S_{42}|S_{32},\uparrow)U_t(S_{42}) +P(S_{32}|S_{32},\uparrow)U_t(S_{32})$$
-$$U_{t+1}(S_{32}) = -0.04 + 0.8 \times 0.76 + 0.1 \times -1 + 0.1 \times 0= 0.468$$
+$$V_{t+1}(s_{32}) =  -0.04 + P(s_{33}|s_{32},\uparrow)U_t(s_{33})+P(s_{42}|s_{32},\uparrow)U_t(s_{42}) +P(s_{32}|s_{32},\uparrow)U_t(s_{32})$$
+$$V_{t+1}(s_{32}) = -0.04 + 0.8 \times 0.76 + 0.1 \times -1 + 0.1 \times 0= 0.468$$
 
 ----
 
@@ -426,7 +426,7 @@ $$U_{t+1}(S_{32}) = -0.04 + 0.8 \times 0.76 + 0.1 \times -1 + 0.1 \times 0= 0.46
 
 * Information propagates outward from terminal states
 and eventually all states have correct value estimates 
-* Notice that $S_{32}$ has a lower utility compared to $S_{23}$ due to the red oval state with negative reward next to $S_{32}$
+* Notice that $s_{32}$ has a lower utility compared to $s_{23}$ due to the red oval state with negative reward next to $s_{32}$
 
 ![Optimal Policy and Utilities for Maze](./images/policy-utiltiy.png)
 
@@ -437,7 +437,7 @@ and eventually all states have correct value estimates
 * Rate of convergence depends on the maximum reward value and more importantly on the discount factor $\gamma$. 
 * The policy that we get from coarse estimates is close to the optimal policy long before $U$ has converged.
 * This means that after a reasonable number of iterations, we could use: 
-  $$\pi(s) = \argmax_a \left[ \sum_{s^{'}} P(s^{'}| s,a)U_{est}(s^{'}) \right]$$
+  $$\pi(s) = \argmax_a \left[ \sum_{s^{'}} P(s^{'}| s,a)V_{est}(s^{'}) \right]$$
 * Note that this is a form of **greedy** policy.
   
 ![value-iter-convergence](./images/value-iter-converge.PNG)
@@ -471,7 +471,7 @@ and eventually all states have correct value estimates
   
 ![Grid world (source: Sutton)](./images/gridworld-sutton.PNG)
 
-* The terminal states are shaded. The reward is $-1$ on all transitions until the terminal states are reached. The non-terminal states are $S_1,S_2,...,S_{14}$.
+* The terminal states are shaded. The reward is $-1$ on all transitions until the terminal states are reached. The non-terminal states are $S_1,S_2,...,s_{14}$.
 
 * We begin with random values (or utilities) and random policy $\pi$
 
@@ -486,9 +486,9 @@ and eventually all states have correct value estimates
 
 $$U(s) = R(s) + \sum_{s^\prime} P(s^\prime| s,a)U(s^\prime)$$
 
-$$U(S_{1}) = -1 + \frac{1}{4}U(S_{1}) + \frac{1}{4}U(S_{2}) + \frac{1}{4}U(S_{5}) = -1$$ 
+$$U(s_{1}) = -1 + \frac{1}{4}U(s_{1}) + \frac{1}{4}U(s_{2}) + \frac{1}{4}U(s_{5}) = -1$$ 
 $$\ldots$$
-$$ U(S_{9}) = -1 + \frac{1}{4}U(S_{8}) + \frac{1}{4}U(S_{5}) + \frac{1}{4}U(S_{13}) + \frac{1}{4}U(S_{10}) = -1$$
+$$ U(s_{9}) = -1 + \frac{1}{4}U(s_{8}) + \frac{1}{4}U(s_{5}) + \frac{1}{4}U(s_{13}) + \frac{1}{4}U(s_{10}) = -1$$
 $$ \ldots $$
 
 * The result is as shown below:
@@ -501,15 +501,15 @@ $$ \ldots $$
 
 * Next we compute the policy:
 
-$$ \pi(S_{4}) =   \underset{a}{max}[\frac{1}{4}U(S_{term})| \uparrow, 
+$$ \pi(s_{4}) =   \underset{a}{max}[\frac{1}{4}U(s_{term})| \uparrow, 
   \frac{1}{4}U(S_5)| \rightarrow, 
   \frac{1}{4}U(S_4)| \leftarrow, 
   \frac{1}{4}U(S_8), \downarrow] = \uparrow $$
 
-$$\pi(S_{6}) =  \underset{a}{max}[\frac{1}{4}U(S_2)| \uparrow, 
+$$\pi(s_{6}) =  \underset{a}{max}[\frac{1}{4}U(S_2)| \uparrow, 
 \frac{1}{4}U(S_7)| \rightarrow, 
  \frac{1}{4}U(S_5)| \leftarrow, 
-\frac{1}{4}U(S_{10}), \downarrow ] = \mathtt{random\ policy} $$
+\frac{1}{4}U(s_{10}), \downarrow ] = \mathtt{random\ policy} $$
 
 * The result is shown below for $k=2$.  
 
@@ -660,7 +660,7 @@ $$\pi(S_{6}) =  \underset{a}{max}[\frac{1}{4}U(S_2)| \uparrow,
 
 * The value iteration approach for POMDP looks something like this:
   
-$$U_{t+1}(b) \leftarrow \max_{a}[ \sum_s b(s)R(s,a) +\gamma \sum_eP(e|b,a)U(\tau(e,b,a)]$$ 
+$$V_{t+1}(b) \leftarrow \max_{a}[ \sum_s b(s)R(s,a) +\gamma \sum_eP(e|b,a)U(\tau(e,b,a)]$$ 
 
 where $\tau(e,b,a)$ is the transition function for the belief state.
 
@@ -928,6 +928,4 @@ source: https://worldmodels.github.io/
 
 
 ---
-
-
-# THANK YOU!!!!
+!
