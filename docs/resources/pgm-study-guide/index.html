@@ -4,21 +4,21 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Localization and Tracking"><meta property="og:title" content="Localization and Tracking" />
+<meta name="description" content="What you need to know on Probabilistic Graphical Models"><meta property="og:title" content="What you need to know on Probabilistic Graphical Models" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/pgm/localization/" />
+<meta property="og:url" content="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/resources/pgm-study-guide/" />
 
-<title>Localization and Tracking | CS-GY-6613 Spring 2020</title>
+<title>What you need to know on Probabilistic Graphical Models | CS-GY-6613 Spring 2020</title>
 <link rel="icon" href="/cs-gy-6613-spring-2020/favicon.png" type="image/x-icon">
 
 
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.d87bb48b1b7d17cbfb76d1d7b566e1005042cab502a99f0d239de3231fbdc9ac.js" integrity="sha256-2Hu0ixt9F8v7dtHXtWbhAFBCyrUCqZ8NI53jIx&#43;9yaw="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.0ed199eac01c243a0293a654d8145b8239de9bfcda6d3eff37f0ad8ba97524d0.js" integrity="sha256-DtGZ6sAcJDoCk6ZU2BRbgjnem/zabT7/N/Cti6l1JNA="></script>
 
-<link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/pgm/localization/index.xml" title="CS-GY-6613 Spring 2020" />
+<link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/resources/pgm-study-guide/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1267,7 +1267,7 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/cs-gy-6613-spring-2020/docs/lectures/pgm/localization/"  class="active">
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/pgm/hmm-localization/" >
       Localization and Tracking
   </a>
 
@@ -2800,6 +2800,70 @@ https://github.com/alex-shpak/hugo-book
 
       
     
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/resources/planning-study-guide/" >
+      What you need to know on Planning
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/resources/pgm-study-guide/"  class="active">
+      What you need to know on Probabilistic Graphical Models
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
   </ul>
   
 
@@ -2846,7 +2910,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/cs-gy-6613-spring-2020/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Localization and Tracking</strong>
+  <strong>What you need to know on Probabilistic Graphical Models</strong>
 
   <label for="toc-control">
     <img src="/cs-gy-6613-spring-2020/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -2860,12 +2924,7 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#localization-and-tracking">Localization and Tracking</a>
-      <ul>
-        <li><a href="#localization">Localization</a></li>
-        <li><a href="#tracking">Tracking</a></li>
-      </ul>
-    </li>
+    <li><a href="#what-you-need-to-know-on-pgms">What you need to know on PGMs</a></li>
   </ul>
 </nav>
 
@@ -2876,65 +2935,17 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-<article class="markdown"><h1 id="localization-and-tracking">Localization and Tracking</h1>
-<p>In the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/pgm/recursive-state-estimation/">recursive state estimation</a> section we have seen the formulation of the Bayes filter and its application in a simple problem of trying to maintain a latent  (internal to the agent) <em>belief</em>  about the state of the environment $s$ given measurements $z$ and agent actions $a$. Here we are closing the loop: we started with the perception system giving us poses of objects it detects, effectively localizing the objects at the <em>pixel</em> coordinate system (within the image). Now we need to use the Bayes filter to localize the object globally as well as to be able to <em>track it</em>, since it can also move across space, so that we can recognize it over time as the same unique object and be able to assign a symbol to it.</p>
-<p>In order to localize the object globally we need to localize the agent globally and so we will focus here on a situation where the initial pose of the agent is unknown as it is initially placed somewhere in its environment, but it lacks knowledge of where it is. When we have the global pose of the sensor, for example a camera, we can use straightforward techniques for the global localization of objects e.g. <a href="http://www.computervisionmodels.com/">calibrated stereo reconstruction or triangulation, section 14.6</a>.</p>
-<p>Even without global localization we can <em>track</em> an object as it moves within the viewpoint of the agent for the sole purpose to predict its subsequent location within the image and assign a local instance identity to it. For example as an agent moves in the space surrounding the object, its perception subsystem makes a memoryless detection decision but its probabilistic reasoning subsystem should stitch such decisions together to reason as to the object&rsquo;s identity over time: is it the same object that was seen a frame ago? By knowing the pose of the agents sensors (a camera) we should be able to make such inferences.</p>
-<h2 id="localization">Localization</h2>
-<p><img src="images/pgm-localization.png#center" alt="pgm-localization">
-<em>GPM for localization of mobile agent - notice the map $m$ is known.  In the text we use for states the letter $s$ instead of $x$ and for actions the letter $a$ instead of $u$.</em></p>
-<p>For localization we are also given a map $m$ that can take multiple shapes. Most common maps are as shown below:</p>
-<p><img src="images/map-ambiguity.png#center" alt="map-ambiguity">
-<em>Map assumed known for agent localization - notice that beliefs may be ambiguous for certain maps and locations</em></p>
-<p>The Bayes filter for the localization problem must consider the map and it becomes:</p>
-<p><em>Bayes Filter for Localization and Tracking</em></p>
-<hr>
-<p>$\mathtt{bel}(s_t)$ = bayes_filter($\mathtt{bel}(s_{t-1}), a_t, z_t, m)$</p>
-<p>for all $s_t$ do:</p>
-<p>$→ \mathtt{\hat{bel}}(s_t) = \int p(s_t | a_t, s_{t-1}, m) \mathtt{bel}(s_{t-1}) ds_{t-1}$ (prediction)</p>
-<p>$→ \mathtt{bel}(s_t) = \eta p(z_t | s_t, m) \mathtt{\hat{bel}}(s_t)$ (measurement update)</p>
-<p>endfor</p>
-<hr>
-<p>What distinguishes localization from tracking is that for localization, the initial belief is:</p>
-<p>$$ \mathtt{be}(s_0) = 1 / |S|$$</p>
-<p>where $|S|$ is the number of states (poses) that the robot can have.</p>
-<p>To illustrate the localization problem solution with probabilistic reasoning lets consider an simple environment with a corridor and three doors.</p>
-<p><img src="images/localization-doors.png#center" alt="robot-doors-problem">
-<em>Example environment for agent localization - a hallway with three identical doors</em></p>
-<ul>
-<li>
-<p>Our initial belief is obviously uniform $\mathtt{\hat{bel}}(s_0) = 1 / |S|$ over
-all poses, as illustrated in row 1.</p>
-</li>
-<li>
-<p>The agent uses its perception that indicates that it is adjacent to one of the doors,  which in effect means that the shape of $p(z_1 | s_0, m)$ is as shown in the 2nd row.</p>
-</li>
-<li>
-<p>It multiplies its previous belief with this distribution during measurement update producing the new belief $\mathtt{bel}(s_1)$ as shown in the 2nd row (black pdf). The resulting belief is multi-modal, reflecting the residual uncertainty of the agent at this point.</p>
-</li>
-<li>
-<p>As the agent moves to the right, it convolves (the integral in the Bayes filter is a convolution) its belief with the transition (motion) model $p(s_2 | a_2, s_1)$. It still does not know where it is - all it knows that its belief needs to follow what its odometry sensors told it which is a move to the right by so many meters. The effect is visualized in row 3 that shows a shifted (by the odometric information) and slightly less peaked (movement reduces confidence) belief.</p>
-</li>
-<li>
-<p>The final measurement update that multiplies $\mathtt{bel}(s_1)$ with $p(z_2 | s_2, m)$ results into obtaining a belief $\mathtt{bel}(s_2)$ where most of the probability mass is focused on the correct pose.</p>
-</li>
-<li>
-<p>As the agent moves further to the right, the transition (motion) model convolutions reduce the confidence of the agent as the perception system is effectively inactive due to the lack of distinguishing features in its locale.</p>
-</li>
-</ul>
-<h2 id="tracking">Tracking</h2>
-<p>Just like localization, tracking can refer to location prediction of the agent itself or the objects that the agents perceives in its environment. For tracking we are given the initial pose $s_0$ that is approximately known. It is common to initialize the belief with a narrow Gaussian distribution around $\hat{s}_0$.</p>
-<p>$$\mathtt{bel}(s_0) = \mathcal{N}(s_0-\hat s_0, \Sigma)$$</p>
-<p>Lets look at a similar example to the localization problem:</p>
-<p><img src="images/ekf-tracking-doors.png#center" alt="robot-doors-problem">
-<em>Example environment for tracking - a hallway with three identical and labeled doors</em></p>
-<p>The original belief is a normal distribution centered  around door 1 where the agent is initially placed. As the robot moves to the right, its belief is convolved with the Gaussian transition / motion model.
-The resulting belief is a shifted Gaussian of increased width. Now suppose the robot detects that it is in front of door 2. Folding this measurement probability into the robot’s belief yields the posterior shown in (c). Note that the variance of the resulting belief is smaller than the variances of both the robot’s previous belief and the observation density. This is natural, since
-integrating two independent estimates should make the robot more certain than each
-estimate in isolation. After moving down the hallway, the robot’s uncertainty in its
-position increases again, since the tracker continues to incorporate motion uncertainty
-into the robot’s belief.</p>
-<p>During the lecture we will go through a white board single dimensional problem solved via a specific parametrization of the Bayes filter with Gaussians - this filter has a famous name: Kalman filter.</p>
+<article class="markdown"><h1 id="what-you-need-to-know-on-pgms">What you need to know on PGMs</h1>
+<p>Read the web site notes.</p>
+<ol>
+<li>Book 14.1-14.2</li>
+<li>Know how to apply Bayes rule to solve simple problems such as <a href="https://becominghuman.ai/naive-bayes-theorem-d8854a41ea08">this</a></li>
+<li>Understand the difference between ML and Bayesian approaches to modeling (e.g. regression).</li>
+<li>Book 15.1-15.3</li>
+<li>Understand the Bayesian filter and its elements</li>
+<li>Study the computational problem in the RSE section of the notes very well.</li>
+<li>Be prepared to answer questions around localization / tracking.</li>
+</ol>
 </article>
  
 
@@ -2944,18 +2955,10 @@ into the robot’s belief.</p>
 
 
 
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/6c1a5c28626b0e0addc764666638eec4076002bb" title='Last modified by MONOGIOUDIS Pantelis | Mar 10, 2020' target="_blank" rel="noopener">
-      <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Mar 10, 2020</span>
-    </a>
-  </div>
-
 
 
   <div>
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/edit/master/cs-gy-6613-spring-2020/content/docs/lectures/pgm/localization/_index.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/edit/master/cs-gy-6613-spring-2020/content/docs/resources/pgm-study-guide/_index.md" target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -2976,12 +2979,7 @@ into the robot’s belief.</p>
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#localization-and-tracking">Localization and Tracking</a>
-      <ul>
-        <li><a href="#localization">Localization</a></li>
-        <li><a href="#tracking">Tracking</a></li>
-      </ul>
-    </li>
+    <li><a href="#what-you-need-to-know-on-pgms">What you need to know on PGMs</a></li>
   </ul>
 </nav>
 
