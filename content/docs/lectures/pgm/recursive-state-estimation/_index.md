@@ -99,14 +99,14 @@ Lets also assume that the agent is using a arm manipulator to _push_ the door op
 
 | Transition description    | Probabilistic Finite State Machine  |
 | --- | --- |
-|  if its open, a push leaves it open   |  $p(s_t = open \| a_t=push, s_{t-1} = open) = 1$   |
-|  if its open, a push does not close it   |  $p(s_t = closed \| a_t=push, s_{t-1} = open) = 0$   |
-|  if its closed, a push opens it with probability 80\%   | $p(s_t = open \| a_t=push, s_{t-1} = closed) = 0.8$    |
-|  if its closed, a push leaves it closed with probability 20\%   |  $p(s_t = closed \| a_t=push, s_{t-1} = closed) = 0.2$   |
-|  if its open, doing nothing leaves it open   | $p(s_t = open \| a_t=inaction, s_{t-1} = open) = 1$    |
-|  if its open, doing nothing does not close it  |  $p(s_t = closed | a_t=inaction, s_{t-1} = open) = 0$   |
-|  if its closed, doing nothing does not open it  |  $p(s_t = open | a_t=inaction, s_{t-1} = closed) = 0$  |
-|  if its closed, doing nothing leaves it closed   |  $p(s_t = closed | a_t=inaction, s_{t-1} = closed) = 1$   |
+|  if its open, a push leaves it open   |  $p(s_t = \mathtt{open} \| a_t=\mathtt{push}, s_{t-1} = \mathtt{open}) = 1$   |
+|  if its open, a push does not close it   |  $p(s_t = \mathtt{closed} \| a_t= \mathtt{push}, s_{t-1} = \mathtt{open}) = 0$   |
+|  if its closed, a push opens it with probability 80\%   | $p(s_t = \mathtt{open} \| a_t=\mathtt{push}, s_{t-1} = \mathtt{closed}) = 0.8$    |
+|  if its closed, a push leaves it closed with probability 20\%   |  $p(s_t = \mathtt{closed} \| a_t=\mathtt{push}, s_{t-1} = \mathtt{closed}) = 0.2$   |
+|  if its open, doing nothing leaves it open   | $p(s_t = \mathtt{open} \| a_t=\mathtt{inaction}, s_{t-1} = \mathtt{open}) = 1$    |
+|  if its open, doing nothing does not close it  |  $p(s_t = \mathtt{closed} \| a_t = \mathtt{inaction}, s_{t-1} = \mathtt{open}) = 0$   |
+|  if its closed, doing nothing does not open it  |  $p(s_t = \mathtt{open} \| a_t=\mathtt{inaction}, s_{t-1} = \mathtt{closed}) = 0$  |
+|  if its closed, doing nothing leaves it closed   |  $p(s_t = \mathtt{closed} \| a_t= \mathtt{inaction}, s_{t-1} =\mathtt{closed}) = 1$   |
 
 
 As we mentioned before, by  _convention_ the agent first acts and then senses. If you reverse sensing and action you arrive in the same equations with just some index differences. 
