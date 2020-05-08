@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.0ed199eac01c243a0293a654d8145b8239de9bfcda6d3eff37f0ad8ba97524d0.js" integrity="sha256-DtGZ6sAcJDoCk6ZU2BRbgjnem/zabT7/N/Cti6l1JNA="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.d800dbcd92f944723586f32478acd64aa783e4c34f10e30af756bcea779cec03.js" integrity="sha256-2ADbzZL5RHI1hvMkeKzWSqeD5MNPEOMK91a86nec7AM="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/pgm/recursive-state-estimation/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -2775,6 +2775,38 @@ https://github.com/alex-shpak/hugo-book
     
       
 
+  <a href="/cs-gy-6613-spring-2020/docs/resources/pgm-study-guide/" >
+      What you need to know on Probabilistic Graphical Models
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
   <a href="/cs-gy-6613-spring-2020/docs/resources/mdp-study-guide/" >
       What you need to know on MDP &amp; RL
   </a>
@@ -2809,38 +2841,6 @@ https://github.com/alex-shpak/hugo-book
 
   <a href="/cs-gy-6613-spring-2020/docs/resources/planning-study-guide/" >
       What you need to know on Planning
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li >
-    
-      
-
-  <a href="/cs-gy-6613-spring-2020/docs/resources/pgm-study-guide/" >
-      What you need to know on Probabilistic Graphical Models
   </a>
 
 
@@ -3090,10 +3090,11 @@ $$ = \eta 0.2 * 0.5 = 0.1$$</p>
 <p>$$\mathtt{bel}(s_1=open) = 0.75$$</p>
 <p>$$\mathtt{bel}(s_1=closed) = 0.25$$</p>
 <p>In the next time step lets assume that the agent pushes the door and senses that its open. Its easy to verify that</p>
-<p>$$\mathtt{\hat{bel}}(s_2 = open) = 0.95$$
-$$\mathtt{\hat{bel}}(s_2 = closed) = 0.05$$</p>
-<p>$$\mathtt{bel}(s_2 = open) = 0.983$$
-$$\mathtt{bel}(s_2 = closed) = 0.0017$$</p>
+<p>$$\mathtt{\hat{bel}}(s_2 = open) = 1 \times 0.75 + 0.8 \times 0.25 = 0.95$$
+$$\mathtt{\hat{bel}}(s_2 = closed) =0 \times 0.75 + 0.2 \times 0.25 = 0.05$$</p>
+<p>$$\mathtt{bel}(s_2 = open) = \eta 0.6 \times 0.95 = 0.983$$
+$$\mathtt{bel}(s_2 = closed) = \eta 0.2 \times 0.05 = 0.017$$</p>
+<p>where $\eta = (0.01 + 0.57)^{-1}$</p>
 <p>This example, although simplistic is indicative of the ability of the Bayes filter to incorporate perception and action into one framework. Although the example was for an embodied agent with a manipulator, the notion of action is optional. Beliefs can be recursively updated even if the action is not taken explicitly by the agent. Your cell phones have the ability to localize themselves using exactly the same Bayesian filter with different sensing (RF signals) despite the fact that they don&rsquo;t move by themselves but are carried by you in their environment.</p>
 </article>
  
@@ -3106,9 +3107,9 @@ $$\mathtt{bel}(s_2 = closed) = 0.0017$$</p>
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/c90b24151c5b110237d4bef80e05307496ca9c5c" title='Last modified by MONOGIOUDIS Pantelis | May 7, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/ab27550ee8db840624fa34e1c1a75d53e3b1dfa6" title='Last modified by MONOGIOUDIS Pantelis | May 8, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 7, 2020</span>
+      <span>May 8, 2020</span>
     </a>
   </div>
 
