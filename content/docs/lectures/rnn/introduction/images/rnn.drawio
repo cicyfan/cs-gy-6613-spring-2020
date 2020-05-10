@@ -1,4 +1,4 @@
-<mxfile host="www.draw.io" modified="2020-05-10T15:10:44.521Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36" etag="SbpMGBaWyAA2EnllwWqC" version="13.0.5" type="github" pages="7">
+<mxfile host="www.draw.io" modified="2020-05-10T21:50:51.119Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36" etag="1pcKNTvy4PUuseuijXX-" version="13.0.5" type="github" pages="7">
   <diagram id="v3NK2iJtWiV4ewWRPjDE" name="recursion">
     <mxGraphModel dx="1042" dy="662" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="1" shadow="0">
       <root>
@@ -1536,7 +1536,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="lnScK9QnEiu61Emdgvj9" name="LSTM-high-level">
-    <mxGraphModel dx="1737" dy="1953" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="1" shadow="0">
+    <mxGraphModel dx="1737" dy="1103" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="1" shadow="0">
       <root>
         <mxCell id="Y1q_z3fYerJlI4DKX37C-0" />
         <mxCell id="Y1q_z3fYerJlI4DKX37C-1" parent="Y1q_z3fYerJlI4DKX37C-0" />
@@ -1608,11 +1608,6 @@
               <mxPoint x="1250" y="70" />
               <mxPoint x="175" y="70" />
             </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="cYeUQ6y9KAvZiZtBVfzN-21" value="$$\mathbf x_t$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;fontSize=21;" vertex="1" connectable="0" parent="cYeUQ6y9KAvZiZtBVfzN-20">
-          <mxGeometry x="-0.4861" y="2" relative="1" as="geometry">
-            <mxPoint x="-360" y="-377" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="cYeUQ6y9KAvZiZtBVfzN-25" value="$$\mathbf s_{t-1}$$" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=23;" vertex="1" parent="Y1q_z3fYerJlI4DKX37C-1">
