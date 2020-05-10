@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.d800dbcd92f944723586f32478acd64aa783e4c34f10e30af756bcea779cec03.js" integrity="sha256-2ADbzZL5RHI1hvMkeKzWSqeD5MNPEOMK91a86nec7AM="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.84a389afc68d6bddfa50a1924b01fd5b087f68ef6e1c15c720d3672c2e04867b.js" integrity="sha256-hKOJr8aNa936UKGSSwH9Wwh/aO9uHBXHINNnLC4Ehns="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/rnn/introduction/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -2159,72 +2159,8 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/cs-gy-6613-spring-2020/docs/projects/pneumonia/" >
-      Explainable COVID-19 Pneumonia (OPTIONAL)
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li >
-    
-      
-
-  <a href="/cs-gy-6613-spring-2020/docs/projects/imu-classification/" >
-      Project 1 - Surface Type Classification
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li >
-    
-      
-
   <a href="/cs-gy-6613-spring-2020/docs/projects/continuous-learning/" >
-      Project 2 - Continual Learning for Robotic Perception
+      Continual Learning for Robotic Perception
   </a>
 
 
@@ -2255,8 +2191,8 @@ https://github.com/alex-shpak/hugo-book
     
       
 
-  <a href="/cs-gy-6613-spring-2020/docs/projects/semantic-code-search/" >
-      Project 3 - Semantic Code Search
+  <a href="/cs-gy-6613-spring-2020/docs/projects/pneumonia/" >
+      Explainable COVID-19 Pneumonia
   </a>
 
 
@@ -2288,7 +2224,71 @@ https://github.com/alex-shpak/hugo-book
       
 
   <a href="/cs-gy-6613-spring-2020/docs/projects/going-back-to-work/" >
-      Project 4 - Going Back to Work
+      Going Back to Work
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/semantic-code-search/" >
+      Semantic Code Search
+  </a>
+
+
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/projects/imu-classification/" >
+      Surface Type Classification
   </a>
 
 
@@ -2942,7 +2942,7 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown"><h1 id="introduction-to-recurrent-neural-networks-rnn">Introduction to Recurrent Neural Networks (RNN)</h1>
 <h2 id="sequences">Sequences</h2>
-<p>Data streams are everywhere in various applications. For example, weather station sensor data arrive in streams indexed by time,  financial trading data and obviously reading comprehension - one can think of many others. We are interested to fit sequenced data with a model and therefore we need a hypothesis set, that is rich enough for sequential tasks. In the following we use $t$ as the index variable without this implying any time semantics.</p>
+<p>Data streams are everywhere in our lives. Weather station sensor data arrive in streams indexed by time,  financial trading data and obviously reading comprehension - one can think of many others. We are interested to fit sequenced data with a model and therefore we need a hypothesis set, that is rich enough for sequential tasks. In the following we use $t$ as the index variable without this implying any time semantics.</p>
 <p><em>Dynamical systems</em> are such rich models where the <em>recurrent</em> state evolution can be represented as:</p>
 <p>$$\mathbf{s}_t = f_t(\mathbf{s}_{t-1}, \mathbf{a}_t ; \bm \theta_t)$$</p>
 <p>where $\bm s$ is the evolving state,  $\bm a$ is an external action or control and $\bm \theta$ is a set of parameters that specify the state evolution model $f$. This innocent looking equation can capture quite a lot of complexity.</p>
@@ -2978,9 +2978,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/6773e1826e82be6bab29c979a4c19889a464dc91" title='Last modified by MONOGIOUDIS Pantelis | May 4, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/4e2d5595fabd0c9a15d6631a70077822d46b2d3e" title='Last modified by MONOGIOUDIS Pantelis | May 10, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 4, 2020</span>
+      <span>May 10, 2020</span>
     </a>
   </div>
 
