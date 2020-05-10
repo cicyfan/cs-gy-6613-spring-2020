@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.dfbe4b5cfba466e37917e425a2c5f3346a3b37b31e7ab6b34768921e31ca14e1.js" integrity="sha256-375LXPukZuN5F&#43;QlosXzNGo7N7MeerazR2iSHjHKFOE="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.99671ca83515eac28ba52172651e3514d0b22a369a9413b6eefa13f857bd6202.js" integrity="sha256-mWccqDUV6sKLpSFyZR41FNCyKjaalBO27voT&#43;Fe9YgI="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/rnn/lstm/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -2944,7 +2944,7 @@ https://github.com/alex-shpak/hugo-book
 <article class="markdown"><h1 id="the-long-short-term-memory-lstm-cell-architecture">The Long Short-Term Memory (LSTM) Cell Architecture</h1>
 <p>In <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/rnn/simple-rnn/">the simple RNN</a> we have seen the problem of exploding or vanishing gradients when <a href="http://ai.dinfo.unifi.it/paolo//ps/tnn-94-gradient.pdf">the span of back-propagation is large</a> (large $\tau$). Using the conceptual IIR filter, that ultimately <em>integrates</em> the input signal, we have seen that in order to avoid an exploding or vanishing impulse response, we need to control $w$. This is exactly what is being done in evolutionary RNN architectures that we will treat in this section called <em>gated RNNs</em>. The best known gated RNN architecture is called the LSTM <em>cell</em> and in this case the weight $w$ is not fixed but it is determined based on the input sequence <em>context</em>. The architecture is shown below.</p>
 <p><img src="images/rnn-LSTM.png#center" alt="lstm-cell">
-*LSTM Cell: The cell is divided into three areas: input (green), cell state (blue) and output (red). You can clearly see the outer ($\bm h_{t-1}$ )and the inner ($\bm s_{t-1}$) recurrence loops.*</p>
+*LSTM architecture: It is divided into three areas: input (green), cell state (blue) and output (red). You can clearly see the outer ($\bm h_{t-1}$ )and the inner ($\bm s_{t-1}$) recurrence loops.*</p>
 <p>Because we need to capture the input context that involve going back several time steps in the past, we introduce an <em>additional</em> inner recurrence loop that is effectively a variable length internal to the cell memory - we call this the <em>cell state</em>.  We employ another hidden unit called the <em>forget gate</em>  to learn the input context and the forgetting factor (equivalent to the $w$ we have seen in the IIR filter) i.e. the extent that the cell forgets the previous hidden state. We employ a couple of other gates as well: the <em>input gate</em> and the <em>output gate</em> as shown in the diagram below. In the following we are describing what is the</p>
 <h2 id="the-cell-state">The Cell State</h2>
 <p>Starting at the heart of the LSTM cell, to describe the update we will use two indices: one for the unfolding sequence index $t$ and the other for the cell index $i$. We use the additional index to allow the current cell at step $t$ to use or forget inputs and hidden states from other cells.</p>
@@ -2979,7 +2979,7 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/f27288b351d009feb79608f1d99640f058e236a3" title='Last modified by MONOGIOUDIS Pantelis | May 10, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/afd6cc3e982206bde551e1bbcd18f7273b3fc6ab" title='Last modified by MONOGIOUDIS Pantelis | May 10, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>May 10, 2020</span>
     </a>
