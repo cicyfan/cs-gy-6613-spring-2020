@@ -6,10 +6,9 @@ weight: 131
 
 # Introduction to Recurrent Neural Networks (RNN)
 
-
 ## Sequences
 
-Data streams are everywhere in various applications. For example, weather station sensor data arrive in streams indexed by time,  financial trading data and obviously reading comprehension - one can think of many others. We are interested to fit sequenced data with a model and therefore we need a hypothesis set, that is rich enough for sequential tasks. In the following we use $t$ as the index variable without this implying any time semantics.
+Data streams are everywhere in our lives. Weather station sensor data arrive in streams indexed by time,  financial trading data and obviously reading comprehension - one can think of many others. We are interested to fit sequenced data with a model and therefore we need a hypothesis set, that is rich enough for sequential tasks. In the following we use $t$ as the index variable without this implying any time semantics.
 
 _Dynamical systems_ are such rich models where the _recurrent_ state evolution can be represented as:
 

@@ -1,5 +1,5 @@
 ---
-title: Project 2 - Continual Learning for Robotic Perception
+title: Continual Learning for Robotic Perception
 ---
 
 # Continual Learning (CL) for Robotic Perception

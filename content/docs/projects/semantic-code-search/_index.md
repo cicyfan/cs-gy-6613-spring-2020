@@ -1,5 +1,5 @@
 ---
-title: Project 3 - Semantic Code Search
+title: Semantic Code Search
 ---
 
 # Semantic Code Search

@@ -1,5 +1,5 @@
 ---
-title: Project 4 - Going Back to Work
+title: Going Back to Work
 ---
 
 # Going Back to Work

@@ -1,5 +1,5 @@
 ---
-title: Project 1 - Surface Type Classification 
+title: Surface Type Classification 
 ---
 
 # Surface Type Classification 
