@@ -1,6 +1,6 @@
-<mxfile host="www.draw.io" modified="2020-02-23T18:33:31.798Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.116 Safari/537.36" etag="dLVwVBT-MvCZxlm3GFMD" version="12.7.4" type="github" pages="6">
+<mxfile host="www.draw.io" modified="2020-05-10T13:58:58.711Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36" etag="yr-sfX9bXP8C9ZyiP-Gg" version="13.0.5" type="github" pages="7">
   <diagram id="v3NK2iJtWiV4ewWRPjDE" name="recursion">
-    <mxGraphModel dx="786" dy="559" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="1" shadow="0">
+    <mxGraphModel dx="1042" dy="662" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="1" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1380,7 +1380,7 @@
     
   </diagram>
   <diagram id="dR-Z09akiUHCFEwbGus6" name="LSTM">
-    <mxGraphModel dx="1123" dy="751" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="1" shadow="0">
+    <mxGraphModel dx="1042" dy="662" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="1" shadow="0">
       <root>
         <mxCell id="Izs31WgHb809S4Ef_ud6-0" />
         <mxCell id="Izs31WgHb809S4Ef_ud6-1" parent="Izs31WgHb809S4Ef_ud6-0" />
@@ -1532,6 +1532,14 @@
         <mxCell id="Izs31WgHb809S4Ef_ud6-62" value="$$\mathbf h_t$$" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;fontSize=18;" parent="Izs31WgHb809S4Ef_ud6-1" vertex="1">
           <mxGeometry x="510" y="50" width="40" height="20" as="geometry" />
         </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="lnScK9QnEiu61Emdgvj9" name="LSTM-high-level">
+    <mxGraphModel dx="1042" dy="662" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="Y1q_z3fYerJlI4DKX37C-0" />
+        <mxCell id="Y1q_z3fYerJlI4DKX37C-1" parent="Y1q_z3fYerJlI4DKX37C-0" />
       </root>
     </mxGraphModel>
   </diagram>
