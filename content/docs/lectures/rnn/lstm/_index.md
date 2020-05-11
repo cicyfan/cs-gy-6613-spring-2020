@@ -11,7 +11,7 @@ In [the simple RNN]({{<ref "../simple-rnn/">}}) we have seen the problem of expl
 ![lstm-cell](images/rnn-LSTM.png#center)
 *LSTM architecture: It is divided into three areas: input (green), cell state (blue) and output (red). You can clearly see the outer ($\bm h_{t-1}$ )and the inner ($\bm s_{t-1}$) recurrence loops.*
 
-Because we need to capture the input context that involve going back several time steps in the past, we introduce an _additional_ inner recurrence loop that is effectively a variable length internal to the cell memory - we call this the _cell state_.  We employ another hidden unit called the _forget gate_  to learn the input context and the forgetting factor (equivalent to the $w$ we have seen in the IIR filter) i.e. the extent that the cell forgets the previous hidden state. We employ a couple of other gates as well: the _input gate_ and the _output gate_ as shown in the diagram below. In the following we are describing what is the 
+Because we need to capture the input context that involve going back several time steps in the past, we introduce an _additional_ inner recurrence loop that is effectively a variable length internal to the cell memory - we call this the _cell state_.  We employ another hidden unit called the _forget gate_  to learn the input context and the forgetting factor (equivalent to the $w$ we have seen in the IIR filter) i.e. the extent that the cell forgets the previous hidden state. We employ a couple of other gates as well: the _input gate_ and the _output gate_ as shown in the diagram below. In the following we are describing what each component is doing. 
 
 ## The Cell State
 
@@ -45,8 +45,14 @@ $$q_t(i) =\sigma \Big( \bm W_o^T(i) \bm h_{t-1}(i) + \bm U_o^T(i) \bm x_t(i) + \
 
 Notice that if you make the output of input and output gates equal to 1.0 and the forgetting factor equal to 0.0, we are back to the simple RNN architecture. You can expect backpropagation to work similarly in LSTM albeit with more complicated expressions. 
 
-Additional tutorial resources on LSTMs can be found here:
-1. [Understanding LSTMs](https://colah.github.io/posts/2015-08-Understanding-LSTMs) 
-2. [Illustrated guide to LSTMs](https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21)
-3. [Simplest possible LSTM explanation](https://www.youtube.com/watch?v=WCUNPb-5EYI)
+{{<expand "LSTM Keras Implementation - Article">}}
+
+[This](https://towardsdatascience.com/choosing-the-right-hyperparameters-for-a-simple-lstm-using-keras-f8e9ed76f046) is a standalone implementation of LSTM, paying particular attention to its hyperparameters optimization.  
+
+{{</expand>}}
+
+> Additional tutorial resources on LSTMs can be found here:
+> 1. [Understanding LSTMs](https://colah.github.io/posts/2015-08-Understanding-LSTMs) 
+> 2. [Illustrated guide to LSTMs](https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21)
+> 3. [Simplest possible LSTM explanation](https://www.youtube.com/watch?v=WCUNPb-5EYI)
 
