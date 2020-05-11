@@ -93,7 +93,7 @@ mechanisms - we focus here the [archetypical method](https://arxiv.org/abs/1409.
 ![seq2seq-attention](images/seq2seq-attention-step1.png#center)
 *Attention in seq2seq neural machine translation - time step 1*
 
-![seq2seq-attention](images/seq2seq-attention-step6.png#center)
+![seq2seq-attention](images/seq2seq-attention-step5.png#center)
 *Attention in seq2seq neural machine translation - time step 5*
 
 To implement the attention mechanism we need additional capabilities as follows:
