@@ -1,6 +1,6 @@
 ---
 title: Neural Machine Translation
-draft: true
+draft: false
 weight: 135
 ---
 
