@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.a8ea8095a1881edc65431e00622ad69104cdca6261af8043f9c60666f3f7eec0.js" integrity="sha256-qOqAlaGIHtxlQx4AYirWkQTNymJhr4BD&#43;cYGZvP37sA="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.3ecc82e53afea492e42274519eb05305d49f7d4a1d96439739442d04990d27e6.js" integrity="sha256-PsyC5Tr&#43;pJLkInRRnrBTBdSffUodlkOXOUQtBJkNJ&#43;Y="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/nlp/language-models/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -2131,7 +2131,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Neural Language Models</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/nlp/language-models/"  class="active">
+      Neural Language Models
+  </a>
+
+
     
 
     
@@ -2157,7 +2163,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Neural Machine Translation</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/nlp/nmt/" >
+      Neural Machine Translation
+  </a>
+
+
     
 
     
@@ -2980,7 +2992,11 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#neural-language-models">Neural Language Models</a></li>
+  </ul>
+</nav>
 
 
     </aside>
@@ -2989,7 +3005,278 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-<article class="markdown"></article>
+<article class="markdown"><h1 id="neural-language-models">Neural Language Models</h1>
+<blockquote>
+<p>These notes heavily borrowing from <a href="https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1194/readings/cs224n-2019-notes05-LM_RNN.pdf">the CS229N 2019 set of notes on Language Models</a>.</p>
+</blockquote>
+<p>Language modeling is the task of predicting (aka assigning a probability) what word comes next. More formally, given a sequence of words $\mathbf x_1, &hellip;, \mathbf x_t$ the language model returns</p>
+<p>$$p(\mathbf x_{t+1} | \mathbf x_1, &hellip;, \mathbf x_t)$$</p>
+<p><img src="images/language-model-google-search.png#center" alt="language-model-google-search">
+<em>Language Model Example</em></p>
+<p>How we can build language models though. One approach is to slide a window around the context we are interested in.</p>
+<p><img src="images/dnn-language-model.png#center" alt="dnn-language-model">
+<em>DNN language model - fixed sliding window around the context. The embeddings of each word (e.g. word2vec vectors) are represented by the blue layer and are being transformed via the weight matrix $\mathbf W$ to a hidden layer and from there via another transformation to a probability distribution. How do we determine the sliding window size? How to deal with the size of $\mathbf W$?</em></p>
+<p>To avoid the issues associated with the DNN, we will use the <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/rnn/">RNN</a> architectures we have seen in another chapter.  This is shown next for a toy example where the vocabulary is [&lsquo;h&rsquo;,&lsquo;e&rsquo;,&lsquo;l&rsquo;,&lsquo;o&rsquo;]. where the tokens are single letters represented in the input with a one-hot encoded vector.</p>
+<p><img src="images/rnn-language-model.png#center" alt="rnn-language-model">
+<em>RNN language model example - training <a href="https://www.youtube.com/watch?v=6niqTuYFZLQ&amp;t=521s">ref</a>. Note that in practice in the place of the on-hot encoded word vectors we will have word embeddings.</em></p>
+<p>Let us assume that the network is being trained with the sequence &ldquo;hello&rdquo;. The letters will come in one at a time, each letter going through the forward pass that produces at the output the $\mathbf y_t$ that indicates which letter is expected to arrive next.  You can see, since we are just started training,  that this network is not predicting correctly - this will improve over time as the model is trained with more sequence permutations form our limited vocabulary. During inference we will use the language model to generate the next token.</p>
+<p><img src="images/rnn-language-model-inference.png#center" alt="rnn-language-model-inference">
+<em>RNN language model example - generate the next token <a href="https://www.youtube.com/watch?v=6niqTuYFZLQ&amp;t=521s">ref</a></em></p>
+<p>The following python code is a self-contained implementation (requiring a plain text input file only) of the language model training above.</p>
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>Minimal RNN language model code from Stanford CS231n</span>
+      <span>↕</span>
+    </div>
+    <input type="checkbox" class="hidden" />
+    <div class="book-expand-content markdown-inner">
+      <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#008000"># see here for notation http://cs231n.stanford.edu/slides/2018/cs231n_2018_lecture10.pdf</span>
+<span style="color:#a31515"></span><span style="color:#a31515">&#34;&#34;&#34;</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">Minimal character-level Vanilla RNN model. Written by Andrej Karpathy (@karpathy)</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">BSD License</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">&#34;&#34;&#34;</span>
+<span style="color:#00f">import</span> numpy <span style="color:#00f">as</span> np
+
+<span style="color:#008000"># data I/O</span>
+data = open(<span style="color:#a31515"></span><span style="color:#a31515">&#39;</span><span style="color:#a31515">input.txt</span><span style="color:#a31515">&#39;</span>, <span style="color:#a31515"></span><span style="color:#a31515">&#39;</span><span style="color:#a31515">r</span><span style="color:#a31515">&#39;</span>).read() <span style="color:#008000"># should be simple plain text file - you can use any (small) file in txt format from the web or type your own. </span>
+
+chars = list(set(data))
+data_size, vocab_size = len(data), len(chars)
+<span style="color:#00f">print</span> <span style="color:#a31515"></span><span style="color:#a31515">&#39;</span><span style="color:#a31515">data has </span><span style="color:#a31515">%d</span><span style="color:#a31515"> characters, </span><span style="color:#a31515">%d</span><span style="color:#a31515"> unique.</span><span style="color:#a31515">&#39;</span> % (data_size, vocab_size)
+char_to_ix = { ch:i <span style="color:#00f">for</span> i,ch <span style="color:#00f">in</span> enumerate(chars) }
+ix_to_char = { i:ch <span style="color:#00f">for</span> i,ch <span style="color:#00f">in</span> enumerate(chars) }
+
+<span style="color:#008000"># hyperparameters</span>
+hidden_size = 100 <span style="color:#008000"># size of hidden layer of neurons</span>
+seq_length = 25 <span style="color:#008000"># number of steps to unroll the RNN for</span>
+learning_rate = 1e-1
+
+<span style="color:#008000"># model parameters</span>
+Wxh = np.random.randn(hidden_size, vocab_size)*0.01 <span style="color:#008000"># input to hidden</span>
+Whh = np.random.randn(hidden_size, hidden_size)*0.01 <span style="color:#008000"># hidden to hidden</span>
+Why = np.random.randn(vocab_size, hidden_size)*0.01 <span style="color:#008000"># hidden to output</span>
+bh = np.zeros((hidden_size, 1)) <span style="color:#008000"># hidden bias</span>
+by = np.zeros((vocab_size, 1)) <span style="color:#008000"># output bias</span>
+
+<span style="color:#00f">def</span> lossFun(inputs, targets, hprev):
+  <span style="color:#a31515"></span><span style="color:#a31515">&#34;&#34;&#34;</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">  inputs,targets are both list of integers.</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">  hprev is Hx1 array of initial hidden state</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">  returns the loss, gradients on model parameters, and last hidden state</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">  </span><span style="color:#a31515">&#34;&#34;&#34;</span>
+  xs, hs, ys, ps = {}, {}, {}, {}
+  hs[-1] = np.copy(hprev)
+  loss = 0
+  <span style="color:#008000"># forward pass</span>
+  <span style="color:#00f">for</span> t <span style="color:#00f">in</span> xrange(len(inputs)):
+    xs[t] = np.zeros((vocab_size,1)) <span style="color:#008000"># encode in 1-of-k representation</span>
+    xs[t][inputs[t]] = 1
+    hs[t] = np.tanh(np.dot(Wxh, xs[t]) + np.dot(Whh, hs[t-1]) + bh) <span style="color:#008000"># hidden state</span>
+    ys[t] = np.dot(Why, hs[t]) + by <span style="color:#008000"># unnormalized log probabilities for next chars</span>
+    ps[t] = np.exp(ys[t]) / np.sum(np.exp(ys[t])) <span style="color:#008000"># probabilities for next chars</span>
+    loss += -np.log(ps[t][targets[t],0]) <span style="color:#008000"># softmax (cross-entropy loss)</span>
+  <span style="color:#008000"># backward pass: compute gradients going backwards</span>
+  dWxh, dWhh, dWhy = np.zeros_like(Wxh), np.zeros_like(Whh), np.zeros_like(Why)
+  dbh, dby = np.zeros_like(bh), np.zeros_like(by)
+  dhnext = np.zeros_like(hs[0])
+  <span style="color:#00f">for</span> t <span style="color:#00f">in</span> reversed(xrange(len(inputs))):
+    dy = np.copy(ps[t])
+    dy[targets[t]] -= 1 <span style="color:#008000"># backprop into y. see http://cs231n.github.io/neural-networks-case-study/#grad if confused here</span>
+    dWhy += np.dot(dy, hs[t].T)
+    dby += dy
+    dh = np.dot(Why.T, dy) + dhnext <span style="color:#008000"># backprop into h</span>
+    dhraw = (1 - hs[t] * hs[t]) * dh <span style="color:#008000"># backprop through tanh nonlinearity</span>
+    dbh += dhraw
+    dWxh += np.dot(dhraw, xs[t].T)
+    dWhh += np.dot(dhraw, hs[t-1].T)
+    dhnext = np.dot(Whh.T, dhraw)
+  <span style="color:#00f">for</span> dparam <span style="color:#00f">in</span> [dWxh, dWhh, dWhy, dbh, dby]:
+    np.clip(dparam, -5, 5, out=dparam) <span style="color:#008000"># clip to mitigate exploding gradients</span>
+  <span style="color:#00f">return</span> loss, dWxh, dWhh, dWhy, dbh, dby, hs[len(inputs)-1]
+
+<span style="color:#00f">def</span> sample(h, seed_ix, n):
+  <span style="color:#a31515"></span><span style="color:#a31515">&#34;&#34;&#34;</span><span style="color:#a31515"> </span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">  sample a sequence of integers from the model </span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">  h is memory state, seed_ix is seed letter for first time step</span><span style="color:#a31515">
+</span><span style="color:#a31515"></span><span style="color:#a31515">  </span><span style="color:#a31515">&#34;&#34;&#34;</span>
+  x = np.zeros((vocab_size, 1))
+  x[seed_ix] = 1
+  ixes = []
+  <span style="color:#00f">for</span> t <span style="color:#00f">in</span> xrange(n):
+    h = np.tanh(np.dot(Wxh, x) + np.dot(Whh, h) + bh)
+    y = np.dot(Why, h) + by
+    p = np.exp(y) / np.sum(np.exp(y))
+    ix = np.random.choice(range(vocab_size), p=p.ravel())
+    x = np.zeros((vocab_size, 1))
+    x[ix] = 1
+    ixes.append(ix)
+  <span style="color:#00f">return</span> ixes
+
+n, p = 0, 0
+mWxh, mWhh, mWhy = np.zeros_like(Wxh), np.zeros_like(Whh), np.zeros_like(Why)
+mbh, mby = np.zeros_like(bh), np.zeros_like(by) <span style="color:#008000"># memory variables for Adagrad</span>
+smooth_loss = -np.log(1.0/vocab_size)*seq_length <span style="color:#008000"># loss at iteration 0</span>
+<span style="color:#00f">while</span> True:
+  <span style="color:#008000"># prepare inputs (we&#39;re sweeping from left to right in steps seq_length long)</span>
+  <span style="color:#00f">if</span> p+seq_length+1 &gt;= len(data) <span style="color:#00f">or</span> n == 0: 
+    hprev = np.zeros((hidden_size,1)) <span style="color:#008000"># reset RNN memory</span>
+    p = 0 <span style="color:#008000"># go from start of data</span>
+  inputs = [char_to_ix[ch] <span style="color:#00f">for</span> ch <span style="color:#00f">in</span> data[p:p+seq_length]]
+  targets = [char_to_ix[ch] <span style="color:#00f">for</span> ch <span style="color:#00f">in</span> data[p+1:p+seq_length+1]]
+
+  <span style="color:#008000"># sample from the model now and then</span>
+  <span style="color:#00f">if</span> n % 100 == 0:
+    sample_ix = sample(hprev, inputs[0], 200)
+    txt = <span style="color:#a31515"></span><span style="color:#a31515">&#39;</span><span style="color:#a31515">&#39;</span>.join(ix_to_char[ix] <span style="color:#00f">for</span> ix <span style="color:#00f">in</span> sample_ix)
+    <span style="color:#00f">print</span> <span style="color:#a31515"></span><span style="color:#a31515">&#39;</span><span style="color:#a31515">----</span><span style="color:#a31515">\n</span><span style="color:#a31515"> </span><span style="color:#a31515">%s</span><span style="color:#a31515"> </span><span style="color:#a31515">\n</span><span style="color:#a31515">----</span><span style="color:#a31515">&#39;</span> % (txt, )
+
+  <span style="color:#008000"># forward seq_length characters through the net and fetch gradient</span>
+  loss, dWxh, dWhh, dWhy, dbh, dby, hprev = lossFun(inputs, targets, hprev)
+  smooth_loss = smooth_loss * 0.999 + loss * 0.001
+  <span style="color:#00f">if</span> n % 100 == 0: <span style="color:#00f">print</span> <span style="color:#a31515"></span><span style="color:#a31515">&#39;</span><span style="color:#a31515">iter </span><span style="color:#a31515">%d</span><span style="color:#a31515">, loss: </span><span style="color:#a31515">%f</span><span style="color:#a31515">&#39;</span> % (n, smooth_loss) <span style="color:#008000"># print progress</span>
+  
+  <span style="color:#008000"># perform parameter update with Adagrad</span>
+  <span style="color:#00f">for</span> param, dparam, mem <span style="color:#00f">in</span> zip([Wxh, Whh, Why, bh, by], 
+                                [dWxh, dWhh, dWhy, dbh, dby], 
+                                [mWxh, mWhh, mWhy, mbh, mby]):
+    mem += dparam * dparam
+    param += -learning_rate * dparam / np.sqrt(mem + 1e-8) <span style="color:#008000"># adagrad update</span>
+
+  p += seq_length <span style="color:#008000"># move data pointer</span>
+  n += 1 <span style="color:#008000"># iteration counter </span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+  </label>
+</div>
+
+<p>More concretely, to train an language model we need a big corpus of text which is a sequence of words $\mathbf x_1, &hellip;, \mathbf x_{T}$ where T is the number of words / tokens in the corpus. Every time step we feed one word at a time to the RNN and and compute the output probability distribution $\mathbf \hat y_t$, which by construction is a _conditional_ probability distribution of every word in the dictionary given the words we have seen so far. The loss function at time step $t$ is the classic cross entropy loss between the predicted probability distribution and the distribution that corresponds to the one-hot encoded true next word.</p>
+<p>$$J_t(\theta) = CE(\hat  \mathbf y_t, \mathbf y_t) = - \sum_{w \in T} \mathbf y_t^{(w)} \log \hat \mathbf y_t^{(w)} = \log \hat \mathbf y_t^{(w)}$$</p>
+<p>This is visually shown in the next figure for a hypothetical example of the shown sequence of words.</p>
+<p><img src="images/rnn-language-model-loss.png#center" alt="rnn-language-model-loss">
+<em>RNN Language Model Training Loss. For each input word (at step t$t$), the RNN predicts the next word and is penalized with a loss $J_t(\theta)$. The total loss is the average across the corpus.</em></p>
+<p>In practice we dont compute the total loss over the whole corpus but just like what we have done with DNN and CNN networks we train over a batch (sentence / document) and compute gradients over that span iterating on a stochastic gradient decent optimization algorithm.</p>
+</article>
  
 
       <footer class="book-footer">
@@ -3000,7 +3287,7 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/165c5249ca0e8172a2a6f839378d2452326fa8bc" title='Last modified by MONOGIOUDIS Pantelis | May 11, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/aaa1fae8bc785a5eb5813a95eaaf1864b3b2f6c7" title='Last modified by MONOGIOUDIS Pantelis | May 11, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>May 11, 2020</span>
     </a>
@@ -3028,7 +3315,11 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#neural-language-models">Neural Language Models</a></li>
+  </ul>
+</nav>
 
  
     </aside>
