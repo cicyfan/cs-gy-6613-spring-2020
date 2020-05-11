@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.99671ca83515eac28ba52172651e3514d0b22a369a9413b6eefa13f857bd6202.js" integrity="sha256-mWccqDUV6sKLpSFyZR41FNCyKjaalBO27voT&#43;Fe9YgI="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.a8ea8095a1881edc65431e00622ad69104cdca6261af8043f9c60666f3f7eec0.js" integrity="sha256-qOqAlaGIHtxlQx4AYirWkQTNymJhr4BD&#43;cYGZvP37sA="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/rnn/lstm/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -1917,7 +1917,13 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
-      <span>Lecture 10 - Recurrent Neural Networks (RNN)</span>
+      
+
+  <a href="/cs-gy-6613-spring-2020/docs/lectures/rnn/" >
+      Lecture 10 - Recurrent Neural Networks (RNN)
+  </a>
+
+
     
 
     
@@ -2100,6 +2106,58 @@ https://github.com/alex-shpak/hugo-book
   </a>
 
 
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Neural Language Models</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
+      <span>Neural Machine Translation</span>
     
 
     
@@ -2945,7 +3003,7 @@ https://github.com/alex-shpak/hugo-book
 <p>In <a href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/rnn/simple-rnn/">the simple RNN</a> we have seen the problem of exploding or vanishing gradients when <a href="http://ai.dinfo.unifi.it/paolo//ps/tnn-94-gradient.pdf">the span of back-propagation is large</a> (large $\tau$). Using the conceptual IIR filter, that ultimately <em>integrates</em> the input signal, we have seen that in order to avoid an exploding or vanishing impulse response, we need to control $w$. This is exactly what is being done in evolutionary RNN architectures that we will treat in this section called <em>gated RNNs</em>. The best known gated RNN architecture is called the LSTM <em>cell</em> and in this case the weight $w$ is not fixed but it is determined based on the input sequence <em>context</em>. The architecture is shown below.</p>
 <p><img src="images/rnn-LSTM.png#center" alt="lstm-cell">
 *LSTM architecture: It is divided into three areas: input (green), cell state (blue) and output (red). You can clearly see the outer ($\bm h_{t-1}$ )and the inner ($\bm s_{t-1}$) recurrence loops.*</p>
-<p>Because we need to capture the input context that involve going back several time steps in the past, we introduce an <em>additional</em> inner recurrence loop that is effectively a variable length internal to the cell memory - we call this the <em>cell state</em>.  We employ another hidden unit called the <em>forget gate</em>  to learn the input context and the forgetting factor (equivalent to the $w$ we have seen in the IIR filter) i.e. the extent that the cell forgets the previous hidden state. We employ a couple of other gates as well: the <em>input gate</em> and the <em>output gate</em> as shown in the diagram below. In the following we are describing what is the</p>
+<p>Because we need to capture the input context that involve going back several time steps in the past, we introduce an <em>additional</em> inner recurrence loop that is effectively a variable length internal to the cell memory - we call this the <em>cell state</em>.  We employ another hidden unit called the <em>forget gate</em>  to learn the input context and the forgetting factor (equivalent to the $w$ we have seen in the IIR filter) i.e. the extent that the cell forgets the previous hidden state. We employ a couple of other gates as well: the <em>input gate</em> and the <em>output gate</em> as shown in the diagram below. In the following we are describing what each component is doing.</p>
 <h2 id="the-cell-state">The Cell State</h2>
 <p>Starting at the heart of the LSTM cell, to describe the update we will use two indices: one for the unfolding sequence index $t$ and the other for the cell index $i$. We use the additional index to allow the current cell at step $t$ to use or forget inputs and hidden states from other cells.</p>
 <p>$$s_t(i) = f_t(i) s_{t-1}(i) + g_t(i) \sigma \Big( \bm W^T(i) \bm h_{t-1}(i) + \bm U^T(i) \bm x_t(i) + \bm b(i) \Big)$$</p>
@@ -2962,12 +3020,27 @@ https://github.com/alex-shpak/hugo-book
 <p>where $q_t(i)$ is the output factor</p>
 <p>$$q_t(i) =\sigma \Big( \bm W_o^T(i) \bm h_{t-1}(i) + \bm U_o^T(i) \bm x_t(i) + \bm b_o(i) \Big) $$</p>
 <p>Notice that if you make the output of input and output gates equal to 1.0 and the forgetting factor equal to 0.0, we are back to the simple RNN architecture. You can expect backpropagation to work similarly in LSTM albeit with more complicated expressions.</p>
+<div class="book-expand">
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>LSTM Keras Implementation - Article</span>
+      <span>↕</span>
+    </div>
+    <input type="checkbox" class="hidden" />
+    <div class="book-expand-content markdown-inner">
+      <a href="https://towardsdatascience.com/choosing-the-right-hyperparameters-for-a-simple-lstm-using-keras-f8e9ed76f046">This</a> is a standalone implementation of LSTM, paying particular attention to its hyperparameters optimization.
+    </div>
+  </label>
+</div>
+
+<blockquote>
 <p>Additional tutorial resources on LSTMs can be found here:</p>
 <ol>
 <li><a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs">Understanding LSTMs</a></li>
 <li><a href="https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21">Illustrated guide to LSTMs</a></li>
 <li><a href="https://www.youtube.com/watch?v=WCUNPb-5EYI">Simplest possible LSTM explanation</a></li>
 </ol>
+</blockquote>
 </article>
  
 
@@ -2979,9 +3052,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/afd6cc3e982206bde551e1bbcd18f7273b3fc6ab" title='Last modified by MONOGIOUDIS Pantelis | May 10, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/165c5249ca0e8172a2a6f839378d2452326fa8bc" title='Last modified by MONOGIOUDIS Pantelis | May 11, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>May 10, 2020</span>
+      <span>May 11, 2020</span>
     </a>
   </div>
 
