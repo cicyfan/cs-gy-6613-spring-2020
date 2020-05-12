@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/cs-gy-6613-spring-2020/book.min.ccf2e3f83640a9c2266488b947be5b9ddbdea671b0de107d1d379f1d6f6d0408.css" integrity="sha256-zPLj&#43;DZAqcImZIi5R75bndvepnGw3hB9HTefHW9tBAg=">
 
 
-<script defer src="/cs-gy-6613-spring-2020/en.search.min.3ecc82e53afea492e42274519eb05305d49f7d4a1d96439739442d04990d27e6.js" integrity="sha256-PsyC5Tr&#43;pJLkInRRnrBTBdSffUodlkOXOUQtBJkNJ&#43;Y="></script>
+<script defer src="/cs-gy-6613-spring-2020/en.search.min.3f938b683787b91579762fb4c1764d8a674c8515576f899db296b4f746f4b3a1.js" integrity="sha256-P5OLaDeHuRV5di&#43;0wXZNimdMhRVXb4mdspa090b0s6E="></script>
 
 <link rel="alternate" type="application/rss+xml" href="http://pantelis.github.io/cs-gy-6613-spring-2020/docs/lectures/drl/reinforce/index.xml" title="CS-GY-6613 Spring 2020" />
 <!--
@@ -2561,6 +2561,58 @@ https://github.com/alex-shpak/hugo-book
 
   <li >
     
+      <span>Lecture 13 - AI Systems</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li >
+    
+      <span>Going Back to Work via Occupancy Control</span>
+    
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li >
+    
       
 
   <a href="/cs-gy-6613-spring-2020/docs/lectures/ml-frameworks/" >
@@ -3028,7 +3080,7 @@ https://github.com/alex-shpak/hugo-book
 <tbody>
 <tr>
 <td>Parametrized policy $\pi_\theta (a|s)$</td>
-<td>The key idea of the algorithm is to learn a good policy, and this means doing function approximation. Neural networks are powerful and flexible function approximators, so we can represent a policy using a deep neural network (DNN) consisting of learnable parameters $\mathbf \theta$. This is often referred to as a policy network $\pi_θ$. We say that the policy is parametrized by  $\theta$. <strong>Each specific set of values of the parameters of the policy network represents a particular policy</strong>. To see why, consider $θ1 ≠ θ2$. For any given state $s$, different policy networks may output different sets of action probabilities, that is, $π_{θ1}(a</td>
+<td>The key idea of the algorithm is to learn a good policy, and this means doing function approximation. Neural networks are powerful and flexible function approximators, so we can represent a policy using a deep neural network (DNN) consisting of learnable parameters $\mathbf \theta$. This is often referred to as a policy network $\pi_θ$. We say that the policy is parametrized by  $\theta$. Each specific set of values of the parameters of the policy network represents a particular policy. To see why, consider $θ1 ≠ θ2$. For any given state $s$, different policy networks may output different sets of action probabilities, that is, $\pi_{θ1}(a | s) \neq \pi_{θ2}(a | s)$. The mappings from states to action probabilities are different so we say that $π_{θ1}$ and $π_{θ2}$ are different policies. A single DNN is therefore capable of representing many different policies.</td>
 </tr>
 <tr>
 <td>The objective to be maximized $J(\pi_\theta)$<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></td>
@@ -3273,9 +3325,9 @@ https://github.com/alex-shpak/hugo-book
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/55aafc93c05d31d4a835fa5bbe284b037d2ebffb" title='Last modified by MONOGIOUDIS Pantelis | Apr 30, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/pantelis/cs-gy-6613-spring-2020/commit/6b2a35f7f947c79cd963cda7f7525616e187ddd7" title='Last modified by MONOGIOUDIS Pantelis | May 12, 2020' target="_blank" rel="noopener">
       <img src="/cs-gy-6613-spring-2020/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Apr 30, 2020</span>
+      <span>May 12, 2020</span>
     </a>
   </div>
 
