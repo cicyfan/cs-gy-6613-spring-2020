@@ -1,31 +1,5 @@
-<mxfile host="www.draw.io" modified="2020-05-13T15:30:23.659Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36" etag="BE_s4NFcP3k2wE5GaVWw" version="13.0.9" type="github" pages="2">
-  <diagram id="SBry2tc-vdLwRieOlHAX" name="roles">
-    <mxGraphModel dx="850" dy="542" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <mxCell id="iSU6GtW4s6vTyyctJglx-2" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/knowledge-management-glyph-2/64/organization-chart-order-form-arrangement-128.png" parent="1" vertex="1">
-          <mxGeometry x="120" y="160" width="128" height="128" as="geometry" />
-        </mxCell>
-        <mxCell id="iSU6GtW4s6vTyyctJglx-4" value="" style="endArrow=classic;html=1;" parent="1" target="iSU6GtW4s6vTyyctJglx-5" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="250" y="280" as="sourcePoint" />
-            <mxPoint x="300" y="240" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="iSU6GtW4s6vTyyctJglx-5" value="roles" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
-          <mxGeometry x="312" y="235" width="40" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="iSU6GtW4s6vTyyctJglx-6" value="" style="endArrow=classic;html=1;" parent="1" source="iSU6GtW4s6vTyyctJglx-2" target="iSU6GtW4s6vTyyctJglx-5" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="520" y="320" as="sourcePoint" />
-            <mxPoint x="570" y="270" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-  <diagram id="6UR49E0zUCKmJUAcSpAE" name="Page-2">
+<mxfile host="www.draw.io" modified="2020-05-13T15:30:56.292Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36" etag="lF9LGExP5KltJ8pvjr8I" version="13.0.9" type="github">
+  <diagram id="6UR49E0zUCKmJUAcSpAE" name="system-architecture">
     <mxGraphModel dx="850" dy="542" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="DVUXWdo4HBKXd4HaU4E6-0" />
