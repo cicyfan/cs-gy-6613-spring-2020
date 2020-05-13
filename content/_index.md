@@ -2,8 +2,10 @@
 title: CS-GY-6613 Artificial Intelligence - Spring 2020
 type: docs
 ---
+![national-library-greece](national-library-greece.jpg#center)
+*AI and knowledge representation are closely related (pict: Historic National Library of Greece.)*
 
-# Welcome to CS-GY-6613 ! 
+# Welcome to NYU CS-GY-6613 - Artificial Intelligence (Spring 2020) 
 
 ## Logistics
 

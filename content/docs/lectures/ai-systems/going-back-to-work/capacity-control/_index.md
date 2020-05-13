@@ -4,7 +4,6 @@ weight: 142
 draft: true
 ---
 
-
 # Capacity Control
 
 ## Assumptions
