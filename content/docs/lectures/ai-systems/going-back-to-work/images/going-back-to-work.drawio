@@ -1,4 +1,4 @@
-<mxfile host="www.draw.io" modified="2020-05-13T14:50:58.445Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36" etag="a-KUvXOb8MjAf1X6I059" version="13.0.9" type="github" pages="2">
+<mxfile host="www.draw.io" modified="2020-05-13T15:07:42.349Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36" etag="Jvz-gY5i6aTwYq-hKb9l" version="13.0.9" type="github" pages="2">
   <diagram id="SBry2tc-vdLwRieOlHAX" name="roles">
     <mxGraphModel dx="850" dy="542" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -30,11 +30,14 @@
       <root>
         <mxCell id="DVUXWdo4HBKXd4HaU4E6-0" />
         <mxCell id="DVUXWdo4HBKXd4HaU4E6-1" parent="DVUXWdo4HBKXd4HaU4E6-0" />
-        <mxCell id="IR8gEMqMYILpRB2Ss4oT-7" value="" style="rounded=1;whiteSpace=wrap;html=1;" parent="DVUXWdo4HBKXd4HaU4E6-1" vertex="1">
+        <mxCell id="LEx7qD2o24YmSId129aY-12" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="DVUXWdo4HBKXd4HaU4E6-1">
+          <mxGeometry x="640" y="690" width="360" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="IR8gEMqMYILpRB2Ss4oT-7" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="DVUXWdo4HBKXd4HaU4E6-1" vertex="1">
           <mxGeometry x="600" y="360" width="250" height="135" as="geometry" />
         </mxCell>
-        <mxCell id="IR8gEMqMYILpRB2Ss4oT-0" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/emoji-3-5/64/hand_phone_smartphone-128.png" parent="DVUXWdo4HBKXd4HaU4E6-1" vertex="1">
-          <mxGeometry x="80" y="415" width="50" height="50" as="geometry" />
+        <mxCell id="IR8gEMqMYILpRB2Ss4oT-0" value="Actor" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/emoji-3-5/64/hand_phone_smartphone-128.png" parent="DVUXWdo4HBKXd4HaU4E6-1" vertex="1">
+          <mxGeometry x="70" y="375" width="50" height="50" as="geometry" />
         </mxCell>
         <mxCell id="IR8gEMqMYILpRB2Ss4oT-1" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.machine_learning;fillColor=#2E73B8;gradientColor=none;" parent="DVUXWdo4HBKXd4HaU4E6-1" vertex="1">
           <mxGeometry x="720" y="375" width="76.5" height="93" as="geometry" />
@@ -42,34 +45,52 @@
         <mxCell id="IR8gEMqMYILpRB2Ss4oT-2" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.athena;fillColor=#F58534;gradientColor=none;" parent="DVUXWdo4HBKXd4HaU4E6-1" vertex="1">
           <mxGeometry x="610" y="392" width="76.5" height="76.5" as="geometry" />
         </mxCell>
-        <mxCell id="IR8gEMqMYILpRB2Ss4oT-5" value="Google / O365 Calendar&lt;br&gt;API" style="verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.calendar;" parent="DVUXWdo4HBKXd4HaU4E6-1" vertex="1">
-          <mxGeometry x="690" y="630" width="75" height="100" as="geometry" />
+        <mxCell id="IR8gEMqMYILpRB2Ss4oT-5" value="Google / O365 Calendar&lt;br&gt;APIs" style="verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.calendar;" parent="DVUXWdo4HBKXd4HaU4E6-1" vertex="1">
+          <mxGeometry x="690" y="700" width="75" height="100" as="geometry" />
         </mxCell>
         <mxCell id="IR8gEMqMYILpRB2Ss4oT-6" value="Host" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.user;" parent="DVUXWdo4HBKXd4HaU4E6-1" vertex="1">
-          <mxGeometry x="90" y="655" width="47.5" height="50" as="geometry" />
+          <mxGeometry x="90" y="715" width="47.5" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="IR8gEMqMYILpRB2Ss4oT-8" value="SaaS App" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="DVUXWdo4HBKXd4HaU4E6-1" vertex="1">
-          <mxGeometry x="690" y="505" width="70" height="20" as="geometry" />
+        <mxCell id="IR8gEMqMYILpRB2Ss4oT-8" value="Going Back to Work &lt;br&gt;Scheduling Services" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="DVUXWdo4HBKXd4HaU4E6-1" vertex="1">
+          <mxGeometry x="665" y="500" width="120" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="IR8gEMqMYILpRB2Ss4oT-9" value="" style="shape=flexArrow;endArrow=classic;html=1;" parent="DVUXWdo4HBKXd4HaU4E6-1" edge="1">
+        <mxCell id="IR8gEMqMYILpRB2Ss4oT-9" value="" style="shape=flexArrow;endArrow=classic;html=1;startArrow=block;" parent="DVUXWdo4HBKXd4HaU4E6-1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="570" y="435" as="sourcePoint" />
-            <mxPoint x="140" y="435" as="targetPoint" />
+            <mxPoint x="727" y="540" as="sourcePoint" />
+            <mxPoint x="727" y="690" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="IR8gEMqMYILpRB2Ss4oT-10" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/free-e-commerce-linear/1024/scanning-barcode-128.png" parent="DVUXWdo4HBKXd4HaU4E6-1" vertex="1">
-          <mxGeometry x="320" y="366" width="49" height="49" as="geometry" />
+        <mxCell id="IR8gEMqMYILpRB2Ss4oT-10" value="Calendar Event&amp;nbsp;&lt;br&gt;with Admission Barcode" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/free-e-commerce-linear/1024/scanning-barcode-128.png" parent="DVUXWdo4HBKXd4HaU4E6-1" vertex="1">
+          <mxGeometry x="240" y="406" width="49" height="49" as="geometry" />
         </mxCell>
         <mxCell id="LEx7qD2o24YmSId129aY-2" value="" style="shape=flexArrow;endArrow=classic;html=1;strokeColor=#000000;startArrow=block;" edge="1" parent="DVUXWdo4HBKXd4HaU4E6-1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="190" y="680" as="sourcePoint" />
-            <mxPoint x="640" y="680" as="targetPoint" />
+            <mxPoint x="190" y="740" as="sourcePoint" />
+            <mxPoint x="640" y="740" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="LEx7qD2o24YmSId129aY-3" value="Populates API Data Model&amp;nbsp;&lt;br&gt;(Building, Features and Resources)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="LEx7qD2o24YmSId129aY-2">
           <mxGeometry x="-0.2053" y="-2" relative="1" as="geometry">
             <mxPoint x="41" y="-22" as="offset" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="LEx7qD2o24YmSId129aY-5" value="" style="aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.azure.laptop" vertex="1" parent="DVUXWdo4HBKXd4HaU4E6-1">
+          <mxGeometry x="70" y="455" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LEx7qD2o24YmSId129aY-6" value="Reservation &lt;br&gt;Request" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.calendar;" vertex="1" parent="DVUXWdo4HBKXd4HaU4E6-1">
+          <mxGeometry x="550" y="660" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LEx7qD2o24YmSId129aY-7" value="" style="shape=flexArrow;endArrow=classic;html=1;startArrow=block;" edge="1" parent="DVUXWdo4HBKXd4HaU4E6-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="670" as="sourcePoint" />
+            <mxPoint x="140" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="LEx7qD2o24YmSId129aY-8" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/apple-apps/100/Apple_Messages-128.png" vertex="1" parent="DVUXWdo4HBKXd4HaU4E6-1">
+          <mxGeometry x="570" y="590" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="LEx7qD2o24YmSId129aY-9" value="Message with &lt;br&gt;Admission Barcode" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/apple-apps/100/Apple_Messages-128.png" vertex="1" parent="DVUXWdo4HBKXd4HaU4E6-1">
+          <mxGeometry x="160" y="510" width="40" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
