@@ -1,42 +1,57 @@
 ---
-title: Going Back to Work via Occupancy Control
+title: Capacity Control
+weight: 142
 draft: true
-weight: 130
 ---
 
-# Going Back to Work via Occupancy Control
 
+# Capacity Control
 
-## Introduction
-
-In the spring of 2020 the world has experienced an unprecedented in modern history event - a pandemic that killed hundreds of thousands of people and resulted in a deep global economic recession; tens of millions lost their jobs with many countries including the US reporting double digit unemployment rates. To deal with the economic blow, we need to develop systems that can protect people from infection while still allow them to go back to work. 
-
-One of the ways that this can be achieved is by maintaining a certain density of people in buildings. To do that, we need to engineer a reservation (booking) system where each user uses an app that can reserve a time slot (period) that she is allowed in the building, by entering the destination address and desired arrival time and length of stay. 
-
-Your _AI-powered decision system_ responds giving the requestor a decision. Each decision is either an accept, manifested with a QR code with the address and allowed _arrival_ and _departure_ times in text or a downright reject. The departure time is needed since the system must preserve building density and be _fair_ to other perspective actors. People must leave the building to make "space" for others to enter. The system must be flexible - it can be integrated to automated badge control systems in office towers or simply used by security personnel or receptionist that simply manually [scan](https://support.apple.com/en-us/HT208843) the QR code from their own smartphone to confirm the permission to enter or compliance to exit time limits. The system also allows for group bookings, to enable face to face meetings. In this case the decision system accepts or rejects the whole group.
-
-To give you a practical perspective, the system can be entirely powered by [well known chat / messaging apps](https://www.apple.com/ios/business-chat/) and your cloud-native & cloud-hosted application - the decision system. The system also complements contact-tracing systems that are powered by mobile OS and are under active development by Apple and Google or have already been deployed via [government-backed apps](https://www.technologyreview.com/2020/05/11/1001541/iceland-rakning-c19-covid-contact-tracing/).
+## Assumptions
 
 To simplify the problem, 
 
-1. The departure times cannot change dynamically. This means that if the actual demand is lower than the predicted demand when the scheduling decision took place, the departure time stays fixed. Employees / customers can extend their departure by sending another request via the messaging app but this is an independent reservation and is not accounted for the original decision policy. 
-2. Although this can be very useful for stores and co-working spaces, there is no attempt to flatten the demand curve by distributing accepts among geographically separated facilities of the same legal entity (e.g. Home Depot stores).
-3. There is no semantic consideration in the decision making algorithm. It is assumed that theaters and other sports venues control the reservations and seating to maintain social distancing. The same is assumed for office buildings - the system is not designed (although it can be extended via video surveillance and other localization technologies) to consider per office floor occupancies. 
-4. There are no fairness considerations. One can go ahead and book multiple time slots by sending messages one after the other to the system. This is an important limitation but can be easily addressed in practice and will unnecessarily complicate the policy given the limited time to complete the project. 
-5. There are no risk considerations in the decision making process. A user that requests a reservation that lives far away and travels via public transportation has equal chances to a user that lives next to the requested address. 
+1. The departure times cannot change dynamically. This means that if the actual demand is lower than the predicted demand when the scheduling decision took place, the departure time stays fixed. Employees / customers can extend their departure by sending another request via the messaging app but this is an independent reservation and is not unaccounted for the decision policy. 
+   
+2. Although this can be very useful for stores and co-working spaces, there is no attempt to flatten the demand curve by distributing accepts among geographically separated facilities of the same legal entity (e.g. Home Depot stores). We will extend treatment to network capacity control that implements load balancing. 
 
-## Capacity Control
+3. There is no semantic consideration of the enterprise business type in the decision making algorithm. For example, we do not consider special circumstances such as theaters and other sports venues as they control the reservations and seating on their own to maintain social distancing. 
+   
+4. There is no dynamic tracking of traffic within the building. The system is not designed (although it can be extended via video surveillance and other worker localization technologies) to consider worker mobility and congestion events from people dont adhering to social distancing guidelines. 
 
-In this section we outline a capacity control policy that is routinely used in various industries (airlines, car rentals, hospitality) to make reservations towards capacity constrained resources. In the following we assume that the resource (office, floor, classroom) has a maximum occupancy capacity $C$. $C$ is a single knob that is at the disposal of either the resource owner (building / store owner) or is controlled by federal or local governments based on the safe occupancy limits of each office/classroom - these limits are well documented in the license that many establishments need to obtain for them to legally operate.  $C$ obviously varies from office to office. 
+5. There are no fairness considerations. One can go ahead and book multiple time slots by sending messages one after the other to the system. This is an important limitation but can be easily addressed in practice and will unnecessarily complicate the policy.
 
-Each establishment is assumed that is organized according to an org chart - a tree structure that lists functions and/or reporting hierarchy of each _actor_. In the problem we are addressing we include customers/students as actors. This is important for two reasons: (a) for an organization to operate successfully certain actors in this tree must enjoy guaranteed admission. In a office setting for example, certain actors whose function is to preserve security are essential. (b) There are admission dependencies between actors. Some businesses must be able to admit an actor only if there is a certain level of admission from other actors. There is no point to admit far more customers into a store if the necessary cashiers are not in place. Similarly at a university setting, there is no point of admitting students into the type if faculty and TAs are not admitted. 
+6. There are no risk considerations in the decision making process. A user that requests a reservation that lives far away and travels via public transportation (higher risk of infecting others) has equal chances to a user that lives next to the requested address (lower risk). 
 
-For the reasons above, we establish the notion of _actor class_ and the _minimal_ number of types we can have in most settings we are addressing, is two e.g. servers and customers, staff and students etc. 
+## Terminology and Notation
+
+| Term   | Definition  |
+| --- | --- |
+|  Host   | A host can be an enterprise, building owner, space owner, school etc. A host is the account owner of the SaaS app  and via access rights she can adjust the total available capacity and other parameters that affect the policy. |
+| Site | A host is responsible for the management of multiple sites. A site can be a building. |
+| Resource | A site has multiple resources that are managed by the application. A resource can be a floor or a room where multiple workers need to use at the same time. A room can also be an open floor plan.  |
+|  Worker   | The worker is a person that requests admission in the physical space of the host.  |
+| Group | A group os a number of workers that request joint admission. | 
+|  $C$   |  Maximum available capacity / occupancy per site resource.  $C$ is a single knob at the disposal of either the host or is controlled by federal or local governments based on the safe occupancy limits of each site / resource. These limits are well documented in the license that many hosts need to obtain for them to legally operate.  $C$obviously varies from host to host. |
+|     |     |
+|     |     |
+|     |     |
+|     |     |
+|     |     |
+|     |     |
+
+## Revenue Management for Capacity Control
+
+In this section we outline a capacity control policy that is routinely used in various industries (airlines, car rentals, hospitality) to make reservations towards perishable capacity-constrained resources. 
+
+Each host is assumed that is organized according to an org chart - a tree structure that lists  _actors_ and in the problem we are addressing here we include the customers/students as workers. For an organization to operate successfully certain workers in this tree must enjoy guaranteed admission. In a office setting for example, certain workers whose function is to preserve security are essential. Note that each host can impose via the SaaS app, admission dependencies between workers. Some businesses must be able to admit an worker only if there are admission for others. For example, there is no point to admit far more customers into a store if the necessary cashiers are not in place. Similarly at a university setting, there is no point of admitting student workers if faculty and TA workers needed for a scheduled class are not admitted. 
+
+For the reasons above, we establish the notion of _actor class_ such as manager, employee, student. The _minimum_ number of classes we can have is two eg. faculty class and student class. 
 
 
 ### Two Class Model
 
-Let us assume that we are interested in allocating a resource of capacity $C$, to two different types of actors.Each type is assigned a price that actors will need to pay for one unit of this resource. Note that this payment is fictitious - it just represents the _value_ of each actor type to the organization. Let $p_d$/$D_d$ and $p_f$/$D_f$ represent the prices and demands for the discounted / full-price types respectively. The assumptions behind our model are:
+Let us assume that we are interested in allocating a resource of capacity $C$, to two different types of workers.Each type is assigned a price that workers will need to pay for one unit of this resource. Note that this payment is fictitious - it just represents the _value_ of each worker type to the organization. Let $p_d$/$D_d$ and $p_f$/$D_f$ represent the prices and demands for the discounted / full-price types respectively. The assumptions behind our model are:
 
 
 * $p_d < p_f$
@@ -65,7 +80,7 @@ The expected fictitious revenue from the occupied resources will be
 
 $$\mathbb E \\{ p_d  S_d + p_f  S_f \\}$$ 
 
-where the expectation is taken over the random demands of the two types. It represents the _return_ to the establishment from the physical presence of all admitted actors. If we maximize revenue over the protection level $y$, we obtain 
+where the expectation is taken over the random demands of the two types. It represents the _return_ to the establishment from the physical presence of all admitted workers. If we maximize revenue over the protection level $y$, we obtain 
 
 $$
 V_d(C) = \max_{0 \le y \le C} \mathbb E \\{p_d  S_d + p_f  S_f \\}  = \max_{0 \le y \le C} \mathbb E \\{p_d  \min (C-y,D_d) + p_f \min \left( \max(y,C-D_d),D_f \right) \\} 
@@ -96,7 +111,7 @@ The revenue difference from one unit of protection level is given by,
 
 $$\Delta W(y,C) = W(y,C) - W(y-1,C) = [p_f p(D_f \ge y) - p_d] p(D_d \ge C-y)$$
 
-{{<expand "Proof:">}}
+{{<expand "Click here for the proof of $\Delta W(y,C)$">}}
 
 We can prove the last equality as follows
 
@@ -126,20 +141,18 @@ If we replace the marginal of the value function $V_f(y)$, with $\Delta V_f(y) =
 
 $$\Delta W(y,C) = W(y,C) - W(y-1,C) = \mathbb E \\{ p_f  p(D_f \ge y)-p_d \\} p(D_d > C-y)$$
 
-{{</expand>}}
-
 The term is $\Delta V_f(y)- p_d$ will start positive and then become negative i.e. the marginal value will have at least a local maximum. This can be simply shown if one replaces $y$ with $\infty$ which causes the term $p_f  p(D_f \ge y)-p_d \rightarrow -p_d$ and in the other extreme, if we replace $y$ with $0$ the term $p_f  p(D_f \ge y)-p_d \rightarrow p_f-p_d$. 
 
 Note that the marginal value $V_f(x)$ itself reduces with remaining capacity $x$. The marginal value depends on how much the tail of the type-$d$ demand exceeds the available capacity. 
+
+{{</expand>}}
+
 
 ### Calculating the Optimal Protection Limit and Maximum Revenue
 
 The optimal $y$, denoted by $y^*$ can now be found as,
 
-$y^* = \max \\{ y \in N_+: p_f  p(D_f \ge y^*) \ge p_d \\}$
-
-$ = \max \\{ y \in N: p(D_f \ge y^*) \ge \frac{p_d}{p_f} \\}$
-
+$$y^* = \max \\{ y \in N_+: p_f  p(D_f \ge y^*) \ge p_d \\} = \max \\{ y \in N: p(D_f \ge y^*) \ge \frac{p_d}{p_f} \\}$$
 
 The optimal booking limit will then be 
 
@@ -147,16 +160,13 @@ $$b^* = (C-y^*)^+$$
 
 The maximum possible revenue starting with capacity $C$ is given by,
 
-
 $$V_d(C) =  \begin{cases} W(y^*,C) & \text{if $y^* \le C$,} \\\\ W(C,C) &\text{if $y^* > C$.} \end{cases}$$
 
-Calculating $W(y^*,C)$ can be done iteratively. We know that, 
-
+Calculating $W(y^*,C)$ can be done recursively. We know that, 
 
 $$W(y,C)  =  W(y-1,C)  + \mathbb E \\{p_f  p(D_f \ge y)-p_d \\} p(D_d > C-y)$$
 
 To start the iteration we need $W(0,C)$ that can be written as,
-
 
 $$W(0,C) = p_d  \mathbb E \\{\min(C,D_d)\\} + \mathbb E \\{V_f(\max(0,C-D_d))\\}$$
 
@@ -189,21 +199,19 @@ When the demand for the type $d$ is large, then the spill rate will get very clo
 
 If we assume that the demand distribution $D_f$ is Normal i.e. $N(\mu_f,\sigma_f)$, from the previous section we know that the optimal protection limit can be found as the solution of the equation,
 
-\begin{align}
-p(D_f \ge y^*) &= \frac{p_d}{p_f} \nonumber \\
-1-\Phi(\frac{y^*-\mu_f}{\sigma_f}) &= \frac{p_d}{p_f} \nonumber
-\end{align}
 
-and solving for $y^*$ we obtain,
-\begin{equation}
-y^* = \mu_f + \sigma_f \Phi^{-1}(1-\frac{p_d}{p_f})
-\end{equation}
+$$p(D_f \ge y^*) = \frac{p_d}{p_f} 1-\Phi(\frac{y^*-\mu_f}{\sigma_f}) = \frac{p_d}{p_f}$$
+
+and solving for $y^\*$ we obtain,
+
+$$y^* = \mu_f + \sigma_f \Phi^{-1}(1-\frac{p_d}{p_f})$$
 
 Such protection limit makes intuitive sense in that for a demand function that is perfectly known i.e. it is deterministic, the $\sigma_f=0$ and then the optimal $y^* = \mu_f$. For the more general case it will be larger than $\mu_f$ when the $\Phi^{-1}(1-\frac{p_d}{p_f}) >0$ i.e. when $1-\frac{p_d}{p_f} > \frac{1}{2}$. This is the case when $p_d < p_f/2$.It is straightforward to conclude that if $p_d = p_f/2$ then $y^* = \mu_f$. Similarly, if $p_d > p_f/2$ then $y^* < \mu_f$. 
 
 It is also evident that when $\sigma_f$ is large, the protection level deviates further from the mean. So when we observe protection levels that are around the mean, we can conclude that either the variance is small or the price ratio is close to $\frac{1}{2}$.
 
-\subsection{Dependent Demands}
+### Dependent Demands
+
 Demand variables may be dependent due to a variety of factors. Suppose that traffic of type $d$ after rejection can decide to pay the price of type $f$ traffic and place itself in the queue for type $f$ resources. The rejected type $d$ traffic is given by,
 
 \begin{equation}

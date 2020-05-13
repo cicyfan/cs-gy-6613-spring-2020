@@ -1,5 +1,5 @@
 ---
-title: Lecture 11/12 - Natural Language Processing
+title: Lecture 11 - Natural Language Processing
 draft: false
 weight: 130
 ---

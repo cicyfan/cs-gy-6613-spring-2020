@@ -1,6 +1,6 @@
 ---
-title: Lecture 13 - AI Systems 
-weight: 200
+title: Lecture 12 - AI Systems 
+weight: 140
 draft: true
 ---
 
